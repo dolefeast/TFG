@@ -20,6 +20,6 @@ for data, omega in zip(df, params):
     olin = util_tools.calculate_olin(k_in, pk_in)
     olin_df = pd.DataFrame([k_in.T, olin.T]).T
     print(f'\tPrinting to Olin_Om0{int(100*Om)}_OL0{int(100*OL)}.txt...')
-    olin_df.to_csv(f'/home/santi/TFG/outputs_santi/class_outputs/Olin_Om0{int(100*Om)}_OL0{int(100*OL)}.txt', sep='\t', index=False)
+    olin_df.to_csv(f'/home/santi/TFG/outputs_santi/class_outputs/Olin_Om0{int(100*Om)}_OL0{int(100*OL)}.txt', sep='\t', index=False, header=None)
 
 print('Done!')

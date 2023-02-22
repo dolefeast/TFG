@@ -12,7 +12,8 @@ matplotlib.rcParams.update({
     'pgf.rcfonts': False,
 })
 
-df = util_tools.select_files(util_tools.class_output)  #List files
+files = list(Path('/home/santi/TFG/outputs_santi/Olin').glob('*'))
+df = util_tools.select_files(files)  #List files
 df = util_tools.open_file(df)            #Open file and return names
 k = df.loc[:, 0].values
 K = np.linspace(k[0], k[-1], 1000)
