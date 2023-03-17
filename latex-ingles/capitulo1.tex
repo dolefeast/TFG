@@ -2,26 +2,42 @@
 
 \section{The Hot Big Bang model}
 
-The most accepted model for the origin of the universe is the Big Bang model, which surprisingly conveys no "bang", but the sudden existence of all the matter in the universe, in the shortest of times, in the smallest of spaces known as the singularity which happened about $13.8$ billion years ago. After an unthinkably small interval of time, the universe began a short period of rapid expansion known as \textit{cosmic inflation}, in which the universe grew by a factor $10^{27}$ in a mere $10^{-33}$ seconds. This inflation is thought to be due to the inflaton, a quantum scalar field theory
+The most accepted model for the origin of the universe is the Big Bang model, which surprisingly to some conveys no "bang", but the sudden existence of all the matter in the universe, in the shortest of times, in the smallest of spaces, about 13.8 billion years ago. After an unthinkably small interval of time, the universe began a short period of rapid expansion known as \textit{cosmic inflation}, in which the universe grew by a factor $10^{27}$ in a mere $10^{-33}$ seconds. This inflation is thought to be due to the inflaton, a quantum scalar field theory. It is theorized that it is the inflaton's vaccuum energy what caused the universe to expand as greatly.
 
-After this inflation phase, the universe cooled enough for what is known as the Quark-Gluon plasma to form. In this state, temperatures were high enough as to consider relativistic the random motion of the particles in it. Now with the temperatures low enough, the combination between cuarks to form hadrons was allowed, leading to what is known as the hadronic epoch. However, due to the short mean free path of the photons the universe is still opaque to electromagnetic radiation.
+After this inflation phase, the universe cooled enough for what is known as the Quark-Gluon plasma to form. In this state, temperatures were high enough as to consider relativistic the random motion of the particles in it. After some cooling due to cosmic expansion, the combination between quarks to form hadrons was allowed, leading to what is known as the hadronic epoch. However, due to the short mean free path of the photons the universe is still opaque to electromagnetic radiation.
 
-As the universe kept expanding the densities and the temperatures cooled, the existence of atoms was starting to be allowed, as the $He^{+}$ and $H$ atoms. This period would finish at the universe age of $380,000$ years, moment known as recombination. Though the name `recombination' implies the fact that the universe used to be `combined' and then ceased to be so, it just comes from the fact that recombination was theorized before the Big Bang theory was thought of.
+As the universe kept expanding the densities and the temperatures cooled, the existence of atoms was starting to be allowed, the $He^{+}$ and $H$ atoms. This period would finish at the universe age of $380,000$ years, moment known as recombination. Though the name `recombination' implies the fact that the universe used to be `combined' and then ceased to be so, it just comes from the fact that recombination was theorized before the Big Bang theory was thought of.
 
 As soon as recombination ends, the excited electrons which are now orbiting neutral atoms, fall to a lower energy state, thus emmitting photons in great densities. This emmision is known as the Cosmic Microwave Background (CMB) and is the oldest direct measurement we can take of the unvierse.
 
 
-\section{Cosmic Microwave Background}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{../figs/cmb.jpeg}
-	\caption{The CMB as seen by Space-based Observatory Planck\cite{Collaboration2018}}
+	\caption{The CMB as seen by Space-based Observatory Planck}
 	\label{fig:cmb}
 \end{figure}
+\section{Cosmic Microwave Background}
 
-We see in the figure \ref{fig:cmb} the CMB radiation as observed by the Planck colaboration \cite{Collaboration2018}. 
+We see in the figure \ref{fig:cmb} the CMB as observed by the Planck colaboration \cite{Collaboration2018}. The radiaton we observe is the photons that were emmitted about $13.3$ million years ago. Since the CMB appears as a result of the thermal photons emitted by the electrons in the primordial plasma, it offers great insight into what the plasma looked like, and the way it behaved. 
 
+As the name suggests, the CMB radiation consists of wavelengths of radiation of the order of micro meters. In fact, one can measure the associated temperature to this wavelength to be $2.7260$\SI{}{K}\cite{Fixsen2009} with some fluctuations of approximately \SI{0.0013}{K}. However, this is definitely not the temperature of the plasma before recombination. It was in fact, about $2725K$, or $\approx 1000$ times higher. This is due to the process of \textit{cosmological redshift}, which will be explained later on.
+
+A natural question arises: How does this not break the cosmological principle? (i.e. the universe is isotropic and homogenous, meaning it is the same in every direction and at every point in space, respectively)
 	
+These fluctuations may be explained by the microscopic quantum oscillatios of the different fields that make up matter before and during cosmic inflation. The details of the mechanism that allows a particle to be explained as a field goes way beyond the scope of this paper, so it suffices to just mention the fact that at high enough energies, the concept of particle loses its meaning and it needs to be modeled as a constantly fluctuating field in all of space.
+
+Thus, the CMB becomes crucial in explaining the large scale structure of the universe, since the photons that decoupled from the plasma at recombination wasted more energy leaving denser regions behind losing thermal energy in the process. 
+
+\section{Baryon Acoustic Oscillations}
+
+Before recombination, all matter was coupled into the same fluid which we have called the primordial plasma. The particles in the plasma interacted primarily with one another through gravity and electromagnetism, depending on the type of matter considered. 
+
+As already mentioned, matter was not distributed homogenously so at some point in time before recombination one could find `lumps' of dark and baryonic (standard) matter. Combining the gravitational attraction between dark and baryonic matter with itself and with one another, and the repulsion caused by the Thomson Effect between baryons and photons, the results are acoustic waves propagating through the plasma, with the dark matter lumps being in the center of these waves. 
+
+The waves would propagate throughout the plasma as long as the baryon-photon interaction was strong enough i.e. up until recombination, at which they froze in time leaving high 
+
+
 El concepto de expansión del universo aparece cuando Erwin Hubble observa que las mediciones de la longitud de onda de radiación de las galaxias alrededor nuestra estaban todas desplazadas hacia el rojo. Es decir, estaban dilatadas. Esto indica que debido a la expansión del universo la longitud de onda de la radiación observada se habrá dilatado. Introducimos así la Ley de Hubble 
 \begin{align}
 	v = H_0 d
@@ -43,7 +59,7 @@ La expansión del universo viene parametrizada por un factor de escala $a(t)$, d
 
 Es decir, que si consiguiésemos averiguar la expresión de $a(t)$, podríamos determinar la historia del universo. Alexander Friedmann desarrolló en 1922 las ecuaciones de Friedmann en las que define formalmente el ya mencionado parámetro de Hubble $H(t)$
 \begin{align}
-	H^2(t) := \left( \frac{\dot a}{a} \right)^2 &=  \frac{8\pi G \rho}{3} +\frac{  \Lambda c^2}{3} - K \frac{c^2}{a^2}
+	H^2(t) := \left(\frac{\dot a}{a}\right)^2 &=  \frac{8\pi G \rho}{3} +\frac{  \Lambda c^2}{3} - K \frac{c^2}{a^2}
 	\label{eq:1a-friedmann}\\
 	3 \frac{\ddot a}{a} &= \Lambda c^2 - 4\pi G \left( \rho + \frac{3p}{c^2} \right) 
 	\label{eq:2a-friedmann}
