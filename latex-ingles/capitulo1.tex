@@ -37,10 +37,9 @@ As already mentioned, matter was not distributed homogenously so at some point i
 
 The waves would propagate throughout the plasma as long as the baryon-photon interaction was strong enough i.e. up until recombination, point in which they froze in time leaving higher density regions. Higher density means higher gravitational intensity, which means higher galaxy proliferation in spherical distributions. These spherical distributions (which can be measured in the CMB) are what is known as the large scale structure of the universe.
 
-These structures offer a lot of information about the size of the 'cosmic ruler' of the universe, allowing better and better accuracy in big scale cosmic measurements. The radii ($r_s \approx 150 Mpc \approx 500 $ million lightyears) of the spherical waves, the sound horizon, can be measured both in the CMB radiation, as we have already seen, and through the nearby galaxies. It has been verified that the \textit{comoving} measurements \footnote{The distance measured if the cosmological expansion did not exist} of $r_s$ is constant throughout the universe.
+These structures offer a great deal  of information about the size of the `cosmic ruler' of the universe, allowing better and better accuracy in big scale cosmic measurements. The radii ($r_s \approx 150 Mpc \approx 500 $ million lightyears) of the spherical waves, the sound horizon, can be measured both in the CMB radiation, as we have already seen, and through the nearby galaxies. It has been verified that the \textit{comoving} measurements \footnote{The distance measured if the cosmological expansion did not exist} of $r_s$ is constant throughout the universe.
 
 \section{Curvature, dark matter and the expansion of the universe}
-
 After Hubble discovered the expansion of the universe through Hubble's Law
 \begin{align}
 	v = H_0 d
@@ -53,112 +52,46 @@ With $v$ the recession speed (the speed at which some point in space is receedin
 	3 \frac{\ddot a}{a} &= \Lambda c^2 - 4\pi G \left( \rho + \frac{3p}{c^2} \right) 
 	\label{eq:2a-friedmann}
 \end{align}
-In these equations we see many new paramaters. $H(t)$ is a generalization of $H_0$, $H_0$ being the value of $H(t)$ at present time. $a(t)$ is the size factor of the universe, meaning that if a certain distance measurement $\Delta x$ was taken at time $t_1$, then that same measurement would be $\frac{a(t_2)}{a(t_1)}\Delta x$ at $t_2$. $G$ is the universal gravitational constant, $\rho$ is just the matter density of the universe (baryonic, dark matter, etc), $\Lambda$ is the cosmological constant which contains information about Dark Energy. Finally we see $K$, which is the Gaussian Curvature of the universe. This is, asymptotical curvature.
+In these equations we see many new paramaters. $H(t)$ is a generalization of $H_0$, $H_0$ being the value of $H(t)$ at present time. $a(t)$ is the size factor of the universe, meaning that if a certain distance measurement $\Delta x$ was taken at time $t_1$, then that same measurement would be $\frac{a(t_2)}{a(t_1)}\Delta x$ at $t_2$. $G$ is the universal gravitational constant, $\rho$ the matter density of the universe (baryonic, dark matter, etc), $\Lambda$ is the cosmological constant which contains information about Dark Energy. Finally we see $K$, which is the Gaussian Curvature of the universe. This is, asymptotical curvature.
 
 If one managed to solve this differential equation, the result would a description of the history of the expansion of the universe. Moreover, it is also important to notice the relationship between the expansion of the universe and the distribution of matter in the universe.
 
 
-
-El concepto de expansión del universo aparece cuando Erwin Hubble observa que las mediciones de la longitud de onda de radiación de las galaxias alrededor nuestra estaban todas desplazadas hacia el rojo. Es decir, estaban dilatadas. Esto indica que debido a la expansión del universo la longitud de onda de la radiación observada se habrá dilatado. Introducimos así la Ley de Hubble 
-
-k
-Que nos relaciona la velocidad de expansión de un punto separado una distancia d del observador, a través de la constante de Hubble $H_0 = 100h \frac{km}{s \cdot Mpc}$, siendo $h$ un factor que permite parametrizar nuestro desconocimiento sobre $H_0$. $H_0$ representa realmente el valor actual de $H(t)$, así como cualquier observable cosmológico $A_0$ representa el valor actual de $A(t)$. 
-
-Introducimos así el concepto \textit{redshift} como variable temporal.
+Another way of writing the first Friedmann equation \eqref{eq:1a-friedmann} is by making it dimensionless 
 \begin{align}
-	z = \frac{\lambda_{\text{observado}} - \lambda_{\text{emitido}}}{\lambda_{\text{emitido}}}
-	\label{eq:redshift}
+	1 = \Omega_m + \Omega_\Lambda + \Omega_k
 \end{align}
-La luz necesita tiempo para llegar a su destino, y durante ese tiempo el universo se habrá expandido cierta cantidad. Esa cantidad desplaza la radiación hacia el rojo dándonos una idea de cuánto tiempo ha estado la onda viajando, es decir cuál es la edad del objeto que estamos observando.
-
-La expansión del universo viene parametrizada por un factor de escala $a(t)$, de tal forma que si en cierto momento medimos una distancia $a(t_0)\Delta x$, pasado un cierto tiempo $\Delta t$ la nueva medida de esa misma distancia resultará en $a(t_0+\Delta t) \Delta x$\footnote{Más precisamente, $a(t)$ aparece en la métrica de Friedman-Lemaître-Robertson-Walker (FLRW) 
-\begin{align}
-	ds^{2} = -dt ^{2} + a^{2}(t) \left( \frac{dr^{2}}{1-kr^2} + r^2d\theta^2 + r^2 \sin ^2 \theta d\phi^2\right) 
-\end{align}}
-
-Es decir, que si consiguiésemos averiguar la expresión de $a(t)$, podríamos determinar la historia del universo. Alexander Friedmann desarrolló en 1922 las ecuaciones de Friedmann en las que define formalmente el ya mencionado parámetro de Hubble $H(t)$
-Siendo  $G$ la constante universal de gravitación, $\rho$ la densidad de materia del universo, $\Lambda$ la constante cosmológica, $K$ la curvatura Gaussiana del universo y  $p$ la presión del universo.
-
-Se puede expresar la ecuación \eqref{eq:1a-friedmann} de una forma más legible, definiendo los parámetros 
+Where the different $\Omega$ are defined as
 \begin{align}
 \Omega_m = \frac{8\pi G \rho}{3H^2}, \Omega_\Lambda = \frac{\Lambda c^2}{3H^2}, \Omega_K = -K\frac{c^2}{H^2a^2} 
 \end{align}
-Conocidos como los parámetros de densidad, de vacío y de curvatura. Los dos primeros son los que contienen la información de la densidad de los fotones, neutrinos, bariones, materia oscura y energía oscura.
+These parameters are what define the certain cosmology we are using.
 
-Reescribimos así la ecuación \eqref{eq:1a-friedmann}
+Historically, the concept of cosmological expansion appeared when Hubble observed that the radiatoion of the nearby galaxies was all shifted towards the red end of the spectrum. Of course, since the universe is expanding and the distance between two points increases with time, the wave length of a certain radiation would also be affected by this expansion. This stretching of the wave length is what is known as \textit{redshift} 
 \begin{align}
-	1 = \Omega_m + \Omega_\Lambda + \Omega_K
+	z = \frac{\lambda_{\text{o}} - \lambda_{\text{e}}}{\lambda_{\text{e}}} = \frac{\lambda_o}{\lambda_e} - 1
+	\label{eq:redshift}
 \end{align}
-Que es la ecuación que cumplirá cualquier universo que estudiemos, entendiendo por universo o cosmología los diferentes valores que se le den a los parámetros $\Omega$
-
-Con estos conceptos podemos relacionar el \textit{redshift} con el factor $a(t)$ 
+Being $\lambda_o$ the observed wavelength and $\lambda_e$ the emitted wavelength of the considered radiation. $z$ is a measure of how much the universe stretched while the radiation travelled, and it can be related to $a(t)$ through 
 \begin{align}
-	1+z = 1+  \frac{\lambda_o - \lambda_e}{\lambda_e} = \frac{a(t_o)}{a(t_e)}
-	\label{eq:relacion-z-a}
+	\frac{\lambda_o}{\lambda_e} = 1+z = \frac{a(t_o)}{a(t_e)}
 \end{align}
-La ecuación \eqref{eq:relacion-z-a} nos permite relacionar el factor de escala actual con el que había en el universo en el momento de emisión de la radiación observada, en función del \textit{redshift}que observemos.
-
-Otra relación importante será también la que nos permite calcular el parámetro de Hubble en función de la cosmología que escojamos 
+And so defining the comoving distance of a measurement $\Delta x$ as 
 \begin{align}
-	H(z) = H_0 \sqrt{\Omega_m(1+z)^3 + \Omega_K(1+z)^2 + \Omega_\Lambda} 
+	\frac{1}{1+z}\Delta x
 \end{align}
-A través de la constante de Hubble calculamos también la distancia de Hubble 
+i.e.\ the distance one would have measured had the expansion of the universe not existed.
+
+With these definitions we can define (or redefine in some cases) the observables we are interested in calculating/measuring. Firstly, through \eqref{eq:1a-friedmann} we calculate $H(z)$ as  
 \begin{align}
-	D_H = \frac{c}{H(z)}
-	\label{eq:distancia-hubble}
+	H(z) = H_0 \sqrt{\Omega_m(1+z)^3 + \Omega_k(1+z)^2 + \Omega_\Lambda} 
 \end{align}
-Que actualmente toma un valor de $D_H = 3000h^{-1}\text{Mpc}$. La distancia de Hubble se define como la distancia a partir de la cual la velocidad de expansión del universo relativa al observador es mayor a la velocidad de la luz\footnote{Si sustituimos $v=c$ en \eqref{eq:ley-hubble}, sustituimos $v=c$ y despejamos la D correspondiente queda exactamente la expresión de $D_H$}
+We also define Hubble's distance $D_H$ as the distance at which the recession speed of the universe is $c$ 
+\begin{align}
+	D_H(z)  = \frac{c}{H(z)}
+\end{align}
 
-
-Aquí explico los parámetros que afectan a la expansión del universo y por tanto al redshift y por tanto a las medidas que tomamos.
-
-
-%(condiciones iniciales, expansión del universo, composición del plasma primordial, parámetros cosmológicos LCDM)
-
-\section{Oscilaciones Acústicas de Bariones.}
-Las concentraciones de materia implicaban unas intensas interacciones que al equilibrarse con la presión de radiación, daban lugar a la propagación de ondas acústica de manera isótropa por el mencionado plasma, que se propagabn a una velocidad usualmente aproximada según $v = \frac{c}{\sqrt{3} }$. 
-
-\section{El Fondo Cósmico de Microondas.}
-
-\section{La estructura a gran escala del universo.}
-
-\section{La escala BAO como regla estándar.}
-
-
-
-
-
-%
-%\section{Fundamento teórico}
-%\subsection{Oscilaciones Bariónicas Acústicas}
-%En los primeros cientos de miles de años del universo, éste existía en un estado hiper denso conocido como plasma primordial, formado por (hasta lo que sabemos) materia oscura, bariones y fotones.
-%Debido a la alta concentración de materia del universo temprano, había una fortísima atracción gravitatoria, contrarrestada por la presión de radiación debida al Efecto Thomson. 
-%
-%Las altísimas temperaturas del universo en la época anterior a la recombinación generaban fotones cuya presión de radiación generaba perturbaciones en el plasma que se propaga de forma isotrópica por el espacio.
-%Estas ondas acústicas necesitan por supuesto un medio por el que viajar. Al expandirse el unverso disminuyendo así la concentración de materia, llegado cierto punto la distancia entre partículas será demasiado grande como para interactuar, prohibiendo así la expansión de las ondas acústicas y congelándolas en el tiempo.
-%Se conoce el radio de estas ondas como la escala acústica o horizonte del sonido $r_{s}\approx 150Mpc$\cite[Eisenstein2004]. 
-%
-%\subsection{Análisis BAO}
-%
-%El análisis de oscilaciones acústicas bariónicas (BAO, por sus siglas en inglés) permite, a través de estudios de gran volumen, analizar y medir $r_s$.
-%Las oscilaciones BAO no son fáciles de ver a simple vista, pero sabiendo que las galaxias proliferan en esferas de radio $r_s$, se propone la función de correlación a dos puntos $X_i(r)$ que devuelve la distribución de distancias de galaxias. Esto es, dada una galaxia en un punto $\textbf{r}_i$ esta distará del resto de galaxias del universo en posiciones $\{\textbf{r}_j\} $ por una distancia $ \{\|\textbf{r}_i - \textbf{r}_j \|\} $. La densidad $X_i(r)$ recoge la estadística de las distancias a las que se suelen encontrar las galaxias.
-%
-%Se define $P(k)$ o \textit{galaxy power spectrum} como la transformada de Fourier de $X_i(r)$. Puesto que tenemos un patrón que se repite cada $r_s$, esta función presenta picos en $\frac{2\pi}{r_s}$. 
-%
-%Al conocer el tamaño \textit{comoving}\footnote{'\textit{Comoving}' hace referencia a lo que mediríamos si el universo no se hubiese expandido} de estas ondas esféricas congeladas en el tiempo, si conseguimos medir su tamaño actual 'físico' (es decir, considerando la expansión del universo) podremos usar esos resultados para tomar medidas más y más precisas de objetos muy distantes. 
-%
-%La expansión del universo afecta por igual a todas las distancias, incluida la longitud de onda de la luz. Por ello, observaremos una tendencia hacia el rojo de cualquier radiación que midamos, fenómeno conocido como \textit{redshift}. Al conocer el espectro electromagnético de emisión de una galaxia, podemos contrastar la longitud de onda que observamos con la que 'debería ser', es decir, la longitud de onda de emisión. 
-%
-%Definimos así el ya mencionado redshift $z$
-%\begin{align}
-%z = \frac{\lambda_{\text{observado}} - \lambda_{\text{emitido}}}{\lambda_{\text{emitido}}}
-%\end{align}
-%Que se podrá usar como una medida del tiempo que ha estado la onda viajando.
-%
-%\subsection{Efecto de la curvatura del universo}
-%
-%A día de hoy, todos los estudios BAO que se han realizado han asumido un universo sin curvatura. Esto es, aunque el universo presenta curvatura de manera local debido a las concentraciones de masa, el universo es plano de manera asintótica. 
-%
-%
-%\subsection{Estudio de las curvas BAO}
-%
+And the comoving line-of-sight distance as 
+\begin{align}
+	D_A = D_H\int_{0}^{z} \frac{dz}{\sqrt{\Omega_m(1+z)^3 + \Omega_k(1+z)^2 + \Omega_\Lambda} } 
+\end{align}
