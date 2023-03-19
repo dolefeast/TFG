@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  19 MAR 2023 13:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  19 MAR 2023 14:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -716,12 +716,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 59.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./portada.tex
-<logo_ciencias.png, id=87, 157.5486pt x 157.5486pt>
+<logo_ciencias.png, id=71, 157.5486pt x 157.5486pt>
 File: logo_ciencias.png Graphic file (type png)
 <use logo_ciencias.png>
 Package pdftex.def Info: logo_ciencias.png  used on input line 23.
 (pdftex.def)             Requested size: 170.71652pt x 170.71729pt.
-<fondo_portada.png, id=89, 578.16pt x 831.105pt>
+<fondo_portada.png, id=73, 578.16pt x 831.105pt>
 File: fondo_portada.png Graphic file (type png)
 <use fondo_portada.png>
 Package pdftex.def Info: fondo_portada.png  used on input line 27.
@@ -775,7 +775,7 @@ l.68 \include{agradecimientos}
 
  (./capitulo1.tex
 Chapter 1.
-<../figs/cmb.jpeg, id=156, 1084.05pt x 548.0475pt>
+<../figs/cmb.jpeg, id=136, 1084.05pt x 548.0475pt>
 File: ../figs/cmb.jpeg Graphic file (type jpg)
 <use ../figs/cmb.jpeg>
 Package pdftex.def Info: ../figs/cmb.jpeg  used on input line 16.
@@ -793,7 +793,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  (./resultados.tex
 Chapter 2.
-<../figs/DA_DH_flat.pdf, id=208, 722.7pt x 505.89pt>
+<../figs/DA_DH_flat.pdf, id=188, 722.7pt x 505.89pt>
 File: ../figs/DA_DH_flat.pdf Graphic file (type pdf)
 <use ../figs/DA_DH_flat.pdf>
 Package pdftex.def Info: ../figs/DA_DH_flat.pdf  used on input line 7.
@@ -875,39 +875,22 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 
 
 ] (./plantilla_TFG_CienciasUCO_2022_utf8.aux (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./resultados.aux) (./conclusion.aux) (./anexo1.aux) (./anexo2.aux))
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `plantilla_TFG_CienciasUCO_2022_utf8.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `plantilla_TFG_CienciasUCO_2022_utf8.out':
-(rerunfilecheck)             Before: 1862A002ED4E466961760BE8EE682D58;1365
-(rerunfilecheck)             After:  D992B5478B850A34FDD10A8446C53D06;1027.
+Package rerunfilecheck Info: File `plantilla_TFG_CienciasUCO_2022_utf8.out' has not changed.
+(rerunfilecheck)             Checksum: D992B5478B850A34FDD10A8446C53D06;1027.
  ) 
 Here is how much of TeX's memory you used:
- 24079 strings out of 479304
- 450753 string characters out of 5869778
+ 24069 strings out of 479304
+ 450619 string characters out of 5869778
  829475 words of memory out of 5000000
- 40625 multiletter control sequences out of 15000+600000
+ 40619 multiletter control sequences out of 15000+600000
  426487 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  118i,13n,119p,817b,1748s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section.1.8} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.7} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.6} has been referenced but does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.5} has been referenced but does not exist, replaced by a fixed one
-
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (19 pages, 961844 bytes).
+Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (19 pages, 960717 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
- 368 compressed objects within 4 object streams
- 114 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 404 PDF objects out of 1000 (max. 8388607)
+ 348 compressed objects within 4 object streams
+ 110 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
