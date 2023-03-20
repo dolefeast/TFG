@@ -125,6 +125,7 @@ def get_params(param_name):
     p = re.compile('[0-9]*')
     params = re.split('\D', param_name)
     OmOL = []
+    print(param_name)
     for i in params:
         try:
             OmOL.append(int(i)/100)
