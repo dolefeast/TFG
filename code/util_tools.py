@@ -115,6 +115,36 @@ def many_files(files, openfiles=None):
         return many_files(files, openfiles='all')
         print('But not here')
 
+def alpha_from_logfile(filename):
+    """
+    parameters:
+        the pathfix of the logfile to be calculated
+    returns 
+        (Ok, (apara, aparasigma), (aperp, aperpsigma))
+    """
+    p = re.compile('logfile')
+    namestr = filename.stem
+    find = p.findall(namestr)
+    if len(find) == 0:
+        raise TypeError(f"{filename.stem} is not a logfile!")
+    omegas = get_params(namestr)
+    out = []
+    Ok = omegas[-1]
+    out.append(Ok)
+    with filename.open() as open_data:
+        for i, line in enumerate(open_data):
+            if i == 9:
+                p = re.compile('[0-9].[0-9]*e-[0-9]*')
+                matches = p.findall(line)
+                out.append([float(x) for x in matches])
+            elif i == 10:
+                p = re.compile('[0-9].[0-9]*e\+?-?[0-9]*')
+                matches = p.findall(line)
+                out.append([float(x) for x in matches])
+            elif i>10: break
+    return out
+
+
 def get_params(param_name):
     """
     input:
@@ -122,10 +152,10 @@ def get_params(param_name):
     output:
         [Om, OL]: a tuple containing the parameters in the name
         """
-    p = re.compile('[0-9]*')
-    params = re.split('\D', param_name)
+    p = re.compile('O[a-zA-Z][0-9]*')
+    params = re.findall(p, param_name)
+    params = re.split('\D', "".join(params))
     OmOL = []
-    print(param_name)
     for i in params:
         try:
             OmOL.append(int(i)/100)
