@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  28 MAR 2023 12:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  30 MAR 2023 17:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -615,7 +615,7 @@ Package: translator 2020-08-03 v1.12c Easy translation of strings in LaTeX
 )) (./plantilla_TFG_CienciasUCO_2022_utf8.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
- (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
+ (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./objetivos.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
 \openout1 = `plantilla_TFG_CienciasUCO_2022_utf8.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
@@ -721,12 +721,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./portada.tex
-<logo_ciencias.png, id=66, 157.5486pt x 157.5486pt>
+<logo_ciencias.png, id=74, 157.5486pt x 157.5486pt>
 File: logo_ciencias.png Graphic file (type png)
 <use logo_ciencias.png>
 Package pdftex.def Info: logo_ciencias.png  used on input line 23.
 (pdftex.def)             Requested size: 170.71652pt x 170.71729pt.
-<fondo_portada.png, id=68, 578.16pt x 831.105pt>
+<fondo_portada.png, id=76, 578.16pt x 831.105pt>
 File: fondo_portada.png Graphic file (type png)
 <use fondo_portada.png>
 Package pdftex.def Info: fondo_portada.png  used on input line 27.
@@ -795,25 +795,75 @@ Cap\'{\i }tulo 1.
 
 
 ]
-<../figs/cmb.jpeg, id=147, 2569.6pt x 1606.0pt>
+<../figs/cmb.jpeg, id=163, 1084.05pt x 548.0475pt>
 File: ../figs/cmb.jpeg Graphic file (type jpg)
 <use ../figs/cmb.jpeg>
-Package pdftex.def Info: ../figs/cmb.jpeg  used on input line 20.
-(pdftex.def)             Requested size: 364.19667pt x 227.60759pt.
- [8 <../figs/cmb.jpeg>] [9] [10] [11]) [12]
+Package pdftex.def Info: ../figs/cmb.jpeg  used on input line 23.
+(pdftex.def)             Requested size: 364.19667pt x 184.11761pt.
+ [8 <../figs/cmb.jpeg>]
+<baogif1.png, id=173, 572.1375pt x 451.6875pt>
+File: baogif1.png Graphic file (type png)
+<use baogif1.png>
+Package pdftex.def Info: baogif1.png  used on input line 57.
+(pdftex.def)             Requested size: 136.57462pt x 107.82137pt.
+<baogif2.png, id=174, 572.1375pt x 451.6875pt>
+File: baogif2.png Graphic file (type png)
+<use baogif2.png>
+Package pdftex.def Info: baogif2.png  used on input line 58.
+(pdftex.def)             Requested size: 136.57462pt x 107.82137pt.
+<baogif3.png, id=175, 572.1375pt x 451.6875pt>
+File: baogif3.png Graphic file (type png)
+<use baogif3.png>
+Package pdftex.def Info: baogif3.png  used on input line 59.
+(pdftex.def)             Requested size: 136.57462pt x 107.82137pt.
+ [9]
+<../figs/sdss_xi.png, id=185, 466.74374pt x 426.84468pt>
+File: ../figs/sdss_xi.png Graphic file (type png)
+<use ../figs/sdss_xi.png>
+Package pdftex.def Info: ../figs/sdss_xi.png  used on input line 75.
+(pdftex.def)             Requested size: 182.09486pt x 166.52737pt.
+<../figs/2df_pk.png, id=186, 331.99031pt x 273.27094pt>
+File: ../figs/2df_pk.png Graphic file (type png)
+<use ../figs/2df_pk.png>
+Package pdftex.def Info: ../figs/2df_pk.png  used on input line 76.
+(pdftex.def)             Requested size: 182.09486pt x 149.88666pt.
+ [10 <./baogif1.png> <./baogif2.png> <./baogif3.png>] [11 <../figs/sdss_xi.png (PNG copy)> <../figs/2df_pk.png (PNG copy)>] [12]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\Lambda' on input line 158.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 158.
+
+[13]) [14]
+\openout2 = `objetivos.aux'.
+
+ (./objetivos.tex
+Cap\'{\i }tulo 2.
+) [15
+
+
+
+
+]
 \openout2 = `conclusion.aux'.
 
- (./conclusion.tex [13
+ (./conclusion.tex [16
 
 
 
 
-]) [14
+]) [17
 
 ]
 \openout2 = `bibliografia.aux'.
 
- (./bibliografia.tex) [15
+ (./bibliografia.tex) [18
 
 
 
@@ -825,7 +875,7 @@ Package pdftex.def Info: ../figs/cmb.jpeg  used on input line 20.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)) [16
+)) [19
 
 
 
@@ -833,7 +883,7 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ]
 \openout2 = `anexo2.aux'.
 
- (./anexo2.tex) [17
+ (./anexo2.tex) [20
 
 
 
@@ -841,23 +891,23 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 ] (./plantilla_TFG_CienciasUCO_2022_utf8.aux
 LaTeX Info: Redefining \. on input line 25.
 LaTeX Info: Redefining \% on input line 25.
- (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
+ (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./objetivos.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
 Package rerunfilecheck Info: File `plantilla_TFG_CienciasUCO_2022_utf8.out' has not changed.
-(rerunfilecheck)             Checksum: 99D12B4EE4855A0B82255581131C140E;962.
+(rerunfilecheck)             Checksum: B6F11429AB73B6547749C6ED94CF008A;1078.
  ) 
 Here is how much of TeX's memory you used:
- 24452 strings out of 479304
- 455432 string characters out of 5869778
+ 24524 strings out of 479304
+ 456493 string characters out of 5869778
  835064 words of memory out of 5000000
- 41009 multiletter control sequences out of 15000+600000
- 429274 words of font info for 93 fonts, out of 8000000 for 9000
+ 41056 multiletter control sequences out of 15000+600000
+ 430529 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 118i,13n,119p,823b,1746s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (18 pages, 1885477 bytes).
+ 118i,13n,119p,887b,1746s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1440.pfb>
+Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (21 pages, 1102934 bytes).
 PDF statistics:
- 375 PDF objects out of 1000 (max. 8388607)
- 322 compressed objects within 4 object streams
- 106 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 438 PDF objects out of 1000 (max. 8388607)
+ 372 compressed objects within 4 object streams
+ 120 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

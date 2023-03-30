@@ -85,8 +85,6 @@
 %\include{capitulo2} 
 % .......
 
-\include{objetivos}
-
 \include{conclusion}       % Conclusiones (insertar en el fichero conclusion.tex proporcionado,
 %                                          las conclusiones en español e inglés)
  
