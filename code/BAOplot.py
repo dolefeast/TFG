@@ -2,7 +2,6 @@
 
 #A script that runs an interactive plotter 
 #in any dir.
-#TODO
 
 import util_tools
 import numpy as np

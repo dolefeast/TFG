@@ -23,7 +23,7 @@ zmax = 0.698
 H0 = 67.6
 rs = 147.784
 
-files = list(Path('/home/santi/TFG/outputs_santi/phase2/logfiles_phase2').glob('*3rd*'))
+files = list(Path('/home/santi/TFG/outputs_santi/phase2/logfiles_phase2').glob('*2nd*'))
 #calculate_observables(*params[0])
 Ok_list = []
 a_para = []
@@ -39,7 +39,9 @@ fig, ((ax1, ax2),(ax12, ax22),(ax13, ax23)) = plt.subplots(3, 2, sharex=True, fi
 H = lambda z, Ok, Om=0.31: H0*np.sqrt(Om*(1+z)**3 + Ok*(1+z)**2 + 1-Ok-Om)
 DH_fid = lambda z, Ok: ct.c/1000/H(z, Ok)
 n_points = 500
-Ok_cont = np.linspace(-0.15,0.15,n_points)
+Ok_min, Ok_max = min(Ok_list), max(Ok_list)
+Ok_cont = np.linspace(Ok_min, Ok_max,n_points)
+rang = Ok_max - Ok_min
 DA_fid = np.array([sp.integrate.quad(DH_fid, 0, zmax, args=(ok,))[0] for ok in Ok_cont])
 elinewidth=1
 capsize=3
@@ -51,8 +53,8 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
                  elinewidth=elinewidth, capsize=capsize, capthick=capthick)
     ax13.errorbar(Ok, DH_fid(zmax, Ok)*apara[0]/rs,  yerr=DH_fid(zmax, Ok)*apara[1]/rs, fmt='xb', 
                  elinewidth=elinewidth, capsize=capsize, capthick=capthick) 
-    idx = max(-1+int(n_points*(Ok+0.15)/0.3), 0)
-    ax23.errorbar(Ok, DA_fid[idx]*aperp[0]/rs,  yerr=DA_fid[-1+int(100*(Ok+0.15)/0.3)]*aperp[1]/rs, fmt='xb', 
+    idx = max(-1+int(n_points*(Ok-Ok_min)/rang), 0)
+    ax23.errorbar(Ok, DA_fid[idx]*aperp[0]/rs,  yerr=DA_fid[idx]*aperp[1]/rs, fmt='xb', 
                  elinewidth=elinewidth, capsize=capsize, capthick=capthick) 
 
 

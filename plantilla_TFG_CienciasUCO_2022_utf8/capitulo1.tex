@@ -145,7 +145,7 @@ Note that for $z = 0$ $D_H$ gives us an idea of the distance at which the recess
 
 And the comoving line-of-sight distance as 
 \begin{align}
-	D_A = \frac{c}{H_0}\int_{0}^{z} \frac{dz}{\sqrt{\Omega_m(1+z)^3 + \Omega_k(1+z)^2 + \Omega_\Lambda} } 
+	D_A(z) = \frac{c}{H_0}\int_{0}^{z} \frac{dz'}{\sqrt{\Omega_m(1+z')^3 + \Omega_k(1+z')^2 + \Omega_\Lambda} } 
 \end{align}
 
 \section{$\Lambda$ Cold Dark Matter model}
@@ -160,7 +160,23 @@ This model is the simplest available way of explaining the current state of the 
 	\item \textbf{Collisionless}: Dark matter particles can only interact through gravity and possibly, the weak force and so they do not collide with one another.
 \end{itemize}
 The information on this cold dark matter is inside $\Omega_m$, since the density $\rho$ in $$\Omega_m = \frac{\rho}{\rho_c} = \frac{\rho_b + \rho_{\text{CDM}}}{\rho_c}$$
-Allowing us to define two new density parameters $\Omega_b = \frac{\rho_b}{\rho_c}$ and $\Omega_c =  \frac{\rho_\text{CDM}}{\rho}$, which are part of the 7 free parameters that define a certain cosmology. These are $\Omega_b$, $\Omega_c$, $H_0$, the optical density of reionization (the scalar amplitude of the power spectrum), the spectral index of the scalar power spectrum and $\Omega_k$. One should note there is no special choice of parameters, these are just the free parameters chosen for this work.
+Allowing us to define two new density parameters $\Omega_b = \frac{\rho_b}{\rho_c}$ and $\Omega_c =  \frac{\rho_\text{CDM}}{\rho}$, which are part of the 7 free parameters that define a certain cosmology. These are $\Omega_b$, $\Omega_c$, $H_0$, the optical density of reionization $\tau_{\text{reio}}$, the scalar amplitude of the power spectrum $A_s$, the spectral index of the scalar power spectrum $n_s$ and $\Omega_k$. Note there is no special choice of parameters, these are just the free parameters chosen for this work.
 
-From these free parameters, one derives some parameters. Of those, the main interes is in $D_A$, $D_H$, and $r_s$.
+The fiducial values of these parameters that will be used in this work are
+\begin{itemize}
+	\item 	$\Omega_b =  0.0481 $
+	\item 	$\Omega_c =  0.2604$ 
+	\item $H_0 = 67.6$ km s$ ^{-1}$ Mpc$^{-1}$
+	\item $\tau_{\text{reio}} = 0.09$
+	\item $A_s = 2.04031526769e-9$
+	\item $n_s = 0.97$
+\end{itemize}
+And $\Omega _k$ that will vary between $-0.2$ and 0.2.
 
+From these free parameters, one derives some parameters. Of those, the main interest is in $\Omega_\Lambda$, $r_s$, $D_H$, and $D_A$, 
+\begin{itemize}
+	\item $r_s = 147.784 Mpc$
+	\item $D_H/r_s  = 18.7$
+	\item $D_A/r_s  = 18.3$
+\end{itemize}
+And $\Omega_\Lambda$ will vary between $0.49$ and $0.89$.

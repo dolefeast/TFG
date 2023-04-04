@@ -23,7 +23,7 @@ zmax = 0.698
 H0 = 67.6
 rs = 147.784
 
-files_santi = list(Path('/home/santi/TFG/outputs_santi/phase2/logfiles_phase2').glob('*3rd*'))
+files_santi = list(Path('/home/santi/TFG/outputs_santi/class_Om031_OL069/noflat_olin').glob('*'))
 files_hector = list(Path('/home/santi/TFG/lrg_eboss/output/').glob('*'))
 
 #calculate_observables(*params[0])
@@ -56,6 +56,7 @@ DA_fid = np.array([sp.integrate.quad(DH_fid, 0, zmax, args=(ok,))[0] for ok in O
 elinewidth=1
 capsize=3
 capthick=1.5
+
 for Ok, apara, aperp in zip(Ok_list_santi, a_para_santi, a_perp_santi):
     ax1.errorbar(Ok, apara[0], yerr=apara[1], fmt='xb', 
                  elinewidth=elinewidth, capsize=capsize, capthick=capthick)
@@ -66,6 +67,7 @@ for Ok, apara, aperp in zip(Ok_list_santi, a_para_santi, a_perp_santi):
     idx = max(-1+int(n_points*(Ok+0.15)/0.3), 0)
     ax23.errorbar(Ok, DA_fid[idx]*aperp[0]/rs,  yerr=DA_fid[-1+int(100*(Ok+0.15)/0.3)]*aperp[1]/rs, fmt='xb', 
                  elinewidth=elinewidth, capsize=capsize, capthick=capthick) 
+
 for Ok, apara, aperp in zip(Ok_list_hector, a_para_hector, a_perp_hector):
     ax1.errorbar(Ok, apara[0], yerr=apara[1], fmt='xr', 
                  elinewidth=elinewidth, capsize=capsize, capthick=capthick)
