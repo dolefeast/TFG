@@ -42,7 +42,19 @@ n_points = 500
 Ok_min, Ok_max = min(Ok_list), max(Ok_list)
 Ok_cont = np.linspace(Ok_min, Ok_max,n_points)
 rang = Ok_max - Ok_min
-DA_fid = np.array([sp.integrate.quad(DH_fid, 0, zmax, args=(ok,))[0] for ok in Ok_cont])
+DC_fid = np.array([sp.integrate.quad(DH_fid, 0, zmax, args=(ok,))[0] for ok in Ok_cont])
+
+def DA(z, Ok, DC, DH):
+    k =  DH/(1+z)/np.sqrt(np.abs(Ok))
+    if Ok>0:
+        return k*np.sinh(np.sqrt(Ok)*DC/DH)
+    elif Ok<0:
+        return k*np.sin(np.sqrt(np.abs(Ok))*DC/DH)
+    elif not Ok:
+        return (1+z)**-1 * DH
+
+DA_fid = np.array([DA(zmax, Ok, DC, DH) for Ok, DC, DH in zip(Ok_cont, DC_fid, DH_fid(zmax, Ok_cont))])
+
 elinewidth=1
 capsize=3
 capthick=1.5
@@ -61,8 +73,8 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
 ax12.plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs)
 ax22.plot(Ok_cont, DA_fid/rs)
 ax1.set_ylabel(r'$\alpha_{\parallel}$'), ax2.set_ylabel(r'$\alpha_{\perp}$')
-ax12.set_ylabel(r'$\left[ DH/r_s\right]_{fid}$'), ax22.set_ylabel(r'$\left[ DA/r_s\right]_{fid}$')
-ax13.set_ylabel(r'$DH/r_s$'), ax23.set_ylabel(r'$DA/r_s$')
+ax12.set_ylabel(r'$\left[ D_H/r_s\right]_{fid}$'), ax22.set_ylabel(r'$\left[ D_A/r_s\right]_{fid}$')
+ax13.set_ylabel(r'$Dfid_H/r_s$'), ax23.set_ylabel(r'$D_A/r_s$')
 ax13.set_xlabel(r'$\left[ \Omega_k\right]^{fid\, 1}$'), ax23.set_xlabel(r'$\left[ \Omega_k\right]^{fid \,1}$')
 plt.tight_layout()
 plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pdf')
