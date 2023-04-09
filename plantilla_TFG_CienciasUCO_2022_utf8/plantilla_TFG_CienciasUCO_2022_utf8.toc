@@ -13,8 +13,9 @@
 \contentsline {section}{\numberline {1.4}Curvature, dark matter and the expansion of the universe}{11}{section.1.4}%
 \contentsline {section}{\numberline {1.5}$\Lambda $ Cold Dark Matter model}{13}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Objectives}{15}{chapter.2}%
-\contentsline {chapter}{Conclusiones}{16}{chapter*.9}%
-\contentsline {chapter}{Conclusions}{17}{chapter*.10}%
-\contentsline {chapter}{Bibliografía}{18}{chapter*.10}%
-\contentsline {chapter}{Anexo: Ejemplo para introducir código Matlab}{19}{appendix*.12}%
-\contentsline {chapter}{Anexo: Ejemplo para introducir código ISE}{20}{appendix*.13}%
+\contentsline {chapter}{\numberline {3}Methods and materials.}{16}{chapter.3}%
+\contentsline {chapter}{Conclusiones}{17}{chapter*.9}%
+\contentsline {chapter}{Conclusions}{18}{chapter*.10}%
+\contentsline {chapter}{Bibliografía}{19}{chapter*.10}%
+\contentsline {chapter}{Anexo: Ejemplo para introducir código Matlab}{20}{appendix*.12}%
+\contentsline {chapter}{Anexo: Ejemplo para introducir código ISE}{21}{appendix*.13}%

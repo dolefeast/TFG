@@ -38,9 +38,10 @@ with $b\approx $ \SI{2.897}{mmK} Wien's constant, $T$ the black body radiation a
 In 1991 anisotropies in the CMB were first discovered, by the COBE satellite (cita SmootMather) later earning Smoot and Mather a nobel prize. As of 2023 the most precise measurements correspond to the Planck experiment in 2018 (citar Planck2018) by the European Space Agency. These anisotropies can be seen in \ref{fig:cmb}.
 
 Of course, \SI{2.7}{K} was not the temperature of the plasma at recombination, as it was approximately hotter by a factor $z=1090$, or $\approx$\SI{3000}{K}. The reason we measure such smaller temperatures is because of the expansion of the universe.
-If at some time $t$ black body radiation at temperature T is emitted, it will have some associated radiation wavelength $\lambda$. If this radiation is measured some time $\Delta t$ later, this wavelength will have been stretched by a factor\footnote{$a(t)$ is the scale factor of the universe which will be properly introduced later in the work.} $a(t + \Delta t)$, and so the measurement will be that of a wavelength $\lambda' = a(t+\Delta t) \lambda$. By Wien's displacement \eqref{eq:wien-displacement} law, this corresponds to a temperature smaller by a factor $a(t+\Delta t)$.
+If today ($t=t_0$) some radiation of wavelength $\lambda_o$ is observed, that somehow is known to have been travelling for some time $\Delta t$ will have stretched due to the expansion of the universe. In other words, the wavelength $\lambda_e$ of the emitted radiation was smaller by a factor\footnote{The factor $a(t)$ is known as the scale factor of the universe, and will be explained with further detail later in the work.} $a(t')^{-1}$, with $t' = t_0-\Delta t$ being the earlier time at which the radiation was emitted, and $a(t_0)=1$ by definition. By Wien's displacement law \eqref{eq:wien-displacement}, this corresponds to a higher temperature by a factor $a(t')$.
 
-Thus, the CMB becomes crucial in explaining the large scale structure of the universe, since the photons that decoupled from the plasma at recombination wasted more energy leaving denser regions behind losing thermal energy in the process. Appearing at a slightly lower temperature (gravitational redshift). On the contrary, those in void regions will appear hotter, being blueshifted.
+
+Thus, the CMB becomes crucial in explaining the large scale structure of the universe, since the photons that decoupled from the plasma at recombination wasted more energy leaving denser regions behind losing thermal energy in the process. Appearing at a slightly lower temperature (gravitational redshift). On the contrary, those in void regions will appear hotter, being blueshifted. Therefore, temperature fluctiations in the CMB correspond to density fluctuations in the early universe.
 
 \section{Baryon Acoustic Oscillations}
 
@@ -60,7 +61,7 @@ As already mentioned, matter was not distributed homogenously. At some point in 
 The waves would propagate throughout the plasma as long as the baryon-photon interaction was strong enough i.e. up to recombination, at which point they froze in time leaving higher density regions. Higher density means higher gravitational intensity, which in turn means higher galaxy proliferation in spherical distributions. These spherical distributions (which can be measured in the CMB) are what is known as the large scale structure of the universe.
 
 At big enough distances, the radii ($r_s$) of these spheres, also called the sound horizon is used as a `cosmic ruler'. Big scale measurements are calculated in terms of $r_s$, which is measured from the CMB. This means it needs to be calibrated from external information. $ r_s$ has been measured from the CMB to be around  \SI{150}{Mpc} or 500 million lightyears.
-To give an idea of the size of $r_s$, the observable universe is only around 20 times bigger than  $r_s$.
+To give an idea of the size of $r_s$, the radius of the observable universe is around 100 times $r_s$.
 
 Given the large dimensions of this cosmic ruler and the homogeneity of the universe on large scales, this ruler is only affected by cosmological expansion rather than late-time gravitational effects. Therefore, it has a constant comoving\footnote{`Comoving' meaning the distance one would measure had the expansion of the universe not existed} size throughout the universe.
 
@@ -71,7 +72,9 @@ The other tool for studying the BAO is the power spectrum seen in \ref{fig:2df}.
 
 \begin{figure}[t] \centering
 	\subfigure[The correlation function $\xi(s)$ as measured by the Sloan Digital Sky Survey (cita 2005 eisenstein)]{\includegraphics[width=0.4\textwidth]{../figs/sdss_xi.png} \label{fig:sdss}}
+	\hspace{0.2pt}
 	\subfigure[The power spectrum as observed by the 2dF collaboration (cita 2005 Cole)]{\includegraphics[width=0.4\textwidth]{../figs/2df_pk.png}	\label{fig:2df}}
+	\caption{First detections of BAO}
 	\label{fig:2005-results}
 \end{figure}
 
@@ -143,9 +146,21 @@ We also define the function of $z$ $D_H(z)$ known as the Hubble distance
 \end{align}
 Note that for $z = 0$ $D_H$ gives us an idea of the distance at which the recession speed is greater than the speed of light in the vacuum, which is a direct consequence of \eqref{eq:ley-hubble}. $D_H$ can also be used to estimate the order of magnitud of the observable universe.
 
-And the comoving line-of-sight distance as 
+Through the Hubble distance we define the comoving distance 
 \begin{align}
-	D_A(z) = \frac{c}{H_0}\int_{0}^{z} \frac{dz'}{\sqrt{\Omega_m(1+z')^3 + \Omega_k(1+z')^2 + \Omega_\Lambda} } 
+	D_C(z) = \frac{c}{H_0}\int_{0}^{z} \frac{dz'}{\sqrt{\Omega_m(1+z')^3 + \Omega_k(1+z')^2 + \Omega_\Lambda} } 
+\end{align}
+From this expression one defines the angular diameter distance for some redshift $z$
+\begin{align}
+	D_A(z) = \begin{cases}
+		\frac{D_H}{\left( 1+z \right) \sqrt{\Omega_k} }\sinh \left[ \sqrt{\Omega_k} D_C /D_H \right]  	 &\Omega_k >0\\
+		\frac{1}{1+z}D_C& \Omega_k =  0\\
+		\frac{D_H}{\left( 1+z \right) \sqrt{|\Omega_k|}} \sin \left[ \sqrt{|\Omega_k|} D_C /D_H \right]  	 &\Omega_k <0\\
+	\end{cases}
+\end{align}
+And the comoving trasverse angular diameter distance as 
+
+\begin{align}
 \end{align}
 
 \section{$\Lambda$ Cold Dark Matter model}
@@ -159,16 +174,21 @@ This model is the simplest available way of explaining the current state of the 
 	\item \textbf{Disipationless}: Since Dark Matter does not interact with the electromagnetic field, it can not dissipate temperature through photon emission.
 	\item \textbf{Collisionless}: Dark matter particles can only interact through gravity and possibly, the weak force and so they do not collide with one another.
 \end{itemize}
-The information on this cold dark matter is inside $\Omega_m$, since the density $\rho$ in $$\Omega_m = \frac{\rho}{\rho_c} = \frac{\rho_b + \rho_{\text{CDM}}}{\rho_c}$$
-Allowing us to define two new density parameters $\Omega_b = \frac{\rho_b}{\rho_c}$ and $\Omega_c =  \frac{\rho_\text{CDM}}{\rho}$, which are part of the 7 free parameters that define a certain cosmology. These are $\Omega_b$, $\Omega_c$, $H_0$, the optical density of reionization $\tau_{\text{reio}}$, the scalar amplitude of the power spectrum $A_s$, the spectral index of the scalar power spectrum $n_s$ and $\Omega_k$. Note there is no special choice of parameters, these are just the free parameters chosen for this work.
+The information on this cold dark matter is inside $\Omega_m$, since the density $\rho$ in
+\begin{align}
+	\Omega_m = \frac{\rho}{\rho_c} = \frac{\rho_b + \rho_{\text{CDM}}}{\rho_c}
+\end{align}
+Allowing us to define two new density parameters $\Omega_b = \frac{\rho_b}{\rho_c}$ and $\Omega_c =  \frac{\rho_\text{CDM}}{\rho}$, which are part of the six free parameters that define a certain cosmology. These are $\Omega_b$, $\Omega_c$, $H_0$, the optical density of reionization $\tau_{\text{reio}}$, the amplitude of the primordial power spectrum $A_s$, the spectral index of the primordial power spectrum $n_s$. Note there is no special choice of parameters, these are just the free parameters chosen for this work.
 
-The fiducial values of these parameters that will be used in this work are
+In this work, an extension of the $\Lambda$CDM model is considered. Though the standard cosmological model considers a flat universe, the curvature parameter will not be fixed to $0$ and is therefore allowed to be a free parameter, adding a new degree of freedom to the standard model (not to be confused with the particle physics standard model). This model can be further extended by considering the mass of the neutrinos, the quintaessential force (dark energy)\ldots 
+
+The fiducial (starting) values of these parameters that will be used in this work are
 \begin{itemize}
 	\item 	$\Omega_b =  0.0481 $
 	\item 	$\Omega_c =  0.2604$ 
 	\item $H_0 = 67.6$ km s$ ^{-1}$ Mpc$^{-1}$
 	\item $\tau_{\text{reio}} = 0.09$
-	\item $A_s = 2.04031526769e-9$
+	\item $A_s = 2.04031526769\cdot 10^{-9}$
 	\item $n_s = 0.97$
 \end{itemize}
 And $\Omega _k$ that will vary between $-0.2$ and 0.2.
@@ -180,3 +200,9 @@ From these free parameters, one derives some parameters. Of those, the main inte
 	\item $D_A/r_s  = 18.3$
 \end{itemize}
 And $\Omega_\Lambda$ will vary between $0.49$ and $0.89$.
+
+Finally, we define two more parameters $\alpha_\parallel$ and $\alpha_\perp$. These parameters measure the distortion of the measurements in two different directions. $\alpha_\parallel$ is related to the distortion parallel to the line of sight, and  $\alpha_\perp$, perpendicular to the line of sight. They are defined by 
+\begin{align}
+	\alpha_\parallel = \frac{\left[ D_H(z) /r_s \right] }{\left[ D_H(z)/r_s \right]^{\text{fid}} }, \, \alpha_\perp = \frac{\left[ D_A(z) /r_s \right] }{\left[ D_A(z)/r_s \right]^{\text{fid}} }
+\end{align}
+$z$ being the redshift at which the measurements were taken.

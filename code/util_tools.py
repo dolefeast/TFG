@@ -67,8 +67,7 @@ def many_files(files, openfiles=None):
     try:
         assert n_files > 0
     except AssertionError:
-        print('There are no files in that directory!')
-        raise AssertionError
+        raise AssertionError(f"There are no files in that directory.")
 
     df_list = []
     param_list = []
