@@ -1,12 +1,12 @@
-\babel@toc {spanish}{}
+\babel@toc {english}{}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces The all-sky map of CMB anisotropies as seen by Space-based Observatory Planck (cita collaboration 2018). The colors in this map represent the fluctuations of the mean T = \SI {2.7}{K} with fluctuations of $10^{-5}$ with respect to the average temperature. Red means higher temperature than the average, whilst blue means lower temperature than the average.}}{8}{figure.1.1}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Different stages of the Baryon Acoustic Oscillations. Courtesy of the image (citar https://lweb.cfa.harvard.edu/~deisenst/acousticpeak/anim.gif)}}{10}{figure.1.2}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces The all-sky map of CMB anisotropies as seen by Space-based Observatory Planck \cite {Planck2018}. The colors in this map represent the fluctuations of the mean T = \SI {2.7}{K} with fluctuations of $10^{-5}$ with respect to the average temperature. Red means higher temperature than the average, whilst blue means lower temperature than the average.}}{8}{figure.1.1}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Different stages of the Baryon Acoustic Oscillations. Courtesy of the image (cite https://lweb.cfa.harvard.edu/~deisenst/acousticpeak/anim.gif)}}{10}{figure.1.2}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Origin of the BAO}}}{10}{figure.1.2}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {The BAO propagating through the plasma}}}{10}{figure.1.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {The frozen BAO after recombination}}}{10}{figure.1.2}%
 \contentsline {figure}{\numberline {1.3}{\ignorespaces First detections of BAO}}{11}{figure.1.3}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {The correlation function $\xi (s)$ as measured by the Sloan Digital Sky Survey (cita 2005 eisenstein)}}}{11}{figure.1.3}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {The power spectrum as observed by the 2dF collaboration (cita 2005 Cole)}}}{11}{figure.1.3}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {The correlation function $\xi (s)$ as measured by the Sloan Digital Sky Survey \cite {Eisenstein2005}}}}{11}{figure.1.3}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {The power spectrum as observed by the 2dF collaboration \cite {2dFCole2005}}}}{11}{figure.1.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

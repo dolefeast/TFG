@@ -4,7 +4,38 @@ For this work, many diferent tools were used, which will be cathegorized in hard
 
 In terms of hardware, the author was granted access to the \textit{FQM-378} clusters in the Universidad de Córdoba. Access to these clusters was crucial for the calculations done throughout the work, reducing the time needed for each calculation in several orders of magnitude. Besides the clusters, the author also needed his own personal computer, mainly to remotely access the clusters and also for other types of calculations that could not have been done from the clusters. These calculations include among other things, plotting of figures. 
 
-In terms of software, the main tools for this work were J. Lesgourges, T. Tram and N. Schoenberg's work, Cosmic Linear Anisotropy Solving System (CLASS), Hector Gil-Marín's works Rapid foUrier STatIstics COde (RUSTICO) and Bao and Rsd Algorithm for Spectroscopic Surveys (BRASS).
+The main mathematical tool for this work was the Fourier Transform. The Fourier Transform is a consequence of Fourier's Theorem. This theorem states that for every `nice'\footnote{The conditions for which this theorem does not apply are beyond the scope of this work, and so the `niceness' of a function need not be defined} periodic function $f(x)$ of period $L$ one can find a unique linear combination of sine and cosine functions such that 
+\begin{align}
+	f(x) = C + \sum_\text{n odd} a_n \sin\left( \frac{nx}{L} \right) + \sum_{\text{n even}}^{} b_n \cos \left( \frac{nx}{L} \right) 
+\end{align}
+With $C $, $a_n$, $b_n$ given by 
+\begin{align}
+	\begin{cases}
+		C &= \frac{1}{L} \int_{L}^{0} f(x) dx\\
+		a_n &= \frac{1}{L} \int_{L}^{} f(x) \sin\left(  2\pi \frac{nx}{L} \right) dx,~\text{n odd}\\
+		b_n &= \frac{1}{L} \int_{L}^{} f(x) \cos\left(  2\pi \frac{nx}{L} \right) dx,~\text{n even}\\
+	\end{cases}
+\end{align}
 
+This was the original Fourier's result. However this theorem can be expanded to the complex realm as 
+\begin{align}
+	f(x) = \sum_{n=0}^{\infty} c_n e^{i 2\pi \frac{nx}{L}}, \text{with } c_n = \frac{1}{L}\int_{L}^{} f(x) e^{-i 2\pi \frac{nx}{L}}dx 
+\end{align}
+For each mode $n$ one can define a new variable $k=2\pi n /L$, leading to the actual definition of the Fourier Transform 
+\begin{align}
+	\tilde{f}(k) = \frac{1}{2\pi}\int_{L}^{}  f(x) e^{-i k x} dx
+\end{align}
+This definition is easily expanded to more dimensions. In particular, for three dimensions 
+\begin{align}
+	\tilde{f} \left( \textbf{k} \right) = \frac{1}{ \left( 2\pi \right) ^3} \int_{V}^{} f(\textbf{r}) e^{-i \textbf{k}\cdot \textbf{\textbf{r}}}d \textbf{r}
+\end{align}
+With $V$ the volume of the repeating cube. 
 
-	
+In terms of software, the main tools for this work were Cosmic Linear Anisotropy Solving System (CLASS)\cite{class}, Montepython~\cite{montepython}, Rapid foUrier STatIstics COde (RUSTICO)~\cite{rustico} and Bao and Rsd Algorithm for Spectroscopic Surveys (BRASS)~\cite{brass}.
+
+The CLASS library was used for the generation of theoretical BAO power spectrums $P(k)$, for different $\Omega_k$. From these power spectrums, one needs to calculate the $P_\text{smooth}(k)$, $O_{\text{lin}}(k)$ which is done with Montepython. These curves can be understood like the main components of the spectrum $P(k)$. $O_{\text{lin}}(k)$ are the pure Baryon Acoustic Oscillations, and $P_{\text{smooth}}(k)$ is the curve that, when modulated by the $O_{\text{lin}}(k)$ results in the original power spectrum $P(k)$. In other words, 
+\begin{align}
+	P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
+\end{align}
+
+The RUSTICO library was used to calculate the power spectra of the galaxies measured by the LRG eBOSS measurements, again as a function of $\Omega_k$.
