@@ -25,13 +25,18 @@ For each mode $n$ one can define a new variable $k=2\pi n /L$, leading to the ac
 \begin{align}
 	\tilde{f}(k) = \frac{1}{2\pi}\int_{L}^{}  f(x) e^{-i k x} dx
 \end{align}
-This definition is easily expanded to more dimensions. In particular, for three dimensions 
+In this work, the power spectrum $P(k)$ is considered, which is the Fourier Transform of the correlation function $\xi(r)$.  Recalling the definition of the $\xi(r)$ function, the frequency of the distance at which two any two galaxies are found, one can notice that  $\xi(r)$ must be a discrete function. We thus define the Discrete Fourier Transform (DFT) over a discrete set of N data points $\{\left( x_i, \xi(x_i) \right) \}_{i=1}^{N} $
 \begin{align}
-	\tilde{f} \left( \textbf{k} \right) = \frac{1}{ \left( 2\pi \right) ^3} \int_{V}^{} f(\textbf{r}) e^{-i \textbf{k}\cdot \textbf{\textbf{r}}}d \textbf{r}
+	P(k_j) = \frac{1}{2\pi}\sum_{i=1}^{N} e^{-i k_j x_{i}} \xi(x_i)
+	\label{eq:DFT}
 \end{align}
-With $V$ the volume of the repeating cube. 
+Though one must think that the repeating function hypothesis is being broken, since of course the universe is not made of repeating blocks of the galaxies that surround us. That the universe is infinitely big and repeating is anassumption that needs to be done in order to calculate this Fourier Transform. In other words, these calculations asume repeating boundary conditions.
 
-In terms of software, the main tools for this work were Cosmic Linear Anisotropy Solving System (CLASS)\cite{class}, Montepython~\cite{montepython}, Rapid foUrier STatIstics COde (RUSTICO)~\cite{rustico} and Bao and Rsd Algorithm for Spectroscopic Surveys (BRASS)~\cite{brass}.
+Another thing to be noted is the fast growing complexity of the algorithm described by \eqref{eq:DFT}, which grows as $N^2$, with $N$ the number of points used for the calculation. 
+
+This 
+
+In terms of software, the main tools for this work were Cosmic Linear Anisotropy Solving System (CLASS)~\cite{class}, Montepython~\cite{montepython}, Rapid foUrier STatIstics COde (RUSTICO)~\cite{rustico} and Bao and Rsd Algorithm for Spectroscopic Surveys (BRASS)~\cite{brass}.
 
 The CLASS library was used for the generation of theoretical BAO power spectrums $P(k)$, for different $\Omega_k$. From these power spectrums, one needs to calculate the $P_\text{smooth}(k)$, $O_{\text{lin}}(k)$ which is done with Montepython. These curves can be understood like the main components of the spectrum $P(k)$. $O_{\text{lin}}(k)$ are the pure Baryon Acoustic Oscillations, and $P_{\text{smooth}}(k)$ is the curve that, when modulated by the $O_{\text{lin}}(k)$ results in the original power spectrum $P(k)$. In other words, 
 \begin{align}
