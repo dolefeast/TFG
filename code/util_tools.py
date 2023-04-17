@@ -78,11 +78,11 @@ def many_files(files, openfiles=None):
                 if len(parameters) == 0:
                     parameters = str(file_name)
                     print(f'\tOpening {parameters}...')
-                param_list.append(get_params(parameters[0]))
+                print(get_params(parameters))
+                param_list.append(get_params(parameters))
                 df_list.append(open_file(file_name))
 
         return [df_list[0], param_list[0]]
-        print('Skipped the return')
 
     for i, file_name in enumerate(files, start=1):
         print(f' [{i}]: \t {file_name}')
@@ -97,7 +97,7 @@ def many_files(files, openfiles=None):
             parameters = p.findall(str(file_name))
             if len(parameters) == 0:
                 parameters = str(file_name)
-            param_list.append(get_params(parameters[0]))
+            param_list.append(get_params(parameters))
         except ValueError:
             print('Opened [Om, OL]:', param_list)
             return df_list, param_list
@@ -110,7 +110,7 @@ def many_files(files, openfiles=None):
             continue
         file_index = input('Choose next file to open: ')
     else:
-        print('Got to the recursive break')
+        print('Opening all displayed files...')
         return many_files(files, openfiles='all')
         print('But not here')
 
