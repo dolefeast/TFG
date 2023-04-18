@@ -32,6 +32,38 @@ In this work, the power spectrum $P(k)$ is considered, which is the Fourier Tran
 \end{align}
 Though one must think that the repeating function hypothesis is being broken, since of course the universe is not made of repeating blocks of the galaxies that surround us. That the universe is infinitely big and repeating is an assumption that needs to be done in order to calculate this Fourier Transform. In other words, these calculations asume periodic boundary conditions.
 
+
+Another thing to be noted is the fast growing complexity of the algorithm described by \eqref{eq:DFT}, which grows as $N^2$, with $N$ the number of points used for the calculation. 
+To solve this one would yous the Fast Fourier Transform (FFT), instead of the DFT. This algorithm is based in the decomposition of the space considered with $N=N_1N_2$ data points, into two smaller spaces with $N_1$ and $N_2$ data points. It then factorizes each problem into smaller problems, and finally only having to compute very simple DFT's. Thus reducing the complexity of the algorithm from $N^2$ to $N\log N$. 
+
+Having vaguely introduced the $P(k)$, it can be now properly defined. Let  $\rho(\textbf{x})$ determine the density of galaxies at a given point. As the interest lays in the fluctuations around the density, it is only natural to be interested in the overdensity $\delta(\textbf{x})$ at some position $\textbf{x}$
+\begin{align}
+	\delta(\textbf{x}) = \frac{\rho\left( \textbf{x} \right) - \overline{\rho}}{\overline{\rho}}
+\end{align}
+From this magnitude one calculates the aforementioned correlation function $\xi(\textbf{r})$\footnote{Note only the dependency on $r = \|\textbf{r}\|$ remains, since the universe is (assumed to be) homogenous and isotropic} as 
+\begin{align}
+	\xi(\textbf{r}) = \left<\delta(\textbf{x}) \delta(\textbf{x}') \right> = \frac{1}{V}\int_{V}^{}  d^3 \textbf{x} \delta(\textbf{x}) \delta\left(\textbf{x} - \textbf{r}  \right) 
+\end{align} with $\textbf{r} = \textbf{x} - \textbf{x}'$
+And the power spectrum is then defined as its Fourier Transform  (En 1, 2, ó 3 dimensiones?)
+
+However, just by observing one cannot calculate the distance at which galaxies are found. What can be used as a measure of the radial distance is the redshift $z$. To do this calculation one then needs three coordinates for each galaxy (as would be expected from a three dimensional universe). These coordinates will be 2 angular coordinates (the declination $\delta$ and right ascension $\alpha$) and a radial coordinate $r$ which must be calculated from $z$. For this it is needed to assume a cosmology.
+
+In terms of software, the main tools for this work were Cosmic Linear Anisotropy Solving System (CLASS)~\cite{class}, Montepython~\cite{montepython}, Rapid foUrier STatIstics COde (RUSTICO)~\cite{rustico} and Bao and Rsd Algorithm for Spectroscopic Surveys (BRASS)~\cite{brass}. \\
+
+The CLASS library was used for the generation of theoretical BAO power spectrums $P(k)$, which will be later explained for different $\Omega_k$. These power spectrums are calculated from a magnitude named the overdensity. 
+From these power spectrums, one needs to calculate the $P_\text{smooth}(k)$, $O_{\text{lin}}(k)$ which is done with Montepython. These curves can be understood like the main components of the spectrum $P(k)$. $O_{\text{lin}}(k)$ are the pure Baryon Acoustic Oscillations, and $P_{\text{smooth}}(k)$ is the curve that, when modulated by the $O_{\text{lin}}(k)$ results in the original power spectrum $P(k)$. More precisely,
+\begin{align}
+	P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
+\end{align}
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../figs/PkOlPsm.pdf}
+	\caption{Graphic representation of the $P(k)$, $P_{smooth}(k)$ and $O_{lin}(k)$}
+	\label{fig:PkOlPsm}
+\end{figure}
+
+The RUSTICO library was used to calculate the power spectra of the galaxies measured by the LRG eBOSS measurements, again as a function of $\Omega_k$. For this, the software takes as an input the LRG eBOSS sample (citar LRG?) 
 Note: Hablar de la sobre densidad (over density)P(k) es la tf de fourier de la delta. La varianza del campo es la media de la sobre densidad al cuadrado. El espectro de potencias es la varianza (como fluctua) el campo de densidad. Medido en el espacio de fourier. Hablamos de  frecuencias espaciales en vez de hablar de longitudes.
 
 Note: Cuando hablemos de RUSTICO convertimos z->d (ley de Hubble). Con cierta cosmología podemos convertir z en r. Usamos rustico para convertir una cantidad observada (z) en r de esfrericas. Teniendo r y teniendo el angulo de cada galaxia (declinacion recta y ascension) (mirar ben) 
@@ -45,27 +77,3 @@ Note: Nos interesa Ok para el z->d
 Note: $https://en.wikipedia.org/wiki/Matter_power_spectrum$
 
 Note: Cuando una función es gaussiana solamente tiene definiad los dos primeros momentos, el resto son 0. Aquí la media es 0, por lo que la única que es no nula es la desviacion tipica (el 2o momento). Los densidades se crearon como campos de densidad gausianos $\implies$ solo hay media y desviación típica. La variancia de la media la llamamos xi en espacio de config y p(k) en espacio de momentos. 
-
-Note: poner en cursiva las revistas a las que se publican las cosas.
-
-Note: Resumir caption: caption[resumen] \{caption entero\}
-
-
-Another thing to be noted is the fast growing complexity of the algorithm described by \eqref{eq:DFT}, which grows as $N^2$, with $N$ the number of points used for the calculation. 
-To solve this one would yous the Fast Fourier Transform (FFT), instead of the DFT. This algorithm is based in the decomposition of the space considered with $N=N_1N_2$ data points, into two smaller spaces with $N_1$ and $N_2$ data points. It then factorizes each problem into smaller problems, and finally only having to compute very simple DFT's. Thus reducing the complexity of the algorithm from $N^2$ to $N\log N$. 
-
-In terms of software, the main tools for this work were Cosmic Linear Anisotropy Solving System (CLASS)~\cite{class}, Montepython~\cite{montepython}, Rapid foUrier STatIstics COde (RUSTICO)~\cite{rustico} and Bao and Rsd Algorithm for Spectroscopic Surveys (BRASS)~\cite{brass}. \\
-
-The CLASS library was used for the generation of theoretical BAO power spectrums $P(k)$, for different $\Omega_k$. From these power spectrums, one needs to calculate the $P_\text{smooth}(k)$, $O_{\text{lin}}(k)$ which is done with Montepython. These curves can be understood like the main components of the spectrum $P(k)$. $O_{\text{lin}}(k)$ are the pure Baryon Acoustic Oscillations, and $P_{\text{smooth}}(k)$ is the curve that, when modulated by the $O_{\text{lin}}(k)$ results in the original power spectrum $P(k)$. In other words, 
-\begin{align}
-	P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
-\end{align}
-
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=0.8\textwidth]{../figs/PkOlPsm.pdf}
-	\caption{Graphic representation of the $P(k)$, $P_{smooth}(k)$ and $O_{lin}(k)$}
-	\label{fig:PkOlPsm}
-\end{figure}
-
-The RUSTICO library was used to calculate the power spectra of the galaxies measured by the LRG eBOSS measurements, again as a function of $\Omega_k$.

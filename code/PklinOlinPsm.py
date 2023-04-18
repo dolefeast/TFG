@@ -33,17 +33,13 @@ fig, ax = plt.subplots(1, 3)
 fig.tight_layout()
 
 ax[0].plot(pklin[0],pklin[1]*Olin[1], color='teal')
-ax[0].set_xlabel('$k [h/Mpc] $')
-ax[0].set_ylabel('$P_{lin}(k) [$')
+[axes.set_xlabel(r'$k [h Mpc^{-1}] $') for axes in ax]
+ax[0].set_ylabel(r'$P_{lin}(k) [Mpc^3 h^{-3}]$')
+ax[1].set_ylabel(r'$P_{smooth}(k) [Mpc^3 h^{-3}]$')
+ax[2].set_ylabel(r'$O_{lin}(k)$')
 
 ax[1].plot(psmooth[0],psmooth[1], color='teal')
 ax[2].plot(Olin[0],Olin[1], color='teal')
 
-#for i, (data, param) in enumerate(zip(df, params)):
-#    print(data)
-#    k_in, pk_in = data[0], data[1]
-#    y = pk_in#util_tools.remove_bao(k_in, pk_in)
-#    ax[i].plot(data[0],y, color='teal')
-#
 plt.savefig('../figs/PkOlPsm.pdf')
 plt.show()
