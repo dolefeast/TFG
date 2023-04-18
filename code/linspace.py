@@ -22,13 +22,17 @@ for data, omega in zip(df, params):
     tag = f'_linspace_Om0{int(100*Om)}_OL0{int(100*OL)}.txt'
     pklin_df = pd.DataFrame([x2.T, y2.T]).T
     print(f'\tPrinting to ...pklin_{tag}')
-    pklin_df.to_csv(f'/home/santi/TFG/outputs_santi/class_outputs/pklin_{tag}', sep='\t', index=False, header=None)
+    pklin_df.to_csv(f'/home/santi/TFG/outputs_santi/linspace_class/pklin_{tag}', sep='\t', index=False, header=None)
     pk_nobao = util_tools.remove_bao(k_in, pk_in)
+    pk_nobao = np.interp(x2, k_in, pk_nobao)
+    pk_nobao_df = pd.DataFrame([x2.T, pk_nobao.T]).T
+    print(f'\tPrinting to... psmlin_{tag}')
+    pk_nobao_df.to_csv(f'/home/santi/TFG/outputs_santi/linspace_class/psmlin_{tag}', sep='\t', index=False, header=None)
     olin = util_tools.calculate_olin(k_in, pk_in)
     olin = np.interp(x2, k_in, olin)
     olin_df = pd.DataFrame([x2.T, olin.T]).T
-    print(f'\tPrinting to ...Olinlin_{tag}')
-    olin_df.to_csv(f'/home/santi/TFG/outputs_santi/class_outputs/Olinlin_{tag}', sep='\t', index=False, header=None)
+    print(f'\tPrinting to ...Olin_{tag}')
+    olin_df.to_csv(f'/home/santi/TFG/outputs_santi/linspace_class/Olin_{tag}', sep='\t', index=False, header=None)
 
 plt.show()
 print('Done!')

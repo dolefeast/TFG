@@ -36,7 +36,6 @@ ax[0].plot(pklin[0],pklin[1]*Olin[1], color='teal')
 ax[0].set_xlabel('$k [h/Mpc] $')
 ax[0].set_ylabel('$P_{lin}(k) [$')
 
-
 ax[1].plot(psmooth[0],psmooth[1], color='teal')
 ax[2].plot(Olin[0],Olin[1], color='teal')
 

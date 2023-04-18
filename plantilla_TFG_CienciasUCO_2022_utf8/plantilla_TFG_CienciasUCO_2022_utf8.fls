@@ -1252,6 +1252,11 @@ INPUT ./methods.tex
 INPUT methods.tex
 INPUT ./methods.tex
 INPUT methods.tex
+INPUT ../figs/PkOlPsm.pdf
+INPUT ../figs/PkOlPsm.pdf
+INPUT ../figs/PkOlPsm.pdf
+INPUT ../figs/PkOlPsm.pdf
+INPUT ../figs/PkOlPsm.pdf
 INPUT ./conclusion.tex
 INPUT ./conclusion.tex
 INPUT ./conclusion.tex

@@ -1,7 +1,7 @@
 \babel@toc {english}{}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces The all-sky map of CMB anisotropies as seen by Space-based Observatory Planck \cite {Planck2018}. The colors in this map represent the fluctuations of the mean T = \SI {2.7}{K} with fluctuations of $10^{-5}$ with respect to the average temperature. Red means higher temperature than the average, whilst blue means lower temperature than the average.}}{8}{figure.1.1}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Different stages of the Baryon Acoustic Oscillations. Courtesy of the image (cite https://lweb.cfa.harvard.edu/~deisenst/acousticpeak/anim.gif)}}{10}{figure.1.2}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces The all-sky map of CMB anisotropies as seen by space-based Observatory Planck}}{8}{figure.1.1}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Different stages of the Baryon Acoustic Oscillations.}}{10}{figure.1.2}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Origin of the BAO}}}{10}{figure.1.2}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {The BAO propagating through the plasma}}}{10}{figure.1.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {The frozen BAO after recombination}}}{10}{figure.1.2}%
@@ -10,3 +10,4 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {The power spectrum as observed by the 2dF collaboration \cite {2dFCole2005}}}}{11}{figure.1.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Graphic representation of the $P(k)$, $P_{smooth}(k)$ and $O_{lin}(k)$}}{18}{figure.3.1}%
