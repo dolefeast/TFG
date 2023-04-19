@@ -96,7 +96,7 @@ def many_files(files, openfiles=None):
             parameters = p.findall(str(file_name))
             if len(parameters) == 0:
                 parameters = str(file_name)
-            param_list.append(get_params(parameters))
+            param_list.append(get_params(parameters[0]))
         except ValueError:
             print('Opened [Om, OL]:', param_list)
             return df_list, param_list

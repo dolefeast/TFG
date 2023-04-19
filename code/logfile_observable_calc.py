@@ -23,7 +23,7 @@ zmax = 0.698
 H0 = 67.6
 rs = 147.784
 
-files = list(Path('/home/santi/TFG/outputs_santi/phase2/logfiles_phase2').glob('*2nd*'))
+files = list(Path('/home/santi/TFG/outputs_santi/phase3/logfiles_phase3').glob('*2nd*'))
 #calculate_observables(*params[0])
 Ok_list = []
 a_para = []
@@ -40,15 +40,16 @@ H = lambda z, Ok, Om=0.31: H0*np.sqrt(Om*(1+z)**3 + Ok*(1+z)**2 + 1-Ok-Om)
 DH_fid = lambda z, Ok: ct.c/1000/H(z, Ok)
 n_points = 500
 Ok_min, Ok_max = min(Ok_list), max(Ok_list)
-Ok_cont = np.linspace(Ok_min, Ok_max,n_points)
+Ok_cont = np.linspace(0, 0,n_points)
 rang = Ok_max - Ok_min
 DC_fid = np.array([sp.integrate.quad(DH_fid, 0, zmax, args=(ok,))[0] for ok in Ok_cont])
 
 def DA(z, Ok, DC, DH):
-    k =  DH/np.sqrt(np.abs(Ok))
     if Ok>0:
+        k =  DH/np.sqrt(np.abs(Ok))
         return k*np.sinh(np.sqrt(Ok)*DC/DH)
     elif Ok<0:
+        k =  DH/np.sqrt(np.abs(Ok))
         return k*np.sin(np.sqrt(np.abs(Ok))*DC/DH)
     elif not Ok:
         return DH
@@ -80,7 +81,7 @@ ax22.plot(Ok_cont, DA_fid/rs, color=color)
 ax1.set_ylabel(r'$\alpha_{\parallel}$'), ax2.set_ylabel(r'$\alpha_{\perp}$')
 ax12.set_ylabel(r'$\left[ D_H/r_s\right]_{fid}$'), ax22.set_ylabel(r'$\left[ D_A/r_s\right]_{fid}$')
 ax13.set_ylabel(r'$D_H/r_s$'), ax23.set_ylabel(r'$D_A/r_s$')
-ax13.set_xlabel(r'$\left[ \Omega_k\right]^{fid\, 1}$'), ax23.set_xlabel(r'$\left[ \Omega_k\right]^{fid \,1}$')
+ax13.set_xlabel(r'$\left[ \Omega_k\right]^{fid\, 2}$'), ax23.set_xlabel(r'$\left[ \Omega_k\right]^{fid \,2}$')
 plt.tight_layout()
-plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pdf')
+plt.savefig('/home/santi/TFG/figs/phase3_DA_DH_flat.pdf')
 plt.show()
