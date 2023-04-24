@@ -4,9 +4,9 @@ import util_tools
 from pathlib import Path
 import pandas as pd
 
-files = list(Path('/home/santi/TFG/DATA/rustico_output').glob('Power_*'))
+files = list(Path('/home/santi/TFG/outputs_santi/rustico/').glob('Power_*'))
 #file_name = util_tools.select_files(files)
-kmin, kmax = (0., 0.16)
+kmin, kmax = (0., 0.45)
 
 print('Elige los datos santi')
 df_list_santi, param_list_santi = util_tools.many_files(files)

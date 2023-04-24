@@ -23,7 +23,7 @@ zmax = 0.698
 H0 = 67.6
 rs = 147.784
 
-files = list(Path('/home/santi/TFG/outputs_santi/phase3/logfiles_phase3').glob('*2nd*'))
+files = list(Path('/home/santi/TFG/outputs_santi/phase4/logfiles_phase4').glob('*2nd*'))
 #calculate_observables(*params[0])
 Ok_list = []
 a_para = []
@@ -83,5 +83,5 @@ ax12.set_ylabel(r'$\left[ D_H/r_s\right]_{fid}$'), ax22.set_ylabel(r'$\left[ D_A
 ax13.set_ylabel(r'$D_H/r_s$'), ax23.set_ylabel(r'$D_A/r_s$')
 ax13.set_xlabel(r'$\left[ \Omega_k\right]^{fid\, 2}$'), ax23.set_xlabel(r'$\left[ \Omega_k\right]^{fid \,2}$')
 plt.tight_layout()
-plt.savefig('/home/santi/TFG/figs/phase3_DA_DH_flat.pdf')
+plt.savefig('/home/santi/TFG/figs/phase4_DA_DH_flat.pdf')
 plt.show()

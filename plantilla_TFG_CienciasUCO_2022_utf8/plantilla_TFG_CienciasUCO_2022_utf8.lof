@@ -10,8 +10,5 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {The power spectrum as observed by the 2dF collaboration \cite {2dFCole2005}}}}{11}{figure.1.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The power spectrum $P(k)$ of the LRG eBOSS catalogue as calculated by RUSTICO ($\Omega _k = 0.0$)(está aquí bien metido?)}}{18}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphic representation of the $P(k)$, $P_{smooth}(k)$ and $O_{lin}(k)$ for $\Omega _k = 0$.}}{18}{figure.3.2}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {The power spectrum $P(k)$.}}}{18}{figure.3.2}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {The smoothed power spectrum $P_{\text {smooth}}(k)$.}}}{18}{figure.3.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {The isolated BAO $O_{\text {lin}}(k)$}}}{18}{figure.3.2}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The power spectrum $P(k)$ of the LRG eBOSS~\cite {eBoss} catalogue as calculated by RUSTICO ($\Omega _k = 0.0$)}}{19}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphic representation of the $P(k)$ (left panel), $P_{smooth}(k)$ (middle panel) and $O_{lin}(k)$ (right panel)for $\Omega _k = 0$.}}{19}{figure.3.2}%
