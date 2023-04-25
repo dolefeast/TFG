@@ -14,8 +14,8 @@
 \contentsline {section}{\numberline {1.5}$\Lambda $ Cold Dark Matter model}{13}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Objectives}{15}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Methods and materials.}{16}{chapter.3}%
-\contentsline {chapter}{Conclusiones}{20}{chapter*.9}%
-\contentsline {chapter}{Conclusions}{21}{chapter*.10}%
-\contentsline {chapter}{Bibliografía}{22}{chapter*.10}%
-\contentsline {chapter}{Anexo: Ejemplo para introducir código Matlab}{24}{appendix*.12}%
-\contentsline {chapter}{Anexo: Ejemplo para introducir código ISE}{25}{appendix*.13}%
+\contentsline {chapter}{Conclusiones}{21}{chapter*.9}%
+\contentsline {chapter}{Conclusions}{22}{chapter*.10}%
+\contentsline {chapter}{Bibliografía}{23}{chapter*.10}%
+\contentsline {chapter}{Anexo: Ejemplo para introducir código Matlab}{25}{appendix*.12}%
+\contentsline {chapter}{Anexo: Ejemplo para introducir código ISE}{26}{appendix*.13}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  24 APR 2023 12:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  25 APR 2023 17:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -886,15 +886,15 @@ File: ../figs/Olin.png Graphic file (type png)
 <use ../figs/Olin.png>
 Package pdftex.def Info: ../figs/Olin.png  used on input line 80.
 (pdftex.def)             Requested size: 136.57462pt x 102.4287pt.
-[18]) [19 <../figs/Pkrustico.png> <../figs/Pklin.png> <../figs/Psm.png> <../figs/Olin.png>]
+[18] [19 <../figs/Pkrustico.png> <../figs/Pklin.png> <../figs/Psm.png> <../figs/Olin.png>]) [20]
 \openout2 = `conclusion.aux'.
 
- (./conclusion.tex [20
+ (./conclusion.tex [21
 
 
 
 
-]) [21
+]) [22
 
 ]
 \openout2 = `bibliografia.aux'.
@@ -908,15 +908,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 []\T1/cmr/m/n/12 S. Alam \T1/cmr/m/it/12 et al. \T1/cmr/m/n/12 [eBOSS], Phys. Rev. D \T1/cmr/bx/n/12 103\T1/cmr/m/n/12 , no.8, 083533 (2021)
  []
 
-[22
+[23
 
 
 
 
-]) [23]
+]) [24]
 \openout2 = `anexo1.aux'.
 
- (./anexo1.tex) [24
+ (./anexo1.tex) [25
 
 
 
@@ -924,7 +924,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 ]
 \openout2 = `anexo2.aux'.
 
- (./anexo2.tex) [25
+ (./anexo2.tex) [26
 
 
 
@@ -934,8 +934,8 @@ Package rerunfilecheck Info: File `plantilla_TFG_CienciasUCO_2022_utf8.out' has 
 (rerunfilecheck)             Checksum: 94F51DC9D2A921E64CB16082870D6EDF;1136.
  ) 
 Here is how much of TeX's memory you used:
- 24233 strings out of 479304
- 452690 string characters out of 5869778
+ 24234 strings out of 479304
+ 452697 string characters out of 5869778
  830475 words of memory out of 5000000
  40702 multiletter control sequences out of 15000+600000
  433817 words of font info for 100 fonts, out of 8000000 for 9000
@@ -943,10 +943,10 @@ Here is how much of TeX's memory you used:
  118i,17n,119p,881b,1748s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pf
 b></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (26 pages, 1287362 bytes).
+Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (27 pages, 1295965 bytes).
 PDF statistics:
- 597 PDF objects out of 1000 (max. 8388607)
- 507 compressed objects within 6 object streams
- 164 named destinations out of 1000 (max. 500000)
+ 601 PDF objects out of 1000 (max. 8388607)
+ 510 compressed objects within 6 object streams
+ 165 named destinations out of 1000 (max. 500000)
  217 words of extra memory for PDF output out of 10000 (max. 10000000)
 

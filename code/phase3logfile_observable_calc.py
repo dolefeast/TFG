@@ -94,8 +94,8 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
 #                 color=color) 
 
 
-axes[1,0].plot(Ok_cont, DH_fid(zmax, 0*Ok_cont)/rs, color=color) #Multiply by 0 is phase3
-axes[1,1].plot(Ok_cont, DA(zmax, 0*Ok_cont)/rs, color=color)
+axes[1,0].plot(*Ok_cont, np.ones(Ok_cont)*DH_fid(zmax, 0)/rs, color=color) #Multiply by 0 is phase3
+axes[1,1].plot(*Ok_cont, DA(zmax, 0)/rs, color=color)
 axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize), axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
 axes[1,0].set_ylabel(r'$\left[ D_H/r_s\right]_{fid}$', fontsize=fontsize), axes[1,1].set_ylabel(r'$\left[ D_A/r_s\right]_{fid}$', fontsize=fontsize)
 axes[2,0].set_ylabel(r'$D_H/r_s$', fontsize=fontsize), axes[2,1].set_ylabel(r'$D_A/r_s$', fontsize=fontsize)

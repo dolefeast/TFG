@@ -95,4 +95,10 @@ To split the power spectrum $P(k)$ into these two functions, the routine \textit
 
 The relationship between the data and the model is done through the Bao and RSD Algorithm for Spectroscopy Surveys (BRASS)~\cite{brass}. This software allows for the calculation of the $\alpha$ parameters, as defined by \eqref{eq:alphas-def}. BRASS takes as input the calculated power spectrum (given by RUSTICO) for some  fiducial cosmology, and the theoretic power spectrum for some other fiducial cosmology. It will return among many other fit parameters, the $\alpha_\parallel$ and $\alpha_\perp$ parameters along with their standard deviations that will allow the calculation of the observables $D_H/r_s$ and $D_A /r_s$.
 
-All of these calculations were done thanks to the clusters to which I was granted access to in Universidad de Córdoba. (Preguntar por los specs del cluster a Alberto)
+All of these calculations were done thanks to the clusters to which I was granted access to in Universidad de Córdoba. The hardware used (FQM-378) had the following specifications:
+\begin{itemize}
+	\item One node, named Pauli
+	\item One CPU per node, \textit{Intel(R) Xeon(R) Silver 4210R CPU @ 2.40 GHz} with 40 threads
+	\item 64Gb memory
+	\item Operative System: Ubuntu 22.04.2 LTS, release 22.04, codename \textit{jammy}
+\end{itemize}
