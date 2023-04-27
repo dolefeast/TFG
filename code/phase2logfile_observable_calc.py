@@ -21,7 +21,7 @@ zmax = 0.698
 H0 = 67.6
 rs = 147.784
 
-files = list(Path('/home/santi/TFG/outputs_santi/phase3/logfiles_phase3').glob('*2nd*'))
+files = list(Path('/home/santi/TFG/outputs_santi/phase2/logfiles_phase3').glob('*2nd*'))
 #calculate_observables(*params[0])
 Ok_list = []
 a_para = []
@@ -94,12 +94,12 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
 #                 color=color) 
 
 
-axes[1,0].plot(Ok_cont, DH_fid(zmax, 0*Ok_cont)/rs, color=color) #Multiply by 0 is phase3
+axes[1,0].plot(Ok_cont, DH_fid(zmax, 0*Ok_cont)/rs, color=color) #Multiply by 0 is phase2
 axes[1,1].plot(Ok_cont, DA(zmax, 0*Ok_cont)/rs, color=color)
 axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize), axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
 axes[1,0].set_ylabel(r'$\left[ D_H/r_s\right]_{fid}$', fontsize=fontsize), axes[1,1].set_ylabel(r'$\left[ D_A/r_s\right]_{fid}$', fontsize=fontsize)
 axes[2,0].set_ylabel(r'$D_H/r_s$', fontsize=fontsize), axes[2,1].set_ylabel(r'$D_A/r_s$', fontsize=fontsize)
 axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid\, 2}$', fontsize=fontsize), axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid \,2}$', fontsize=fontsize)
 plt.tight_layout()
-plt.savefig('/home/santi/TFG/figs/phase3_DA_DH_flat.pdf')
-plt.show()
+plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pdf')
+#plt.show()

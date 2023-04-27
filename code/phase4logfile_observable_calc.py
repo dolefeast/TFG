@@ -21,7 +21,7 @@ zmax = 0.698
 H0 = 67.6
 rs = 147.784
 
-files = list(Path('/home/santi/TFG/outputs_santi/phase3/logfiles_phase3').glob('*2nd*'))
+files = list(Path('/home/santi/TFG/outputs_santi/phase4/logfiles_phase4').glob('*2nd*'))
 #calculate_observables(*params[0])
 Ok_list = []
 a_para = []
@@ -40,19 +40,36 @@ Ok_rang = Ok_max - Ok_min
 H = lambda z, Ok, Om=0.31: H0*np.sqrt(Om*(1+z)**3 + Ok*(1+z)**2 + 1-Ok-Om)
 DH_fid = lambda z, Ok: ct.c/1000/H(z, Ok)
 DC_fid = lambda z, Ok: sp.integrate.quad(DH_fid, 0, z, args=(Ok,))[0] 
+def DC_fid(z, Ok):
+    try:
+        len(Ok)
+        result_array = []
+        for ok in Ok:
+            result_array.append(DC_fid(z, ok))
+        return np.array(result_array)
+
+    except TypeError: 
+        return sp.integrate.quad(DH_fid, 0, z, args=(Ok,))[0] 
 #DC_fid = np.array([sp.integrate.quad(DH_fid, 0, zmax, args=(ok,))[0] for ok in Ok_cont])
 
 def DA(z, Ok):
-    DC = DC_fid(z, Ok)
-    DH = DH_fid(z, Ok)
-    if Ok>0:
-        k =  DH/np.sqrt(Ok)
-        return k*np.sinh(np.sqrt(Ok)*DC/DH)
-    elif Ok<0:
-        k =  DH/np.sqrt(np.abs(Ok))
-        return k*np.sin(np.sqrt(np.abs(Ok))*DC/DH)
-    elif not Ok:
-        return DH
+    try:
+        len(Ok)
+        result_array = []
+        for ok in Ok:
+            result_array.append(DC_fid(z, ok))
+        return np.array(result_array)
+    except TypeError: 
+        DC = DC_fid(z, Ok)
+        DH = DH_fid(z, Ok)
+        if Ok>0:
+            k =  DH/np.sqrt(Ok)
+            return k*np.sinh(np.sqrt(Ok)*DC/DH)
+        elif Ok<0:
+            k =  DH/np.sqrt(np.abs(Ok))
+            return k*np.sin(np.sqrt(np.abs(Ok))*DC/DH)
+        elif not Ok:
+            return DC
 
 #---Changing z->d (phase 2)
 #DA_fid = np.array([DA(zmax, Ok, DC) for Ok, DC in zip(Ok_cont, DC_fid)])
@@ -85,7 +102,7 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
     #             elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
     #             color=color) 
     #Changing template 
-    axes[2,1].errorbar(Ok, DA(zmax, 0)*aperp[0]/rs,  yerr=DA(zmax, 0)*aperp[1]/rs, fmt='x', 
+    axes[2,1].errorbar(Ok, DA(zmax, Ok)*aperp[0]/rs,  yerr=DA(zmax, 0)*aperp[1]/rs, fmt='x', 
                  elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
                  color=color) 
 #    idx = max(-1+int(n_points*(Ok-Ok_min)/Ok_rang), 0)
@@ -94,12 +111,12 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
 #                 color=color) 
 
 
-axes[1,0].plot(Ok_cont, DH_fid(zmax, 0*Ok_cont)/rs, color=color) #Multiply by 0 is phase3
-axes[1,1].plot(Ok_cont, DA(zmax, 0*Ok_cont)/rs, color=color)
+axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs, color=color) #Multiply by 0 is phase4
+axes[1,1].plot(Ok_cont, DA(zmax, Ok_cont)/rs, color=color)
 axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize), axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
 axes[1,0].set_ylabel(r'$\left[ D_H/r_s\right]_{fid}$', fontsize=fontsize), axes[1,1].set_ylabel(r'$\left[ D_A/r_s\right]_{fid}$', fontsize=fontsize)
 axes[2,0].set_ylabel(r'$D_H/r_s$', fontsize=fontsize), axes[2,1].set_ylabel(r'$D_A/r_s$', fontsize=fontsize)
 axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid\, 2}$', fontsize=fontsize), axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid \,2}$', fontsize=fontsize)
 plt.tight_layout()
-plt.savefig('/home/santi/TFG/figs/phase3_DA_DH_flat.pdf')
+plt.savefig('/home/santi/TFG/figs/phase4_DA_DH_flat.pdf')
 plt.show()

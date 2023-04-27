@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  25 APR 2023 17:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  27 APR 2023 18:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -612,7 +612,7 @@ Package: l3keys2e 2020-10-27 LaTeX2e option processing using LaTeX3 keys
 \l__siunitx_table_text_align_skip=\skip79
  (/usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
 Package: translator 2020-08-03 v1.12c Easy translation of strings in LaTeX
-)) (./plantilla_TFG_CienciasUCO_2022_utf8.aux (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./objetivos.aux) (./methods.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
+)) (./plantilla_TFG_CienciasUCO_2022_utf8.aux (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./objetivos.aux) (./methods.aux) (./results.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
 \openout1 = `plantilla_TFG_CienciasUCO_2022_utf8.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
@@ -716,12 +716,12 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./portada.tex
-<logo_ciencias.png, id=78, 157.5486pt x 157.5486pt>
+<logo_ciencias.png, id=82, 157.5486pt x 157.5486pt>
 File: logo_ciencias.png Graphic file (type png)
 <use logo_ciencias.png>
 Package pdftex.def Info: logo_ciencias.png  used on input line 23.
 (pdftex.def)             Requested size: 170.71652pt x 170.71729pt.
-<fondo_portada.png, id=80, 578.16pt x 831.105pt>
+<fondo_portada.png, id=84, 578.16pt x 831.105pt>
 File: fondo_portada.png Graphic file (type png)
 <use fondo_portada.png>
 Package pdftex.def Info: fondo_portada.png  used on input line 27.
@@ -775,24 +775,82 @@ l.70 \include{agradecimientos}
 
  (./capitulo1.tex
 Chapter 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--13
+
+ []
+
 [7
 
 
 
 
 ]
-<../figs/cmb.jpeg, id=176, 1084.05pt x 548.0475pt>
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+<../figs/cmb.jpeg, id=184, 1084.05pt x 548.0475pt>
 File: ../figs/cmb.jpeg Graphic file (type jpg)
 <use ../figs/cmb.jpeg>
 Package pdftex.def Info: ../figs/cmb.jpeg  used on input line 20.
 (pdftex.def)             Requested size: 364.19667pt x 184.11761pt.
- [8 <../figs/cmb.jpeg>]
-<baogif1.png, id=195, 572.1375pt x 451.6875pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--30
+
+ []
+
+[8 <../figs/cmb.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 38--39
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--42
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
+
+ []
+
+<baogif1.png, id=203, 572.1375pt x 451.6875pt>
 File: baogif1.png Graphic file (type png)
 <use baogif1.png>
 Package pdftex.def Info: baogif1.png  used on input line 50.
 (pdftex.def)             Requested size: 136.57462pt x 107.82137pt.
-<baogif2.png, id=196, 572.1375pt x 451.6875pt>
+<baogif2.png, id=204, 572.1375pt x 451.6875pt>
 File: baogif2.png Graphic file (type png)
 <use baogif2.png>
 Package pdftex.def Info: baogif2.png  used on input line 51.
@@ -802,23 +860,97 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []\T1/cmr/m/n/10 (b) The BAO prop-a-gat-ing
  []
 
-<baogif3.png, id=197, 572.1375pt x 451.6875pt>
+<baogif3.png, id=205, 572.1375pt x 451.6875pt>
 File: baogif3.png Graphic file (type png)
 <use baogif3.png>
 Package pdftex.def Info: baogif3.png  used on input line 52.
 (pdftex.def)             Requested size: 136.57462pt x 107.82137pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
 [9]
-<../figs/sdss_xi.png, id=214, 466.74374pt x 426.84468pt>
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--65
+
+ []
+
+[10 <./baogif1.png> <./baogif2.png> <./baogif3.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+<../figs/sdss_xi.png, id=232, 466.74374pt x 426.84468pt>
 File: ../figs/sdss_xi.png Graphic file (type png)
 <use ../figs/sdss_xi.png>
 Package pdftex.def Info: ../figs/sdss_xi.png  used on input line 74.
 (pdftex.def)             Requested size: 182.09486pt x 166.52737pt.
-<../figs/2df_pk.png, id=217, 331.99031pt x 273.27094pt>
+<../figs/2df_pk.png, id=235, 331.99031pt x 273.27094pt>
 File: ../figs/2df_pk.png Graphic file (type png)
 <use ../figs/2df_pk.png>
 Package pdftex.def Info: ../figs/2df_pk.png  used on input line 76.
 (pdftex.def)             Requested size: 182.09486pt x 149.88666pt.
- [10 <./baogif1.png> <./baogif2.png> <./baogif3.png>] [11 <../figs/sdss_xi.png (PNG copy)> <../figs/2df_pk.png (PNG copy)>] [12]
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--89
+
+ []
+
+[11 <../figs/sdss_xi.png (PNG copy)> <../figs/2df_pk.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 94--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 117--119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--138
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--148
+
+ []
+
+[13]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 162.
@@ -831,12 +963,27 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 162.
 
-[13]) [14]
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+
+ []
+
+[14]) [15]
 \openout2 = `objetivos.aux'.
 
  (./objetivos.tex
 Chapter 2.
-) [15
+) [16
 
 
 
@@ -856,45 +1003,129 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
-[16
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+[17
 
 
 
 
-] [17]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 32--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 36--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--49
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 53--54
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--64
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 65--67
 
  []
 
-<../figs/Pkrustico.png, id=327, 489.2679pt x 304.2567pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--67
+
+ []
+
+<../figs/Pkrustico.png, id=340, 1156.32pt x 650.43pt>
 File: ../figs/Pkrustico.png Graphic file (type png)
 <use ../figs/Pkrustico.png>
 Package pdftex.def Info: ../figs/Pkrustico.png  used on input line 71.
-(pdftex.def)             Requested size: 364.19667pt x 226.48349pt.
-<../figs/Pklin.png, id=330, 462.528pt x 346.896pt>
+(pdftex.def)             Requested size: 364.19667pt x 204.85675pt.
+<../figs/Pklin.png, id=343, 462.528pt x 346.896pt>
 File: ../figs/Pklin.png Graphic file (type png)
 <use ../figs/Pklin.png>
 Package pdftex.def Info: ../figs/Pklin.png  used on input line 78.
 (pdftex.def)             Requested size: 136.57462pt x 102.4287pt.
-<../figs/Psm.png, id=331, 462.528pt x 346.896pt>
+<../figs/Psm.png, id=344, 462.528pt x 346.896pt>
 File: ../figs/Psm.png Graphic file (type png)
 <use ../figs/Psm.png>
 Package pdftex.def Info: ../figs/Psm.png  used on input line 79.
 (pdftex.def)             Requested size: 136.57462pt x 102.4287pt.
-<../figs/Olin.png, id=332, 462.528pt x 346.896pt>
+<../figs/Olin.png, id=345, 462.528pt x 346.896pt>
 File: ../figs/Olin.png Graphic file (type png)
 <use ../figs/Olin.png>
 Package pdftex.def Info: ../figs/Olin.png  used on input line 80.
 (pdftex.def)             Requested size: 136.57462pt x 102.4287pt.
-[18] [19 <../figs/Pkrustico.png> <../figs/Pklin.png> <../figs/Psm.png> <../figs/Olin.png>]) [20]
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+[20 <../figs/Pkrustico.png> <../figs/Pklin.png> <../figs/Psm.png> <../figs/Olin.png>]) [21]
+\openout2 = `results.aux'.
+
+ (./results.tex
+Chapter 4.
+<../figs/phase2_DA_DH_flat.pdf, id=382, 722.7pt x 505.89pt>
+File: ../figs/phase2_DA_DH_flat.pdf Graphic file (type pdf)
+<use ../figs/phase2_DA_DH_flat.pdf>
+Package pdftex.def Info: ../figs/phase2_DA_DH_flat.pdf  used on input line 7.
+(pdftex.def)             Requested size: 364.19667pt x 254.93593pt.
+) [22
+
+
+
+
+] [23 <../figs/phase2_DA_DH_flat.pdf>]
 \openout2 = `conclusion.aux'.
 
- (./conclusion.tex [21
+ (./conclusion.tex
+
+LaTeX Warning: Reference `sec:met-mat' on page 24 undefined on input line 4.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+
+ []
+
+[24
 
 
 
 
-]) [22
+]) [25
 
 ]
 \openout2 = `bibliografia.aux'.
@@ -908,15 +1139,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 []\T1/cmr/m/n/12 S. Alam \T1/cmr/m/it/12 et al. \T1/cmr/m/n/12 [eBOSS], Phys. Rev. D \T1/cmr/bx/n/12 103\T1/cmr/m/n/12 , no.8, 083533 (2021)
  []
 
-[23
+[26
 
 
 
 
-]) [24]
+]) [27]
 \openout2 = `anexo1.aux'.
 
- (./anexo1.tex) [25
+ (./anexo1.tex) [28
 
 
 
@@ -924,29 +1155,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 ]
 \openout2 = `anexo2.aux'.
 
- (./anexo2.tex) [26
+ (./anexo2.tex) [29
 
 
 
 
-] (./plantilla_TFG_CienciasUCO_2022_utf8.aux (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./objetivos.aux) (./methods.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
+] (./plantilla_TFG_CienciasUCO_2022_utf8.aux (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./objetivos.aux) (./methods.aux) (./results.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `plantilla_TFG_CienciasUCO_2022_utf8.out' has not changed.
-(rerunfilecheck)             Checksum: 94F51DC9D2A921E64CB16082870D6EDF;1136.
+(rerunfilecheck)             Checksum: 67BE86CA48B8F78538C5B072F9AC1213;1179.
  ) 
 Here is how much of TeX's memory you used:
- 24234 strings out of 479304
- 452697 string characters out of 5869778
+ 24259 strings out of 479304
+ 453104 string characters out of 5869778
  830475 words of memory out of 5000000
- 40702 multiletter control sequences out of 15000+600000
+ 40713 multiletter control sequences out of 15000+600000
  433817 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 118i,17n,119p,881b,1748s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pf
-b></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (27 pages, 1295965 bytes).
+ 118i,17n,119p,974b,1748s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-supe
+r/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1440.pfb>
+Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (30 pages, 1431647 bytes).
 PDF statistics:
- 601 PDF objects out of 1000 (max. 8388607)
- 510 compressed objects within 6 object streams
- 165 named destinations out of 1000 (max. 500000)
- 217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 652 PDF objects out of 1000 (max. 8388607)
+ 556 compressed objects within 6 object streams
+ 171 named destinations out of 1000 (max. 500000)
+ 230 words of extra memory for PDF output out of 10000 (max. 10000000)
 

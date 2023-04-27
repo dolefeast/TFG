@@ -4,6 +4,7 @@ import numpy as np
 import scipy as sp
 import matplotlib.pyplot as plt
 from pathlib import Path
+plt.style.use('fivethirtyeight')
 plt.rc('lines', linewidth=2.5)
 #matplotlib.use('pgf') #Saves the output as pgf
 plt.rcParams['axes.unicode_minus'] = False #Latex format stuff
@@ -23,6 +24,7 @@ psmooth, params = util_tools.many_files(list(psmooth))
 Olin, params = util_tools.many_files(list(Olin))
 
 h = 0.676
+kmin = 0.02
 kmax = 0.51
 fontsize = 28
 
@@ -31,13 +33,16 @@ for i, data in enumerate([pklin, psmooth, Olin]):
     ax.spines['top'].set_visible(False), ax.spines['right'].set_visible(False)
     ax.set_xscale('log'), ax.set_yscale('log')
     fig.set_tight_layout(True)
-    idx = np.where(data[0]<=kmax)
+    idx = np.where(np.logical_and(data[0]<=kmax, data[0]>=kmin))
     x, y = np.array(data[0]), np.array(data[1])
     x = x[idx]
     y = y[idx]
 
     ax.plot(x, y, color='teal')
+    ax.axhline(y=min(y), color='black', linewidth=1.3, alpha=0.7)
+    ax.axvline(x=kmin, color='black', linewidth=1.3, alpha=0.7)
     ax.set_xlabel(r'$k [h $Mpc$^{-1}] $', fontsize=fontsize) 
+    #ax.xaxis.set_ticks((kmin, kmax))
     if i==0:
         ax.set_ylabel(r'$P(k) [$Mpc$^3 h^{-3}]$', fontsize=fontsize)
         plt.savefig('../figs/Pklin.png')

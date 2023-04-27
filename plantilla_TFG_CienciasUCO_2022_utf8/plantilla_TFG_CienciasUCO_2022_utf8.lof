@@ -10,5 +10,7 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {The power spectrum as observed by the 2dF collaboration \cite {2dFCole2005}}}}{11}{figure.1.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The power spectrum $P(k)$ of the LRG eBOSS~\cite {eBoss} catalogue as calculated by RUSTICO ($\Omega _k = 0.0$)}}{19}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphic representation of the $P(k)$ (left panel), $P_{smooth}(k)$ (middle panel) and $O_{lin}(k)$ (right panel)for $\Omega _k = 0$.}}{19}{figure.3.2}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The power spectrum $P(k)$ of the LRG eBOSS~\cite {eBoss} catalogue as calculated by RUSTICO ($\Omega _k = 0.00$)}}{20}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphic representation of the $P(k)$ (left panel), $P_{smooth}(k)$ (middle panel) and $O_{lin}(k)$ (right panel)for $\Omega _k = 0$.}}{20}{figure.3.2}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Calculations of the different observables $D_H /r_s$, $D_A /r_s$, both the fiducial quantities and their actual values for each fiducial curvature parameter $\Omega _k$.}}{23}{figure.4.1}%
