@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  27 APR 2023 18:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  27 APR 2023 18:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -994,17 +994,17 @@ Chapter 2.
  (./methods.tex
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 18--19
+Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
@@ -1014,72 +1014,72 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 32--34
+Underfull \hbox (badness 10000) in paragraph at lines 33--35
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--38
+Underfull \hbox (badness 10000) in paragraph at lines 37--39
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--49
+Underfull \hbox (badness 10000) in paragraph at lines 48--50
 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 53--54
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--64
+Underfull \hbox (badness 10000) in paragraph at lines 62--65
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--67
+Underfull \hbox (badness 10000) in paragraph at lines 66--68
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--67
+Underfull \hbox (badness 10000) in paragraph at lines 66--68
 
  []
 
 <../figs/Pkrustico.png, id=340, 1156.32pt x 650.43pt>
 File: ../figs/Pkrustico.png Graphic file (type png)
 <use ../figs/Pkrustico.png>
-Package pdftex.def Info: ../figs/Pkrustico.png  used on input line 71.
+Package pdftex.def Info: ../figs/Pkrustico.png  used on input line 72.
 (pdftex.def)             Requested size: 364.19667pt x 204.85675pt.
 <../figs/Pklin.png, id=343, 462.528pt x 346.896pt>
 File: ../figs/Pklin.png Graphic file (type png)
 <use ../figs/Pklin.png>
-Package pdftex.def Info: ../figs/Pklin.png  used on input line 78.
+Package pdftex.def Info: ../figs/Pklin.png  used on input line 79.
 (pdftex.def)             Requested size: 136.57462pt x 102.4287pt.
 <../figs/Psm.png, id=344, 462.528pt x 346.896pt>
 File: ../figs/Psm.png Graphic file (type png)
 <use ../figs/Psm.png>
-Package pdftex.def Info: ../figs/Psm.png  used on input line 79.
+Package pdftex.def Info: ../figs/Psm.png  used on input line 80.
 (pdftex.def)             Requested size: 136.57462pt x 102.4287pt.
 <../figs/Olin.png, id=345, 462.528pt x 346.896pt>
 File: ../figs/Olin.png Graphic file (type png)
 <use ../figs/Olin.png>
-Package pdftex.def Info: ../figs/Olin.png  used on input line 80.
+Package pdftex.def Info: ../figs/Olin.png  used on input line 81.
 (pdftex.def)             Requested size: 136.57462pt x 102.4287pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
 
  []
 
 [19]
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
@@ -1102,10 +1102,6 @@ Package pdftex.def Info: ../figs/phase2_DA_DH_flat.pdf  used on input line 7.
 \openout2 = `conclusion.aux'.
 
  (./conclusion.tex
-
-LaTeX Warning: Reference `sec:met-mat' on page 24 undefined on input line 4.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
  []
@@ -1161,9 +1157,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 
 
 ] (./plantilla_TFG_CienciasUCO_2022_utf8.aux (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./objetivos.aux) (./methods.aux) (./results.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `plantilla_TFG_CienciasUCO_2022_utf8.out' has not changed.
 (rerunfilecheck)             Checksum: 67BE86CA48B8F78538C5B072F9AC1213;1179.
  ) 
@@ -1174,13 +1167,13 @@ Here is how much of TeX's memory you used:
  40713 multiletter control sequences out of 15000+600000
  433817 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 118i,17n,119p,974b,1748s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 118i,17n,119p,966b,1748s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-supe
 r/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (30 pages, 1431647 bytes).
+Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (30 pages, 1431858 bytes).
 PDF statistics:
- 652 PDF objects out of 1000 (max. 8388607)
- 556 compressed objects within 6 object streams
+ 653 PDF objects out of 1000 (max. 8388607)
+ 557 compressed objects within 6 object streams
  171 named destinations out of 1000 (max. 500000)
  230 words of extra memory for PDF output out of 10000 (max. 10000000)
 
