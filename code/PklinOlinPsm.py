@@ -4,7 +4,7 @@ import numpy as np
 import scipy as sp
 import matplotlib.pyplot as plt
 from pathlib import Path
-plt.style.use('fivethirtyeight')
+#plt.style.use('fivethirtyeight')
 plt.rc('lines', linewidth=2.5)
 #matplotlib.use('pgf') #Saves the output as pgf
 plt.rcParams['axes.unicode_minus'] = False #Latex format stuff
@@ -39,14 +39,23 @@ for i, data in enumerate([pklin, psmooth, Olin]):
     y = y[idx]
 
     ax.plot(x, y, color='teal')
-    ax.axhline(y=min(y), color='black', linewidth=1.3, alpha=0.7)
-    ax.axvline(x=kmin, color='black', linewidth=1.3, alpha=0.7)
+#    ax.axhline(y=min(y), color='black', linewidth=1.3, alpha=0.7)
+#    ax.axvline(x=kmin, color='black', linewidth=1.3, alpha=0.7)
     ax.set_xlabel(r'$k [h $Mpc$^{-1}] $', fontsize=fontsize) 
-    #ax.xaxis.set_ticks((kmin, kmax))
+    ax.set_xticks((0.05, 1e-1, 0.45))
+    ax.set_xticklabels((0.05, 1e-1, 0.45), fontsize=fontsize)
+    yticks = np.linspace(min(y), max(y), 4)
+
     if i==0:
+        yticks = [int(x) for x in np.round(yticks, -2)]
+        ax.set_yticks(yticks)
+        ax.set_yticklabels(yticks, fontsize=fontsize/1.3)
         ax.set_ylabel(r'$P(k) [$Mpc$^3 h^{-3}]$', fontsize=fontsize)
         plt.savefig('../figs/Pklin.png')
     elif i==1:
+        yticks = [int(x) for x in np.round(yticks, -2)]
+        ax.set_yticks(yticks)
+        ax.set_yticklabels(yticks, fontsize=fontsize/1.3)
         ax.set_ylabel(r'$P_{smooth}(k) [$Mpc$^3 h^{-3}]$', fontsize=fontsize)
         plt.savefig('../figs/Psm.png')
     else:

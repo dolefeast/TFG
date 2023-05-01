@@ -3,7 +3,7 @@ import numpy as np
 import util_tools
 from pathlib import Path
 import pandas as pd
-plt.style.use('fivethirtyeight')
+#plt.style.use('fivethirtyeight')
 plt.rc('lines', linewidth=1.7)
 import matplotlib
 #matplotlib.use('pgf') #Saves the output as pgf
@@ -35,8 +35,11 @@ for data, params in zip(df_list, param_list):
 
 ax.set_ylabel('$P(k)[ h^{-3}$Mpc$^3]$', fontsize=fontsize)#, ax2.set_title('$k*P_2(k)$')
 ax.set_xlabel('$k[h$Mpc$^{-1} ]$', fontsize=fontsize)#, ax2.set_title('$k*P_2(k)$')
-ax.axhline(y=min(P0), color='black', linewidth=1.3, alpha=0.7)
-ax.axvline(x=min(kk), color='black', linewidth=1.3, alpha=0.7)
+ax.set_xticks((0.01, 0.05, 1e-1, 0.45))
+ax.set_xticklabels((0.01, 0.05, 1e-1, 0.45), fontsize=fontsize)
+yticks = (2600, 12500, 25000, 50000, 75000)
+ax.set_yticks(yticks)
+ax.set_yticklabels(yticks, fontsize=fontsize/1.3)
 fig.set_tight_layout(True)
 plt.savefig('../figs/Pkrustico.png')
 

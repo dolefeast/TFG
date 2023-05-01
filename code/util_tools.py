@@ -81,7 +81,7 @@ def many_files(files, openfiles=None):
                 param_list.append(get_params(parameters[0]))
                 df_list.append(open_file(file_name))
 
-        return [df_list, param_list]
+        return [df_list[0], param_list[0]]
 
     for i, file_name in enumerate(files, start=1):
         print(f' [{i}]: \t {file_name}')
