@@ -150,7 +150,6 @@ def iterable_output(func):
             result = []
             for ok in Ok:
                 result.append(func(zmax, ok))
-            print('I finished the iterable')
             return np.array(result)
         except TypeError:
             return func(zmax, Ok)

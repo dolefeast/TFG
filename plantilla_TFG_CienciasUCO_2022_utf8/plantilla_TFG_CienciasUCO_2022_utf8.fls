@@ -1295,6 +1295,11 @@ INPUT ./results.tex
 INPUT results.tex
 INPUT ./results.tex
 INPUT results.tex
+INPUT ../figs/phase4_DA_DH_flat.pdf
+INPUT ../figs/phase4_DA_DH_flat.pdf
+INPUT ../figs/phase4_DA_DH_flat.pdf
+INPUT ../figs/phase4_DA_DH_flat.pdf
+INPUT ../figs/phase4_DA_DH_flat.pdf
 INPUT ../figs/phase2_DA_DH_flat.pdf
 INPUT ../figs/phase2_DA_DH_flat.pdf
 INPUT ../figs/phase2_DA_DH_flat.pdf

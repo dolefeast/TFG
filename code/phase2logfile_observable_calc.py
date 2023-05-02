@@ -67,9 +67,6 @@ def DA(z, Ok):
 
 fig, axes = plt.subplots(3, 2, sharex=True, figsize=(10, 7))
 
-for ax in axes.ravel():
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
 
 elinewidth=1.7
 capsize=3
@@ -106,6 +103,18 @@ axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize), axes[0,1].set_
 axes[1,0].set_ylabel(r'$\left[ D_H/r_s\right]_{fid}$', fontsize=fontsize), axes[1,1].set_ylabel(r'$\left[ D_A/r_s\right]_{fid}$', fontsize=fontsize)
 axes[2,0].set_ylabel(r'$D_H/r_s$', fontsize=fontsize), axes[2,1].set_ylabel(r'$D_A/r_s$', fontsize=fontsize)
 axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid\, 2}$', fontsize=fontsize), axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid \,2}$', fontsize=fontsize)
+axes[2,0].set_xticks(Ok_list)
+axes[2,0].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
+axes[2,1].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
+for ax in axes.ravel():
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ticks = ax.get_yticks()
+    label = ax.get_ylabel()
+    print(label, ticks)
+    ax.set_yticks(ticks)
+    ax.set_yticklabels([round(tick, 2) for tick in ticks], fontsize=fontsize/1.3)
+
 plt.tight_layout()
 plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pdf')
 #plt.show()

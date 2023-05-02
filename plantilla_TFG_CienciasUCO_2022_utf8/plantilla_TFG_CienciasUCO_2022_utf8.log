@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  2 MAY 2023 13:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2022.12.21)  2 MAY 2023 14:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -612,7 +612,11 @@ Package: l3keys2e 2020-10-27 LaTeX2e option processing using LaTeX3 keys
 \l__siunitx_table_text_align_skip=\skip79
  (/usr/share/texlive/texmf-dist/tex/latex/translator/translator.sty
 Package: translator 2020-08-03 v1.12c Easy translation of strings in LaTeX
-)) (./plantilla_TFG_CienciasUCO_2022_utf8.aux (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./objetivos.aux) (./methods.aux) (./results.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
+)) (./plantilla_TFG_CienciasUCO_2022_utf8.aux (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./objetivos.aux) (./methods.aux) (./results.aux
+
+LaTeX Warning: Label `fig:DA_DH' multiply defined.
+
+) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
 \openout1 = `plantilla_TFG_CienciasUCO_2022_utf8.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
@@ -805,7 +809,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
-<../figs/cmb.jpeg, id=184, 1084.05pt x 548.0475pt>
+<../figs/cmb.jpeg, id=187, 1084.05pt x 548.0475pt>
 File: ../figs/cmb.jpeg Graphic file (type jpg)
 <use ../figs/cmb.jpeg>
 Package pdftex.def Info: ../figs/cmb.jpeg  used on input line 20.
@@ -845,12 +849,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
 
-<baogif1.png, id=203, 572.1375pt x 451.6875pt>
+<baogif1.png, id=206, 572.1375pt x 451.6875pt>
 File: baogif1.png Graphic file (type png)
 <use baogif1.png>
 Package pdftex.def Info: baogif1.png  used on input line 50.
 (pdftex.def)             Requested size: 136.57462pt x 107.82137pt.
-<baogif2.png, id=204, 572.1375pt x 451.6875pt>
+<baogif2.png, id=207, 572.1375pt x 451.6875pt>
 File: baogif2.png Graphic file (type png)
 <use baogif2.png>
 Package pdftex.def Info: baogif2.png  used on input line 51.
@@ -860,7 +864,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--51
 []\T1/cmr/m/n/10 (b) The BAO prop-a-gat-ing
  []
 
-<baogif3.png, id=205, 572.1375pt x 451.6875pt>
+<baogif3.png, id=208, 572.1375pt x 451.6875pt>
 File: baogif3.png Graphic file (type png)
 <use baogif3.png>
 Package pdftex.def Info: baogif3.png  used on input line 52.
@@ -895,12 +899,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
-<../figs/sdss_xi.png, id=232, 466.74374pt x 426.84468pt>
+<../figs/sdss_xi.png, id=235, 466.74374pt x 426.84468pt>
 File: ../figs/sdss_xi.png Graphic file (type png)
 <use ../figs/sdss_xi.png>
 Package pdftex.def Info: ../figs/sdss_xi.png  used on input line 74.
 (pdftex.def)             Requested size: 182.09486pt x 166.52737pt.
-<../figs/2df_pk.png, id=235, 331.99031pt x 273.27094pt>
+<../figs/2df_pk.png, id=238, 331.99031pt x 273.27094pt>
 File: ../figs/2df_pk.png Graphic file (type png)
 <use ../figs/2df_pk.png>
 Package pdftex.def Info: ../figs/2df_pk.png  used on input line 76.
@@ -1053,22 +1057,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--68
 
  []
 
-<../figs/Pkrustico.png, id=340, 1156.32pt x 650.43pt>
+<../figs/Pkrustico.png, id=343, 1156.32pt x 650.43pt>
 File: ../figs/Pkrustico.png Graphic file (type png)
 <use ../figs/Pkrustico.png>
 Package pdftex.def Info: ../figs/Pkrustico.png  used on input line 72.
 (pdftex.def)             Requested size: 364.19667pt x 204.85675pt.
-<../figs/Pklin.png, id=343, 462.528pt x 346.896pt>
+<../figs/Pklin.png, id=346, 462.528pt x 346.896pt>
 File: ../figs/Pklin.png Graphic file (type png)
 <use ../figs/Pklin.png>
 Package pdftex.def Info: ../figs/Pklin.png  used on input line 79.
 (pdftex.def)             Requested size: 136.57462pt x 102.4287pt.
-<../figs/Psm.png, id=344, 462.528pt x 346.896pt>
+<../figs/Psm.png, id=347, 462.528pt x 346.896pt>
 File: ../figs/Psm.png Graphic file (type png)
 <use ../figs/Psm.png>
 Package pdftex.def Info: ../figs/Psm.png  used on input line 80.
 (pdftex.def)             Requested size: 136.57462pt x 102.4287pt.
-<../figs/Olin.png, id=345, 462.528pt x 346.896pt>
+<../figs/Olin.png, id=348, 462.528pt x 346.896pt>
 File: ../figs/Olin.png Graphic file (type png)
 <use ../figs/Olin.png>
 Package pdftex.def Info: ../figs/Olin.png  used on input line 81.
@@ -1088,17 +1092,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  (./results.tex
 Chapter 4.
-<../figs/phase2_DA_DH_flat.pdf, id=381, 722.7pt x 505.89pt>
+<../figs/phase4_DA_DH_flat.pdf, id=384, 722.7pt x 505.89pt>
+File: ../figs/phase4_DA_DH_flat.pdf Graphic file (type pdf)
+<use ../figs/phase4_DA_DH_flat.pdf>
+Package pdftex.def Info: ../figs/phase4_DA_DH_flat.pdf  used on input line 5.
+(pdftex.def)             Requested size: 450.69417pt x 315.48573pt.
+<../figs/phase2_DA_DH_flat.pdf, id=385, 722.7pt x 505.89pt>
 File: ../figs/phase2_DA_DH_flat.pdf Graphic file (type pdf)
 <use ../figs/phase2_DA_DH_flat.pdf>
-Package pdftex.def Info: ../figs/phase2_DA_DH_flat.pdf  used on input line 5.
+Package pdftex.def Info: ../figs/phase2_DA_DH_flat.pdf  used on input line 12.
 (pdftex.def)             Requested size: 450.69417pt x 315.48573pt.
 ) [22
 
 
 
 
-] [23 <../figs/phase2_DA_DH_flat.pdf>]
+] [23 <../figs/phase4_DA_DH_flat.pdf>] [24 <../figs/phase2_DA_DH_flat.pdf>]
 \openout2 = `conclusion.aux'.
 
  (./conclusion.tex
@@ -1116,12 +1125,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
-[24
+[25
 
 
 
 
-]) [25
+]) [26
 
 ]
 \openout2 = `bibliografia.aux'.
@@ -1135,15 +1144,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 []\T1/cmr/m/n/12 S. Alam \T1/cmr/m/it/12 et al. \T1/cmr/m/n/12 [eBOSS], Phys. Rev. D \T1/cmr/bx/n/12 103\T1/cmr/m/n/12 , no.8, 083533 (2021)
  []
 
-[26
+[27
 
 
 
 
-]) [27]
+]) [28]
 \openout2 = `anexo1.aux'.
 
- (./anexo1.tex) [28
+ (./anexo1.tex) [29
 
 
 
@@ -1151,29 +1160,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--34
 ]
 \openout2 = `anexo2.aux'.
 
- (./anexo2.tex) [29
+ (./anexo2.tex) [30
 
 
 
 
 ] (./plantilla_TFG_CienciasUCO_2022_utf8.aux (./agradecimientos.aux) (./resumen.aux) (./capitulo1.aux) (./objetivos.aux) (./methods.aux) (./results.aux) (./conclusion.aux) (./bibliografia.aux) (./anexo1.aux) (./anexo2.aux))
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `plantilla_TFG_CienciasUCO_2022_utf8.out' has not changed.
 (rerunfilecheck)             Checksum: 67BE86CA48B8F78538C5B072F9AC1213;1179.
  ) 
 Here is how much of TeX's memory you used:
- 24261 strings out of 479304
- 453140 string characters out of 5869778
- 830475 words of memory out of 5000000
- 40715 multiletter control sequences out of 15000+600000
+ 24269 strings out of 479304
+ 453366 string characters out of 5869778
+ 831475 words of memory out of 5000000
+ 40720 multiletter control sequences out of 15000+600000
  433817 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  118i,17n,119p,966b,1748s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1728.pfb></usr/share/texmf/fonts/type1/p
 ublic/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfxc1440.pfb>
-Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (30 pages, 1469249 bytes).
+Output written on plantilla_TFG_CienciasUCO_2022_utf8.pdf (31 pages, 1428997 bytes).
 PDF statistics:
- 666 PDF objects out of 1000 (max. 8388607)
- 569 compressed objects within 6 object streams
- 171 named destinations out of 1000 (max. 500000)
- 230 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 680 PDF objects out of 1000 (max. 8388607)
+ 581 compressed objects within 6 object streams
+ 173 named destinations out of 1000 (max. 500000)
+ 235 words of extra memory for PDF output out of 10000 (max. 10000000)
 

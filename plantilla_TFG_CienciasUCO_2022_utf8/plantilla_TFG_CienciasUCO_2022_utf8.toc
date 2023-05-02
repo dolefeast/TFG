@@ -15,8 +15,8 @@
 \contentsline {chapter}{\numberline {2}Objectives}{16}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Methods and materials.}{17}{chapter.3}%
 \contentsline {chapter}{\numberline {4}Results}{22}{chapter.4}%
-\contentsline {chapter}{Conclusiones}{24}{chapter*.9}%
-\contentsline {chapter}{Conclusions}{25}{chapter*.10}%
-\contentsline {chapter}{Bibliografía}{26}{chapter*.10}%
-\contentsline {chapter}{Anexo: Ejemplo para introducir código Matlab}{28}{appendix*.12}%
-\contentsline {chapter}{Anexo: Ejemplo para introducir código ISE}{29}{appendix*.13}%
+\contentsline {chapter}{Conclusiones}{25}{chapter*.9}%
+\contentsline {chapter}{Conclusions}{26}{chapter*.10}%
+\contentsline {chapter}{Bibliografía}{27}{chapter*.10}%
+\contentsline {chapter}{Anexo: Ejemplo para introducir código Matlab}{29}{appendix*.12}%
+\contentsline {chapter}{Anexo: Ejemplo para introducir código ISE}{30}{appendix*.13}%
