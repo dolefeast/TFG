@@ -72,8 +72,8 @@ def many_files(files, openfiles=None):
     df_list = []
     param_list = []
     if openfiles != None or n_files==1:
+        p = re.compile('Om[0-9]*_O[mL][0-9]*')
         for file_name in files:
-                p = re.compile('Om[0-9]*_O[mL][0-9]*')
                 parameters = p.findall(str(file_name))
                 if len(parameters) == 0:
                     parameters = str(file_name)
@@ -81,7 +81,8 @@ def many_files(files, openfiles=None):
                 param_list.append(get_params(parameters[0]))
                 df_list.append(open_file(file_name))
 
-        return [df_list[0], param_list[0]]
+        #return [df_list[0], param_list[0]]
+        return [df_list, param_list]
 
     for i, file_name in enumerate(files, start=1):
         print(f' [{i}]: \t {file_name}')
@@ -142,6 +143,18 @@ def alpha_from_logfile(filename):
             elif i>10: break
     return out
 
+def iterable_output(func):
+    def wrapper(zmax, Ok):
+        try:
+            iter(Ok)
+            result = []
+            for ok in Ok:
+                result.append(func(zmax, ok))
+            print('I finished the iterable')
+            return np.array(result)
+        except TypeError:
+            return func(zmax, Ok)
+    return wrapper
 
 def get_params(param_name):
     """

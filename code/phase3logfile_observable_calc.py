@@ -39,7 +39,17 @@ Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
 Ok_rang = Ok_max - Ok_min
 H = lambda z, Ok, Om=0.31: H0*np.sqrt(Om*(1+z)**3 + Ok*(1+z)**2 + 1-Ok-Om)
 DH_fid = lambda z, Ok: ct.c/1000/H(z, Ok)
-DC_fid = lambda z, Ok: sp.integrate.quad(DH_fid, 0, z, args=(Ok,))[0] 
+def DC_fid(z, Ok):
+    try:
+        iterator = iter(Ok)
+        print(Ok, 'was an iterable!')
+        DC_array = []
+        for ok in Ok:
+            DC_array.append(sp.integrate.quad(DH_fid, 0, z, args=(ok,))[0])
+        return np.array(DC_array)
+    except TypeError:
+        return DC_fid(z, Ok)
+
 #DC_fid = np.array([sp.integrate.quad(DH_fid, 0, zmax, args=(ok,))[0] for ok in Ok_cont])
 
 def DA(z, Ok):
@@ -52,7 +62,7 @@ def DA(z, Ok):
         k =  DH/np.sqrt(np.abs(Ok))
         return k*np.sin(np.sqrt(np.abs(Ok))*DC/DH)
     elif not Ok:
-        return DH
+        return DC
 
 #---Changing z->d (phase 2)
 #DA_fid = np.array([DA(zmax, Ok, DC) for Ok, DC in zip(Ok_cont, DC_fid)])
