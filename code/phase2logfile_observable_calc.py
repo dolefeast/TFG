@@ -8,7 +8,7 @@ import scipy.constants as ct
 import scipy as sp
 #plt.style.use('fivethirtyeight')
 import matplotlib
-#matplotlib.use('pgf') #Saves the output as pgf
+matplotlib.use('pgf') #Saves the output as pgf
 matplotlib.rcParams['axes.unicode_minus'] = False #Latex format stuff
 matplotlib.rcParams.update({
     "pgf.texsystem": "pdflatex",
@@ -116,5 +116,5 @@ for ax in axes.ravel():
     ax.set_yticklabels([round(tick, 2) for tick in ticks], fontsize=fontsize/1.3)
 
 plt.tight_layout()
-plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pdf')
+plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pgf')
 #plt.show()

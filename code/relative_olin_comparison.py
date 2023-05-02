@@ -26,7 +26,7 @@ h = 0.676
 fontsize = 20
 color = 'teal'
 
-fig, ax = plt.subplots(1, 2, figsize=(5*16/9, 5))
+fig, ax = plt.subplots(1, 1, figsize=(5*4/3, 5))
 
 k_in, pk_in = df[0], df[1]
 y = pk_in#util_tools.remove_bao(k_in, pk_in)
@@ -35,35 +35,32 @@ idx = np.where(np.logical_and(k_in<=kmax, k_in>=kmin))
 x, y = np.array(k_in), np.array(pk_in)
 x = x[idx]
 y = y[idx]
-ax[0].plot(x, y, color=color, label='Flat $O_{lin}(k)$')
+ax.plot(x, y, color=color, label='Flat $O_{lin}(k)$')
 
 k_hector, pk_hector = hector_df[0], hector_df[1]
-ax[0].plot(k_hector, pk_hector, '--k', label='No flat $O_{lin}(k)(k)$')
-ax[0].legend(loc='best')
+ax.plot(k_hector, pk_hector, color='coral', label='Non flat $O_{lin}(k)(k)$')
+ax.legend(loc='best')
 
 
 x1, y1 = k_hector, pk_hector
 ymod=np.interp(x, x1, y1)
 #ymod = ymod(x2)
-ax[1].plot(x, -(y-ymod)/ymod*100, color='teal')
-ax[0].set_xlabel(r'k [h Mpc$^{-1}$]', fontsize=fontsize)
-ax[0].set_ylabel(r'$O_{lin}(k)$', fontsize=fontsize)
-ax[1].set_ylabel(r'$100\cdot\frac{P_{\text{no}}(k) - P_{CLASS}(k)}{P_{CAMB}(k)}\%$', fontsize=fontsize)
-ax[1].set_xlabel(r'k [h Mpc$^{-1}$]', fontsize=fontsize)
+ax.set_xlabel(r'k [h Mpc$^{-1}$]', fontsize=fontsize)
+ax.set_ylabel(r'$O_{lin}(k)$', fontsize=fontsize)
 #    plt.plot(x2, (1-0.665)*y2, label='My data')
 #    plt.plot(x1, y1, label='Original Y')
 #plt.savefig('../figs/Olin_relative_comparison.pdf')
-for axis in ax.ravel():
-    axis.spines['top'].set_visible(False)
-    axis.spines['right'].set_visible(False)
-    yticks = axis.get_yticks()
-    ylabel = axis.get_ylabel()
-    axis.set_yticks(yticks)
-    axis.set_yticklabels([round(tick, 2) for tick in yticks], fontsize=fontsize/1.3)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+yticks = ax.get_yticks()
+ylabel = ax.get_ylabel()
+ax.set_yticks(yticks)
+ax.set_yticklabels([round(tick, 2) for tick in yticks], fontsize=fontsize/1.3)
 
-    xticks = axis.get_xticks()
-    xlabel = axis.get_xlabel()
-    axis.set_xticks(xticks)
-    axis.set_xticklabels([round(tick, 2) for tick in xticks], fontsize=fontsize/1.3)
+xticks = ax.get_xticks()
+xlabel = ax.get_xlabel()
+ax.set_xticks(xticks)
+ax.set_xticklabels([round(tick, 2) for tick in xticks], fontsize=fontsize/1.3)
 fig.tight_layout()
+plt.savefig('../figs/olin_comparison.png')
 plt.show()
