@@ -383,6 +383,23 @@ def peaks_fit(k_in, pk_in, function=gaussian, n_points=150):
     return kfit, pkfit
     return np.concatenate(kfit), np.concatenate(pkfit)
 
+def split_array(arr, n): 
+    # Calculate length of subarray 
+    length = len(arr)//n 
+  
+    # Create list for 2D array 
+    splitted_arr = [] 
+  
+    # Split array into n subarrays 
+    for i in range(n): 
+        # Create subarray 
+        subarr = arr[i*length:(i+1)*length] 
+  
+        # Append subarray to list 
+        splitted_arr.append(subarr) 
+  
+    # Return list 
+    return splitted_arr 
 rustico_path = list(Path('/home/santi/TFG/DATA/rustico_output').glob('Power_*'))
 class_output = list(Path('/home/santi/TFG/class_public/output').glob('*.dat'))
 model = list(Path('/home/santi/TFG/lrg_eboss/model/').glob('*'))

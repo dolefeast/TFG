@@ -50,16 +50,16 @@ for i, data in enumerate([pklin, psmooth, Olin]):
         yticks = [int(x) for x in np.round(yticks, -2)]
         ax.set_yticks(yticks)
         ax.set_yticklabels(yticks, fontsize=fontsize/1.3)
-        ax.set_ylabel(r'$P(k) [$Mpc$^3 h^{-3}]$', fontsize=fontsize)
+        ax.set_ylabel(r'$\log_{10} P(k) [$Mpc$^3 h^{-3}]$', fontsize=fontsize)
         plt.savefig('../figs/Pklin.png')
     elif i==1:
         yticks = [int(x) for x in np.round(yticks, -2)]
         ax.set_yticks(yticks)
         ax.set_yticklabels(yticks, fontsize=fontsize/1.3)
-        ax.set_ylabel(r'$P_{smooth}(k) [$Mpc$^3 h^{-3}]$', fontsize=fontsize)
+        ax.set_ylabel(r'$\log_{10} P_{smooth}(k) [$Mpc$^3 h^{-3}]$', fontsize=fontsize)
         plt.savefig('../figs/Psm.png')
     else:
-        ax.set_ylabel(r'$O_{lin}(k)$', fontsize=fontsize)
+        ax.set_ylabel(r'$\log_{10} O_{lin}(k)$', fontsize=fontsize)
         plt.savefig('../figs/Olin.png')
 
 #    ax.plot(psmooth[0],psmooth[1], color='teal')
