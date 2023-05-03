@@ -97,6 +97,7 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
 #                 color=color) 
 
 
+
 axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs, color=color, linewidth=2) #Multiply by 0 is phase2
 axes[1,1].plot(Ok_cont, DA(zmax, Ok_cont)/rs, color=color, linewidth=2)
 axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
