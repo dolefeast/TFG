@@ -8,7 +8,7 @@ import scipy.constants as ct
 import scipy as sp
 #plt.style.use('fivethirtyeight')
 import matplotlib
-matplotlib.use('pgf') #Saves the output as pgf
+#matplotlib.use('pgf') #Saves the output as pgf
 matplotlib.rcParams['axes.unicode_minus'] = False #Latex format stuff
 matplotlib.rcParams.update({
     "pgf.texsystem": "pdflatex",
@@ -99,10 +99,14 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
 
 axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs, color=color) #Multiply by 0 is phase2
 axes[1,1].plot(Ok_cont, DA(zmax, Ok_cont)/rs, color=color)
-axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize), axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
-axes[1,0].set_ylabel(r'$\left[ D_H/r_s\right]_{fid}$', fontsize=fontsize), axes[1,1].set_ylabel(r'$\left[ D_A/r_s\right]_{fid}$', fontsize=fontsize)
-axes[2,0].set_ylabel(r'$D_H/r_s$', fontsize=fontsize), axes[2,1].set_ylabel(r'$D_A/r_s$', fontsize=fontsize)
-axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid\, 2}$', fontsize=fontsize), axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid \,2}$', fontsize=fontsize)
+axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
+axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
+axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{r}$', fontsize=fontsize)
+axes[1,1].set_ylabel(r'$\left[ D_M/r_d\right]^{r}$', fontsize=fontsize)
+axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
+axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
+axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
+axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
 axes[2,0].set_xticks(Ok_list)
 axes[2,0].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
 axes[2,1].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
@@ -116,5 +120,5 @@ for ax in axes.ravel():
     ax.set_yticklabels([round(tick, 2) for tick in ticks], fontsize=fontsize/1.3)
 
 plt.tight_layout()
-plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pgf')
-#plt.show()
+plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pdf')
+plt.show()
