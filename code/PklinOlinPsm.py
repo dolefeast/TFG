@@ -41,9 +41,7 @@ for i, data in enumerate([pklin, psmooth, Olin]):
     ax.plot(x, y, color='teal', linewidth=3)
 #    ax.axhline(y=min(y), color='black', linewidth=1.3, alpha=0.7)
 #    ax.axvline(x=kmin, color='black', linewidth=1.3, alpha=0.7)
-    ax.set_xlabel(r'$\log_{10}k [h $Mpc$^{-1}] $', fontsize=fontsize) 
-    ax.set_xticks((0.05, 1e-1, 0.45))
-    ax.set_xticklabels((0.05, 1e-1, 0.45), fontsize=fontsize)
+
     logx = np.log10(x)
     logy = np.log10(y)
     xticks = np.logspace(min(logx), max(logx), 4, base=10)
@@ -65,12 +63,15 @@ for i, data in enumerate([pklin, psmooth, Olin]):
         name = 'Olin'
         print('Third plot done!')
 
+    ax.set_xticks([], minor=True)
     ax.set_xticks(xticks)
     ax.set_xticklabels(np.round(xticks, 2), fontsize=fontsize)
 
+    ax.set_yticks([], minor=True)
     ax.set_yticks(yticks)
     ax.set_yticklabels(yticks, fontsize=fontsize)
 
+    ax.set_xlabel(r'$\log_{10}k [h $Mpc$^{-1}] $', fontsize=fontsize) 
     ax.set_ylabel(ylabel, fontsize=fontsize)
 
     fig.set_tight_layout(True)
