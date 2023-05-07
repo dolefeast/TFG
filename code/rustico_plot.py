@@ -35,10 +35,16 @@ for data, params in zip(df_list, param_list):
 
 ax.set_ylabel('$\log_{10}P(k)[ h^{-3}$Mpc$^3]$', fontsize=fontsize)#, ax2.set_title('$k*P_2(k)$')
 ax.set_xlabel('$\log_{10}k[h$Mpc$^{-1} ]$', fontsize=fontsize)#, ax2.set_title('$k*P_2(k)$')
-ax.set_xticks((0.01, 0.05, 1e-1, 0.45))
-ax.set_xticklabels((0.01, 0.05, 1e-1, 0.45), fontsize=fontsize)
-yticks = (2600, 12500, 25000, 50000, 75000)
-ax.set_yticks(yticks)
+logx = np.log10(kk)
+logy = np.log10(P0)
+xticks = np.logspace(min(logx), max(logx), 4, base=10)
+yticks = np.round(np.logspace(min(logy), max(logy), 4, base=10), -2)
+yticks = [np.int(ytick) for ytick in yticks]
+ax.set_xticks(xticks, minor=False)
+ax.set_yticks(yticks, minor=False)
+
+ax.set_xticklabels(np.round(xticks, 2), fontsize=fontsize)
+ax.set_yticklabels(yticks, fontsize=fontsize)
 ax.set_yticklabels(yticks, fontsize=fontsize)
 fig.set_tight_layout(True)
 plt.savefig('../figs/Pkrustico.pdf')
