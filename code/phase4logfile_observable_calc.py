@@ -1,25 +1,4 @@
-import matplotlib as mpl
-from pathlib import Path
-import re
-import util_tools
-import matplotlib.pyplot as plt
-import numpy as np
-import scipy.constants as ct
-import scipy as sp
-#plt.style.use('fivethirtyeight')
-import matplotlib
-#matplotlib.use('pgf') #Saves the output as pgf
-matplotlib.rcParams['axes.unicode_minus'] = False #Latex format stuff
-matplotlib.rcParams.update({
-    "pgf.texsystem": "pdflatex",
-    'font.family': 'serif',
-    'text.usetex': True,
-    'pgf.rcfonts': False,
-})
-
-zmax = 0.698
-H0 = 67.6
-rs = 147.784
+from __init__ import *
 
 files = list(Path('/home/santi/TFG/outputs_santi/phase4/logfiles_phase4').glob('*2nd*'))
 #calculate_observables(*params[0])
@@ -100,9 +79,9 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
 axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs, color=color) #Multiply by 0 is phase4
 axes[1,1].plot(Ok_cont, DA(zmax, Ok_cont)/rs, color=color)
 axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize), axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
-axes[1,0].set_ylabel(r'$\left[ D_H/r_s\right]_{fid}$', fontsize=fontsize), axes[1,1].set_ylabel(r'$\left[ D_A/r_s\right]_{fid}$', fontsize=fontsize)
-axes[2,0].set_ylabel(r'$D_H/r_s$', fontsize=fontsize), axes[2,1].set_ylabel(r'$D_A/r_s$', fontsize=fontsize)
-axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid\, 2}$', fontsize=fontsize), axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid \,2}$', fontsize=fontsize)
+axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{r,f}$', fontsize=fontsize), axes[1,1].set_ylabel(r'$\left[ D_M/r_d\right]^{r,f}$', fontsize=fontsize)
+axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize), axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
+axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{r,f}$', fontsize=fontsize), axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{r,f}$', fontsize=fontsize)
 axes[2,0].set_xticks(Ok_list)
 axes[2,0].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
 axes[2,1].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
@@ -117,4 +96,4 @@ for ax in axes.ravel():
 
 plt.tight_layout()
 plt.savefig('/home/santi/TFG/figs/phase4_DA_DH_flat.pdf')
-#plt.show()
+plt.show()

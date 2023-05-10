@@ -1,27 +1,4 @@
-import matplotlib as mpl
-from pathlib import Path
-import re
-import util_tools
-import matplotlib.pyplot as plt
-import numpy as np
-import scipy.constants as ct
-import scipy as sp
-plt.rc('lines', linewidth=1.7)
-import matplotlib
-import matplotlib
-matplotlib.rcParams['axes.unicode_minus'] = False
-matplotlib.rcParams.update({
-    "pgf.texsystem": "pdflatex",
-    'font.family': 'serif',
-    'text.usetex': True,
-    'pgf.rcfonts': False,
-    'text.latex.preamble': r'\usepackage{xcolor}\usepackage{amsmath}\usepackage{amssymb}\usepackage{cmbright}\usepackage{lmodern}'
-#    'text.latex.preamble': r'\usepackage{amsmath}\usepackage{amssymb}'
-})
-
-zmax = 0.698
-H0 = 67.6
-rs = 147.784
+from __init__ import *
 
 files_santi = list(Path('/home/santi/TFG/outputs_santi/class_Om031_OL069/noflat_olin').glob('*'))
 files_hector = list(Path('/home/santi/TFG/lrg_eboss/output/').glob('*'))
@@ -53,10 +30,6 @@ DH_fid = lambda z, Ok: ct.c/1000/H(z, Ok)
 n_points = 500
 Ok_cont = np.linspace(min(Ok_list_hector),max(Ok_list_hector),n_points)
 DA_fid = np.array([sp.integrate.quad(DH_fid, 0, zmax, args=(ok,))[0] for ok in Ok_cont])
-elinewidth=1.7
-capsize=3
-fontsize = 20
-capthick=1.5
 santi_color = 'teal'
 hector_color = 'coral'
 
@@ -89,13 +62,13 @@ axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
 axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
 axes[0,0].plot([], [], 'x', color=santi_color, label='Flat $O_{lin}(k)$')
 axes[0,0].plot([], [], 'x', color=hector_color, label='No flat $O_{lin}(k)$')
-axes[0,0].legend(loc='best')
-axes[1,0].set_ylabel(r'$\left[ D_H/r_s\right]_{fid}$', fontsize=fontsize)
-axes[1,1].set_ylabel(r'$\left[ D_M/r_s\right]_{fid}$', fontsize=fontsize)
-axes[2,0].set_ylabel(r'$D_H/r_s$', fontsize=fontsize)
-axes[2,1].set_ylabel(r'$D_M/r_s$', fontsize=fontsize)
-axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid\, 1}$', fontsize=fontsize)
-axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid \,1}$', fontsize=fontsize)
+axes[0,0].legend(loc='best', fontsize=fontsize/1.5)
+axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{r}$', fontsize=fontsize)
+axes[1,1].set_ylabel(r'$\left[ D_M/r_d\right]^{r}$', fontsize=fontsize)
+axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
+axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
+axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
+axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
 for ax in axes.ravel():
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -106,7 +79,7 @@ for ax in axes.ravel():
     ax.set_yticklabels([round(tick, 2) for tick in ticks], fontsize=fontsize/1.3)
 
 plt.tight_layout()
-plt.savefig('/home/santi/TFG/figs/flatnoflat_DADH.png')
+plt.savefig('/home/santi/TFG/figs/flatnoflat_DADH.pdf')
 plt.show()
 
 

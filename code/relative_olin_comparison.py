@@ -1,27 +1,14 @@
-import util_tools
-import pandas as pd
-import numpy as np
-import scipy as sp
-import matplotlib.pyplot as plt
-from pathlib import Path
-plt.rc('lines', linewidth=1.7)
-import matplotlib
-#matplotlib.use('pgf') #Saves the output as pgf
-matplotlib.rcParams['axes.unicode_minus'] = False #Latex format stuff
-matplotlib.rcParams.update({
-    "pgf.texsystem": "pdflatex",
-    'font.family': 'serif',
-    'text.usetex': True,
-    'pgf.rcfonts': False,
-})
-
+from __init__ import *
 
 #files = Path('/home/santi/TFG/outputs_santi/class_output/').glob('*pk.dat')
 files = list(Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*Olin*69*'))
+df, params = util_tools.many_files(files)
+df = df[0]
+
 hector_files = list(Path('/home/santi/TFG/lrg_eboss/model/').glob('*Olin*'))
 hector_df, _ = util_tools.many_files(hector_files)      #all pk smooth as outputs from class
+hector_df = hector_df[0]
 
-df, params = util_tools.many_files(files)
 h = 0.676
 fontsize = 20
 color = 'teal'
@@ -39,7 +26,7 @@ ax.plot(x, y, color=color, label='Flat $O_{lin}(k)$')
 
 k_hector, pk_hector = hector_df[0], hector_df[1]
 ax.plot(k_hector, pk_hector, color='coral', label='Non flat $O_{lin}(k)(k)$')
-ax.legend(loc='best')
+ax.legend(loc='best', fontsize=fontsize/1.5)
 
 
 x1, y1 = k_hector, pk_hector

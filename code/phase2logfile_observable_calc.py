@@ -1,25 +1,4 @@
-import matplotlib as mpl
-from pathlib import Path
-import re
-import util_tools
-import matplotlib.pyplot as plt
-import numpy as np
-import scipy.constants as ct
-import scipy as sp
-#plt.style.use('fivethirtyeight')
-import matplotlib
-matplotlib.use('pgf') #Saves the output as pgf
-matplotlib.rcParams['axes.unicode_minus'] = False #Latex format stuff
-matplotlib.rcParams.update({
-    "pgf.texsystem": "pdflatex",
-    'font.family': 'serif',
-    'text.usetex': True,
-    'pgf.rcfonts': False,
-})
-
-zmax = 0.698
-H0 = 67.6
-rs = 147.784
+from __init__ import * 
 
 files = list(Path('/home/santi/TFG/outputs_santi/phase2/logfiles_phase2').glob('*2nd*'))
 
@@ -99,16 +78,6 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
           D_H/r_d = {} \\pm {} 
           D_M/r_d = {} \\pm {} """.format(Ok,*[round(x, 2) for x in (current_DH,current_DH_std,current_DM,current_DM_std)]))
 
-
-avg_DH = util_tools.calculate_avg_and_std(DH_list)
-avg_DM = util_tools.calculate_avg_and_std(DM_list)
-
-print('DH/rs = {} ± {}'.format(*avg_DH)) 
-print('DM/rs = {} ± {}'.format(*avg_DM)) 
-
-quit()
-
-
 axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs, color=color, linewidth=2) #Multiply by 0 is phase2
 axes[1,1].plot(Ok_cont, DM(zmax, Ok_cont)/rs, color=color, linewidth=2)
 axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
@@ -131,5 +100,5 @@ for ax in axes.ravel():
     ax.set_yticklabels([round(tick, 2) for tick in ticks], fontsize=fontsize/1.3)
 
 plt.tight_layout()
-plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pgf')
+plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pdf')
 plt.show()

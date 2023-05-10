@@ -1,19 +1,4 @@
-import util_tools
-import pandas as pd
-import numpy as np
-import scipy as sp
-import matplotlib.pyplot as plt
-from pathlib import Path
-import matplotlib
-#plt.style.use('fivethirtyeight')
-plt.rc('lines', linewidth=2.5)
-#matplotlib.use('pgf') #Saves the output as pgf
-plt.rcParams['axes.unicode_minus'] = False #Latex format stuff
-plt.rcParams.update({
-    'font.family': 'serif',
-    'text.usetex': True,
-    'pgf.rcfonts': False
-})
+from __init__ import *
 
 #files = Path('/home/santi/TFG/outputs_santi/class_output/').glob('*pk.dat')
 pklin = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*pk*069*')
@@ -29,12 +14,12 @@ kmin = 0.02
 kmax = 0.51
 fontsize = 28
 
-for i, data in enumerate([pklin, psmooth, Olin]):
+for i, data in enumerate([pklin[0], psmooth[0], Olin[0]]):
     fig, ax = plt.subplots()
     ax.spines['top'].set_visible(False), ax.spines['right'].set_visible(False)
     ax.set_xscale('log'), ax.set_yscale('log')
-    idx = np.where(np.logical_and(data[0]<=kmax, data[0]>=kmin))
     x, y = np.array(data[0]), np.array(data[1])
+    idx = np.where(np.logical_and(x<=kmax, x>=kmin))
     x = x[idx]
     y = y[idx]
 
@@ -49,17 +34,17 @@ for i, data in enumerate([pklin, psmooth, Olin]):
 
     if i==0:
         yticks = [int(x) for x in np.round(yticks, -2)]
-        ylabel = r'$\log_{10} P(k) [$Mpc$^3 h^{-3}]$' 
+        ylabel = r'$ P(k) [$Mpc$^3 h^{-3}]$' 
         name  = 'Pklin'
         print('First plot done!')
     elif i==1:
         yticks = [int(x) for x in np.round(yticks, -2)]
-        ylabel = r'$\log_{10} P_{smooth}(k) [$Mpc$^3 h^{-3}]$' 
+        ylabel = r'$ P_{smooth}(k) [$Mpc$^3 h^{-3}]$' 
         name = 'Psm'
         print('Second plot done!')
     elif i==2:
         yticks = [x for x in np.round(yticks, 3)]
-        ylabel = r'$\log_{10} O_{lin}(k)$'
+        ylabel = r'$ O_{lin}(k)$'
         name = 'Olin'
         print('Third plot done!')
 
@@ -71,7 +56,7 @@ for i, data in enumerate([pklin, psmooth, Olin]):
     ax.set_yticks(yticks)
     ax.set_yticklabels(yticks, fontsize=fontsize)
 
-    ax.set_xlabel(r'$\log_{10}k [h $Mpc$^{-1}] $', fontsize=fontsize) 
+    ax.set_xlabel(r'$k [h $Mpc$^{-1}] $', fontsize=fontsize) 
     ax.set_ylabel(ylabel, fontsize=fontsize)
 
     fig.set_tight_layout(True)
@@ -83,3 +68,4 @@ for i, data in enumerate([pklin, psmooth, Olin]):
 
     #plt.savefig('../figs/PkOlPsm.pdf')
    
+plt.show()
