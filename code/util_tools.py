@@ -174,6 +174,18 @@ def get_params(param_name):
     OmOL.append(round(1 - sum(OmOL), 2))
     return OmOL 
 
+def calculate_avg_and_std(data):
+    """
+    input: data should be ((value1, standard_deviation1), (value2, standard_deviation2), ...)
+    output: sum(data_i/std_i**2)/sum(1/std_i**2)
+    """
+    total_avg = 0
+    total_std = 0
+    for value, std in data:
+        total_avg += value/std**2
+        total_std += 1/std**2
+    return round(total_avg/total_std, 2), round(1/total_std, 2)
+
 def weighted_avg_and_std(values, weights):
     """
     Return the weighted average and standard deviation.
