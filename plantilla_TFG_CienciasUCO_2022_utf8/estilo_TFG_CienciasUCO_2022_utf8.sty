@@ -18,7 +18,17 @@
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 %\usepackage{mathpazo} 
-%\usepackage{eulervm}
+%aa\usepackage{eulervm}
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
 
 
 % Tamaño de la página

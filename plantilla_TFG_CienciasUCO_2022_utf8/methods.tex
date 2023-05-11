@@ -104,3 +104,12 @@ All of these calculations were done thanks to the clusters to which I was grante
 \item 64Gb of memory,
 \item The following Linux version: Ubuntu 22.04.2 LTS, release 22.04 with codename jammy.
 \end{itemize}
+
+The set pipeline for this work is the one described in the figure~\ref{fig:pipeline}
+
+\begin{figure}[p]
+    \centering
+    \incfig{pipeline}
+    \caption{The BAO analysis pipeline scheme that was  followed throughout this work, described throughout this chapter. First, starting from a certain galaxy catalogue (in this case, the extended Baryon Oscillation Spectroscopic Survey) which are the angular coordinates of each galaxy and their measured redshift. Given a redshift $z$, to calculate the radial distance (and therefore its position $\textbf{r}$) one needs to assume a certain fiducial cosmology, which yields initial values for the observables we are interested in. Now having the positions of each galaxy, the two point distribution function can be calculated $\xi(\textbf{r})$, and through a Fast Fourier Transform, its power spectrum $P(\textbf{k})$. Parallelly one calculates a certain theoretical  power spectrum $P(\textbf{k})$. With these two functions one calculates the best fitting parameters $\alpha_\parallel$ and $\alpha_\perp$, which allows us to calculate the final values $D_H /r_d$ and $D_M / r_d$.}
+    \label{fig:pipeline}
+\end{figure}
