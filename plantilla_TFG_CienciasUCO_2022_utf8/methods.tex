@@ -70,7 +70,7 @@ With this information it then takes the mentioned steps: Transforms each redshif
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\textwidth]{../figs/Pkrustico.pdf}
-	\caption{The power spectrum $P(k)$ of the LRG eBOSS~\cite{eBoss} catalogue as calculated by RUSTICO ($\Omega_k = 0.0$)}
+	\caption{The power spectrum $P(k)$ of the LRG eBOSS~\cite{eBoss} catalogue as calculated by RUSTICO assuming a flat universe ($\Omega_k = 0.00$)}
 	\label{fig:rustico}
 \end{figure}
 
@@ -80,13 +80,7 @@ With this information it then takes the mentioned steps: Transforms each redshif
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Pklin.pdf}}
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Psm.pdf}}
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Olin.pdf}}
-	\caption{Graphic representation of the $P(k)$ (left panel), $P_{smooth}(k)$ (middle panel) and $O_{lin}(k)$ (right panel)for $\Omega_k = 0$.}
-	\label{fig:PkOlPsm}
-\end{figure}
-
-Having the data, it is then necessary to have a model that explains it. The Cosmic Linear Anisotropy Solving System (CLASS) \cite{class} library allows the user to calculate the theoretical curve $P(k)$ should have for each cosmology. This software takes the corresponding cosmology as an input and returns the power spectrum seen in the leftmost panel of the figure~\ref{fig:PkOlPsm}. Note that this curve looks like a decreasing function which will be named $P_{\text{smooth}}(k)$, modulated by an oscilating curve, named $O_{\text{lin}}(k)$. These two functions are seen in the two leftmost panels of the figure~\ref{fig:PkOlPsm}, and verify 
-\begin{align}
-	P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
+	\caption{Graphic representation of the power spectrum $P(k)$ as calculated by CLASS (left panel), the smoothed power spectrum $P_{smooth}(k)$ (middle panel) and the oscillations $O_{lin}(k)$ (right panel)for a flat universe $\Omega_k = 0.00$.} \label{fig:PkOlPsm} \end{figure} Having the data, it is then necessary to have a model that explains it. The Cosmic Linear Anisotropy Solving System (CLASS) \cite{class} library allows the user to calculate the theoretical curve $P(k)$ should have for each cosmology. This software takes the corresponding cosmology as an input and returns the power spectrum seen in the leftmost panel of the figure~\ref{fig:PkOlPsm}. Note that this curve looks like a decreasing function which will be named $P_{\text{smooth}}(k)$, modulated by an oscilating curve, named $O_{\text{lin}}(k)$. These two functions are seen in the two leftmost panels of the figure~\ref{fig:PkOlPsm}, and verify \begin{align} P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
 	\label{eq:pk-components}
 \end{align}
  \\
@@ -95,8 +89,15 @@ To split the power spectrum $P(k)$ into these two functions, the routine \textit
 	O_{\text{lin}}(k) = \frac{P(k)}{P_{\text{smooth}(k)}}
 \end{align}
 
-The relationship between the data and the model is done through the Bao and RSD Algorithm for Spectroscopy Surveys (BRASS)~\cite{brass}. This software allows for the calculation of the $\alpha$ parameters, as defined by \eqref{eq:alphas-def}. BRASS takes as input the calculated power spectrum (given by RUSTICO) for some  fiducial cosmology, and the theoretic power spectrum for some other fiducial cosmology. It will return among many other fit parameters, the $\alpha_\parallel$ and $\alpha_\perp$ parameters along with their standard deviations that will allow the calculation of the observables $D_H/r_s$ and $D_A /r_s$. \\
+The relationship between the data and the model is done through the Bao and RSD Algorithm for Spectroscopy Surveys (BRASS)~\cite{brass}. This software allows for the calculation of the $\alpha$ parameters, as defined by \eqref{eq:alphas-def}. BRASS takes as input the calculated power spectrum (given by RUSTICO) for some  fiducial cosmology, and the theoretic power spectrum for some other fiducial cosmology. It will return among many other fit parameters, the $\alpha_\parallel$ and $\alpha_\perp$ parameters along with their standard deviations that will allow the calculation of the observables $D_H/r_s$ and $D_A /r_s$. A graphic scheme of the procedure followed throughout this work can be seen in the figure \ref{fig:pipeline}.\\
 
+
+\begin{figure}[p]
+    \centering
+    \incfig{pipeline}
+    \caption[The BAO analysis pipeline schematic]{The BAO analysis pipeline scheme that was  followed throughout this work, that was described along this chapter. First, starting from a certain galaxy catalogue (in this case, the extended Baryon Oscillation Spectroscopic Survey) which are the angular coordinates of each galaxy and their measured redshift. Given a redshift $z$, to calculate the radial distance (and therefore its position $\textbf{r}$) one needs to assume a certain fiducial cosmology, which yields initial values for the observables we are interested in. Now having the positions of each galaxy, the two point distribution function can be calculated $\xi(\textbf{r})$, and through a Fast Fourier Transform, its power spectrum $P(\textbf{k})$. Parallelly one calculates a certain theoretical  power spectrum $P(\textbf{k})$. With these two functions one calculates the best fitting parameters $\alpha_\parallel$ and $\alpha_\perp$, which allows us to calculate the final values $D_H /r_d$ and $D_M / r_d$.}
+    \label{fig:pipeline}
+\end{figure}
 All of these calculations were done thanks to the clusters to which I was granted access to in Universidad de Córdoba, which had the following specifications: 
 \begin{itemize}
 	\item 1 node, named Pauli,
@@ -104,12 +105,3 @@ All of these calculations were done thanks to the clusters to which I was grante
 \item 64Gb of memory,
 \item The following Linux version: Ubuntu 22.04.2 LTS, release 22.04 with codename jammy.
 \end{itemize}
-
-The set pipeline for this work is the one described in the figure~\ref{fig:pipeline}
-
-\begin{figure}[p]
-    \centering
-    \incfig{pipeline}
-    \caption{The BAO analysis pipeline scheme that was  followed throughout this work, described throughout this chapter. First, starting from a certain galaxy catalogue (in this case, the extended Baryon Oscillation Spectroscopic Survey) which are the angular coordinates of each galaxy and their measured redshift. Given a redshift $z$, to calculate the radial distance (and therefore its position $\textbf{r}$) one needs to assume a certain fiducial cosmology, which yields initial values for the observables we are interested in. Now having the positions of each galaxy, the two point distribution function can be calculated $\xi(\textbf{r})$, and through a Fast Fourier Transform, its power spectrum $P(\textbf{k})$. Parallelly one calculates a certain theoretical  power spectrum $P(\textbf{k})$. With these two functions one calculates the best fitting parameters $\alpha_\parallel$ and $\alpha_\perp$, which allows us to calculate the final values $D_H /r_d$ and $D_M / r_d$.}
-    \label{fig:pipeline}
-\end{figure}

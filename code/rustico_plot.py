@@ -33,8 +33,8 @@ for data, params in zip(df_list, param_list):
     ax.plot(kk, P0, 'x', markersize=17, color='teal')
     #ax2.plot(kk, kk*P2, '--', linewidth=0.8)
 
-ax.set_ylabel('$\log_{10}P(k)[ h^{-3}$Mpc$^3]$', fontsize=fontsize)#, ax2.set_title('$k*P_2(k)$')
-ax.set_xlabel('$\log_{10}k[h$Mpc$^{-1} ]$', fontsize=fontsize)#, ax2.set_title('$k*P_2(k)$')
+ax.set_ylabel('$P(k)[ h^{-3}$Mpc$^3]$', fontsize=fontsize)#, ax2.set_title('$k*P_2(k)$')
+ax.set_xlabel('$k[h$Mpc$^{-1} ]$', fontsize=fontsize)#, ax2.set_title('$k*P_2(k)$')
 logx = np.log10(kk)
 logy = np.log10(P0)
 xticks = np.logspace(min(logx), max(logx), 4, base=10)
