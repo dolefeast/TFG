@@ -26,7 +26,7 @@ For each mode $n$ one can define a new variable $k=2\pi n /L$, leading to the ac
 \begin{align}
 	\tilde{f}(k) = \frac{1}{2\pi}\int_{L}^{}  f(x) e^{-i k x} dx
 \end{align}
-In this work, the power spectrum $P(k)$ is considered, which is the Fourier Transform of the correlation function $\xi(r)$.  Recalling the definition of the $\xi(r)$ function, the frequency of the distance at which two any two galaxies are found, one can notice that  $\xi(r)$ must be a discrete function. We thus define the Discrete Fourier Transform (DFT) over a discrete set of N data points $\{\left( x_i, \xi(x_i) \right) \}_{i=1}^{N} $
+In this work, the power spectrum $P(\textbf{k})$ is considered, which is the Fourier Transform of the correlation function $\xi(\textbf{r})$.  Recalling the definition of the $\xi(\textbf{r})$ function, the frequency of the distance at which two any two galaxies are found, one can notice that  $\xi(\textbf{r})$ must be a discrete function. We thus define the Discrete Fourier Transform (DFT) over a discrete set of N data points $\{\left( x_i, \xi(x_i) \right) \}_{i=1}^{N} $
 \begin{align}
 	P(k_j) = \frac{1}{2\pi}\sum_{i=1}^{N} e^{-i k_j x_{i}} \xi(x_i)
 	\label{eq:DFT}
@@ -37,7 +37,7 @@ Though one must think that the periodic function hypothesis is being broken, sin
 Another thing to be noted is the fast growing complexity of the algorithm described by \eqref{eq:DFT}, which grows as $N^2$, with $N$ the number of points used for the calculation. 
 To solve this one would use the Fast Fourier Transform (FFT), instead of the DFT. This algorithm is based in the decomposition of the space considered with $N=N_1N_2$ data points, into two smaller spaces with $N_1$ and $N_2$ data points. It then factorizes each problem into smaller problems, and recursively breaks the configuration down into even smaller problems, thus greatly reducing the complexity of the algorithm from $N^2$ to $N\log N$.  \\
 
-The $P(k)$ has been until now only been vaguely defined. Let  $\rho(\textbf{x})$ determine the density of galaxies at a given point and $ \overline{\rho}$ the average density throughout the universe. As the interest lays in the fluctuations around the density, it is only natural to be interested in the overdensity $\delta(\textbf{x})$ at some position $\textbf{x}$
+The $P(\textbf{k})$ has been until now only been vaguely defined. Let  $\rho(\textbf{x})$ determine the density of galaxies at a given point and $ \overline{\rho}$ the average density throughout the universe. As the interest lays in the fluctuations around the density, it is only natural to be interested in the overdensity $\delta(\textbf{x})$ at some position $\textbf{x}$
 \begin{align}
 	\delta(\textbf{x}) = \frac{\rho\left( \textbf{x} \right) - \overline{\rho}}{\overline{\rho}}
 	\label{eq:overdensity)}
@@ -48,7 +48,7 @@ From this magnitude one calculates the aforementioned correlation function $\xi(
 \end{align} with $\textbf{r} = \textbf{x} - \textbf{x}'$
 And the power spectrum is then defined as its three dimensional Fourier Transform. \\
 
-To calculate $P(k)$ one then needs three coordinates for each galaxy (as would be expected from a three dimensional universe). These coordinates will be 2 angular coordinates (the declination $\delta$ and right ascension $\alpha$) and a radial coordinate $r$ which must be calculated from $z$. For this it is necessary to assume a cosmology, since it is what dictates the conversion from redshift to distance through Hubble's law \eqref{eq:ley-hubble}. For this transformation, the redshift is interpreted as a Doppler shift. At low enough velocities, $z\approx v /c$ and so \eqref{eq:ley-hubble} can be approximated to 
+To calculate $P(\textbf{k})$ one then needs three coordinates for each galaxy (as would be expected from a three dimensional universe). These coordinates will be 2 angular coordinates (the astronomical coordinates declination $\delta$ and right ascension $\alpha$) and a radial coordinate $r$ which must be calculated from $z$. For this it is necessary to assume a cosmology, since it is what dictates the conversion from redshift to distance through Hubble's law \eqref{eq:ley-hubble}. For this transformation, the redshift is interpreted as a Doppler shift. At low enough velocities, $z\approx v /c$ and so \eqref{eq:ley-hubble} can be approximated to 
 \begin{align}
 c z = H_0 r	
 \end{align}
@@ -60,11 +60,11 @@ All these magnitudes are related to what is called the second moment of the over
 	\mu_n = \int_{-\infty}^{\infty} x^{n}P(x)dx 
 	\label{eq:n-moment}
 \end{align}
-It is then natural to ask why is only the second moment of the overdensity $\delta$ considered.\footnote{The dependency on $\textbf{x}$ was dropped since $\delta$ can be both spoken of in configuration space and momentum (Fourier) space. These representations correspond to the $\xi(r)$ and $P(k)$ functions, respectively.}
+It is then natural to ask why is only the second moment of the overdensity $\delta$ considered.\footnote{The dependency on $\textbf{x}$ was dropped since $\delta$ can be both spoken of in configuration space and momentum (Fourier) space. These representations correspond to the $\xi(r)$ and $P(\textbf{k})$ functions, respectively.}
 It has been measured in the CMB that the universe is a gaussian field. These kinds of fields have the property that any moment $\mu_n$ with $n>2$ will be 0. These moments (e.g. $ \left<\delta(\textbf{x}) \delta(\textbf{y}) \delta(\textbf{z}) \right>$) have been shown to all be compatible with 0. This is predicted by the inflation theory, but the strongest reason to believe this is the experimental data. \\
 
 All these calculations are performed by Rapid foUrier STatIstics COde (RUSTICO)\cite{rustico}. This software needs the specific galaxy catalogue to be used, and the statement of the cosmology that is going to be used, in a similar fashion as was done in~\ref{sec:LCDM}. The catalogue to be used in this work is the Luminous Red Galaxy sample from the extended Baryon Oscillation Spectroscopic Survey (LRG eBOSS~\cite{eBoss}).
-With this information it then takes the mentioned steps: Transforms each redshift $z$ to a radial distance $r$, assigns each galaxy to a point $\textbf{x}$, calculates through interpolation the galaxy density at each point $\rho\left(  \textbf{x}\right)$, the overdensity at each point $\delta\left( \textbf{x} \right)$, the correlation function $\xi(r)$ and finally its FFT to obtain the power spectrum $P(k)$, as seen in the figure~\ref{fig:rustico}. \\
+With this information it then takes the mentioned steps: Transforms each redshift $z$ to a radial distance $r$, assigns each galaxy to a point $\textbf{x}$, calculates through interpolation the galaxy density at each point $\rho\left(  \textbf{x}\right)$, the overdensity at each point $\delta\left( \textbf{x} \right)$, the correlation function $\xi(\textbf{r})$ and finally its FFT to obtain the power spectrum $P(\textbf{k})$, as seen in the figure~\ref{fig:rustico}. \\
 
 
 \begin{figure}[t]
@@ -89,7 +89,7 @@ To split the power spectrum $P(k)$ into these two functions, the routine \textit
 	O_{\text{lin}}(k) = \frac{P(k)}{P_{\text{smooth}(k)}}
 \end{align}
 
-The relationship between the data and the model is done through the Bao and RSD Algorithm for Spectroscopy Surveys (BRASS)~\cite{brass}. This software allows for the calculation of the $\alpha$ parameters, as defined by \eqref{eq:alphas-def}. BRASS takes as input the calculated power spectrum (given by RUSTICO) for some  fiducial cosmology, and the theoretic power spectrum for some other fiducial cosmology. It will return among many other fit parameters, the $\alpha_\parallel$ and $\alpha_\perp$ parameters along with their standard deviations that will allow the calculation of the observables $D_H/r_s$ and $D_A /r_s$. A graphic scheme of the procedure followed throughout this work can be seen in the figure \ref{fig:pipeline}.\\
+The relationship between the data and the model is analyzed through the Bao and RSD Algorithm for Spectroscopy Surveys (BRASS)~\cite{brass}. This software allows for the calculation of the $\alpha$ parameters, as defined by \eqref{eq:alphas-def}. BRASS takes as input the calculated power spectrum (given by RUSTICO) for some  fiducial cosmology, and the theoretic power spectrum for some other fiducial cosmology. It returns, among many other fit parameters, the $\alpha_\parallel$ and $\alpha_\perp$ parameters along with their standard deviations that will allow the calculation of the observables $D_H/r_s$ and $D_A /r_s$. A graphic scheme of the procedure followed throughout this work can be seen in the figure \ref{fig:pipeline}.\\
 
 
 \begin{figure}[p]

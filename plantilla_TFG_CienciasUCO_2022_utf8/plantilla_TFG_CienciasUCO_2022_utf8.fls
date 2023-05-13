@@ -1294,6 +1294,11 @@ INPUT ./baogif3.png
 INPUT baogif3.png
 INPUT ./baogif3.png
 INPUT ./baogif3.png
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm
 INPUT ../figs/sdss_xi.png
 INPUT ../figs/sdss_xi.png
 INPUT ../figs/sdss_xi.png
@@ -1474,11 +1479,6 @@ INPUT ./bibliografia.tex
 INPUT bibliografia.tex
 INPUT ./bibliografia.tex
 INPUT bibliografia.tex
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm
 INPUT ./anexo1.tex
 INPUT ./anexo1.tex
 INPUT ./anexo1.tex
