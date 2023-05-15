@@ -114,6 +114,7 @@ $\Omega_\Lambda$ corresponds to the density of dark energy in the universe, whil
 These parameters are what define the certain cosmology we are using, and obey the cosmic sum rule 
 \begin{align}
 	1 = \Omega_m + \Omega_\Lambda + \Omega_k
+	\label{eq:cosmic-sum-rule}
 \end{align}
 Which is just a result of dividing \eqref{eq:1a-friedmann} evaluated at present time, by  $H_0^2$. \\
 
@@ -183,17 +184,31 @@ Allowing us to define two new density parameters $\Omega_b = \frac{\rho_b}{\rho_
 In this work, an extension of the $\Lambda$CDM model is considered. Though the standard cosmological model considers a flat universe, the curvature parameter will not be fixed to $0$ and is therefore allowed to be a free parameter, adding a new degree of freedom to the standard model (not to be confused with the particle physics standard model). This model can be further extended by considering the mass of the neutrinos, the quintaessential force (dark energy)\ldots  \\
 
 The fiducial (starting) values of these parameters that will be used in this work are
-\begin{itemize}
-	\item 	$\Omega_b =  0.0481 $
-	\item 	$\Omega_c =  0.2604$ 
-	\item $H_0 = 67.6$ km s$ ^{-1}$ Mpc$^{-1}$
-	\item $\tau_{\text{reio}} = 0.09$
-	\item $A_s = 2.04031526769\cdot 10^{-9}$
-	\item $n_s = 0.97$
-\end{itemize}
+\begin{table}[htpb]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Fiducial Value \\
+\hline
+$\Omega_b$ & 0.0481 \\
+$\Omega_c$ & 0.2604 \\
+$H_0$ & 67.6 km s$^{-1}$ Mpc$^{-1}$ \\
+$\tau_{\text{reio}}$ & 0.09 \\
+$A_s$ & $2.04031526769 \times 10^{-9}$ \\
+$n_s$ & 0.97 \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Fiducial cosmological parameter values used in the BAO analysis.}
+\end{table}
 And $\Omega _k$ that will vary between $-0.2$ and 0.2.
 
-From these free parameters, one derives some parameters. Of those, the main interest is in $\Omega_\Lambda$, $r_d$, $D_H$, and $D_A$, 
+From these free parameters, one derives some parameters. Of those, the main interest is in $\Omega_\Lambda$, $r_d$, $D_H$, and $D_A$. $\Omega_\Lambda$ changes with $\Omega_k$ for a fixed $\Omega_m$ by the cosmic sum rule \eqref{eq:cosmic-sum-rule}
+\begin{align}
+	\Omega_\Lambda =  1 - \Omega_m - \Omega_k
+\end{align}
+Thus $\Omega_\Lambda$ varies between 0.49 and 0.89.
+
 \begin{itemize}
 	\item $r_d = 147.784 $ Mpc
 	\item $D_H/r_d  = 18.7$
