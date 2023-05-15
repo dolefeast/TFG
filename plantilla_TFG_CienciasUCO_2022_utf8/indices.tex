@@ -3,7 +3,7 @@
 % Genera el índice de contenidos------------
 
 \fancypagestyle{plain}{
-\fancyfoot[R]{\small pág. \thepage} 
+\fancyfoot[R]{\small page \thepage} 
 }
 \tableofcontents
 \addcontentsline{toc}{chapter}{Índice general}
@@ -12,27 +12,27 @@
 
 % Genera el índice de figuras---------------
 \fancypagestyle{plain}{
-\fancyfoot[R]{\small pág. \thepage} 
+\fancyfoot[R]{\small page \thepage} 
 }
-\renewcommand{\listfigurename}{Índice de \nomfigs}
+\renewcommand{\listfigurename}{List of \nomfigs}
 \renewcommand{\figurename}{\nomfig}
 
 \listoffigures
-\addcontentsline{toc}{chapter}{Índice de \nomfigs}
+\addcontentsline{toc}{chapter}{List of \nomfigs}
 
 
 % Genera el índice de tablas---------------
 \fancypagestyle{plain}{
-\fancyfoot[R]{\small pág. \thepage}
+\fancyfoot[R]{\small page \thepage}
 }
 \listoftables
-\addcontentsline{toc}{chapter}{Índice de tablas}
+\addcontentsline{toc}{chapter}{List of tables}
 
 
 % Para las cabeceras del resto
 
 \pagestyle{fancy} 
 \fancyhf{}
-\fancyfoot[R]{\small pág. \thepage}
+\fancyfoot[R]{\small page \thepage}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
