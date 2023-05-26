@@ -1,19 +1,20 @@
 from __init__ import *
 
-#files = Path('/home/santi/TFG/outputs_santi/class_output/').glob('*pk.dat')
-pklin = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*pk*069*')
-psmooth = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*psm*069*')
-Olin = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*Olin*069*')
+#CLASS output that was linearly spaced and with the BAO removed.  pklin = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*pk*069*') #The power spectrum
+psmooth = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*psm*069*') #The smoothed power spectrum
+Olin = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*Olin*069*') #The pure BAO
 
+#Routine to read the data files used throughout this work
 pklin, params = util_tools.many_files(list(pklin))
 psmooth, params = util_tools.many_files(list(psmooth))
 Olin, params = util_tools.many_files(list(Olin))
 
-h = 0.676
-kmin = 0.02
-kmax = 0.51
-fontsize = 28
+#Our k-region of interest
+kmin, kmax = 0.02, 0.51
 
+fontsize = 28 #Text fontsize
+
+#Using for loop since there is code common to the three data sets
 for i, data in enumerate([pklin[0], psmooth[0], Olin[0]]):
     fig, ax = plt.subplots()
     ax.spines['top'].set_visible(False), ax.spines['right'].set_visible(False)
@@ -24,8 +25,6 @@ for i, data in enumerate([pklin[0], psmooth[0], Olin[0]]):
     y = y[idx]
 
     ax.plot(x, y, color='teal', linewidth=3)
-#    ax.axhline(y=min(y), color='black', linewidth=1.3, alpha=0.7)
-#    ax.axvline(x=kmin, color='black', linewidth=1.3, alpha=0.7)
 
     logx = np.log10(x)
     logy = np.log10(y)
@@ -35,7 +34,7 @@ for i, data in enumerate([pklin[0], psmooth[0], Olin[0]]):
     if i==0:
         yticks = [int(x) for x in np.round(yticks, -2)]
         ylabel = r'$ P(k) [$Mpc$^3 h^{-3}]$' 
-        name  = 'Pklin'
+        name  = 'Pklin' #The filename
         print('First plot done!')
     elif i==1:
         yticks = [int(x) for x in np.round(yticks, -2)]
@@ -61,11 +60,5 @@ for i, data in enumerate([pklin[0], psmooth[0], Olin[0]]):
 
     fig.set_tight_layout(True)
     plt.savefig(f'../figs/{name}.pdf')
-    plt.savefig(f'../figs/{name}.png')
-
-#    ax.plot(psmooth[0],psmooth[1], color='teal')
-#    ax.plot(Olin[0],Olin[1], color='teal')
-
-    #plt.savefig('../figs/PkOlPsm.pdf')
    
 plt.show()

@@ -70,8 +70,6 @@ axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
 axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
 axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
 for ax in axes.ravel():
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
     ticks = ax.get_yticks()
     label = ax.get_ylabel()
     print(label, ticks)

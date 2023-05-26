@@ -86,8 +86,6 @@ axes[2,0].set_xticks(Ok_list)
 axes[2,0].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
 axes[2,1].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
 for ax in axes.ravel():
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
     ticks = ax.get_yticks()
     label = ax.get_ylabel()
     print(label, ticks)

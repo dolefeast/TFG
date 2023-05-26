@@ -77,23 +77,22 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
     print("""For Ok = {} 
           D_H/r_d = {} \\pm {} 
           D_M/r_d = {} \\pm {} """.format(Ok,*[round(x, 2) for x in (current_DH,current_DH_std,current_DM,current_DM_std)]))
+    
 
 axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs, color=color, linewidth=2) #Multiply by 0 is phase2
 axes[1,1].plot(Ok_cont, DM(zmax, Ok_cont)/rs, color=color, linewidth=2)
 axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
 axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
-axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{fid}$', fontsize=fontsize)
-axes[1,1].set_ylabel(r'$\left[ D_M/r_d\right]^{fid}$', fontsize=fontsize)
+axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{r}$', fontsize=fontsize)
+axes[1,1].set_ylabel(r'$\left[ D_M/r_d\right]^{r}$', fontsize=fontsize)
 axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
 axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
-axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
-axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
+axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
+axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
 axes[2,0].set_xticks(Ok_list)
 axes[2,0].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
 axes[2,1].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
 for ax in axes.ravel():
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
     ticks = ax.get_yticks()
     label = ax.get_ylabel()
     ax.set_yticks(ticks)

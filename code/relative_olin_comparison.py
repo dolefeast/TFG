@@ -25,7 +25,7 @@ y = y[idx]
 ax.plot(x, y, color=color, label='Flat $O_{lin}(k)$')
 
 k_hector, pk_hector = hector_df[0], hector_df[1]
-ax.plot(k_hector, pk_hector, color='coral', label='Non flat $O_{lin}(k)(k)$')
+ax.plot(k_hector, pk_hector, color='coral', label='Non flat $O_{lin}(k)$')
 ax.legend(loc='best', fontsize=fontsize/1.5)
 
 
@@ -37,8 +37,6 @@ ax.set_ylabel(r'$O_{lin}(k)$', fontsize=fontsize)
 #    plt.plot(x2, (1-0.665)*y2, label='My data')
 #    plt.plot(x1, y1, label='Original Y')
 #plt.savefig('../figs/Olin_relative_comparison.pdf')
-ax.spines['top'].set_visible(False)
-ax.spines['right'].set_visible(False)
 yticks = ax.get_yticks()
 ylabel = ax.get_ylabel()
 ax.set_yticks(yticks)
@@ -49,5 +47,5 @@ xlabel = ax.get_xlabel()
 ax.set_xticks(xticks)
 ax.set_xticklabels([round(tick, 2) for tick in xticks], fontsize=fontsize/1.3)
 fig.tight_layout()
-plt.savefig('../figs/olin_comparison.png')
+plt.savefig('../figs/olin_comparison.pdf')
 plt.show()

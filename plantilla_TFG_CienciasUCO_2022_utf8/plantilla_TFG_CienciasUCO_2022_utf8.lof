@@ -2,14 +2,11 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces The all-sky map of CMB anisotropies as seen by space-based Observatory Planck}}{8}{figure.1.1}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Different stages of the Baryon Acoustic Oscillations.}}{10}{figure.1.2}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Origin of the BAO}}}{10}{figure.1.2}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {The BAO propagating through the plasma}}}{10}{figure.1.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {The frozen BAO after recombination}}}{10}{figure.1.2}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces The first observations of the Baryon Acoustic Oscillations phenomenon. We see on the left panel the correlation function in the observations made by the Sloan Digital Sky Survey~\cite {Eisenstein2005}, and on the right panel the power spectrum as observed by the 2dF collaboration \cite {2dFCole2005}.}}{11}{figure.1.3}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces The first observations of the Baryon Acoustic Oscillations phenomenon, observed independently by the Sloan Digital Sky Survey (SDSS)~\cite {Eisenstein2005} as seen in the left panel and the 2dF collaboration~\cite {2dFCole2005} in the right panel. These were the main tools that finally determined the existence of the BAO. The SDSS result shows the measured correlation function $\xi (s)$. This function represents the distribution of the distance in between galaxies. Note the similarity between this graph and the frozen BAO from the figure \ref {fig:scheme-BAO}. The local maximum at $s\approx 100$ h$^{-1}$ Mpc corresponds to the BAO peak. The 2dF result, seen in the rightmost panel is the measured power spectrum $P(k)$ (here called $W(k)$, which is the Fourier transform of the $\xi (r)$ function.}}{11}{figure.1.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The power spectrum $P(k)$ of the LRG eBOSS~\cite {eBoss} catalogue as calculated by RUSTICO assuming a flat universe ($\Omega _k = 0.00$)}}{20}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphic representation of the power spectrum $P(k)$ as calculated by CLASS (left panel), the smoothed power spectrum $P_{smooth}(k)$ (middle panel) and the oscillations $O_{lin}(k)$ (right panel)for a flat universe $\Omega _k = 0.00$.}}{20}{figure.3.2}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The BAO analysis pipeline schematic}}{21}{figure.3.3}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The power spectrum $P(k)$ of the LRG eBOSS~\cite {eBoss} catalogue as calculated by RUSTICO assuming a flat universe ($\Omega _k = 0.00$)}}{21}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Graphic representation of the power spectrum $P(k)$ as calculated by CLASS (left panel), the smoothed power spectrum $P_{smooth}(k)$ (middle panel) and the oscillations $O_{lin}(k)$ (right panel)for a flat universe $\Omega _k = 0.00$.}}{21}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The BAO analysis pipeline schematic}}{24}{figure.3.3}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Calculation of the cosmological observables for different fiducial cosmologies.}}{25}{figure.4.1}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Calculation of the cosmological observables for different fiducial cosmologies.}}{27}{figure.4.1}%

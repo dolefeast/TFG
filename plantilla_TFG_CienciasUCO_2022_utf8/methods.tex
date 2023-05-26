@@ -3,9 +3,9 @@
 
 For this work, many diferent tools were used, which will be cathegorized in hardware, software and mathematical tools. \\
 
-In terms of hardware, the author was granted access to the \textit{FQM-378} clusters in the Universidad de Córdoba. Access to these clusters was crucial for the calculations done throughout the work, reducing the time needed for each calculation in several orders of magnitude. Besides the clusters, the author also needed his own personal computer, mainly to remotely access the clusters and also for other types of calculations that could not have been done from the clusters. These calculations include among other things, plotting of figures.  \\
+In terms of hardware, the author was granted access to the computer facilities of the  \textit{FQM-378} research group of the Universidad de Córdoba. Access to these clusters was crucial for the calculations done throughout the work, reducing the time needed for each calculation in several orders of magnitude. Besides the clusters, the author also needed his own personal computer, mainly to remotely access the clusters and also for other types of calculations that could not have been done from the clusters. These calculations include among other things, plotting of figures.  \\
 
-The main mathematical tool for this work was the Fourier Transform. The Fourier Transform is a consequence of Fourier's Theorem. This theorem states that for every `nice'\footnote{The conditions for which this theorem does not apply are beyond the scope of this work, and so the `niceness' of a function need not be defined} periodic function $f(x)$ of period $L$ one can find a unique linear combination of sine and cosine functions such that 
+The main mathematical tool for this work was the Fourier Transform~\cite{FFT}. The Fourier Transform is a consequence of Fourier's Theorem. This theorem states that for every `nice'\footnote{The conditions for which this theorem does not apply are beyond the scope of this work, and so the `niceness' of a function need not be defined} periodic function $f(x)$ of period $L$ one can find a unique linear combination of sine and cosine functions such that 
 \begin{align}
 	f(x) = C + \sum_\text{n odd} a_n \sin\left( \frac{nx}{L} \right) + \sum_{\text{n even}}^{} b_n \cos \left( \frac{nx}{L} \right) 
 \end{align}
@@ -26,7 +26,7 @@ For each mode $n$ one can define a new variable $k=2\pi n /L$, leading to the ac
 \begin{align}
 	\tilde{f}(k) = \frac{1}{2\pi}\int_{L}^{}  f(x) e^{-i k x} dx
 \end{align}
-In this work, the power spectrum $P(\textbf{k})$ is considered, which is the Fourier Transform of the correlation function $\xi(\textbf{r})$.  Recalling the definition of the $\xi(\textbf{r})$ function, the frequency of the distance at which two any two galaxies are found, one can notice that  $\xi(\textbf{r})$ must be a discrete function. We thus define the Discrete Fourier Transform (DFT) over a discrete set of N data points $\{\left( x_i, \xi(x_i) \right) \}_{i=1}^{N} $
+In this work, the power spectrum $P(\textbf{k})$ is considered, which is the Fourier Transform of the correlation function $\xi(\textbf{r})$. This function, as was already mentioned in section \ref{sec:BAO} is the distribution of the distances at which galaxies are found to be distant of one another. Since the amount of galaxies present is finite, the data set must then be discrete. This motivates us towards the definition of the Discrete Fourier Transform of a certain data set $\{\left( x_i, \xi(x_i) \right) \}_{i=1}^{N} $
 \begin{align}
 	P(k_j) = \frac{1}{2\pi}\sum_{i=1}^{N} e^{-i k_j x_{i}} \xi(x_i)
 	\label{eq:DFT}
@@ -35,7 +35,7 @@ Though one must think that the periodic function hypothesis is being broken, sin
 
 
 Another thing to be noted is the fast growing complexity of the algorithm described by \eqref{eq:DFT}, which grows as $N^2$, with $N$ the number of points used for the calculation. 
-To solve this one would use the Fast Fourier Transform (FFT), instead of the DFT. This algorithm is based in the decomposition of the space considered with $N=N_1N_2$ data points, into two smaller spaces with $N_1$ and $N_2$ data points. It then factorizes each problem into smaller problems, and recursively breaks the configuration down into even smaller problems, thus greatly reducing the complexity of the algorithm from $N^2$ to $N\log N$.  \\
+To solve this one would use the Fast Fourier Transform (FFT)~\cite{FFT}, instead of the Discrete Fourier Transform. This algorithm is based in the decomposition of the space considered with $N=N_1N_2$ data points, into two smaller spaces with $N_1$ and $N_2$ data points. It then factorizes each problem into smaller problems, and recursively breaks the configuration down into even smaller problems, thus greatly reducing the complexity of the algorithm from $N^2$ to $N\log N$.  \\
 
 The $P(\textbf{k})$ has been until now only been vaguely defined. Let  $\rho(\textbf{x})$ determine the density of galaxies at a given point and $ \overline{\rho}$ the average density throughout the universe. As the interest lays in the fluctuations around the density, it is only natural to be interested in the overdensity $\delta(\textbf{x})$ at some position $\textbf{x}$
 \begin{align}
@@ -45,6 +45,7 @@ The $P(\textbf{k})$ has been until now only been vaguely defined. Let  $\rho(\te
 From this magnitude one calculates the aforementioned correlation function $\xi(\textbf{r})$ as\footnote{Note only the dependency on $r = \|\textbf{r}\|$ remains, since the universe is (assumed to be) homogenous and isotropic}
 \begin{align}
 	\xi(\textbf{r}) = \left<\delta(\textbf{x}) \delta(\textbf{x}') \right> = \frac{1}{V}\int_{V}^{}  d^3 \textbf{x} \delta(\textbf{x}) \delta\left(\textbf{x} - \textbf{r}  \right) 
+	\label{eq:correlation-function}
 \end{align} with $\textbf{r} = \textbf{x} - \textbf{x}'$
 And the power spectrum is then defined as its three dimensional Fourier Transform. \\
 
@@ -60,10 +61,11 @@ All these magnitudes are related to what is called the second moment of the over
 	\mu_n = \int_{-\infty}^{\infty} x^{n}P(x)dx 
 	\label{eq:n-moment}
 \end{align}
-It is then natural to ask why is only the second moment of the overdensity $\delta$ considered.\footnote{The dependency on $\textbf{x}$ was dropped since $\delta$ can be both spoken of in configuration space and momentum (Fourier) space. These representations correspond to the $\xi(r)$ and $P(\textbf{k})$ functions, respectively.}
-It has been measured in the CMB that the universe is a gaussian field. These kinds of fields have the property that any moment $\mu_n$ with $n>2$ will be 0. These moments (e.g. $ \left<\delta(\textbf{x}) \delta(\textbf{y}) \delta(\textbf{z}) \right>$) have been shown to all be compatible with 0. This is predicted by the inflation theory, but the strongest reason to believe this is the experimental data. \\
+Though this is done only in one dimension, the definition of the $n$th moment of a magnitude $x$ is easily extended to more dimensions.
+It should be natural to ask why is only the second moment of the overdensity $\delta$ considered.\footnote{The dependency on $\textbf{x}$ was dropped since $\delta$ can be both spoken of in configuration space and momentum (Fourier) space. These representations correspond to the $\xi(\textbf{r})$ and $P(\textbf{k})$ functions, respectively.}
+It has been measured in the CMB that the universe is a gaussian field, and these kinds of fields have the property that any moment $\mu_n$ with $n\ge3$ will be 0. These moments (e.g. $ \left<\delta(\textbf{x}) \delta(\textbf{y}) \delta(\textbf{z}) \right>$) have been shown to all be compatible with 0. This is predicted by the inflation theory, but the strongest reason to believe this is the experimental data. \\
 
-All these calculations are performed by Rapid foUrier STatIstics COde (RUSTICO)\cite{rustico}. This software needs the specific galaxy catalogue to be used, and the statement of the cosmology that is going to be used, in a similar fashion as was done in~\ref{sec:LCDM}. The catalogue to be used in this work is the Luminous Red Galaxy sample from the extended Baryon Oscillation Spectroscopic Survey (LRG eBOSS~\cite{eBoss}).
+All these calculations are performed by Rapid foUrier STatIstics COde\footnote{Gil-Marín, H. \url{https://github.com/hectorgil/rustico}}(RUSTICO). This software needs the specific galaxy catalogue to be used, and the statement of the cosmology that is going to be used, in a similar fashion as was done in~\ref{sec:LCDM}. The catalogue to be used in this work is the Luminous Red Galaxy sample from the extended Baryon Oscillation Spectroscopic Survey (LRG eBOSS~\cite{eBoss}).
 With this information it then takes the mentioned steps: Transforms each redshift $z$ to a radial distance $r$, assigns each galaxy to a point $\textbf{x}$, calculates through interpolation the galaxy density at each point $\rho\left(  \textbf{x}\right)$, the overdensity at each point $\delta\left( \textbf{x} \right)$, the correlation function $\xi(\textbf{r})$ and finally its FFT to obtain the power spectrum $P(\textbf{k})$, as seen in the figure~\ref{fig:rustico}. \\
 
 
@@ -80,25 +82,47 @@ With this information it then takes the mentioned steps: Transforms each redshif
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Pklin.pdf}}
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Psm.pdf}}
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Olin.pdf}}
-	\caption{Graphic representation of the power spectrum $P(k)$ as calculated by CLASS (left panel), the smoothed power spectrum $P_{smooth}(k)$ (middle panel) and the oscillations $O_{lin}(k)$ (right panel)for a flat universe $\Omega_k = 0.00$.} \label{fig:PkOlPsm} \end{figure} Having the data, it is then necessary to have a model that explains it. The Cosmic Linear Anisotropy Solving System (CLASS) \cite{class} library allows the user to calculate the theoretical curve $P(k)$ should have for each cosmology. This software takes the corresponding cosmology as an input and returns the power spectrum seen in the leftmost panel of the figure~\ref{fig:PkOlPsm}. Note that this curve looks like a decreasing function which will be named $P_{\text{smooth}}(k)$, modulated by an oscilating curve, named $O_{\text{lin}}(k)$. These two functions are seen in the two leftmost panels of the figure~\ref{fig:PkOlPsm}, and verify \begin{align} P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
+\caption{Graphic representation of the power spectrum $P(k)$ as calculated by CLASS (left panel), the smoothed power spectrum $P_{smooth}(k)$ (middle panel) and the oscillations $O_{lin}(k)$ (right panel)for a flat universe $\Omega_k = 0.00$.} \label{fig:PkOlPsm} \end{figure} Having the data, it is then necessary to have a model that explains it. The Cosmic Linear Anisotropy Solving System \footnote{Lesgourgues, J., Tram, T., \& Schoenenberg, N. \url{https://github.com/lesgourg/class_public}}(CLASS)  library allows the user to calculate the theoretical curve $P(k)$ should have for each cosmology. This software takes the corresponding cosmology as an input and returns the power spectrum seen in the leftmost panel of the figure~\ref{fig:PkOlPsm}. Note that this curve looks like a decreasing function which will be named $P_{\text{smooth}}(k)$, modulated by an oscilating curve, named $O_{\text{lin}}(k)$. These two functions are seen in the middle and rightmost panels respectively, of the figure~\ref{fig:PkOlPsm}, and verify \begin{align} P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
 	\label{eq:pk-components}
 \end{align}
  \\
-To split the power spectrum $P(k)$ into these two functions, the routine \textit{remove\_bao} from the Montepython project~\cite{montepython} has been used. This routine takes as input the power spectrum $P(k)$ as an array of points. It then computes the geometrical curvature of the curve and interpolates in between the points at which the calculated curvature results in 0. The output of this function is the smoothed power spectrum $P_{\text{smooth}}(k)$. By the definition \eqref{eq:pk-components}, the pure BAO  $O_{\text{lin}}(k)$ are calculated through 
+ To split the power spectrum $P(k)$ into these two functions, the routine \textit{remove\_bao} from the Montepython project~\footnote{Brinckmann T. \url{https://github.com/brinckmann/montepython_public}} has been used. This routine takes as input the power spectrum $P(k)$ as an array of points. It then computes the geometrical curvature of the curve and interpolates in between the points at which the calculated curvature results in 0. The output of this function is the smoothed power spectrum $P_{\text{smooth}}(k)$. By the definition \eqref{eq:pk-components}, the pure BAO  $O_{\text{lin}}(k)$ are calculated through 
 \begin{align}
 	O_{\text{lin}}(k) = \frac{P(k)}{P_{\text{smooth}(k)}}
 \end{align}
 
-The relationship between the data and the model is analyzed through the Bao and RSD Algorithm for Spectroscopy Surveys (BRASS)~\cite{brass}. This software allows for the calculation of the $\alpha$ parameters, as defined by \eqref{eq:alphas-def}. BRASS takes as input the calculated power spectrum (given by RUSTICO) for some  fiducial cosmology, and the theoretic power spectrum for some other fiducial cosmology. It returns, among many other fit parameters, the $\alpha_\parallel$ and $\alpha_\perp$ parameters along with their standard deviations that will allow the calculation of the observables $D_H/r_s$ and $D_A /r_s$. A graphic scheme of the procedure followed throughout this work can be seen in the figure \ref{fig:pipeline}.\\
+The relationship between the data and the model is analyzed through the Bao and RSD Algorithm for Spectroscopy Surveys ~\footnote{Gil-Marín H. \url{https://github.com/hectorgil/brass}}(BRASS). This software allows for the calculation of the $\alpha$ parameters, as defined by \eqref{eq:alphas-def}. BRASS takes as input the calculated power spectrum (given by RUSTICO) for some  fiducial cosmology, and the theoretic power spectrum for some other fiducial cosmology. It returns, among many other fit parameters, the $\alpha_\parallel$ and $\alpha_\perp$ parameters along with their standard deviations that will allow the calculation of the observables $D_H/r_s$ and $D_A /r_s$. A graphic scheme of the procedure followed throughout this work can be seen in the figure \ref{fig:pipeline} and it can be summarized as follows:
+\begin{enumerate}
+	\item Starting from a certain galaxy catalogue (in this case, the extended Baryon Oscillation Spectroscopic Survey (eBOSS). This catalogue consists on the astronomical coordinates declination $\delta$ and right ascension $\alpha$ of each galaxy and their measured redshift $z$.
+	\item To transform each $z$ into a radial distance assume a fiducial cosmology $(\Omega_m, \Omega_\Lambda, \Omega_k) = (0.31, 0.69-\Omega_k, \Omega_k) $. This assumption automatically sets the fiducial values 
+	\begin{align}
+		\left[ \frac{D_H}{r_d} \right] ^\text{fid}, \,\left[ \frac{D_M}{r_d} \right] ^\text{fid}
+	\end{align}
+	Through the definitions \eqref{eq:DH-definition} and \eqref{eq:DA-definition}.
+\item Having the distance from Earth to the galaxies $r$, and their angular coordinates $(\delta, \alpha)$, their position can be calculated. Knowing the positions we now have a discrete distribution $\rho(\textbf{x})$ of galaxies.This distribution is then smoothed out, and its overdensity \eqref{eq:overdensity} calculated.
+\item Knowing $\delta(\textbf{x})$, calculate the correlation function $\xi(\textbf{r})$ using \eqref{eq:correlation-function}.
+\item From $\xi(\textbf{r})$ calculate the power spectrum $P(\textbf{k})$ through its FFT. The steps 3 to 5 are done by RUSTICO.
+\item Generate a fiducial template using CLASS asuming a certain cosmology. In this case, a flat cosmology $(\Omega_m, \Omega_\Lambda, \Omega_k) = (0.31, 0.69, 0.00)$ that will stay constant for every iteration. Split it into its main components,  $P_{\text{smooth}}(k)$ and $O_{\text{lin}}(k)$ using the \textit{remove\_bao} routine from montepython.
+\item With the outputs from RUSTICO and CLASS, fit the CLASS template to the RUSTICO data using BRASS, obtaining the best-fit parameters $\alpha_\parallel$ and $\alpha_\perp$ and their corresponding standard deviations.
+\item This allows us to obtain the measured observables 
+\begin{align}
+	\frac{D_H}{r_d} &= \alpha_\parallel \left[ \frac{D_H}{r_d} \right]^\text{fid} \\
+	\frac{D_M}{r_d} &= \alpha_\perp \left[ \frac{D_M}{r_d} \right]^\text{fid} \\
+\end{align}
+And their corresponding standard deviations.
+
+\end{enumerate}
 
 
-\begin{figure}[p]
+
+\begin{figure}[b]
     \centering
     \incfig{pipeline}
-    \caption[The BAO analysis pipeline schematic]{The BAO analysis pipeline scheme that was  followed throughout this work, that was described along this chapter. First, starting from a certain galaxy catalogue (in this case, the extended Baryon Oscillation Spectroscopic Survey) which are the angular coordinates of each galaxy and their measured redshift. Given a redshift $z$, to calculate the radial distance (and therefore its position $\textbf{r}$) one needs to assume a certain fiducial cosmology, which yields initial values for the observables we are interested in. Now having the positions of each galaxy, the two point distribution function can be calculated $\xi(\textbf{r})$, and through a Fast Fourier Transform, its power spectrum $P(\textbf{k})$. Parallelly one calculates a certain theoretical  power spectrum $P(\textbf{k})$. With these two functions one calculates the best fitting parameters $\alpha_\parallel$ and $\alpha_\perp$, which allows us to calculate the final values $D_H /r_d$ and $D_M / r_d$.}
+    \caption[The BAO analysis pipeline schematic]{The BAO analysis pipeline scheme that was  followed throughout this work, that was described along this chapter. }
     \label{fig:pipeline}
 \end{figure}
-All of these calculations were done thanks to the clusters to which I was granted access to in Universidad de Córdoba, which had the following specifications: 
+ \newpage
+All of these calculations were done thanks to the clusters to which I was granted access to in the \textit{FQM-378} research group in the Universidad de Córdoba, which had the following specifications: 
 \begin{itemize}
 	\item 1 node, named Pauli,
 \item 40 threads for this node, \textit{Intel(R) Xeon(R) Silver 4210R CPU @ 2.40GHz},
