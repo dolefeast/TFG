@@ -14,25 +14,42 @@
 
 
 % Idioma castellano 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
 \usepackage[english]{babel}
 %\usepackage{mathpazo} 
 %aa\usepackage{eulervm}
 \usepackage{import}
 \usepackage{pdfpages}
-\usepackage{transparent}
+%\usepackage{transparent}
+\usepackage[left=3cm,top=2cm,right=2cm,bottom=2cm]{geometry}
+
+\usepackage[no-math]{fontspec}
+\usepackage{sansmathfonts}
+%\usepackage[arial]{newtxmath}
+%\setmathfont{Arial}
+\setmainfont{Arial}
+%\setmathfont{Firemath-Regular}
+%\setmainfont[Ligatures={TeX,Rare}]{Arial}
+
+%\DeclareSymbolFont{operators}{\encodingdefault}{\familydefault}{m}{n}
+
+
+\fontsize{12}{14}\selectfont
+
+\linespread{1.5}
+
 
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
     \import{./figures/}{#2.pdf_tex}
 }
 
-\pdfsuppresswarningpagegroup=1
+%\pdfsuppresswarningpagegroup=1
 
 
 % Tamaño de la página
-\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
+%\usepackage[left=2.5cm,right=2.5cm,top=2cm,bottom=2cm]{geometry}
 
 % Para redefinir algunas cosas del babel en castellano 
 %\accentedoperators    % Pone acentos a los operadores

@@ -72,7 +72,7 @@ With this information it then takes the mentioned steps: Transforms each redshif
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\textwidth]{../figs/Pkrustico.pdf}
-	\caption{The power spectrum $P(k)$ of the LRG eBOSS~\cite{eBoss} catalogue as calculated by RUSTICO assuming a flat universe ($\Omega_k = 0.00$)}
+	\caption[Power spectrum of the LRG eBOSS catalogue]{The power spectrum $P(k)$ of the LRG eBOSS~\cite{eBoss} catalogue as calculated by RUSTICO assuming a flat universe ($\Omega_k = 0.00$)}
 	\label{fig:rustico}
 \end{figure}
 
@@ -82,7 +82,7 @@ With this information it then takes the mentioned steps: Transforms each redshif
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Pklin.pdf}}
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Psm.pdf}}
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Olin.pdf}}
-\caption{Graphic representation of the power spectrum $P(k)$ as calculated by CLASS (left panel), the smoothed power spectrum $P_{smooth}(k)$ (middle panel) and the oscillations $O_{lin}(k)$ (right panel)for a flat universe $\Omega_k = 0.00$.} \label{fig:PkOlPsm} \end{figure} Having the data, it is then necessary to have a model that explains it. The Cosmic Linear Anisotropy Solving System \footnote{Lesgourgues, J., Tram, T., \& Schoenenberg, N. \url{https://github.com/lesgourg/class_public}}(CLASS)  library allows the user to calculate the theoretical curve $P(k)$ should have for each cosmology. This software takes the corresponding cosmology as an input and returns the power spectrum seen in the leftmost panel of the figure~\ref{fig:PkOlPsm}. Note that this curve looks like a decreasing function which will be named $P_{\text{smooth}}(k)$, modulated by an oscilating curve, named $O_{\text{lin}}(k)$. These two functions are seen in the middle and rightmost panels respectively, of the figure~\ref{fig:PkOlPsm}, and verify \begin{align} P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
+	\caption[Plot of the template power spectrum, its smooth component and the pure BAO]{Graphic representation of the power spectrum $P(k)$ as calculated by CLASS (left panel), the smoothed power spectrum $P_{smooth}(k)$ (middle panel) and the oscillations $O_{lin}(k)$ (right panel)for a flat universe $\Omega_k = 0.00$.} \label{fig:PkOlPsm} \end{figure} Having the data, it is then necessary to have a model that explains it. The Cosmic Linear Anisotropy Solving System \footnote{Lesgourgues, J., Tram, T., \& Schoenenberg, N. \url{https://github.com/lesgourg/class_public}}(CLASS)  library allows the user to calculate the theoretical curve $P(k)$ should have for each cosmology. This software takes the corresponding cosmology as an input and returns the power spectrum seen in the leftmost panel of the figure~\ref{fig:PkOlPsm}. Note that this curve looks like a decreasing function which will be named $P_{\text{smooth}}(k)$, modulated by an oscilating curve, named $O_{\text{lin}}(k)$. These two functions are seen in the middle and rightmost panels respectively, of the figure~\ref{fig:PkOlPsm}, and verify \begin{align} P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
 	\label{eq:pk-components}
 \end{align}
  \\

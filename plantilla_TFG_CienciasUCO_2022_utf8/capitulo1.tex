@@ -37,8 +37,8 @@ with $b\approx $ 2.897 mm K Wien's constant, $T$ the black body radiation and $\
 
 In 1991 anisotropies in the CMB were first discovered, by the COBE satellite\cite{SmootMather} later earning Smoot and Mather a nobel prize. As of 2023 the most precise measurements correspond to the Planck experiment in 2018 \cite{Planck2018} by the European Space Agency. These anisotropies can be seen in the figure~\ref{fig:cmb}. \\
 
-Of course, \SI{2.7}{K} was not the temperature of the plasma at recombination, as it was approximately hotter by a factor $z=1090$, or $\approx$\SI{3000}{K}. The reason we measure such smaller temperatures is because of the expansion of the universe.
-If today ($t=t_0$) some radiation of wavelength $\lambda_o$ were observed, that somehow is known to have been travelling for some time $\Delta t$ will have stretched due to the expansion of the universe. In other words, the wavelength $\lambda_e$ of the emitted radiation was smaller by a factor\footnote{The factor $a(t)$ is known as the scale factor of the universe, and will be explained with further detail later in the work.} $a(t')^{-1}$, with $t' = t_0-\Delta t$ being the earlier time at which the radiation was emitted, and $a(t_0)=1$ by definition. By Wien's displacement law \eqref{eq:wien-displacement}, this corresponds to a higher temperature by a factor $a(t')$. \\
+Of course, \SI{2.7}{K} was not the temperature of the plasma at recombination, as it was approximately hotter by a factor $z=1090$, or $\approx$\SI{3000}{K}. The reason we measure such smaller temperatures is due to the expansion of the universe.
+If today ($t=t_0$) some radiation of wavelength $\lambda_o$ were observed, that somehow is known to have been travelling for some time $\Delta t$ will have stretched due to the expansion of the universe. In other words, the wavelength $\lambda_e$ of the emitted radiation was smaller by a factor\footnote{The factor $a(t)$ is known as the scale factor of the universe, and will be explained with further detail later in the work.} $a(t')^{-1}$, with $t' = t_0-\Delta t$ being the earlier time at which the radiation was emitted, and defining $a(t_0)=1$. By Wien's displacement law \eqref{eq:wien-displacement}, this corresponds to a higher temperature by a factor $a(t')$. Note this process is normally done backwards: The $\lambda_e$ is known through spectral lines emission, $\lambda_o$ is known through measeurement and the variable we are interested in is the redshift $z.$\\
 
 
 Thus, the CMB becomes crucial in explaining the large scale structure of the universe, since the photons that decoupled from the plasma at recombination wasted more energy leaving denser regions behind losing thermal energy in the process. Appearing at a slightly lower temperature (gravitational redshift). On the contrary, those in void regions will appear hotter, being blueshifted. Therefore, temperature fluctuations in the CMB correspond to density fluctuations in the early universe. \\
@@ -75,8 +75,8 @@ The other tool for studying the BAO is the power spectrum seen in the right pane
 \begin{figure}[t] \centering
 	\subfigure{\includegraphics[width=0.4\textwidth]{../figs/sdss_xi.png} \label{fig:sdss}}
 	\hspace{0.2pt}
-	\subfigure{\includegraphics[width=0.4\textwidth]{../figs/2df_pk.png}	\label{fig:2df}}
-	\caption{The first observations of the Baryon Acoustic Oscillations phenomenon, observed independently by the Sloan Digital Sky Survey (SDSS)~\cite{Eisenstein2005} as seen in the left panel and the 2dF collaboration~\cite{2dFCole2005} in the right panel. These were the main tools that finally determined the existence of the BAO. The SDSS result shows the measured correlation function $\xi(s)$. This function represents the distribution of the distance in between galaxies. Note the similarity between this graph and the frozen BAO from the figure \ref{fig:scheme-BAO}. The local maximum at $s\approx 100$ h$^{-1}$ Mpc corresponds to the BAO peak. The 2dF result, seen in the rightmost panel is the measured power spectrum $P(k)$ (here called  $W(k)$, which is the Fourier transform of the $\xi(r)$ function.}
+	\subfigure{\includegraphics[width=0.45\textwidth]{../figs/2df_pk.png}	\label{fig:2df}}
+	\caption[First BAO observations by the SDSS and the 2dF groups]{The first observations of the Baryon Acoustic Oscillations phenomenon, observed independently by the Sloan Digital Sky Survey (SDSS)~\cite{Eisenstein2005} as seen in the left panel and the 2dF collaboration~\cite{2dFCole2005} in the right panel. These were the main tools that finally determined the existence of the BAO. The SDSS result shows the measured correlation function $\xi(s)$. This function represents the distribution of the distance in between any two galaxies. Note the similarity between this graph and the frozen BAO from the figure \ref{fig:scheme-BAO}. The local maximum at $s\approx 100$ h$^{-1}$ Mpc corresponds to the BAO peak. The 2dF result, seen in the rightmost panel is the measured power spectrum $P(k)$ (here called  $W(k)$, which is the Fourier transform of the $\xi(r)$ function.}
 	\label{fig:2005-results}
 \end{figure}
 
@@ -94,9 +94,9 @@ With $v$ the recession speed (the speed at which some point in space is receedin
 	3 \frac{\ddot a}{a} &= \Lambda c^2 - 4\pi G \left( \rho + \frac{3p}{c^2} \right) 
 	\label{eq:2a-friedmann}
 \end{align}
-In these equations we see many new parameters: $H(t)$ is a generalization of $H_0$, $H_0$ being the value of $H(t)$ at $t=t_0$ where $t_0$ is the age of the universe; $a(t)$ is the scale factor of the universe, meaning that if a certain length measurement $\Delta x$ was taken at time $t_1$, then that same measurement would be $\frac{a(t_2)}{a(t_1)}\Delta x$ at $t_2$; $G$ is the Newton's gravitational constant, $\rho$ the density of the universe (including baryonic, dark matter, radiation and neutrinos)\footnote{In this work, we will only be worried about baryonic and dark matter.}, $\Lambda$ is the cosmological constant which contains information about Dark Energy. Finally we see $k$, which is the spatial (Gaussian) curvature of the universe. This is, asymptotical curvature. \\
+In these equations we see many new parameters: $H(t)$ is a generalization of $H_0$, $H_0$ being the value of $H(t)$ at $t=t_0$ where $t_0$ is the age of the universe; $a(t)$ is already mentiond scale factor of the universe\footnote{More precisely, the Robertson-Walker scale factor\cite{cosmology}}, meaning that if a certain length measurement $\Delta x$ was taken at time $t_1$, then that same measurement would be $\frac{a(t_2)}{a(t_1)}\Delta x$ at $t_2$; $G$ is the Newton's gravitational constant, $\rho$ the density of the universe (including baryonic, dark matter, radiation and neutrinos)\footnote{In this work, we will only be worried about baryonic and dark matter.}, $\Lambda$ is the cosmological constant which contains information about Dark Energy. Finally we see $k$, which is the spatial (Gaussian) curvature of the universe. This is, asymptotical curvature. \\
 
-These equations are a result of the Friedmann–Lemaître–Robertson–Walker metric 
+These equations are a consequence of the Friedmann–Lemaître–Robertson–Walker metric \cite{cosmology}
 \begin{align}
 	ds ^2 = -c^2 dt^2  + a^2(t) \left( \frac{dr^2}{1-kr^2} +r^2d\theta ^2 + r^2 \sin^2\theta d\phi^2\right) 
 	\label{eq:FLRW}
@@ -196,7 +196,7 @@ $\Omega_b$ & 0.0481 \\
 $\Omega_c$ & 0.2604 \\
 $H_0$ & 67.6 km s$^{-1}$ Mpc$^{-1}$ \\
 $\tau_{\text{reio}}$ & 0.09 \\
-$A_s$ & $2.04031526769 \times 10^{-9}$ \\
+$A_s$ & $2.04031526769 \cdot 10^{-9}$ \\
 $n_s$ & 0.97 \\
 $\Omega_k$ & [-0.20 , +0.20]  \\
 \hline
@@ -211,7 +211,7 @@ $\Omega_\Lambda$ & [0.49, 0.89] \\
 \caption{Fiducial cosmological parameter values used in the BAO analysis and values for the `derived' values $r_d$, $D_H / r_d$, $D_M /r_d$.}
 \label{tab:fid-values}
 \end{table}
-And $\Omega _k$ that will vary between $-0.2$ and 0.2. From these free parameters, one derives some parameters. Of those, the main interest is in $\Omega_\Lambda$, $r_d$, $D_H$, and $D_A$. $\Omega_\Lambda$ changes with $\Omega_k$ for a fixed $\Omega_m$ by the cosmic sum rule \eqref{eq:cosmic-sum-rule}
+And $\Omega _k$ that will vary between -0.2 and 0.2. From these free parameters, one derives some parameters. Of those, the main interest is in $\Omega_\Lambda$, $r_d$, $D_H$, and $D_A$. $\Omega_\Lambda$ changes with $\Omega_k$ for a fixed $\Omega_m$ by the cosmic sum rule \eqref{eq:cosmic-sum-rule}
 \begin{align}
 	\Omega_\Lambda =  1 - \Omega_m - \Omega_k
 \end{align}

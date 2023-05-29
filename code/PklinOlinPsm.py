@@ -1,6 +1,7 @@
 from __init__ import *
 
-#CLASS output that was linearly spaced and with the BAO removed.  pklin = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*pk*069*') #The power spectrum
+#CLASS output that was linearly spaced and with the BAO removed.  
+pklin = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*pk*069*') #The power spectrum
 psmooth = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*psm*069*') #The smoothed power spectrum
 Olin = Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*Olin*069*') #The pure BAO
 
@@ -17,7 +18,7 @@ fontsize = 28 #Text fontsize
 #Using for loop since there is code common to the three data sets
 for i, data in enumerate([pklin[0], psmooth[0], Olin[0]]):
     fig, ax = plt.subplots()
-    ax.spines['top'].set_visible(False), ax.spines['right'].set_visible(False)
+    #ax.spines['top'].set_visible(False), ax.spines['right'].set_visible(False)
     ax.set_xscale('log'), ax.set_yscale('log')
     x, y = np.array(data[0]), np.array(data[1])
     idx = np.where(np.logical_and(x<=kmax, x>=kmin))

@@ -24,7 +24,7 @@ df_list, param_list = util_tools.many_files(files)
 
 fig, ax = plt.subplots(1, 1, figsize=(16, 9))
 ax.set_xscale('log'), ax.set_yscale('log')
-ax.spines['top'].set_visible(False), ax.spines['right'].set_visible(False)
+#ax.spines['top'].set_visible(False), ax.spines['right'].set_visible(False)
 fontsize = 39
 #ax1.set_xlim((0,0.16)), ax2.set_xlim((0,0.16))
 
