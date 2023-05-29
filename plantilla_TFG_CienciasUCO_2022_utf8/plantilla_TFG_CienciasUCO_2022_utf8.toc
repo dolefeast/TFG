@@ -10,12 +10,12 @@
 \contentsline {section}{\numberline {1.1}The Hot Big Bang model}{7}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Cosmic Microwave Background}{8}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Baryon Acoustic Oscillations}{10}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Curvature, dark matter and the expansion of the universe}{12}{section.1.4}%
-\contentsline {section}{\numberline {1.5}$\Lambda $ Cold Dark Matter model}{16}{section.1.5}%
+\contentsline {section}{\numberline {1.4}Curvature, dark matter and the expansion of the universe}{13}{section.1.4}%
+\contentsline {section}{\numberline {1.5}$\Lambda $ Cold Dark Matter model}{17}{section.1.5}%
 \contentsline {chapter}{\numberline {2}Objectives}{19}{chapter.2}%
 \contentsline {chapter}{\numberline {3}Methods and materials.}{20}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Results}{29}{chapter.4}%
-\contentsline {chapter}{Conclusiones}{33}{chapter*.9}%
-\contentsline {chapter}{Conclusions}{35}{chapter*.10}%
-\contentsline {chapter}{Bibliografía}{37}{Item.27}%
-\contentsline {chapter}{Anexo: Example of data visualisation code with python \& matplotlib}{39}{appendix*.12}%
+\contentsline {chapter}{\numberline {4}Results}{28}{chapter.4}%
+\contentsline {chapter}{Conclusiones}{32}{chapter*.9}%
+\contentsline {chapter}{Conclusions}{34}{chapter*.10}%
+\contentsline {chapter}{Bibliografía}{36}{Item.27}%
+\contentsline {chapter}{Appendix: Example of data visualisation code with python \& matplotlib}{38}{appendix*.12}%

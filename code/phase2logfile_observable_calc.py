@@ -2,7 +2,6 @@ from __init__ import *
 
 files = list(Path('/home/santi/TFG/outputs_santi/phase2/logfiles_phase2').glob('*3rd*'))
 
-#calculate_observables(*params[0])
 Ok_list = []
 a_para = []
 a_perp = []

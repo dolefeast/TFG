@@ -55,7 +55,7 @@
     \setlength\tabcolsep{0pt}%
     \put(0.01347345,0.242928){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Galaxy catalogue\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{pipeline.pdf}}%
-    \put(0.45245822,0.08458735){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CLASS\end{tabular}}}}%
+    \put(0.46269868,0.08438733){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CLASS\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{pipeline.pdf}}%
     \put(0.25665433,0.2568019){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Redshift to radius\\\end{tabular}}}}%
     \put(0.07312957,0.40944316){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Assume fiducial cosmology\end{tabular}}}}%
@@ -74,8 +74,8 @@
     \put(0,0){\includegraphics[width=\unitlength,page=8]{pipeline.pdf}}%
     \put(0.01452321,0.32375735){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\left[\frac{D_H}{r_d}\right]^{fid}, \left[\frac{D_M}{r_d}\right]^{fid}$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{pipeline.pdf}}%
-    \put(0.59412072,0.0741422){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $P(\textbf{k})$\end{tabular}}}}%
-    \put(0.56355832,0.09601873){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Theoretical\end{tabular}}}}%
+    \put(0.60436115,0.07394218){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $P(\textbf{k})$\end{tabular}}}}%
+    \put(0.57273769,0.09581871){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Theoretical\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{pipeline.pdf}}%
     \put(0.73601723,0.1715615){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}BRASS\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=11]{pipeline.pdf}}%

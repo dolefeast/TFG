@@ -372,9 +372,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.46474228"
-     inkscape:cx="559.44985"
-     inkscape:cy="203.3385"
+     inkscape:zoom="1.2982746"
+     inkscape:cx="496.04297"
+     inkscape:cy="209.89396"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -441,29 +441,29 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.23135px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.233675"
-       x="108.58997"
-       y="276.69904"
+       x="111.04768"
+       y="276.74704"
        id="text8345-9"><tspan
          sodipodi:role="line"
          style="font-size:6.23135px;stroke-width:0.233675"
-         x="108.58997"
-         y="276.69904"
+         x="111.04768"
+         y="276.74704"
          id="tspan109189-2">CLASS</tspan></text>
     <rect
        style="fill:#1a1a1a;fill-opacity:0;stroke:#000000;stroke-width:0.261856;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:6.28453, 0.261856;stroke-dashoffset:2.61856;paint-order:stroke fill markers"
        id="rect36884-2"
        width="22.897015"
        height="11.033643"
-       x="106.69252"
-       y="269.02823"
+       x="109.15022"
+       y="269.07623"
        ry="0" />
     <rect
-       style="fill:#1a1a1a;fill-opacity:0;stroke:#000000;stroke-width:0.468649;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:11.2475, 0.468649;stroke-dashoffset:4.68649;paint-order:stroke fill markers"
+       style="fill:#1a1a1a;fill-opacity:0;stroke:#000000;stroke-width:0.481694;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:11.5606, 0.481694;stroke-dashoffset:4.81694;paint-order:stroke fill markers"
        id="rect36884-9"
-       width="74.742012"
-       height="10.826851"
-       x="16.405817"
-       y="191.7702"
+       width="79.056313"
+       height="10.813805"
+       x="16.41234"
+       y="191.77673"
        ry="0" />
     <rect
        style="fill:#1a1a1a;fill-opacity:0;stroke:#000000;stroke-width:0.446461;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:10.715, 0.446461;stroke-dashoffset:4.46461;paint-order:stroke fill markers"
@@ -492,10 +492,10 @@
        inkscape:original-d="m 55.272565,217.2336 c -1.056732,2.7e-4 -2.113416,2.7e-4 -3.170051,0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.148771px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
-       d="m 129.55789,275.14848 c 1.80567,0 3.61125,0 5.41676,0"
+       d="m 132.0156,275.19648 c 1.80567,0 3.61125,0 5.41676,0"
        id="path46047-9"
        inkscape:path-effect="#path-effect152979"
-       inkscape:original-d="m 129.55789,275.14848 c 1.80567,2.7e-4 3.61125,2.7e-4 5.41676,0" />
+       inkscape:original-d="m 132.0156,275.19648 c 1.80567,2.7e-4 3.61125,2.7e-4 5.41676,0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.244566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-5-3)"
        d="m 133.36588,221.29194 c 0,4.87978 0,9.75932 0,14.63865"
@@ -591,12 +591,12 @@
          x="118.92113"
          y="238.01057"> $\xi (\textbf{r})$</tspan></text>
     <rect
-       style="fill:#1a1a1a;fill-opacity:0;stroke:#000000;stroke-width:0.325525;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:7.81254, 0.325525;stroke-dashoffset:3.25525;paint-order:stroke fill markers"
+       style="fill:#1a1a1a;fill-opacity:0;stroke:#000000;stroke-width:0.334737;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:8.03363, 0.334737;stroke-dashoffset:3.34737;paint-order:stroke fill markers"
        id="rect36884-3-7-1"
-       width="29.68792"
-       height="13.151086"
-       x="137.30745"
-       y="230.14151"
+       width="31.413946"
+       height="13.141873"
+       x="137.31206"
+       y="230.14612"
        ry="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.153812px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-1-2)"
@@ -649,7 +649,7 @@
        id="text118103"><tspan
          sodipodi:role="line"
          id="tspan118101"
-         style="stroke-width:0.264583"></tspan></text>
+         style="stroke-width:0.264583" /></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
@@ -718,43 +718,43 @@
        id="rect36884-3-7-1-3"
        width="31.907669"
        height="13.139287"
-       x="135.02205"
-       y="268.00494"
+       x="137.47975"
+       y="268.05295"
        ry="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="142.58897"
-       y="279.20587"
+       x="145.04668"
+       y="279.25388"
        id="text101901-0-7-6"><tspan
          sodipodi:role="line"
          id="tspan101899-6-9-1"
          style="font-size:3.52778px;stroke-width:0.264583"
-         x="142.58897"
-         y="279.20587"> $P(\textbf{k})$</tspan></text>
+         x="145.04668"
+         y="279.25388"> $P(\textbf{k})$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="135.254"
-       y="273.95551"
+       x="137.45705"
+       y="274.00351"
        id="text148235-2"><tspan
          sodipodi:role="line"
          id="tspan148233-9"
          style="font-size:7.05556px;stroke-width:0.264583"
-         x="135.254"
-         y="273.95551">Theoretical</tspan></text>
+         x="137.45705"
+         y="274.00351">Theoretical</tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.260114px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 166.91055,274.90735 c 2.98397,-6.08739 5.96799,-12.1749 8.95207,-18.26252"
+       style="fill:none;stroke:#000000;stroke-width:0.22734px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 169.59538,274.93776 c 2.27165,-6.10804 4.54337,-12.21626 6.81515,-18.32464"
        id="path159740"
        inkscape:path-effect="#path-effect159742"
-       inkscape:original-d="m 166.91055,274.90735 c 2.98428,-6.08724 5.9683,-12.17475 8.95207,-18.26252" />
+       inkscape:original-d="m 169.59538,274.93776 c 2.27191,-6.10794 4.54362,-12.21617 6.81515,-18.32464" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.269627px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-54)"
-       d="m 166.975,236.20209 c 2.99541,6.51579 5.99088,13.03172 8.98642,19.54779"
+       style="fill:none;stroke:#000000;stroke-width:0.248173px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-54)"
+       d="m 168.90799,236.18061 c 2.53191,6.53058 5.06389,13.06134 7.59594,19.59227"
        id="path159740-6"
        inkscape:path-effect="#path-effect159868"
-       inkscape:original-d="m 166.975,236.20209 c 2.99573,6.51564 5.9912,13.03158 8.98642,19.54779" />
+       inkscape:original-d="m 168.90799,236.18061 c 2.5322,6.53047 5.06418,13.06123 7.59594,19.59227" />
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,0,177)"

@@ -28,7 +28,7 @@ $\Omega_k$ & $D_H/r_d$ & $D_M/r_d$ \\
 \hline
 \end{tabular}
 \end{center}
-\caption{Results of the measurement of the cosmological observables we were interested in. This table shows the same data as the figure \ref{fig:DA_DH}.}	
+\caption{Results of the distance measurements to eBOSS galaxies of the cosmological observables $D_H /r_d$ and $D_M /r_d$ assuming different values of the curvature parameter $\Omega_k$ .This table shows the same data as the figure \ref{fig:DA_DH}.}	
 \label{tab:DA_DH}
 \end{table}
 Using the tools mentioned in chapter~\ref{cha:met-mat}, we obtain the data seen in the table~\ref{fig:DA_DH}. Firstly, a template power spectrum $P(k)$ was generated using CLASS. This template stays fixed throughout the calculations, to that of the standard cosmological model. This is, with the six parameters stated in~\ref{sec:LCDM} and $\Omega_k=0.00$. Having the template, the BAO are removed using the \textit{remove\_bao} routine from montepython, to obtain exactly the plots seen in~\ref{fig:PkOlPsm}. \\
@@ -43,6 +43,8 @@ The BRASS calculations were done in an iterative way, which means the output fro
 
 Both the table \ref{tab:DA_DH} and the figure~\ref{fig:DA_DH} show the results of the calculation of the different observables for different fiducial curvature parameters $\Omega_k$. While the table allows us to grasp on the exact values for each measurement, the figure shows the very important tendency of the measurements. Note that the growing tendency of the $\alpha$ (both parallel and perpendicular) cancels the decreasing tendency of the $\left[ D /r_d \right] $ and thus the measured observables stay approximately constant with changes in $\Omega_k$. The most important result from these representations is that every measured observable stays within one standard deviation from one another, resulting in compatible results for changes of $\Omega_k$ in the range $\left[ -0.20, 0.20  \right] $. \\
 
-The observable values corresponding to our universe, $D_H/r_d = 18.68 \pm 0.72$ and $D_M/r_d = 18.13 \pm 0.58$ must be compared to previous experiments. We see these results are compatible with the bibliography~\cite{hector}. The measurements ($D_H/r_d = 19.77\pm0.47$ and $D_M/ r_d=17.65\pm 0.30$) in the mentioned article are done through different methods, and represent the most precise measurements for the redshift range of the SDSS surveys as of 2020.
+An example of the data visualisation code used in this work is found in the appendix, which shows the code to reproduce the Figure \ref{fig:DA_DH}.\\
+
+The observable values corresponding to our universe, $D_H/r_d = 18.66 \pm 0.72$ and $D_M/r_d = 18.28 \pm 0.53$ must be compared to previous experiments. We see these results are compatible with the bibliography~\cite{hector}. The measurements ($D_H/r_d = 19.77\pm0.47$ and $D_M/ r_d=17.65\pm 0.30$) in the mentioned article are done through different methods, and represent the most precise measurements for the redshift range of the SDSS surveys as of 2020.
 
 

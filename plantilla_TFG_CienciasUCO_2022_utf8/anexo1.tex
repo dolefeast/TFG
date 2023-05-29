@@ -1,81 +1,86 @@
-\chapter*{Anexo: Example of data visualisation code with python \& matplotlib}
-\addcontentsline{toc}{chapter}{Anexo: Example of data visualisation code with python \& matplotlib}
+\chapter*{Appendix: Example of data visualisation code with python \& matplotlib}
+\addcontentsline{toc}{chapter}{Appendix: Example of data visualisation code with python \& matplotlib}
 
 \renewcommand{\baselinestretch}{1}
 \begin{lstlisting}[language=python]
-import matplotlib.pyplot as plt
 import numpy as np
-from pathfix import Path
+import matplotlib.pyplot as plt
+import scipy.constants as ct
+import util_tools #Library with custom functions
 
+#Open the desired files
+files = list(Path('../logfiles_phase2').glob('*3rd*')) 
+#*3rd* as in third iteration, as explained in Chapter 3
 
-#CLASS output that was spaced linearly and with the BAO removed.
-#The power spectrum. *pk*069* is a regex to identify the data
-#we are interested in.
-pklin = Path('../linspace_class').glob('*pk*069*') 
-#The smoothed power spectrum
-psmooth = Path('../linspace_class').glob('*psm*069*') 
-#The pure BAO
-Olin = Path('../linspace_class').glob('*Olin*069*') 
+Ok_list = [] #The list of the Omega_k to be used
+a_para = []  #alpha_parallel list with 
+		#each mean and standard deviation
+a_perp = []  #alpha_perpendicular list with 
+		#each mean and standard deviation
 
+for data in files:
+    out = util_tools.alpha_from_logfile(data) #Read from Brass output
+    Ok_list.append(out[0])
+    a_para.append(out[1])
+    a_perp.append(out[2])
 
-#Routine to read the data files used throughout this work
-pklin, params = util_tools.many_files(list(pklin))
-psmooth, params = util_tools.many_files(list(psmooth))
-Olin, params = util_tools.many_files(list(Olin))
+n_points = 500
+Ok_min, Ok_max = min(Ok_list), max(Ok_list)
+Ok_cont = np.linspace(Ok_min, Ok_max, n_points) #For plotting reasons
+Ok_rang = Ok_max - Ok_min
+def H(z, Ok, Om=0.31):
+    return H0*np.sqrt(Om*(1+z)**3 + Ok*(1+z)**2 + 1-Ok-Om)
 
-#Our k-region of interest
-kmin, kmax = 0.02, 0.51
+#Definitions of the cosmological observables
+@util_tools.iterable_output #Function decorator to match
+			    #scalar inputs to scalar outputs
+			    #and array inputs to array outputs
+def DH_fid(z, Ok):
+    return ct.c/1000/H(z, Ok) #/1000 factor to match H
+    			      #and c units
+@util_tools.iterable_output
+def DC_fid(z, Ok):
+    return sp.integrate.quad(DH_fid, 0, z, args=(Ok,))[0]
+@util_tools.iterable_output
+def DM_fid(z, Ok):
+    DC = DC_fid(z, Ok)
+    DH = DH_fid(z, Ok)
+    if Ok>0:
+        k =  DH/np.sqrt(Ok)
+        return k*np.sinh(np.sqrt(Ok)*DC/DH)
+    elif Ok<0:
+        k =  DH/np.sqrt(np.abs(Ok))
+        return k*np.sin(np.sqrt(np.abs(Ok))*DC/DH)
+    elif not Ok:
+        return DC
 
-fontsize = 28 #Text fontsize
+fig, axes = plt.subplots(3, 2, sharex=True, figsize=(10, 7))
 
-#Using for loop since there is code common to the three data sets
-for i, data in enumerate([pklin[0], psmooth[0], Olin[0]]):
-    fig, ax = plt.subplots()
-    ax.set_xscale('log'), ax.set_yscale('log')
-    x, y = np.array(data[0]), np.array(data[1])
-    idx = np.where(np.logical_and(x<=kmax, x>=kmin))
-    x = x[idx]
-    y = y[idx]
+for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
+    current_DH = DH_fid(zmax, Ok) * apara[0]/rs
+    current_DH_std = DH_fid(zmax, Ok) * apara[1]/rs
+    current_DM = DM(zmax, Ok) * aperp[0]/rs
+    current_DM_std = DM(zmax, Ok) * aperp[1]/rs
+    axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x')
+    axes[0,1].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x')
+    axes[2,0].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x') 
+    axes[2,1].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x') 
 
-    ax.plot(x, y, color='teal', linewidth=3)
+axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs) 
+axes[1,1].plot(Ok_cont, DM(zmax, Ok_cont)/rs)
+axes[0,0].set_ylabel(r'$\alpha_{\parallel}$')
+axes[0,1].set_ylabel(r'$\alpha_{\perp}$')
+axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{r}$')
+axes[1,1].set_ylabel(r'$\left[ D_M/r_d\right]^{r}$')
+axes[2,0].set_ylabel(r'$D_H/r_d$')
+axes[2,1].set_ylabel(r'$D_M/r_d$')
+axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{r}$')
+axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{r}$')
+axes[2,0].set_xticks(Ok_list)
+axes[2,0].set_xticklabels(Ok_list)
+axes[2,1].set_xticklabels(Ok_list)
 
-    logx = np.log10(x)
-    logy = np.log10(y)
-    xticks = np.logspace(min(logx), max(logx), 4, base=10)
-    yticks = np.logspace(min(logy), max(logy), 4, base=10)
-
-    if i==0:
-        yticks = [int(x) for x in np.round(yticks, -2)]
-        ylabel = r'$ P(k) [$Mpc$^3 h^{-3}]$' 
-        name  = 'Pklin' #The filename
-        print('First plot done!')
-    elif i==1:
-        yticks = [int(x) for x in np.round(yticks, -2)]
-        ylabel = r'$ P_{smooth}(k) [$Mpc$^3 h^{-3}]$' 
-        name = 'Psm'
-        print('Second plot done!')
-    elif i==2:
-        yticks = [x for x in np.round(yticks, 3)]
-        ylabel = r'$ O_{lin}(k)$'
-        name = 'Olin'
-        print('Third plot done!')
-
-    ax.set_xticks([], minor=True)
-    ax.set_xticks(xticks)
-    ax.set_xticklabels(np.round(xticks, 2), fontsize=fontsize)
-
-    ax.set_yticks([], minor=True)
-    ax.set_yticks(yticks)
-    ax.set_yticklabels(yticks, fontsize=fontsize)
-
-    ax.set_xlabel(r'$k [h $Mpc$^{-1}] $', fontsize=fontsize) 
-    ax.set_ylabel(ylabel, fontsize=fontsize)
-
-    fig.set_tight_layout(True)
-    plt.savefig(f'../figs/{name}.pdf')
-   
 plt.show()
-
 
 
 \end{lstlisting}
