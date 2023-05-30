@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2022.12.21)  29 MAY 2023 14:05
+This is XeTeX, Version 3.14159265-2.6-0.999992 (TeX Live 2020/Debian) (preloaded format=xelatex 2022.12.21)  30 MAY 2023 11:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1565,7 +1565,7 @@ Overfull \hbox (10.07387pt too wide) in paragraph at lines 27--28
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 34--40
+Underfull \hbox (badness 10000) in paragraph at lines 40--46
 []\TU/Arial(0)/m/n/12 S. Alam \TU/Arial(0)/m/it/12 et al. \TU/Arial(0)/m/n/12 [
 eBOSS], Phys. Rev. D \TU/Arial(0)/b/n/12 103\TU/Arial(0)/m/n/12 , no.8, 083533 
 (2021)
@@ -1594,10 +1594,10 @@ Package rerunfilecheck Info: File `plantilla_TFG_CienciasUCO_2022_utf8.out' has
 (rerunfilecheck)             Checksum: 020EA4800840BE11C65E6F44BF2CD4E1;1341.
  ) 
 Here is how much of TeX's memory you used:
- 29055 strings out of 477220
- 578051 string characters out of 5832721
- 1191071 words of memory out of 5000000
- 48122 multiletter control sequences out of 15000+600000
+ 29058 strings out of 477220
+ 578096 string characters out of 5832721
+ 1190982 words of memory out of 5000000
+ 48125 multiletter control sequences out of 15000+600000
  416169 words of font info for 112 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  92i,17n,92p,1265b,2323s stack positions out of 5000i,500n,10000p,200000b,80000s

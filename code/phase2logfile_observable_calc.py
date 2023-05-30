@@ -89,8 +89,8 @@ axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
 axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
 axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
 axes[2,0].set_xticks(Ok_list)
-axes[2,0].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
-axes[2,1].set_xticklabels(Ok_list, fontsize=fontsize/1.3)
+axes[2,0].set_xticklabels(Ok_list, fontsize=fontsize/1.5)
+axes[2,1].set_xticklabels(Ok_list, fontsize=fontsize/1.5)
 for ax in axes.ravel():
     ticks = ax.get_yticks()
     label = ax.get_ylabel()
@@ -99,4 +99,3 @@ for ax in axes.ravel():
 
 plt.tight_layout()
 plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pdf')
-plt.show()

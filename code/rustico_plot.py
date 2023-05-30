@@ -1,20 +1,4 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import util_tools
-from pathlib import Path
-import pandas as pd
-#plt.style.use('fivethirtyeight')
-plt.rc('lines', linewidth=1.7)
-import matplotlib
-#matplotlib.use('pgf') #Saves the output as pgf
-matplotlib.rcParams['axes.unicode_minus'] = False #Latex format stuff
-matplotlib.rcParams.update({
-    "pgf.texsystem": "pdflatex",
-    'font.family': 'serif',
-    'text.usetex': True,
-    'pgf.rcfonts': False,
-    'figure.facecolor': 'white'
-})
+from __init__ import *
 
 files = list(Path('/home/santi/TFG/outputs_santi/rustico/').glob('Power_*NGC*69*'))
 #file_name = util_tools.select_files(files)
@@ -48,5 +32,4 @@ ax.set_yticklabels(yticks, fontsize=fontsize)
 ax.set_yticklabels(yticks, fontsize=fontsize)
 fig.set_tight_layout(True)
 plt.savefig('../figs/Pkrustico.pdf')
-
-
+plt.show()

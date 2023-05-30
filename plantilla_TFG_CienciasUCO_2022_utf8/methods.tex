@@ -3,7 +3,7 @@
 
 For this work, many diferent tools were used, which will be cathegorized in hardware, software and mathematical tools. \\
 
-In terms of hardware, the author was granted access to the computer facilities of the  \textit{FQM-378} research group of the Universidad de Córdoba. Access to these clusters was crucial for the calculations done throughout the work, reducing the time needed for each calculation in several orders of magnitude. Besides the clusters, the author also needed his own personal computer, mainly to remotely access the clusters and also for other types of calculations that could not have been done from the clusters. These calculations include among other things, plotting of figures.  \\
+In terms of hardware, the author was granted access to the computer facilities of the  \textit{FQM-378} research group of the Universidad de Córdoba. Access to these clusters was crucial for the calculations done throughout the work, reducing the time needed for each calculation in several orders of magnitude. Besides the clusters, the author also needed his own personal computer, mainly to remotely access the clusters and also for other types of calculations that could not have been done from the clusters. These calculations inclued manily data visualization.  \\
 
 The main mathematical tool for this work was the Fourier Transform~\cite{FFT}. The Fourier Transform is a consequence of Fourier's Theorem. This theorem states that for every `nice'\footnote{The conditions for which this theorem does not apply are beyond the scope of this work, and so the `niceness' of a function need not be defined} periodic function $f(x)$ of period $L$ one can find a unique linear combination of sine and cosine functions such that 
 \begin{align}
@@ -26,18 +26,18 @@ For each mode $n$ one can define a new variable $k=2\pi n /L$, leading to the ac
 \begin{align}
 	\tilde{f}(k) = \frac{1}{2\pi}\int_{L}^{}  f(x) e^{-i k x} dx
 \end{align}
-In this work, the power spectrum $P(\textbf{k})$ is considered, which is the Fourier Transform of the correlation function $\xi(\textbf{r})$. This function, as was already mentioned in section \ref{sec:BAO} is the distribution of the distances at which galaxies are found to be distant of one another. Since the amount of galaxies present is finite, the data set must then be discrete. This motivates us towards the definition of the Discrete Fourier Transform of a certain data set $\{\left( x_i, \xi(x_i) \right) \}_{i=1}^{N} $
+In this work, the power spectrum $P(\textbf{k})$ is considered, which is the Fourier Transform of the correlation function $\xi(\textbf{r})$. This function, as was already mentioned in Section \ref{sec:BAO}, is the distribution of the distances at which galaxies are found to be distant of one another. Since the amount of galaxies present is finite, the data set must then be discrete. This motivates us towards the definition of the Discrete Fourier Transform of a certain data set $\{\left( x_i, \xi(x_i) \right) \}_{i=1}^{N} $
 \begin{align}
 	P(k_j) = \frac{1}{2\pi}\sum_{i=1}^{N} e^{-i k_j x_{i}} \xi(x_i)
 	\label{eq:DFT}
 \end{align}
-Though one must think that the periodic function hypothesis is being broken, since of course the universe is not made of repeating blocks of the galaxies that surround us. That the universe is infinitely big and repeating is an assumption that needs to be done in order to calculate this Fourier Transform. In other words, these calculations asume periodic boundary conditions.\\
+Though one must think that the periodic function hypothesis is being broken, since of course the universe is not made of repeating blocks of the galaxies that surround us.  That the universe is infinitely big and repeating is an assumption that needs to be done in order to calculate this Fourier Transform. In other words, these calculations asume periodic boundary conditions.\\
 
 
 Another thing to be noted is the fast growing complexity of the algorithm described by \eqref{eq:DFT}, which grows as $N^2$, with $N$ the number of points used for the calculation. 
 To solve this one would use the Fast Fourier Transform (FFT)~\cite{FFT}, instead of the Discrete Fourier Transform. This algorithm is based in the decomposition of the space considered with $N=N_1N_2$ data points, into two smaller spaces with $N_1$ and $N_2$ data points. It then factorizes each problem into smaller problems, and recursively breaks the configuration down into even smaller problems, thus greatly reducing the complexity of the algorithm from $N^2$ to $N\log N$.  \\
 
-The $P(\textbf{k})$ has been until now only been vaguely defined. Let  $\rho(\textbf{x})$ determine the density of galaxies at a given point and $ \overline{\rho}$ the average density throughout the universe. As the interest lays in the fluctuations around the density, it is only natural to be interested in the overdensity $\delta(\textbf{x})$ at some position $\textbf{x}$
+The $P(\textbf{k})$ has been until now only been vaguely defined. Let  $\rho(\textbf{x})$ determine the density of galaxies at a given point $\textbf{x}$ and $ \overline{\rho}$ the average density throughout the universe. As the interest lays in the fluctuations around the density, it is only natural to be interested in the overdensity $\delta(\textbf{x})$ at some position $\textbf{x}$
 \begin{align}
 	\delta(\textbf{x}) = \frac{\rho\left( \textbf{x} \right) - \overline{\rho}}{\overline{\rho}}
 	\label{eq:overdensity}
@@ -66,7 +66,7 @@ It should be natural to ask why is only the second moment of the overdensity $\d
 It has been measured in the CMB that the universe is a gaussian field, and these kinds of fields have the property that any moment $\mu_n$ with $n\ge3$ will be 0. These moments (e.g. $ \left<\delta(\textbf{x}) \delta(\textbf{y}) \delta(\textbf{z}) \right>$) have been shown to all be compatible with 0. This is predicted by the inflation theory, but the strongest reason to believe this is the experimental data. \\
 
 All these calculations are performed by Rapid foUrier STatIstics COde\footnote{Gil-Marín, H. \url{https://github.com/hectorgil/rustico}}(RUSTICO). This software needs the specific galaxy catalogue to be used, and the statement of the cosmology that is going to be used, in a similar fashion as was done in~\ref{sec:LCDM}. The catalogue to be used in this work is the Luminous Red Galaxy sample from the extended Baryon Oscillation Spectroscopic Survey (LRG eBOSS~\cite{eBoss}).
-With this information it then takes the mentioned steps: Transforms each redshift $z$ to a radial distance $r$, assigns each galaxy to a point $\textbf{x}$, calculates through interpolation the galaxy density at each point $\rho\left(  \textbf{x}\right)$, the overdensity at each point $\delta\left( \textbf{x} \right)$, the correlation function $\xi(\textbf{r})$ and finally its FFT to obtain the power spectrum $P(\textbf{k})$, as seen in the figure~\ref{fig:rustico}. \\
+With this information it then takes the mentioned steps: Transforms each redshift $z$ to a radial distance $r$, assigns each galaxy to a point $\textbf{x}$, calculates through interpolation the galaxy density at each point $\rho\left(  \textbf{x}\right)$, the overdensity at each point $\delta\left( \textbf{x} \right)$, the correlation function $\xi(\textbf{r})$ and finally its FFT to obtain the power spectrum $P(\textbf{k})$, as seen in the Figure~\ref{fig:rustico}. \\
 
 
 \begin{figure}[t]
@@ -91,7 +91,7 @@ With this information it then takes the mentioned steps: Transforms each redshif
 	O_{\text{lin}}(k) = \frac{P(k)}{P_{\text{smooth}(k)}}
 \end{align}
 
-The relationship between the data and the model is analyzed through the Bao and RSD Algorithm for Spectroscopy Surveys ~\footnote{Gil-Marín H. \url{https://github.com/hectorgil/brass}}(BRASS). This software allows for the calculation of the $\alpha$ parameters, as defined by \eqref{eq:alphas-def}. BRASS takes as input the calculated power spectrum (given by RUSTICO) for some  fiducial cosmology, and the theoretic power spectrum for some other fiducial cosmology. It returns, among many other fit parameters, the $\alpha_\parallel$ and $\alpha_\perp$ parameters along with their standard deviations that will allow the calculation of the observables $D_H/r_s$ and $D_A /r_s$. A graphic scheme of the procedure followed throughout this work can be seen in the figure \ref{fig:pipeline} and it can be summarized as follows:
+The relationship between the data and the model is analyzed through the Bao and RSD Algorithm for Spectroscopy Surveys\footnote{Gil-Marín H. \url{https://github.com/hectorgil/brass}}(BRASS). This software allows for the calculation of the $\alpha$ parameters, as defined by \eqref{eq:alphas-def}. BRASS takes as input the calculated power spectrum (given by RUSTICO) for some  fiducial cosmology, and the theoretic power spectrum for some other fiducial cosmology. It returns, among many other fit parameters, the $\alpha_\parallel$ and $\alpha_\perp$ parameters along with their standard deviations that will allow the calculation of the observables $D_H/r_s$ and $D_A /r_s$. A graphic scheme of the procedure followed throughout this work can be seen in the figure \ref{fig:pipeline} and it can be summarized as follows:
 \begin{enumerate}
 	\item Starting from a certain galaxy catalogue (in this case, the extended Baryon Oscillation Spectroscopic Survey (eBOSS). This catalogue consists on the astronomical coordinates declination $\delta$ and right ascension $\alpha$ of each galaxy and their measured redshift $z$.
 	\item To transform each $z$ into a radial distance assume a fiducial cosmology $(\Omega_m, \Omega_\Lambda, \Omega_k) = (0.31, 0.69-\Omega_k, \Omega_k) $. This assumption automatically sets the fiducial values 
@@ -107,7 +107,7 @@ The relationship between the data and the model is analyzed through the Bao and 
 \item This allows us to obtain the measured observables 
 \begin{align}
 	\frac{D_H}{r_d} &= \alpha_\parallel \left[ \frac{D_H}{r_d} \right]^\text{fid} \\
-	\frac{D_M}{r_d} &= \alpha_\perp \left[ \frac{D_M}{r_d} \right]^\text{fid} \\
+	\frac{D_M}{r_d} &= \alpha_\perp \left[ \frac{D_M}{r_d} \right]^\text{fid} 
 \end{align}
 And their corresponding standard deviations.
 
