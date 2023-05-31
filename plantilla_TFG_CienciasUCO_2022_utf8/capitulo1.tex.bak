@@ -129,7 +129,7 @@ Being $\lambda_o$ the observed wavelength and $\lambda_e$ the emitted wavelength
 \begin{align}
 	\frac{\lambda_o}{\lambda_e} = 1+z = \frac{a(t_o)}{a(t_e)}
 \end{align}
-Which means that $z$ is an (dimensionless) temporal variable that admits an interpretation as a temporal variable. \\
+Which means that $z$ is an (adimensional) temporal variable that admits an interpretation as a temporal variable. \\
 
 However, this redshift $z$ should not be confused with the redshift caused by the Doppler Effect of objects moving away. The processes are different in origin, since cosmological redshift does not need relative movement to shift the radiation towards red wavelengths, it is the expansion of the universe what stretches the wavelength. On the contrary, the Doppler Effect appears when pulses emitted at regular time are emitted further away due to the movement of the wave source. \\
 
@@ -181,7 +181,7 @@ The information on this cold dark matter is inside $\Omega_m$, since the density
 \begin{align}
 	\Omega_m = \frac{\rho}{\rho_c} = \frac{\rho_b + \rho_{\text{CDM}}}{\rho_c}
 \end{align}
-Allowing us to define two new dimensionless density parameters $\Omega_b = \frac{\rho_b}{\rho_c}$ and $\Omega_c =  \frac{\rho_\text{CDM}}{\rho}$, which are part of the six free parameters that define a certain cosmology. These are $\Omega_b$, $\Omega_c$, $H_0$, the optical density of reionization $\tau_{\text{reio}}$, the amplitude of the primordial power spectrum $A_s$, the spectral index of the primordial power spectrum $n_s$. Note there is no special choice of parameters, these are just the free parameters chosen for this work. The values for the chosen free parameters are seen in the table \ref{tab:fid-values}\\
+Allowing us to define two new adimensional density parameters $\Omega_b = \frac{\rho_b}{\rho_c}$ and $\Omega_c =  \frac{\rho_\text{CDM}}{\rho}$, which are part of the six free parameters that define a certain cosmology. These are $\Omega_b$, $\Omega_c$, $H_0$, the optical density of reionization $\tau_{\text{reio}}$, the amplitude of the primordial power spectrum $A_s$, the spectral index of the primordial power spectrum $n_s$. Note there is no special choice of parameters, these are just the free parameters chosen for this work. The values for the chosen free parameters are seen in the table \ref{tab:fid-values}\\
 
 In this work, an extension of the $\Lambda$CDM model is considered. Though the standard cosmological model considers a flat universe, the curvature parameter will not be fixed to $0$ and is therefore allowed to be a free parameter, adding a new degree of freedom to the standard model (not to be confused with the standard model in particle physics). This model can be further extended by considering the mass of the neutrinos, the quintessential force (dark energy)\ldots  \\
 

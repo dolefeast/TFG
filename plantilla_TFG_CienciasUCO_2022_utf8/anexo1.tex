@@ -8,6 +8,20 @@ import matplotlib.pyplot as plt
 import scipy.constants as ct
 import util_tools #Library with custom functions
 
+#Wrapper to make certain function return 
+#an iterable if input was iterable and 
+#return scalar if input was scalar
+def iterable_output(func):
+    def wrapper(zmax, Ok):
+        try:
+            iter(Ok) #Cheks if Ok an array
+			#Calculate by recursion the desired array
+			result = [func(zmax, ok) for ok in Ok] 
+            return np.array(result)
+        except TypeError: #input was scalar
+            return func(zmax, Ok)
+    return wrapper
+
 #Open the desired files
 files = list(Path('../logfiles_phase2').glob('*3rd*')) 
 #*3rd* as in third iteration, as explained in Chapter 3
@@ -31,17 +45,15 @@ Ok_rang = Ok_max - Ok_min
 def H(z, Ok, Om=0.31):
     return H0*np.sqrt(Om*(1+z)**3 + Ok*(1+z)**2 + 1-Ok-Om)
 
-#Definitions of the cosmological observables
-@util_tools.iterable_output #Function decorator to match
-			    #scalar inputs to scalar outputs
-			    #and array inputs to array outputs
+#Cosmological observables for a certain cosmology
+@iterable_output #Wrapper above defined
 def DH_fid(z, Ok):
     return ct.c/1000/H(z, Ok) #/1000 factor to match H
     			      #and c units
-@util_tools.iterable_output
+@iterable_output
 def DC_fid(z, Ok):
     return sp.integrate.quad(DH_fid, 0, z, args=(Ok,))[0]
-@util_tools.iterable_output
+@iterable_output
 def DM_fid(z, Ok):
     DC = DC_fid(z, Ok)
     DH = DH_fid(z, Ok)
@@ -59,15 +71,15 @@ fig, axes = plt.subplots(3, 2, sharex=True, figsize=(10, 7))
 for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
     current_DH = DH_fid(zmax, Ok) * apara[0]/rs
     current_DH_std = DH_fid(zmax, Ok) * apara[1]/rs
-    current_DM = DM(zmax, Ok) * aperp[0]/rs
-    current_DM_std = DM(zmax, Ok) * aperp[1]/rs
+    current_DM = DM_fid(zmax, Ok) * aperp[0]/rs
+    current_DM_std = DM_fid(zmax, Ok) * aperp[1]/rs
     axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x')
     axes[0,1].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x')
     axes[2,0].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x') 
     axes[2,1].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x') 
 
 axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs) 
-axes[1,1].plot(Ok_cont, DM(zmax, Ok_cont)/rs)
+axes[1,1].plot(Ok_cont, DM_fid(zmax, Ok_cont)/rs)
 axes[0,0].set_ylabel(r'$\alpha_{\parallel}$')
 axes[0,1].set_ylabel(r'$\alpha_{\perp}$')
 axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{r}$')
@@ -79,10 +91,7 @@ axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{r}$')
 axes[2,0].set_xticks(Ok_list)
 axes[2,0].set_xticklabels(Ok_list)
 axes[2,1].set_xticklabels(Ok_list)
-
 plt.show()
-
-
 \end{lstlisting}
 \renewcommand{\baselinestretch}{1.5}
 
