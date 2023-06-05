@@ -55,29 +55,29 @@
     \setlength\tabcolsep{0pt}%
     \put(0.01010136,0.24311765){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Galaxy catalogue\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{pipeline.pdf}}%
-    \put(0.46269868,0.08438733){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CLASS\end{tabular}}}}%
+    \put(0.48582967,0.08438733){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CLASS\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{pipeline.pdf}}%
-    \put(0.25665433,0.2568019){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Redshift to radius\\\end{tabular}}}}%
+    \put(0.25665433,0.2568019){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Redshift to distance\\\end{tabular}}}}%
     \put(0.07312957,0.40944316){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Assume fiducial cosmology\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{pipeline.pdf}}%
-    \put(0.43494438,0.32950776){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fast Fourier Transform\end{tabular}}}}%
+    \put(0.45807533,0.32950776){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fast Fourier Transform\end{tabular}}}}%
     \put(0.27700214,0.22997589){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} conversion\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=4]{pipeline.pdf}}%
-    \put(0.4955047,0.24578927){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $\xi (\textbf{r})$\end{tabular}}}}%
+    \put(0.51863565,0.24578927){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $\xi (\textbf{r})$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=5]{pipeline.pdf}}%
-    \put(0.7449322,0.15312778){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $\alpha_\parallel, \alpha_\perp$\end{tabular}}}}%
+    \put(0.76806317,0.15312778){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $\alpha_\parallel, \alpha_\perp$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=6]{pipeline.pdf}}%
-    \put(0.6021939,0.23188318){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $P(\textbf{k})$\end{tabular}}}}%
-    \put(0.57958444,0.25375907){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Measured\end{tabular}}}}%
+    \put(0.62532489,0.23188318){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $P(\textbf{k})$\end{tabular}}}}%
+    \put(0.60271543,0.25375907){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Measured\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=7]{pipeline.pdf}}%
-    \put(0.8667488,0.16281101){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\frac{D_H}{r_d}, \frac{D_M}{r_d}$\end{tabular}}}}%
+    \put(0.88987979,0.16281101){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\frac{D_H}{r_d}, \frac{D_M}{r_d}$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=8]{pipeline.pdf}}%
     \put(0.01452321,0.32375735){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\left[\frac{D_H}{r_d}\right]^{fid}, \left[\frac{D_M}{r_d}\right]^{fid}$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=9]{pipeline.pdf}}%
-    \put(0.60436115,0.07394218){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $P(\textbf{k})$\end{tabular}}}}%
-    \put(0.57273769,0.09581871){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Theoretical\end{tabular}}}}%
+    \put(0.62749214,0.07394218){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $P(\textbf{k})$\end{tabular}}}}%
+    \put(0.59586868,0.09581871){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Theoretical\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=10]{pipeline.pdf}}%
-    \put(0.73601723,0.1715615){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}BRASS\end{tabular}}}}%
+    \put(0.75914822,0.1715615){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}BRASS\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=11]{pipeline.pdf}}%
   \end{picture}%
 \endgroup%

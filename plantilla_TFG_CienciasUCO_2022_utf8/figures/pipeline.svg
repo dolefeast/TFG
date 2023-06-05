@@ -372,9 +372,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.2982746"
-     inkscape:cx="86.268344"
-     inkscape:cy="209.89396"
+     inkscape:zoom="0.79292308"
+     inkscape:cx="636.88397"
+     inkscape:cy="206.19907"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -441,12 +441,12 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:6.23135px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.233675"
-       x="111.04768"
+       x="116.59912"
        y="276.74704"
        id="text8345-9"><tspan
          sodipodi:role="line"
          style="font-size:6.23135px;stroke-width:0.233675"
-         x="111.04768"
+         x="116.59912"
          y="276.74704"
          id="tspan109189-2">CLASS</tspan></text>
     <rect
@@ -454,7 +454,7 @@
        id="rect36884-2"
        width="22.897015"
        height="11.033643"
-       x="109.15022"
+       x="114.70166"
        y="269.07623"
        ry="0" />
     <rect
@@ -466,12 +466,12 @@
        y="191.77673"
        ry="0" />
     <rect
-       style="fill:#1a1a1a;fill-opacity:0;stroke:#000000;stroke-width:0.446461;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:10.715, 0.446461;stroke-dashoffset:4.46461;paint-order:stroke fill markers"
+       style="fill:#1a1a1a;fill-opacity:0;stroke:#000000;stroke-width:0.469075;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:11.2578, 0.469075;stroke-dashoffset:4.69075;paint-order:stroke fill markers"
        id="rect36884-3"
-       width="52.140308"
-       height="14.085303"
-       x="60.068123"
-       y="229.35637"
+       width="57.648857"
+       height="14.062689"
+       x="60.07943"
+       y="229.36768"
        ry="0" />
     <text
        xml:space="preserve"
@@ -492,15 +492,15 @@
        inkscape:original-d="m 55.272565,217.2336 c -1.056732,2.7e-4 -2.113416,2.7e-4 -3.170051,0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.148771px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
-       d="m 132.0156,275.19648 c 1.80567,0 3.61125,0 5.41676,0"
+       d="m 137.56704,275.19648 c 1.80567,0 3.61125,0 5.41676,0"
        id="path46047-9"
        inkscape:path-effect="#path-effect152979"
-       inkscape:original-d="m 132.0156,275.19648 c 1.80567,2.7e-4 3.61125,2.7e-4 5.41676,0" />
+       inkscape:original-d="m 137.56704,275.19648 c 1.80567,2.7e-4 3.61125,2.7e-4 5.41676,0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.244566px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-5-3)"
-       d="m 133.36588,221.29194 c 0,4.87978 0,9.75932 0,14.63865"
+       d="m 138.91732,221.29194 c 0,4.87978 0,9.75932 0,14.63865"
        id="path46047-2-5"
-       inkscape:original-d="m 133.36588,221.29194 c -2.7e-4,4.87978 -2.7e-4,9.75932 0,14.63865"
+       inkscape:original-d="m 138.91732,221.29194 c -2.7e-4,4.87978 -2.7e-4,9.75932 0,14.63865"
        inkscape:path-effect="#path-effect140951" />
     <text
        xml:space="preserve"
@@ -518,7 +518,7 @@
          id="tspan67872"
          style="font-size:5.66641px;stroke-width:0.21249"
          x="49.536884"
-         y="292.66968">Redshift to radius</tspan><tspan
+         y="292.66968">Redshift to distance</tspan><tspan
          sodipodi:role="line"
          style="font-size:5.66641px;stroke-width:0.21249"
          x="49.536884"
@@ -540,19 +540,19 @@
        id="rect36884-9-2"
        width="69.609489"
        height="10.842893"
-       x="101.68142"
+       x="107.23286"
        y="210.29973"
        ry="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="104.38665"
+       x="109.93808"
        y="217.91814"
        id="text92183-0"><tspan
          sodipodi:role="line"
          id="tspan92181-2"
          style="stroke-width:0.264583"
-         x="104.38665"
+         x="109.93808"
          y="217.91814">Fast Fourier Transform</tspan></text>
     <text
        xml:space="preserve"
@@ -570,76 +570,76 @@
        id="rect36884-3-7"
        width="14.427568"
        height="10.567945"
-       x="116.75797"
+       x="122.30941"
        y="231.38791"
        ry="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.136572px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-1)"
-       d="m 112.45209,236.32716 c 1.52167,0 3.04327,0 4.5648,0"
+       d="m 117.82752,236.32716 c 1.52167,0 3.04327,0 4.5648,0"
        id="path46047-0"
        inkscape:path-effect="#path-effect119527"
-       inkscape:original-d="m 112.45209,236.32716 c 1.52167,2.7e-4 3.04327,2.7e-4 4.5648,0" />
+       inkscape:original-d="m 117.82752,236.32716 c 1.52167,2.7e-4 3.04327,2.7e-4 4.5648,0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="118.92113"
+       x="124.47256"
        y="238.01057"
        id="text101901-0"><tspan
          sodipodi:role="line"
          id="tspan101899-6"
          style="font-size:3.52778px;stroke-width:0.264583"
-         x="118.92113"
+         x="124.47256"
          y="238.01057"> $\xi (\textbf{r})$</tspan></text>
     <rect
        style="fill:#1a1a1a;fill-opacity:0;stroke:#000000;stroke-width:0.334737;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:8.03363, 0.334737;stroke-dashoffset:3.34737;paint-order:stroke fill markers"
        id="rect36884-3-7-1"
        width="31.413946"
        height="13.141873"
-       x="137.31206"
+       x="142.86349"
        y="230.14612"
        ry="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.153812px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-1-2)"
-       d="m 131.35293,236.37235 c 1.9301,0 3.86011,0 5.79003,0"
+       d="m 136.90437,236.37235 c 1.9301,0 3.86011,0 5.79003,0"
        id="path46047-0-8"
        inkscape:path-effect="#path-effect138752"
-       inkscape:original-d="m 131.35293,236.37235 c 1.9301,2.7e-4 3.86011,2.7e-4 5.79003,0" />
+       inkscape:original-d="m 136.90437,236.37235 c 1.9301,2.7e-4 3.86011,2.7e-4 5.79003,0" />
     <rect
        style="fill:#1a1a1a;fill-opacity:0;stroke:#000000;stroke-width:0.300769;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:7.2184, 0.300769;stroke-dashoffset:3.00769;paint-order:stroke fill markers"
        id="rect36884-3-7-6"
        width="21.734844"
        height="15.334885"
-       x="176.60362"
+       x="182.15506"
        y="249.49837"
        ry="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:1.51279px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.113459"
-       x="412.36865"
+       x="425.17316"
        y="112.83192"
        id="text101901-0-1"
        transform="scale(0.43355315,2.3065223)"><tspan
          sodipodi:role="line"
          style="font-size:1.51279px;stroke-width:0.113459"
-         x="412.36865"
+         x="425.17316"
          y="112.83192"
          id="tspan160543"> $\alpha_\parallel, \alpha_\perp$</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.151284px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-1-2-0)"
-       d="m 198.00037,255.89662 c 1.86718,0 3.73427,0 5.60128,0"
+       d="m 203.55181,255.89662 c 1.86718,0 3.73427,0 5.60128,0"
        id="path46047-0-8-6"
        inkscape:path-effect="#path-effect155933"
-       inkscape:original-d="m 198.00037,255.89662 c 1.86718,2.7e-4 3.73427,2.7e-4 5.60128,0" />
+       inkscape:original-d="m 203.55181,255.89662 c 1.86718,2.7e-4 3.73427,2.7e-4 5.60128,0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="144.52654"
+       x="150.07797"
        y="241.34804"
        id="text101901-0-7"><tspan
          sodipodi:role="line"
          id="tspan101899-6-9"
          style="font-size:3.52778px;stroke-width:0.264583"
-         x="144.52654"
+         x="150.07797"
          y="241.34804"> $P(\textbf{k})$</tspan></text>
     <text
        xml:space="preserve"
@@ -653,20 +653,20 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="139.10027"
+       x="144.6517"
        y="236.09782"
        id="text148235"><tspan
          sodipodi:role="line"
          id="tspan148233"
          style="font-size:7.05556px;stroke-width:0.264583"
-         x="139.10027"
+         x="144.6517"
          y="236.09782">Measured</tspan></text>
     <rect
        style="fill:#1a1a1a;fill-opacity:0.12797;stroke:#000000;stroke-width:0.714;stroke-linecap:square;stroke-miterlimit:4.2;stroke-dasharray:17.136, 0.714;stroke-dashoffset:7.14;paint-order:stroke fill markers"
        id="rect36884-3-7-1-5"
        width="28.382687"
        height="12.773399"
-       x="203.93855"
+       x="209.48999"
        y="250.33595"
        ry="0" />
     <text
@@ -684,13 +684,13 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:9.70084px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.363781"
-       x="286.76868"
+       x="294.42169"
        y="187.097"
        id="text148235-7"
        transform="scale(0.72539203,1.3785649)"><tspan
          sodipodi:role="line"
          style="font-size:9.70084px;stroke-width:0.363781"
-         x="286.76868"
+         x="294.42169"
          y="187.097"
          id="tspan170975">$\frac{D_H}{r_d}, \frac{D_M}{r_d}$</tspan></text>
     <rect
@@ -718,43 +718,43 @@
        id="rect36884-3-7-1-3"
        width="31.907669"
        height="13.139287"
-       x="137.47975"
+       x="143.03119"
        y="268.05295"
        ry="0" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="145.04668"
+       x="150.59811"
        y="279.25388"
        id="text101901-0-7-6"><tspan
          sodipodi:role="line"
          id="tspan101899-6-9-1"
          style="font-size:3.52778px;stroke-width:0.264583"
-         x="145.04668"
+         x="150.59811"
          y="279.25388"> $P(\textbf{k})$</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="137.45705"
+       x="143.00848"
        y="274.00351"
        id="text148235-2"><tspan
          sodipodi:role="line"
          id="tspan148233-9"
          style="font-size:7.05556px;stroke-width:0.264583"
-         x="137.45705"
+         x="143.00848"
          y="274.00351">Theoretical</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.22734px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 169.59538,274.93776 c 2.27165,-6.10804 4.54337,-12.21626 6.81515,-18.32464"
+       d="m 175.14682,274.93776 c 2.27165,-6.10804 4.54337,-12.21626 6.81515,-18.32464"
        id="path159740"
        inkscape:path-effect="#path-effect159742"
-       inkscape:original-d="m 169.59538,274.93776 c 2.27191,-6.10794 4.54362,-12.21617 6.81515,-18.32464" />
+       inkscape:original-d="m 175.14682,274.93776 c 2.27191,-6.10794 4.54362,-12.21617 6.81515,-18.32464" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.248173px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-54)"
-       d="m 168.90799,236.18061 c 2.53191,6.53058 5.06389,13.06134 7.59594,19.59227"
+       d="m 174.45943,236.18061 c 2.53191,6.53058 5.06389,13.06134 7.59594,19.59227"
        id="path159740-6"
        inkscape:path-effect="#path-effect159868"
-       inkscape:original-d="m 168.90799,236.18061 c 2.5322,6.53047 5.06418,13.06123 7.59594,19.59227" />
+       inkscape:original-d="m 174.45943,236.18061 c 2.5322,6.53047 5.06418,13.06123 7.59594,19.59227" />
     <text
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,0,177)"
@@ -763,12 +763,12 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="176.64413"
+       x="182.19557"
        y="255.82524"
        id="text168098"><tspan
          sodipodi:role="line"
          style="stroke-width:0.264583"
-         x="176.64413"
+         x="182.19557"
          y="255.82524"
          id="tspan169255">BRASS</tspan></text>
     <path

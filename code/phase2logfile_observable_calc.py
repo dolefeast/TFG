@@ -18,15 +18,13 @@ Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
 Ok_rang = Ok_max - Ok_min
 H = lambda z, Ok, Om=0.31: H0*np.sqrt(Om*(1+z)**3 + Ok*(1+z)**2 + 1-Ok-Om)
 
+
 @util_tools.iterable_output
 def DH_fid(z, Ok):
     return ct.c/1000/H(z, Ok)
 @util_tools.iterable_output
 def DC_fid(z, Ok):
     return sp.integrate.quad(DH_fid, 0, z, args=(Ok,))[0]
-
-#DC_fid = np.array([sp.integrate.quad(DH_fid, 0, zmax, args=(ok,))[0] for ok in Ok_cont])
-
 @util_tools.iterable_output
 def DM(z, Ok):
     DC = DC_fid(z, Ok)

@@ -3,6 +3,14 @@
 
 \renewcommand{\baselinestretch}{1}
 \begin{lstlisting}[language=python]
+#python 3.9.7
+#Snippet to plot Fig. 4.1. The other figures were done
+#in a similar fashion. Firstly, read the alpha values
+#and their standard deviation (std) from 'logfiles'.
+#Calculate the fiducial values of the observables through
+#their definitions in the introduction. Knowing the alpha
+#values and the fiducial observable, calculate the measured
+#observables. Each step plots a row in the figure.
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.constants as ct
