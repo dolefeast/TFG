@@ -25,14 +25,14 @@ We see in the Fig.~\ref{fig:cmb} the CMB as observed by the Planck collaboration
 The Cosmic Microwave Background was discovered in 1965 as a serendipity by Penzias and Wilson \cite{Penzias1965}. They observed a noise signal, uniformly distributed\footnote{It will we later discovered that it was not actually uniformly distributed.} from every direction, day or night, summer or winter, almost as if it came directly from the origin of the Universe.
 This discovery was considered to be solid evidence for the Big Bang model and more importantly, the beginning of the modern cosmology. All of this became the reason Penzias and Wilson received a Nobel prize 13 years later, in 1978. \\
 
-Since what is being measured are the photons left from recombination, which corresponds to a thermal radiation curve, we may use Wien's displacement law  \\
+Since what is being measured are the photons left from recombination, which correspond to a thermal radiation curve, we may use Wien's displacement law
 \begin{align}
 	T = \frac{b}{\lambda}
 	\label{eq:wien-displacement}
 \end{align}
 with $b\approx $ 2.897 mm K Wien's constant, $T$ the black body radiation and $\lambda$ the wavelength at which the spectral radiation intensity is maximum to calculate the corresponding temperature to the measured wavelength. Using Planck's law, the measured temperature is \SI{2.7}{K} which corresponds to a measured wavelength of \SI{1.06}{mm} (microwave radiation, as the name Cosmic \textit{Microwave} implies). \\
 
-In 1991 anisotropies in the CMB were first discovered, by the COBE satellite\cite{SmootMather} later earning Smoot and Mather a Nobel prize. As of 2023 the most precise measurements correspond to the Planck experiment in 2018 \cite{Planck2018} by the European Space Agency. These anisotropies can be seen in the Fig.~\ref{fig:cmb}. \\
+In 1991 anisotropies in the CMB were first discovered, by the COBE satellite \cite{SmootMather} later earning Smoot and Mather a Nobel prize. As of 2023 the most precise measurements correspond to the Planck experiment in 2018 \cite{Planck2018} by the European Space Agency. These anisotropies can be seen in the Fig.~\ref{fig:cmb}. \\
 
 Of course, \SI{2.7}{K} was not the temperature of the plasma at recombination, as it was approximately hotter by a factor $z=1090$, or $\approx$\SI{3000}{K}. The reason we measure such smaller temperatures is due to the expansion of the Universe.
 If today ($t=t_0$) some radiation of wavelength $\lambda_o$ were observed, that somehow is known to have been traveling for some time $\Delta t$ will have stretched due to the expansion of the Universe. In other words, the wavelength $\lambda_e$ of the emitted radiation was smaller by a factor\footnote{The factor $a(t)$ is known as the scale factor of the Universe, and will be explained with further detail later in the work.} $a(t')^{-1}$, with $t' = t_0-\Delta t$ being the earlier time at which the radiation was emitted, and defining $a(t_0)=1$. By Wien's displacement law \eqref{eq:wien-displacement}, this corresponds to a higher temperature by a factor $a(t')$. Note this process is normally done backwards: The $\lambda_e$ is known through spectral lines emission, $\lambda_o$ is known through measurement and the variable we are interested in is the redshift $z.$\\
@@ -57,18 +57,6 @@ Before recombination, both matter and photons were coupled into the same fluid w
 As already mentioned, matter was not distributed homogeneously. This means that at any point in time before recombination, one could find `lumps' of dark and baryonic (standard) matter. Combining the restoring force of the gravitational attraction between dark and baryonic matter with itself and with one another, and the repulsion caused by the radiation pressure due to the Thomson Effect between baryons and photons, the results are pure acoustic waves propagating through the plasma, with the dark matter lumps being in the center of these waves. Since the baryonic matter is dragged by these sound waves, they are called Baryon Acoustic Oscillations (BAO), and a simplistic explanation of their mechanism is shown in the Fig. \ref{fig:scheme-BAO} \\
 
 
-The waves would propagate throughout the plasma as long as the baryon-photon interaction was strong enough i.e. up to recombination, at which point they froze in time resulting in higher density regions at a fixed distance given by the sound speed of the primordial plasma and the age of the Universe at recombination. Higher density means higher gravitational intensity, which in turn means higher galaxy proliferation in spherical distributions. These spherical distributions (which can be measured in the CMB) are imprinted in the large scale structure of the Universe. \\
-
-At big enough distances, the radii ($r_d$) of these spheres, also called the sound horizon is used as a standard `cosmic ruler'. Cosmological distance measurements are calculated in terms of $r_d$, which is measured from the CMB. This means it needs to be calibrated from external information. $ r_d$ has been measured from the CMB to be around  \SI{150}{Mpc} or 500 million light years.
-To give an idea of the size of $r_d$, the radius of the observable Universe is around 100 times $r_d$. \\
-
-Given the large dimensions of this cosmic ruler and the homogeneity of the Universe on large scales, this ruler is only affected by cosmological expansion rather than late-time gravitational effects. Therefore, it has a constant comoving\footnote{`Comoving' meaning the distance one would measure if the expansion of the Universe is factored out.} size throughout the Universe.\\
-
-These structures were observed for the first time in 2005 simultaneously both by the Sloan Digital Sky Survey\cite{Eisenstein2005} and the 2dF Galaxy Redshift Survey\cite{2dFCole2005}, the results of which can be seen in the Fig. \ref{fig:2005-results}. In these pictures one sees the correlation function  $\xi(s)$ and the power spectrum $P(k)$ (though in the Fig.~\ref{fig:2005-results} it is called $W_k$). 
-The correlation function $\xi(r)$, measures the frequency of the separation distance $r$ between any two galaxies. If the BAO hypothesis is true, then one would find a local maximum at $r_d$, the radius of the frozen spherical waves, which can be seen. These will be the main tools for the study of the BAO, and will be more precisely explained in the chapter \ref{cha:met-mat}.\\
-
-The other tool for studying the BAO is the power spectrum seen in the right panel of the Fig. \ref{fig:2005-results}. It is, without need of further detail, the Fourier transform of the $\xi(s)$ function. Indeed, since there is a repeating pattern of wavelength $r_d$, one would find local maxima in the spectrum at integer multiples of $k = 2\pi /r_d$. \\
-
 \begin{figure}[t] \centering
 	\subfigure{\includegraphics[width=0.4\textwidth]{../figs/sdss_xi.png} \label{fig:sdss}}
 	\hspace{0.2pt}
@@ -76,10 +64,23 @@ The other tool for studying the BAO is the power spectrum seen in the right pane
 	\caption[First BAO observations by the SDSS and the 2dF collaborations.]{The first observations of the Baryon Acoustic Oscillations phenomenon, observed independently by the Sloan Digital Sky Survey (SDSS)~\cite{Eisenstein2005} as seen in the left panel and the 2dF collaboration~\cite{2dFCole2005} in the right panel. These were the main tools that finally determined the existence of the BAO. The SDSS result shows the measured correlation function $\xi(s)$. This function represents the distribution of the distance in between any two galaxies. Note the similarity between this graph and the frozen BAO from the Fig. \ref{fig:scheme-BAO}. The local maximum at $s\approx 100$ h$^{-1}$ Mpc corresponds to the BAO peak. The 2dF result, seen in the rightmost panel is the measured power spectrum $P(k)$ (here called  $W(k)$), which is the Fourier transform of the $\xi(r)$ function.}
 	\label{fig:2005-results}
 \end{figure}
+The waves would propagate throughout the plasma as long as the baryon-photon interaction was strong enough i.e. up to recombination, at which point they froze in time resulting in higher density regions at a fixed distance given by the sound speed of the primordial plasma and the age of the Universe at recombination. Higher density means higher gravitational intensity, which in turn means higher galaxy proliferation in spherical distributions. These spherical distributions (which can be measured in the CMB) are imprinted in the large scale structure of the Universe. \\
+
+At big enough distances, the radii ($r_d$) of these spheres, also called the sound horizon is used as a standard `cosmic ruler'. Cosmological distance measurements are calculated in terms of $r_d$, which is measured from the CMB. This means it needs to be calibrated from external information. $ r_d$ has been measured from the CMB to be around  \SI{150}{Mpc} or 500 million light years.
+To give an idea of the size of $r_d$, the radius of the observable Universe is around 100 times $r_d$. \\
+
+Given the large dimensions of this cosmic ruler and the homogeneity of the Universe on large scales, this ruler is only affected by cosmological expansion rather than late-time gravitational effects. Therefore, it has a constant comoving\footnote{`Comoving' meaning the distance one would measure if the expansion of the Universe is factored out.} size throughout the Universe.\\
+
+These structures were observed for the first time in 2005 simultaneously both by the Sloan Digital Sky Survey \cite{Eisenstein2005} and the 2dF Galaxy Redshift Survey \cite{2dFCole2005}, the results of which can be seen in the Fig. \ref{fig:2005-results}. In these pictures one sees the correlation function  $\xi(s)$ and the power spectrum $P(k)$ (though in the Fig.~\ref{fig:2005-results} it is called $W_k$). \\
+ 
+The correlation function $\xi(s)$, measures the frequency of the separation distance $s$ between any two galaxies. If the BAO hypothesis is true, then one would find a local maximum at $r_d$, the radius of the frozen spherical waves, which can be seen. These will be the main tools for the study of the BAO, and will be more precisely explained in the chapter \ref{cha:met-mat}.\\
+
+The other tool for studying the BAO is the power spectrum seen in the right panel of the Fig. \ref{fig:2005-results}. It is, without need of further detail, the Fourier transform of the $\xi(s)$ function. Indeed, since there is a repeating pattern of wavelength $r_d$, one would find local maxima in the spectrum at integer multiples of $k = 2\pi /r_d$. \\
+
 
 
 \section{Curvature, dark matter and the expansion of the Universe}
-After Hubble discovered the expansion of the Universe through Hubble's Law\cite{Hubble1929}
+After Hubble discovered the expansion of the Universe through Hubble's Law \cite{Hubble1929}
 \begin{align}
 	v = H_0 d
 	\label{eq:ley-hubble}
@@ -118,7 +119,7 @@ These parameters are what define the certain cosmology we are using, and obey th
 	1 = \Omega_m + \Omega_\Lambda + \Omega_k
 	\label{eq:cosmic-sum-rule}
 \end{align}
-Which is just a result of dividing \eqref{eq:1a-friedmann} evaluated at present time, by  $H_0^2$. \\
+which is just a result of dividing \eqref{eq:1a-friedmann} evaluated at present time, by  $H_0^2$. \\
 
 Historically, the concept of cosmological expansion appeared when Hubble observed that the spectral lines of the nearby galaxies were all shifted towards the red end of the spectrum. Of course, since the Universe is expanding and the distance between two points increases with time, the wavelength of a certain radiation would also be affected by this expansion. This stretching of the wavelength is what is known as \textit{redshift} 
 \begin{align}
@@ -129,7 +130,7 @@ Being $\lambda_o$ the observed wavelength and $\lambda_e$ the emitted wavelength
 \begin{align}
 	\frac{\lambda_o}{\lambda_e} = 1+z = \frac{a(t_o)}{a(t_e)}
 \end{align}
-Which means that $z$ is an (dimensionless) variable that admits an interpretation as a time variable, as in an expanding Universe, the scale factor increases with the age of the Universe, therefore the redshift is a decreasing function of the cosmic time. \\
+Which means that $z$ is a (dimensionless) variable that admits an interpretation as a time variable, as in an expanding Universe, the scale factor increases with the age of the Universe, therefore the redshift is a decreasing function of the cosmic time. \\
 
 However, this redshift $z$ should not be confused with the redshift caused by the Doppler Effect of objects moving away. The processes are different in origin, since cosmological redshift does not need relative movement to shift the radiation towards red wavelengths, it is the expansion of the Universe what stretches the wavelength. On the contrary, the Doppler Effect appears when pulses emitted at regular time are emitted further away due to the movement of the wave source. \\
 
@@ -148,7 +149,7 @@ We also define the function of $z$ $D_H(z)$ known as the Hubble distance
 	D_H(z)  = \frac{c}{H(z)}
 	\label{eq:DH-definition}
 \end{align}
-Note that $D_H(z=0) = D_{H,0}$ gives us an idea of the distance at which the recession speed is greater than the speed of light in the vacuum, which is a direct consequence of \eqref{eq:ley-hubble}. $D_H$ can also be used to estimate the order of magnitude of the observable Universe. \\
+Note that $D_H(z=0) = D_{H,0}$ gives us an idea of the distance at which the recession speed is greater than the speed of light in the vacuum, which is a direct consequence of \eqref{eq:ley-hubble}. $D_{H,0}$ can also be used to estimate the order of magnitude of the observable Universe. \\
 
 Through the Hubble distance we define the comoving distance 
 \begin{align}
@@ -180,9 +181,9 @@ The information on this cold dark matter is inside $\Omega_m$, since the density
 \begin{align}
 	\Omega_m = \frac{\rho}{\rho_c} = \frac{\rho_b + \rho_{\text{CDM}}}{\rho_c}
 \end{align}
-Allowing us to define two new dimensionless density parameters $\Omega_b = \frac{\rho_b}{\rho_c}$ and $\Omega_c =  \frac{\rho_\text{CDM}}{\rho}$, which are part of the six free parameters that define a certain cosmology. These are $\Omega_b$, $\Omega_c$, $H_0$, the optical density of reionization $\tau_{\text{reio}}$, the amplitude of the primordial power spectrum $A_s$ and the spectral index of the primordial power spectrum $n_s$. Note there is no special choice of parameters, these are just the free parameters chosen for this work. The values for the chosen free parameters are seen in the table \ref{tab:fid-values}\\
+Allowing us to define two new dimensionless density parameters $\Omega_b = \frac{\rho_b}{\rho_c}$ and $\Omega_c =  \frac{\rho_\text{CDM}}{\rho}$, which are part of the six free parameters that define a certain cosmology. These are $\Omega_b$, $\Omega_c$, $H_0$, the optical density of reionization $\tau_{\text{reio}}$, the amplitude of the primordial power spectrum $A_s$ and the spectral index of the primordial power spectrum $n_s$. Note there is no special choice of parameters, these are just the free parameters chosen for this work. The values for the chosen free parameters are seen in the table \ref{tab:fid-values}.\\
 
-In this work, an extension of the $\Lambda$CDM model is considered. Though the standard cosmological model considers a flat Universe, the curvature parameter will not be fixed to $0$ and is therefore allowed to be a free parameter, adding a new degree of freedom to the standard model (not to be confused with the standard model in particle physics). This model could be further extended by considering the mass and number of the neutrinos, generalized models of dark energy, etcetera.
+In this work, an extension of the $\Lambda$CDM model is considered. Though the standard cosmological model considers a flat Universe, the curvature parameter will not be fixed to $0$ and is therefore allowed to be a free parameter, adding a new degree of freedom to the standard model (not to be confused with the standard model in particle physics). This model could be further extended by considering the mass and number of the neutrinos, generalized models of dark energy, etcetera.\\
 
 The fiducial (starting) values of these parameters that will be used in this work are the ones seen in table \ref{tab:fid-values}
 \begin{table}[t]
@@ -216,7 +217,7 @@ From these free parameters, one derives some parameters. Of those, the main inte
 \begin{align}
 	\Omega_\Lambda =  1 - \Omega_m - \Omega_k
 \end{align}
-Thus $\Omega_\Lambda$ varies between 0.49 and 0.89.
+Thus $\Omega_\Lambda$ varies between 0.49 and 0.89.\\
 
 Finally, we define two more parameters $\alpha_\parallel$ and $\alpha_\perp$. These parameters measure the distortion of the measurements in two different directions. $\alpha_\parallel$ is related to the distortion parallel to the line of sight, and  $\alpha_\perp$, perpendicular to the line of sight. They are defined by 
 \begin{align}

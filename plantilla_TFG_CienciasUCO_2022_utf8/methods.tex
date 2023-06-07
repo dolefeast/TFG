@@ -5,7 +5,7 @@ For this work, many different tools were used, which will be categorized in hard
 
 In terms of hardware, the author was granted access to the computer facilities of the  \textit{FQM-378} research group of the Universidad de Córdoba. Access to these clusters was crucial for the calculations done throughout the work, reducing the time needed for each calculation in several orders of magnitude. Besides the clusters, the author also needed his own personal computer, mainly to remotely access the clusters and also for other types of calculations that could not have been done from the clusters. These calculations include mainly data visualization.  \\
 
-The main mathematical tool for this work was the Fourier Transform~\cite{FFT}. The Fourier Transform is a consequence of Fourier's Theorem. This theorem states that for every `nice'\footnote{The conditions for which this theorem does not apply are beyond the scope of this work, and so the `niceness' of a function need not be defined} periodic function $f(x)$ of period $L$ one can find a unique linear combination of sine and cosine functions such that 
+The main mathematical tool for this work was the Fourier Transform~\cite{FFT}. The Fourier Transform is a consequence of Fourier's Theorem. This theorem states that for every `nice'\footnote{The conditions for which this theorem does not apply are beyond the scope of this work, and so the `niceness' of a function need not be defined.} periodic function $f(x)$ of period $L$ one can find a unique linear combination of sine and cosine functions such that 
 \begin{align}
 	f(x) = C + \sum_\text{n odd} a_n \sin\left( \frac{nx}{L} \right) + \sum_{\text{n even}}^{} b_n \cos \left( \frac{nx}{L} \right) 
 \end{align}
@@ -31,25 +31,25 @@ In this work, the power spectrum $P(\textbf{k})$ is considered, which is the Fou
 	P(k_j) = \frac{1}{2\pi}\sum_{i=1}^{N} e^{-i k_j x_{i}} \xi(x_i)
 	\label{eq:DFT}
 \end{align}
-Though one must think that the periodic function hypothesis is being broken, since of course the universe is not made of repeating blocks of the galaxies that surround us.  That the universe is infinitely big and repeating is an assumption that needs to be done in order to calculate this Fourier Transform. In other words, these calculations assume periodic boundary conditions.\\
+Though one must think that the periodic function hypothesis is being broken, since of course the Universe is not made of repeating blocks of the galaxies that surround us.  That the Universe is infinitely big and repeating is an assumption that needs to be done in order to calculate this Fourier Transform. In other words, these calculations assume periodic boundary conditions.\\
 
 
 Another thing to be noted is the fast growing complexity of the algorithm described by \eqref{eq:DFT}, which grows as $N^2$, with $N$ the number of points used for the calculation. 
 To solve this one would use the Fast Fourier Transform (FFT)~\cite{FFT}, instead of the Discrete Fourier Transform. This algorithm is based in the decomposition of the space considered with $N=N_1N_2$ data points, into two smaller spaces with $N_1$ and $N_2$ data points. It then factorizes each problem into smaller problems, and recursively breaks the configuration down into even smaller problems, thus greatly reducing the complexity of the algorithm from $N^2$ to $N\log N$.  \\
 
-The $P(\textbf{k})$ has been until now only been vaguely defined. Let  $\rho(\textbf{x})$ determine the density of galaxies at a given point $\textbf{x}$ and $ \overline{\rho}$ the average density throughout the universe. As the interest lays in the fluctuations around the density, it is only natural to be interested in the overdensity $\delta(\textbf{x})$ at some position $\textbf{x}$
+The $P(\textbf{k})$ has been until now only been vaguely defined. Let  $\rho(\textbf{x})$ determine the density of galaxies at a given point $\textbf{x}$ and $ \overline{\rho}$ the average density throughout the Universe. As the interest lays in the fluctuations around the density, it is only natural to be interested in the overdensity $\delta(\textbf{x})$ at some position $\textbf{x}$
 \begin{align}
 	\delta(\textbf{x}) = \frac{\rho\left( \textbf{x} \right) - \overline{\rho}}{\overline{\rho}}
 	\label{eq:overdensity}
 \end{align}
-From this magnitude one calculates the aforementioned correlation function $\xi(\textbf{r})$ as\footnote{Note only the dependency on $r = \|\textbf{r}\|$ remains, since the universe is (assumed to be) homogeneous and isotropic}
+From this magnitude one calculates the aforementioned correlation function $\xi(\textbf{r})$ as\footnote{Note only the dependency on $r = \|\textbf{r}\|$ remains, since the Universe is (assumed to be) homogeneous and isotropic}
 \begin{align}
 	\xi(\textbf{r}) = \left<\delta(\textbf{x}) \delta(\textbf{x}') \right> = \frac{1}{V}\int_{V}^{}  d^3 \textbf{x} \delta(\textbf{x}) \delta\left(\textbf{x} - \textbf{r}  \right) 
 	\label{eq:correlation-function}
 \end{align} with $\textbf{r} = \textbf{x} - \textbf{x}'$
 And the power spectrum is then defined as its three dimensional Fourier Transform. \\
 
-To calculate $P(\textbf{k})$ one then needs three coordinates for each galaxy (as would be expected from a three dimensional universe). These coordinates will be 2 angular coordinates (the astronomical coordinates declination $\delta$ and right ascension $\alpha$) and a radial coordinate $r$ which must be calculated from $z$. For this it is necessary to assume a cosmology, since it is what dictates the conversion from redshift to distance through Hubble's law \eqref{eq:ley-hubble}. For this transformation, the redshift is interpreted as a Doppler shift. At low enough velocities, $z\approx v /c$ and so \eqref{eq:ley-hubble} can be approximated to 
+To calculate $P(\textbf{k})$ one then needs three coordinates for each galaxy (as would be expected from a three dimensional Universe). These coordinates will be 2 angular coordinates (the astronomical coordinates declination $\delta$ and right ascension $\alpha$) and a radial coordinate $r$ which must be calculated from $z$. For this it is necessary to assume a cosmology, since it is what dictates the conversion from redshift to distance through Hubble's law \eqref{eq:ley-hubble}. For this transformation, the redshift is interpreted as a Doppler shift. At low enough velocities, $z\approx v /c$ and so \eqref{eq:ley-hubble} can be approximated to 
 \begin{align}
 c z = H_0 r	
 \end{align}
@@ -63,7 +63,7 @@ All these magnitudes are related to what is called the second moment of the over
 \end{align}
 Though this is done only in one dimension, the definition of the $n$th moment of a magnitude $x$ is easily extended to more dimensions.
 It should be natural to ask why is only the second moment of the overdensity $\delta$ considered.\footnote{The dependency on $\textbf{x}$ was dropped since $\delta$ can be both spoken of in configuration space and momentum (Fourier) space. These representations correspond to the $\xi(\textbf{r})$ and $P(\textbf{k})$ functions, respectively.}
-It has been measured in the CMB that the universe is a Gaussian field, and these kinds of fields have the property that any moment $\mu_n$ with $n\ge3$ will be 0. These moments (e.g. $ \left<\delta(\textbf{x}) \delta(\textbf{y}) \delta(\textbf{z}) \right>$) have been shown to all be compatible with 0. This is predicted by the inflation theory, but the strongest reason to believe this is the experimental data. \\
+It has been measured from the CMB that the Universe is a Gaussian field, and these kinds of fields have the property that any moment $\mu_n$ with $n\ge3$ will be 0. These moments (e.g. $ \left<\delta(\textbf{x}) \delta(\textbf{y}) \delta(\textbf{z}) \right>$) have been shown to all be compatible with 0. This is predicted by the inflation theory, but the strongest reason to believe this is the experimental data. \\
 
 All these calculations are performed by Rapid foUrier STatIstics COde\footnote{Gil-Marín, H. \url{https://github.com/hectorgil/rustico}} (RUSTICO). This software needs the specific galaxy catalogue to be used, and the statement of the cosmology that is going to be used, in a similar fashion as was done in~\ref{sec:LCDM}. The catalogue to be used in this work is the Luminous Red Galaxy sample from the extended Baryon Oscillation Spectroscopic Survey (LRG eBOSS~\cite{eBoss}).
 With this information it then takes the mentioned steps: Transforms each redshift $z$ to a radial distance $r$, assigns each galaxy to a point $\textbf{x}$, calculates through interpolation the galaxy density at each point $\rho\left(  \textbf{x}\right)$, the overdensity at each point $\delta\left( \textbf{x} \right)$, the correlation function $\xi(\textbf{r})$ and finally its FFT to obtain the power spectrum $P(\textbf{k})$, as seen in the Figure~\ref{fig:rustico}. \\
@@ -72,7 +72,7 @@ With this information it then takes the mentioned steps: Transforms each redshif
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=0.8\textwidth]{../figs/Pkrustico.pdf}
-	\caption[Power spectrum of the LRG eBOSS galaxies.]{The power spectrum $P(k)$ of the LRG eBOSS~\cite{eBoss} catalogue as calculated by RUSTICO assuming a flat universe ($\Omega_k = 0.00$)}
+	\caption[Power spectrum of the LRG eBOSS galaxies.]{The power spectrum $P(k)$ of the LRG eBOSS~\cite{eBoss} catalogue as calculated by RUSTICO assuming a flat Universe ($\Omega_k = 0.00$)}
 	\label{fig:rustico}
 \end{figure}
 
@@ -82,7 +82,7 @@ With this information it then takes the mentioned steps: Transforms each redshif
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Pklin.pdf}}
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Psm.pdf}}
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Olin.pdf}}
-	\caption[The template power spectrum, its smooth component and the pure BAO]{Graphic representation of the power spectrum $P(k)$ as calculated by CLASS (left panel), the smoothed power spectrum $P_{smooth}(k)$ (middle panel) and the oscillations $O_{lin}(k)$ (right panel)for a flat universe $\Omega_k = 0.00$.} \label{fig:PkOlPsm} \end{figure} Having the data, it is then necessary to have a model that explains it. The Cosmic Linear Anisotropy Solving System\footnote{Lesgourgues, J., Tram, T., \& Schoenenberg, N. \url{https://github.com/lesgourg/class_public}}(CLASS) \cite{class} library allows the user to calculate the theoretical curve $P(k)$ should have for each cosmology. This software takes the corresponding cosmology as an input and returns the power spectrum seen in the leftmost panel of the figure~\ref{fig:PkOlPsm}. Note that this curve looks like a decreasing function which will be named $P_{\text{smooth}}(k)$, modulated by an oscillating curve, named $O_{\text{lin}}(k)$. These two functions are seen in the middle and rightmost panels respectively, of the figure~\ref{fig:PkOlPsm}, and verify \begin{align} P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
+	\caption[The template power spectrum, its smooth component and the pure BAO]{Graphic representation of the power spectrum $P(k)$ as calculated by CLASS (left panel), the smoothed power spectrum $P_{smooth}(k)$ (middle panel) and the oscillations $O_{lin}(k)$ (right panel)for a flat Universe $\Omega_k = 0.00$.} \label{fig:PkOlPsm} \end{figure} Having the data, it is then necessary to have a model that explains it. The Cosmic Linear Anisotropy Solving System\footnote{Lesgourgues, J., Tram, T., \& Schoenenberg, N. \url{https://github.com/lesgourg/class_public}}(CLASS) \cite{class} library allows the user to calculate the theoretical curve $P(k)$ should have for each cosmology. This software takes the corresponding cosmology as an input and returns the power spectrum seen in the leftmost panel of the figure~\ref{fig:PkOlPsm}. Note that this curve looks like a decreasing function modulated by an oscillating curve, which will be named $P_{\text{smooth}}(k)$ and $O_\text{lin}(k)$, respectively. These two functions are seen in the middle and rightmost panels respectively, of the figure~\ref{fig:PkOlPsm}, and verify \begin{align} P(k) = P_{\text{smooth}}(k) O_{\text{lin}}(k)
 	\label{eq:pk-components}
 \end{align}
  \\
