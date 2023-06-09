@@ -13,6 +13,9 @@ a_perp_hector = []
 
 for data in files_santi:
     out = util_tools.alpha_from_logfile(data)
+    if abs(out[0]) == 0.2:
+        print('Continued!')
+        continue
     Ok_list_santi.append(out[0])
     a_para_santi.append(out[1])
     a_perp_santi.append(out[2])
@@ -72,12 +75,15 @@ axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{r}$', fontsize=fontsize)
 for ax in axes.ravel():
     ticks = ax.get_yticks()
     label = ax.get_ylabel()
-    print(label, ticks)
     ax.set_yticks(ticks)
-    ax.set_yticklabels([round(tick, 2) for tick in ticks], fontsize=fontsize/1.3)
+    ax.set_yticklabels([round(tick, 2) for tick in ticks], fontsize=fontsize)
+    ticks = ax.get_xticks()
+    label = ax.get_ylabel()
+    ax.set_xticks(ticks)
+    ax.set_xticklabels([round(tick, 2) for tick in ticks], fontsize=fontsize)
 
 plt.tight_layout()
 plt.savefig('/home/santi/TFG/figs/flatnoflat_DADH.pdf')
-plt.show()
+#plt.show()
 
 

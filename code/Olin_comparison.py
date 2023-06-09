@@ -1,20 +1,4 @@
-import util_tools
-import pandas as pd
-import numpy as np
-import scipy as sp
-import matplotlib.pyplot as plt
-from pathlib import Path
-plt.rc('lines', linewidth=1.7)
-import matplotlib
-#matplotlib.use('pgf') #Saves the output as pgf
-matplotlib.rcParams['axes.unicode_minus'] = False #Latex format stuff
-matplotlib.rcParams.update({
-    "pgf.texsystem": "pdflatex",
-    'font.family': 'serif',
-    'text.usetex': True,
-    'pgf.rcfonts': False,
-})
-
+from __init__ import *
 
 #files = Path('/home/santi/TFG/outputs_santi/class_output/').glob('*pk.dat')
 files = list(Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*Olin*69*'))
@@ -30,12 +14,14 @@ fig, ax = plt.subplots(1, 2, figsize=(5*16/9, 5))
 
 k_in, pk_in = df[0], df[1]
 y = pk_in#util_tools.remove_bao(k_in, pk_in)
-kmin, kmax = 0.0, 0.51
+kmin, kmax = 0.028, 0.51
 idx = np.where(np.logical_and(k_in<=kmax, k_in>=kmin))
 x, y = np.array(k_in), np.array(pk_in)
 x = x[idx]
 y = y[idx]
 ax[0].plot(x, y, color=color, label='Flat $O_{lin}(k)$')
+ax[0].plot(x, y, color=color, label='Flat $O_{lin}(k)$')
+
 
 k_hector, pk_hector = hector_df[0], hector_df[1]
 ax[0].plot(k_hector, pk_hector, '--k', label='No flat $O_{lin}(k)(k)$')
