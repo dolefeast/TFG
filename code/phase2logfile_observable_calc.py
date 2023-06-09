@@ -96,4 +96,6 @@ for ax in axes.ravel():
     ax.set_yticklabels([round(tick, 2) for tick in ticks], fontsize=fontsize/1.3)
 
 plt.tight_layout()
+plt.show()
+print('Finished showing!')
 plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pdf')

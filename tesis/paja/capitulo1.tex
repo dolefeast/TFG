@@ -1,0 +1,227 @@
+\chapter{Introduction}
+
+\section{The Hot Big Bang model}
+
+The most accepted model for the origin of the Universe is the Big Bang model, which models the beginning of the Universe as a hot dense state. The Big Bang surprisingly to some conveys no "bang", but the sudden existence of all the matter in the Universe, in the shortest of times, in the smallest of spaces, about 13.8 billion years ago. After an unthinkably small interval of time, the Universe began a short period of rapid expansion known as \textit{cosmic inflation}, in which the Universe grew by a factor $10^{27}$ in a mere $10^{-33}$ seconds. This inflation is thought to be due to the inflaton, a quantum scalar field. It is theorized that it is the inflaton's vacuum energy what caused the Universe to expand as greatly. \\
+
+As any quantum field\footnote{Quantum fields are a tool used by Quantum Field Theory (QFT) to more accurately describe particles and their interactions.} the inflaton presents fluctuations. This means, even in the vacuum state\footnote{To define vacuum in QFT is not as easy a task as it was in classical mechanics (or even non-relativistic quantum mechanics).These details go beyond the scope of this work, and thus will not be dealt with.} there is constant creation and annihilation of virtual particles. These fluctuations are what cause anisotropies in the matter distribution of the Universe, fact that will be important later in this work. \\
+
+After the inflation phase, the Universe cooled enough for what is known as the Quark-Gluon plasma to form. In this state, temperatures were high enough as to consider relativistic the random motion of the particles in it. After some cooling due to cosmic expansion, the combination between quarks to form hadrons was allowed, leading to what is known as the hadronic epoch. However, due to the short mean free path of the photons, the Universe is still opaque to electromagnetic radiation. \\
+
+As the Universe kept expanding the densities decreased and the temperatures cooled, the existence of atoms was starting to be allowed, the He and H atoms. This period would finish at the Universe age of $380,000$ years, moment known as recombination. Recombination is thought of as the time at which the Thomson Scattering mechanisms stop being effective (the scattering cross section of this process becomes negligible and thus the photon mean free path grows considerably).
+As soon as recombination ends, the thermally activated photons which are no longer energetic enough to interact with the electrons now travel freely through space. This emission is known as the Cosmic Microwave Background (CMB) and is the oldest direct observation using electromagnetic radiation we can take of the Universe. \\
+
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../figs/cmb.jpeg}
+	\caption[The all-sky map of CMB anisotropies as seen by the Planck Satellite.]{The all-sky map of CMB anisotropies as seen by Space-based Observatory Planck \cite{Planck2018}. The colors in this map represent the fluctuations around the mean T = \SI{2.7}{K} with fluctuations of $10^{-5}$ with respect to the average temperature. Red means higher temperature than the average, whilst blue means lower temperature than the average.}
+	\label{fig:cmb}
+\end{figure}
+\section{Cosmic Microwave Background}
+
+We see in the Fig.~\ref{fig:cmb} the CMB as observed by the Planck collaboration \cite{Planck2018}. The radiation we observe is the photons that were emitted about $13.8$ billion years ago. Since the CMB appears as a result of the thermal photons emitted by the electrons in the primordial plasma, it offers great insight into what the plasma looked like, and the way it behaved.  \\
+
+The Cosmic Microwave Background was discovered in 1965 as a serendipity by Penzias and Wilson \cite{Penzias1965}. They observed a noise signal, uniformly distributed\footnote{It will we later discovered that it was not actually uniformly distributed.} from every direction, day or night, summer or winter, almost as if it came directly from the origin of the Universe.
+This discovery was considered to be solid evidence for the Big Bang model and more importantly, the beginning of the modern cosmology. All of this became the reason Penzias and Wilson received a Nobel prize 13 years later, in 1978. \\
+
+Since what is being measured are the photons left from recombination, which correspond to a thermal radiation curve, we may use Wien's displacement law
+\begin{align}
+	T = \frac{b}{\lambda}
+	\label{eq:wien-displacement}
+\end{align}
+with $b\approx $ 2.897 mm K Wien's constant, $T$ the black body radiation and $\lambda$ the wavelength at which the spectral radiation intensity is maximum to calculate the corresponding temperature to the measured wavelength. Using Planck's law, the measured temperature is \SI{2.7}{K} which corresponds to a measured wavelength of \SI{1.06}{mm} (microwave radiation, as the name Cosmic \textit{Microwave} implies). \\
+
+In 1991 anisotropies in the CMB were first discovered, by the COBE satellite \cite{SmootMather} later earning Smoot and Mather a Nobel prize. As of 2023 the most precise measurements correspond to the Planck experiment in 2018 \cite{Planck2018} by the European Space Agency. These anisotropies can be seen in the Fig.~\ref{fig:cmb}. \\
+
+Of course, \SI{2.7}{K} was not the temperature of the plasma at recombination, as it was approximately hotter by a factor $z=1090$, or $\approx$\SI{3000}{K}. The reason we measure such smaller temperatures is due to the expansion of the Universe.
+If today ($t=t_0$) some radiation of wavelength $\lambda_o$ were observed, that somehow is known to have been traveling for some time $\Delta t$ will have stretched due to the expansion of the Universe. In other words, the wavelength $\lambda_e$ of the emitted radiation was smaller by a factor\footnote{The factor $a(t)$ is known as the scale factor of the Universe, and will be explained with further detail later in the work.} $a(t')^{-1}$, with $t' = t_0-\Delta t$ being the earlier time at which the radiation was emitted, and defining $a(t_0)=1$. By Wien's displacement law \eqref{eq:wien-displacement}, this corresponds to a higher temperature by a factor $a(t')$. Note this process is normally done backwards: The $\lambda_e$ is known through spectral lines emission, $\lambda_o$ is known through measurement and the variable we are interested in is the redshift $z.$\\
+
+
+Thus, the CMB becomes crucial in explaining the large scale structure of the Universe, since the photons that decoupled from the plasma at recombination wasted more energy leaving denser regions behind losing thermal energy in the process, appearing at a slightly lower temperature (gravitational redshift). On the contrary, those in void regions will appear hotter, being blueshifted. Therefore, temperature fluctuations in the CMB correspond to density fluctuations in the early Universe. \\
+
+\section{Baryon Acoustic Oscillations}
+\label{sec:BAO}
+
+\begin{figure}[t]
+	\centering
+	\subfigure{\includegraphics[width=0.3\textwidth]{baogif1.png}}
+	\subfigure{\includegraphics[width=0.3\textwidth]{baogif2.png}}
+	\subfigure{\includegraphics[width=0.3\textwidth]{baogif3.png}}
+	\caption[Different time evolution stages of the Baryon Acoustic Oscillations.]{Different stages of the Baryon Acoustic Oscillations, as an evolution with time. At first, in the leftmost panel the origin of the oscillations are shown. This is, baryon matter clumped together with dark matter, as a result of the fluctuations of the inflaton field. As the thermal photons from the black body radiation push matter through space, the formed wavefront propagates through space, as seen in the middle panel. After recombination, when the wavelength of the radiation gets sufficiently stretched due to cosmic inflation, the photons do not have enough energy for Thomson Scattering to be effective and thus the oscillations freeze. This stage is shown in the rightmost panel.   Courtesy of the diagram: \url{https://lweb.cfa.harvard.edu/~deisenst/acousticpeak/anim.gif}.}
+	\label{fig:scheme-BAO}
+\end{figure}
+
+Before recombination, both matter and photons were coupled into the same fluid which we have called the primordial plasma. The particles in the plasma interacted primarily with one another through gravity and the electromagnetic field, depending on the type of matter considered: Ordinary matter known as baryons, and dark matter which will be discussed in Section \ref{sec:LCDM}. \\
+
+As already mentioned, matter was not distributed homogeneously. This means that at any point in time before recombination, one could find `lumps' of dark and baryonic (standard) matter. Combining the restoring force of the gravitational attraction between dark and baryonic matter with itself and with one another, and the repulsion caused by the radiation pressure due to the Thomson Effect between baryons and photons, the results are pure acoustic waves propagating through the plasma, with the dark matter lumps being in the center of these waves. Since the baryonic matter is dragged by these sound waves, they are called Baryon Acoustic Oscillations (BAO), and a simplistic explanation of their mechanism is shown in the Fig. \ref{fig:scheme-BAO} \\
+
+
+\begin{figure}[t] \centering
+	\subfigure{\includegraphics[width=0.4\textwidth]{../figs/sdss_xi.png} \label{fig:sdss}}
+	\hspace{0.2pt}
+	\subfigure{\includegraphics[width=0.45\textwidth]{../figs/2df_pk.png}	\label{fig:2df}}
+	\caption[First BAO observations by the SDSS and the 2dF collaborations.]{The first observations of the Baryon Acoustic Oscillations phenomenon, observed independently by the Sloan Digital Sky Survey (SDSS)~\cite{Eisenstein2005} as seen in the left panel and the 2dF collaboration~\cite{2dFCole2005} in the right panel. These were the main tools that finally determined the existence of the BAO. The SDSS result shows the measured correlation function $\xi(s)$. This function represents the distribution of the distance in between any two galaxies. Note the similarity between this graph and the frozen BAO from the Fig. \ref{fig:scheme-BAO}. The local maximum at $s\approx 100$ h$^{-1}$ Mpc corresponds to the BAO peak. The 2dF result, seen in the rightmost panel is the measured power spectrum $P(k)$ (here called  $W(k)$), which is the Fourier transform of the $\xi(r)$ function.}
+	\label{fig:2005-results}
+\end{figure}
+The waves would propagate throughout the plasma as long as the baryon-photon interaction was strong enough i.e. up to recombination, at which point they froze in time resulting in higher density regions at a fixed distance given by the sound speed of the primordial plasma and the age of the Universe at recombination. Higher density means higher gravitational intensity, which in turn means higher galaxy proliferation in spherical distributions. These spherical distributions (which can be measured in the CMB) are imprinted in the large scale structure of the Universe. \\
+
+At big enough distances, the radii ($r_d$) of these spheres, also called the sound horizon is used as a standard `cosmic ruler'. Cosmological distance measurements are calculated in terms of $r_d$, which is measured from the CMB. This means it needs to be calibrated from external information. $ r_d$ has been measured from the CMB to be around  \SI{150}{Mpc} or 500 million light years.
+To give an idea of the size of $r_d$, the radius of the observable Universe is around 100 times $r_d$. \\
+
+Given the large dimensions of this cosmic ruler and the homogeneity of the Universe on large scales, this ruler is only affected by cosmological expansion rather than late-time gravitational effects. Therefore, it has a constant comoving\footnote{`Comoving' meaning the distance one would measure if the expansion of the Universe is factored out.} size throughout the Universe.\\
+
+These structures were observed for the first time in 2005 simultaneously both by the Sloan Digital Sky Survey \cite{Eisenstein2005} and the 2dF Galaxy Redshift Survey \cite{2dFCole2005}, the results of which can be seen in the Fig. \ref{fig:2005-results}. In these pictures one sees the correlation function  $\xi(s)$ and the power spectrum $P(k)$ (though in the Fig.~\ref{fig:2005-results} it is called $W_k$). \\
+ 
+The correlation function $\xi(s)$, measures the frequency of the separation distance $s$ between any two galaxies. If the BAO hypothesis is true, then one would find a local maximum at $r_d$, the radius of the frozen spherical waves, which can be seen. These will be the main tools for the study of the BAO, and will be more precisely explained in the chapter \ref{cha:met-mat}.\\
+
+The other tool for studying the BAO is the power spectrum seen in the right panel of the Fig. \ref{fig:2005-results}. It is, without need of further detail, the Fourier transform of the $\xi(s)$ function. Indeed, since there is a repeating pattern of wavelength $r_d$, one would find local maxima in the spectrum at integer multiples of $k = 2\pi /r_d$. \\
+
+
+
+\section{Curvature, dark matter and the expansion of the Universe}
+After Hubble discovered the expansion of the Universe through Hubble's Law \cite{Hubble1929}
+\begin{align}
+	v = H_0 d
+	\label{eq:ley-hubble}
+\end{align}
+with $v$ the recession speed (the speed at which some point in space is receding only considering the expansion of the Universe), $H_0=100h$ km s$^{-1}$ Mpc$^{-1}$ Hubble's constant, $h$ a factor that parametrizes our ignorance on the true value of $H_0$ (estimated to be around $0.67$), and $d$ the distance of said point, a great deal of studies concerning the expansion of the Universe started. The most relevant result of those for our work are Friedmann's equations \\
+\begin{align}
+	H^2(t) := \left(\frac{\dot a}{a}\right)^2 &=  \frac{8\pi G \rho}{3} +\frac{\Lambda c^2}{3} - k \frac{c^2}{a^2}
+	\label{eq:1a-friedmann}\\
+	3 \frac{\ddot a}{a} &= \Lambda c^2 - 4\pi G \left( \rho + \frac{3p}{c^2} \right) 
+	\label{eq:2a-friedmann}
+\end{align}
+In these equations we see many new parameters: $H(t)$ is a generalization of $H_0$, where $H_0$ is the value of $H(t)$ at the age of the Universe $t=t_0$; $a(t)$ is already mentioned scale factor of the Universe\footnote{More precisely, the Robertson-Walker scale factor~\cite{cosmology}.}, meaning that if a certain length measurement $\Delta x$ was taken at time $t_1$, then that same measurement would be $\frac{a(t_2)}{a(t_1)}\Delta x$ at $t_2$; $G$ is the Newton's gravitational constant, $\rho$ the density of the Universe (including baryonic, dark matter, photons and neutrinos)\footnote{In this work, we will only be worried about the coupled baryon-photon fluid around dark matter perturbations.}, and $\Lambda$ is the cosmological constant which contains information about dark energy, the source of present-time accelerated expansion. Finally we see $k$, which is the spatial (Gaussian) curvature of the Universe. This is, asymptotic curvature. \\
+
+These equations are a consequence of the Friedmann–Lemaître–Robertson–Walker metric \cite{cosmology}
+\begin{align}
+	ds ^2 = -c^2 dt^2  + a^2(t) \left( \frac{dr^2}{1-kr^2} +r^2d\theta ^2 + r^2 \sin^2\theta d\phi^2\right) 
+	\label{eq:FLRW}
+\end{align}which are a direct result of solutions to Einstein's field equations of General Relativity, which will not be covered in this work. In \eqref{eq:FLRW} one sees similarities with the usual components in a flat space Minkowskian metric 
+\begin{align}
+	ds^2 = -c^2dt^2 + dr^2 + r^2d\theta^2 + r^2 \sin^2\theta d\phi^2
+\end{align} and some new quantities, $a(t)$ and $k$. $a(t)$ is the aforementioned scale factor, and $k$ a measure of the curvature of the Universe. It is easier now to see that $a(t)$ is crucial in the way lengths are measured, being an overall factor in the spatial part that is homogeneous but time-dependent. One can also notice how having different types of Universe affects differently to the metric. For example $k=0$ yields (as one would expect from a curvature parameter) a flat Universe. $k>0$ corresponds to a Universe with spherical geometry and $k<0$ to a Universe of hyperbolic geometry. \\
+
+If one managed to solve the differential equations in \eqref{eq:1a-friedmann}, the result would be $a(t)$, a description of the history of the expansion of the Universe. Moreover, it is also important to notice the relationship between the expansion of the Universe and the distribution of matter in the Universe. \\
+
+From \eqref{eq:1a-friedmann} we define the dimensionless density parameter $\Omega_m$ as $\frac{\rho}{\rho_{\text{c}}}$, with the critical density 
+\begin{align}
+	\rho_{\text{c}} = \frac{3H_0^2}{8\pi G}
+\end{align} which represents the transition point (for a Universe without cosmological constant) between an ever expanding Universe with negative curvature (open Universe) and a collapsing Universe with positive curvature (closed Universe). Similarly from the rest of the terms in the equation \eqref{eq:1a-friedmann} one can define
+\begin{align}
+ \Omega_\Lambda = \frac{\Lambda c^2}{3H^2}, \Omega_k = -\frac{kc^2}{H^2a^2} 
+ \label{eq:definitions}
+\end{align}
+$\Omega_\Lambda$ corresponds to the density of dark energy in the Universe, while $\Omega_k$ is not a density \textit{per se}, but is related to the total energy content of the Universe, determining its curvature.
+These parameters are what define the certain cosmology we are using, and obey the cosmic sum rule 
+\begin{align}
+	1 = \Omega_m + \Omega_\Lambda + \Omega_k
+	\label{eq:cosmic-sum-rule}
+\end{align}
+which is just a result of dividing \eqref{eq:1a-friedmann} evaluated at present time, by  $H_0^2$. \\
+
+Historically, the concept of cosmological expansion appeared when Hubble observed that the spectral lines of the nearby galaxies were all shifted towards the red end of the spectrum. Of course, since the Universe is expanding and the distance between two points increases with time, the wavelength of a certain radiation would also be affected by this expansion. This stretching of the wavelength is what is known as \textit{redshift} 
+\begin{align}
+	z = \frac{\lambda_{\text{o}} - \lambda_{\text{e}}}{\lambda_{\text{e}}} = \frac{\lambda_o}{\lambda_e} - 1
+	\label{eq:redshift}
+\end{align}
+Being $\lambda_o$ the observed wavelength and $\lambda_e$ the emitted wavelength of the considered radiation. $z$ is a measure of how much the Universe stretched while the radiation traveled, and it can be related to $a(t)$ through 
+\begin{align}
+	\frac{\lambda_o}{\lambda_e} = 1+z = \frac{a(t_o)}{a(t_e)}
+\end{align}
+Which means that $z$ is a (dimensionless) variable that admits an interpretation as a time variable, as in an expanding Universe, the scale factor increases with the age of the Universe, therefore the redshift is a decreasing function of the cosmic time. \\
+
+However, this redshift $z$ should not be confused with the redshift caused by the Doppler Effect of objects moving away. The processes are different in origin, since cosmological redshift does not need relative movement to shift the radiation towards red wavelengths, it is the expansion of the Universe what stretches the wavelength. On the contrary, the Doppler Effect appears when pulses emitted at regular time are emitted further away due to the movement of the wave source. \\
+
+We thus define the comoving distance $\Delta x'$ of a measurement $\Delta x$ as 
+\begin{align}
+	\Delta x' =\frac{\Delta x}{a(t)}= (1+z)\Delta x
+\end{align}
+i.e.\ the distance one would have measured had the expansion of the Universe not existed. \\
+
+With these definitions we can define  the observables we are interested in calculating/measuring. Firstly, through \eqref{eq:1a-friedmann} we calculate $H(z)$ as  
+\begin{align}
+	H(z) = H_0 \sqrt{\Omega_m(1+z)^3 + \Omega_k(1+z)^2 + \Omega_\Lambda} 
+\end{align}
+We also define the function of $z$ $D_H(z)$ known as the Hubble distance
+\begin{align}
+	D_H(z)  = \frac{c}{H(z)}
+	\label{eq:DH-definition}
+\end{align}
+Note that $D_H(z=0) = D_{H,0}$ gives us an idea of the distance at which the recession speed is greater than the speed of light in the vacuum, which is a direct consequence of \eqref{eq:ley-hubble}. $D_{H,0}$ can also be used to estimate the order of magnitude of the observable Universe. \\
+
+Through the Hubble distance we define the comoving distance 
+\begin{align}
+	D_C(z) = \int_{0}^{z} D_H(z') dz' = \frac{c}{H_0}\int_{0}^{z} \frac{dz'}{\sqrt{\Omega_m(1+z')^3 + \Omega_k(1+z')^2 + \Omega_\Lambda} } 
+\end{align}
+Note $D_H(z)$ is the derivative of $D_C(z)$. From this expression of $D_C(z)$ one defines the comoving angular diameter distance for some redshift $z$
+\begin{align}
+	D_M(z) = \begin{cases}
+		\frac{D_{H, 0}}{ \sqrt{\Omega_k} }\sinh \left[ \sqrt{\Omega_k} D_C(z) /D_{H,0} \right]  	 &\Omega_k >0\\
+		D_C(z)& \Omega_k =  0\\
+		\frac{D_{H,0}}{\sqrt{|\Omega_k|}} \sin \left[ \sqrt{|\Omega_k|} D_C(z) /D_{H,0} \right]  	 &\Omega_k <0
+		\label{eq:DA-definition}
+	\end{cases}
+\end{align}
+
+\section{$\Lambda$ Cold Dark Matter model}
+\label{sec:LCDM}
+
+In the definitions in \eqref{eq:definitions} the parameters $\Omega$ were introduced. This definitions, plus the definition of the density parameter $\Omega_m$ are part of the set of parameters that form the $\Lambda$ Cold Dark Matter ($\Lambda$CDM) model. \\
+
+This model is the simplest available way of explaining the current state of the Universe, with six different constants. The name is derived from two of the biggest components of the Universe, $\Lambda$ (the cosmological constant, related to Dark Energy) and Cold Dark Matter, which is thought to be
+\begin{itemize}
+	\item \textbf{Cold}: Non relativistic ($v \ll c$)
+	\item \textbf{Non baryonic}: Made up of non baryonic matter i.e. anything other than protons and neutrons (and by convention, electrons).
+	\item \textbf{Disipationless}: Since Dark Matter does not interact with the electromagnetic field, it can not dissipate temperature through photon emission.
+	\item \textbf{Collisionless}: Dark matter particles can only interact through gravity and possibly, the weak force and so they do not collide with one another.
+\end{itemize}
+The information on this cold dark matter is inside $\Omega_m$, since the density $\rho$ in
+\begin{align}
+	\Omega_m = \frac{\rho}{\rho_c} = \frac{\rho_b + \rho_{\text{CDM}}}{\rho_c}
+\end{align}
+Allowing us to define two new dimensionless density parameters $\Omega_b = \frac{\rho_b}{\rho_c}$ and $\Omega_c =  \frac{\rho_\text{CDM}}{\rho}$, which are part of the six free parameters that define a certain cosmology. These are $\Omega_b$, $\Omega_c$, $H_0$, the optical density of reionization $\tau_{\text{reio}}$, the amplitude of the primordial power spectrum $A_s$ and the spectral index of the primordial power spectrum $n_s$. Note there is no special choice of parameters, these are just the free parameters chosen for this work. The values for the chosen free parameters are seen in the table \ref{tab:fid-values}.\\
+
+In this work, an extension of the $\Lambda$CDM model is considered. Though the standard cosmological model considers a flat Universe, the curvature parameter will not be fixed to $0$ and is therefore allowed to be a free parameter, adding a new degree of freedom to the standard model (not to be confused with the standard model in particle physics). This model could be further extended by considering the mass and number of the neutrinos, generalized models of dark energy, etcetera.\\
+
+The fiducial (starting) values of these parameters that will be used in this work are the ones seen in table \ref{tab:fid-values}
+\begin{table}[t]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Fiducial Value \\
+\hline
+$\Omega_b$ & 0.0481 \\
+$\Omega_c$ & 0.2604 \\
+$H_0$ & 67.6 km s$^{-1}$ Mpc$^{-1}$ \\
+$\tau_{\text{reio}}$ & 0.09 \\
+$A_s$ & 2.0403\cdot 10$^{-9}$ \\
+$n_s$ & 0.97 \\
+\hline
+$\Omega_k$ & [-0.20 , +0.20]  \\
+\hline
+\hline
+$r_d$ & 147.784 Mpc \\
+$D_H/r_d$ & 18.7 \\
+$D_M/r_d$ & 18.3 \\
+$\Omega_\Lambda$ & [0.49, 0.89] \\
+$\Omega_m$ & 0.31  \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Values of the fiducial cosmological parameters used in the BAO analysis and of the derived values $r_d$, $D_H / r_d$, $D_M /r_d$, $\Omega_\Lambda$, $\Omega_m$.}
+\label{tab:fid-values}
+\end{table}
+From these free parameters, one derives some parameters. Of those, the main interest is in $\Omega_\Lambda$, $r_d$, $D_H$, and $D_A$. $\Omega_\Lambda$ changes with $\Omega_k$ for a fixed $\Omega_m$ by the cosmic sum rule \eqref{eq:cosmic-sum-rule}
+\begin{align}
+	\Omega_\Lambda =  1 - \Omega_m - \Omega_k
+\end{align}
+Thus $\Omega_\Lambda$ varies between 0.49 and 0.89.\\
+
+Finally, we define two more parameters $\alpha_\parallel$ and $\alpha_\perp$. These parameters measure the distortion of the measurements in two different directions. $\alpha_\parallel$ is related to the distortion parallel to the line of sight, and  $\alpha_\perp$, perpendicular to the line of sight. They are defined by 
+\begin{align}
+	\alpha_\parallel = \frac{\left[ D_H(z) /r_d \right] }{\left[ D_H(z)/r_d \right]^{\text{fid}} }, \, \alpha_\perp = \frac{\left[ D_A(z) /r_d \right] }{\left[ D_A(z)/r_d \right]^{\text{fid}} }
+	\label{eq:alphas-def}
+\end{align}
+With $z\simeq 0.698$ being the redshift at which the galaxy measurements were taken.

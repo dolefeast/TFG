@@ -1,0 +1,48 @@
+\chapter{Results}
+\label{cha:results}
+
+
+\begin{figure}[b]
+	\centering
+	\includegraphics[width=0.99\textwidth]{../figs/phase2_DA_DH_flat.pdf}
+%\input{../figs/phase2_DA_DH_flat.pgf}
+%\resizebox{0.99\textwidth}{!}{\input{../figs/phase2_DA_DH_flat.pgf}}
+	\caption[Calculation of the cosmological observables for different fiducial cosmologies.]{Results of the application of the BAO technique to eBOSS galaxies. Top panel: Best fit values and uncertainties on the shifts of the BAO feature in the distribution of galaxies along the line of sight ($\alpha_\parallel$) and perpendicular to that direction ($\alpha_\perp$) for different values of $\Omega_k$. Middle panel: the fiducial distances (Hubble distance and angular diameter distance) as a function of $\Omega_k$ (with the matter parametter $\Omega_m = 0.31$, and the dark energy parameter $\Omega_\Lambda=1 - \Omega_m - \Omega_k$, using the equations \eqref{eq:DH-definition} and \eqref{eq:DA-definition}) evaluated at the redshift of eBOSS galaxies. Bottom panel: Best fit values and uncertainties for the Hubble distance and angular diameter distance to eBOSS galaxies for different assumptions on the value of the curvature parameter $\Omega_k$, computed as the product of the above two panels. The inferred distances for different values of $\Omega_k$ are consistent with each other within 1-$\sigma$.}
+	\label{fig:DA_DH}
+\end{figure}
+\begin{table}
+	\begin{center}
+\begin{tabular}{|c|c|c|}
+	\hline
+$\Omega_k$ & $D_H/r_d$ & $D_M/r_d$ \\
+\hline
+-0.20 & $19.57 \pm 0.85$ & $17.85 \pm 0.51$ \\
+-0.15 & $19.25 \pm 0.84$ & $17.85 \pm 0.54$ \\
+-0.10& $19.00 \pm 0.80$ & $17.96 \pm 0.59$ \\
+-0.05 & $18.82 \pm 0.77$ & $18.13 \pm 0.59$ \\
+0.00 & $18.66 \pm 0.72$ & $18.28 \pm 0.53$ \\
+0.05 & $18.61 \pm 0.65$ & $18.25 \pm 0.47$ \\
+0.10 & $18.57 \pm 0.61$ & $18.24 \pm 0.43$ \\
+0.15 & $18.50\pm 0.56$ & $18.23 \pm 0.41$ \\
+0.20 & $18.36 \pm 0.53$ & $18.34 \pm 0.39$ \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Results of the measurement of the cosmological observables we were interested in. This table shows the same data as the figure \ref{fig:DA_DH}.}	
+\end{table}
+Using the tools mentioned in the chapter~\ref{cha:met-mat}, we obtain the data seen in the figure~\ref{fig:DA_DH}. Firstly, a template power spectrum $P(k)$ was generated using CLASS. This template stays fixed throughout the calculations, to that of the standard cosmological model. This is, with the six parameters stated in~\ref{sec:LCDM} and $\Omega_k=0.00$. Having the template, the BAO are removed using the \textit{remove\_bao} routine from montepython, to obtain exactly the plots seen in~\ref{fig:PkOlPsm}. \\
+
+For this fixed template, 9 different power spectrums were calculated using RUSTICO\@. We again use the $\Lambda$CDM, but this time not assuming a flat universe. Each power spectrum is generated with $\Omega_k$ varying from -0.20 to 0.20, in steps of 0.05, thus yielding the mentioned 9 different power spectrums. \\
+
+For each one of these $\Omega_k$, the software BRASS was used to calculate each corresponding best fitting parameter in the line-of-sight ($\alpha_\parallel$) and the transverse ($\alpha_\perp$) directions, and its standard deviation. With the $\alpha$ values calculated, we now know the relation between the fiducial cosmological observables (this is, our initial guess) and the measured value of these observables. In other words, $\alpha=1$ would correspond to the case in which the fiducial cosmology corresponded to the cosmology that better fit the data.\\
+
+These $\alpha$ values can be seen in the figure~\ref{fig:DA_DH}, which presents the $\alpha_\parallel$ and $\alpha_\perp$ on the first row, the fiducial $D_H / r_d$, $D_M/r_d $ on the second row and the `true' $D_H / r_d$, $D_M /r_d$ for each fiducial cosmology.  
+These observables, ($D_H /r_d$ and $D_M /r_d $) were calculated using the definitions~\eqref{eq:DH-definition} and~\eqref{eq:DA-definition}. \\
+
+The BRASS calculations were done in an iterative way, which means the output from the software was used as the initial condition for the next iteration. To assure better results three iterations were made for each cosmology.  \\
+
+The figure~\ref{fig:DA_DH} shows the results of the calculation of the different observables for different fiducial curvature parameters $\Omega_k$. This chart allows us to observe that the all the calculated observables in the range $\Omega_k  \in \left[ -0.20, 0.20   \right] $ are compatible, since they all stand at less than one standard deviation from one another. \\
+
+The observable values corresponding to our universe, $D_H/r_d = 18.68 \pm 0.72$ and $D_M/r_d = 18.13 \pm 0.58$ must be compared to previous experiments. We see these results are compatible with the bibliography~\cite{hector}. The measurements ($D_H/r_d = 19.77\pm0.47$ and $D_M/ r_d=17.65\pm 0.30$) in the mentioned article are done through different methods, and represent the most precise measurements for the redshift range of the SDSS surveys as of 2020.
+
+

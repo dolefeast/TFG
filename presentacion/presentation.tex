@@ -1,0 +1,289 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Ajit Kumar Sahoo, School of Computer and Information Sciences,
+%%%%%% University of Hyderabad, Hyderabad, India-500046
+%%%%%% Email: sahooajitkumar85@gmail.com
+%%%%%% https://ajitsahoocs.github.io/
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{beamer}
+\hypersetup{pdfpagemode=FullScreen} %full screen mode
+\setbeamertemplate{navigation symbols}{}
+\usepackage[english]{babel} %designed for typesetting lebels(addr lebel,sticky lebels,etc)
+\usepackage[latin1]{inputenc} %Accept different input encodings
+\usepackage{amsmath,amssymb} 
+\usepackage[T1]{fontenc} %for font encoding
+\usepackage{times} % use times font instead of default
+\usepackage{curves} %for drawing curves
+\usepackage{verbatim} %paragraph making environment 
+\usepackage{multimedia} %for multimedia like animation,movie etc...
+\usepackage{mathptmx} % font style
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\usepackage{algorithm,algorithmic}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\usepackage{lipsum}
+\setbeamertemplate{caption}[numbered] % For numbering figures
+
+
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}%this one also
+%\usecolortheme{beetle}
+%\usecolortheme{crane} % also use this one
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+\usecolortheme{whale} % Best one
+%\usecolortheme{wolverine} %use can use this also
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\setbeamercovered{transparent}
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{theorems}[numbered]
+\setbeamerfont{title}{size=\Large}%\miniscule,command,tiny, scriptsize,footnotesize,small,normalsize,large,Large,LARGE,huge,Huge,HUGE
+\setbeamerfont{date}{size=\tiny}%{\fontsize{40}{48} \selectfont Text}
+
+\setbeamertemplate{itemize items}[ball] % if you want a ball
+\setbeamertemplate{itemize subitem}[circle] % if you wnat a circle
+\setbeamertemplate{itemize subsubitem}[triangle] % if you want a triangle
+
+
+%------------------customized frame----------------------------
+\newcounter{cont}
+
+\makeatletter
+%allowframebreaks numbering in the title
+\setbeamertemplate{frametitle continuation}{%
+   % \setcounter{cont}{\beamer@endpageofframe}%
+    %\addtocounter{cont}{1}%
+   % \addtocounter{cont}{-\beamer@startpageofframe}%
+   % (\insertcontinuationcount/\arabic{cont})%
+}
+\makeatother
+%-----------------------customized-----------------------------
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Non-Flat universe BAO]{Baryon acoustic oscillations in a non-flat universe} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+%\author[AKS]{Ajit Kumar Sahoo \texorpdfstring{\scriptsize Regd No: 16MCPC03}{}}
+\author[SSW]{\texorpdfstring{Santiago Sanz Wuhl}{Author}}
+
+\institute[UCO] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+
+{\small Supervisors}\\
+\medskip
+{\normalsize Antonio J. Sarsa Rubio}\\
+{\normalsize Antonio J. Cuesta V\'azquez}\\
+\begin{center}
+\includegraphics[width=0.2\textwidth]{uoh.png}
+\end{center}
+\medskip
+Facultad de Ciencias \\
+Universidad de C\'ordoba
+
+%\medskip
+%\textit{john@smith.com} % Your email address
+}
+%This will place the image at position "30 right/left and 120 up/down" relative to the top left corner of the current page.
+%\titlegraphic{%
+%  \begin{picture}(0,0)
+%    \put(30,125){\makebox(0,0)[rt]{\includegraphics[width=2.5cm]{uoh.png}}}
+%  \end{picture}}
+ \date{\today} % Date, can be changed to a custom date
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+\begin{frame}
+  \frametitle{Contents}
+ % \tableofcontents[pausesections,shaded]
+ \tableofcontents
+\end{frame}
+% TABLE OF CONTENTS AT BEGIN OF EACH SECTION
+\AtBeginSection[]{
+  \begin{frame}<beamer>
+    \frametitle{Current Section}
+   \tableofcontents[currentsection]
+  \end{frame}}
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+%-------------------------------INTRODUCTION--------------------------------
+%-----------------------------------------------------------
+
+
+\section{Abstract} 
+\begin{frame}[allowframebreaks]
+\frametitle{Abstract}
+In this Bachelor's Thesis we make use of high performance computing and data analysis tools to study the effects of slight variations in the Standard Cosmological model, the $\Lambda$ Cold Dark Matter ($\Lambda$CDM) model. This model assumes a spatially flat universe, though the observations are compatible with a nonzero value of the curvature parameter $\Omega_k$.
+
+This work is based off the Baryon Acoustic Oscillations, a phenomenon that allows us to study the behavior of the universe in its earliest stages (the first 380.000 of its 13.8 billion years of lifetime -- a 0.003\% of the Universe's lifetime!). These oscillations shape the large scale structure of the universe, and more importantly, set a `cosmic ruler' $r_d$ with respect to which is used to measure cosmological distances, such as the Hubble distance $D_H$ and angular diameter distance $D_M$.\\
+
+After analyzing the \textit{extended Baryon Oscillation Spectroscopic Survey }galaxy catalogue, we achieve the following results: $D_H/r_d = 18.66\pm 0.72$ y $D_M/r_d = 18.28\pm 0.53$ for a flat universe, in concordance to the results for other nonzero values of the curvature parameter $\Omega_k$ (up to a 20\% of the total density), and more importantly with previous results in the field.
+
+\end{frame}
+
+
+\section{Introduction}
+\begin{frame}[allowframebreaks]
+\frametitle{Big Bang?}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{BAO}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]
+\frametitle{$\Lambda$CDM}
+\end{frame}
+
+
+
+
+%-------------------------------------------------------------------------------------------------------------------------------
+\section{Objectives}
+\begin{frame}[allowframebreaks]
+\frametitle{Objectives}
+\end{frame}
+
+\section{Materials and methods}
+\begin{frame}[allowframebreaks]
+\frametitle{Mathematics}
+\end{frame}
+
+
+
+\begin{frame}{Software and Hardware}
+
+\end{frame}
+
+\section{Results}
+\begin{frame}{Results}
+	 
+\end{frame}
+\begin{frame}{Results}
+	 
+\end{frame}
+\begin{frame}{Results}
+	 
+\end{frame}
+
+\begin{frame}{Conclusions}
+\end{frame}
+
+
+
+%\section{Information processing  issues}
+%-----------------------------------------------
+%\begin{frame}
+%\frametitle{Information processing issues}
+%\begin{itemize} 
+%\item In collaborative processing
+%\begin{itemize}
+%\item Target detection, localization, communication, storage, querying...
+%\end{itemize}
+%\color{lightgray}
+%\item  In networking
+%\begin{itemize}
+%\color{lightgray}
+%\item  aggregation, routing, Data naming,...
+%\end{itemize}
+%\end{itemize}
+%\end{frame}
+%-----------------------------------------------
+%\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+%\frametitle{Citation}
+%An example of the \verb|\cite| command to cite within the presentation:\\~
+%Citation \cite{Souza} requires .
+%\end{frame}
+%------------------------------------------------
+\section{References}
+\begin{frame}[allowframebreaks]
+\frametitle{References}
+ \nocite{*}
+ \bibliographystyle{unsrt}
+\bibliography{References}
+\end{frame}
+
+%-----------------------------------------------------------------------------------------
+\section{Acknowledgement}
+\begin{frame} [allowframebreaks]
+\frametitle{Acknowledgement}
+\lipsum[1]
+
+
+\end{frame}
+%-----------------------------------------------------------------------------------------
+
+\begin{frame}
+\Huge{\centerline{Thank You}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
