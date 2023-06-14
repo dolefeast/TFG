@@ -1,8 +1,7 @@
 \babel@toc {english}{}
-\beamer@sectionintoc {1}{Abstract}{3}{0}{1}
-\beamer@sectionintoc {2}{Introduction}{6}{0}{2}
+\beamer@sectionintoc {1}{Resumen}{3}{0}{1}
+\beamer@sectionintoc {2}{Introduction}{5}{0}{2}
 \beamer@sectionintoc {3}{Objectives}{10}{0}{3}
 \beamer@sectionintoc {4}{Materials and methods}{12}{0}{4}
 \beamer@sectionintoc {5}{Results}{15}{0}{5}
-\beamer@sectionintoc {6}{References}{20}{0}{6}
-\beamer@sectionintoc {7}{Acknowledgement}{22}{0}{7}
+\beamer@sectionintoc {6}{Conclusiones}{19}{0}{6}

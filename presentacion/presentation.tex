@@ -8,7 +8,7 @@
 \hypersetup{pdfpagemode=FullScreen} %full screen mode
 \setbeamertemplate{navigation symbols}{}
 \usepackage[english]{babel} %designed for typesetting lebels(addr lebel,sticky lebels,etc)
-\usepackage[latin1]{inputenc} %Accept different input encodings
+\usepackage[utf8]{inputenc} %Accept different input encodings
 \usepackage{amsmath,amssymb} 
 \usepackage[T1]{fontenc} %for font encoding
 \usepackage{times} % use times font instead of default
@@ -20,6 +20,14 @@
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 \usepackage{hyperref}
 \usepackage{xcolor}
+\usepackage{import}
+
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+ <delta(k)delta(k')>
 
 \usepackage{algorithm,algorithmic}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
@@ -130,14 +138,14 @@
 \institute[UCO] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
 
-{\small Supervisors}\\
+{\small Trabajo de Fin de Grado}\\
 \medskip
-{\normalsize Antonio J. Sarsa Rubio}\\
-{\normalsize Antonio J. Cuesta V\'azquez}\\
+{Código FS22-17-FSC}\\
 \begin{center}
 \includegraphics[width=0.2\textwidth]{uoh.png}
 \end{center}
 \medskip
+{\normalsize Grado de Física}\\
 Facultad de Ciencias \\
 Universidad de C\'ordoba
 
@@ -176,30 +184,88 @@ Universidad de C\'ordoba
 %-----------------------------------------------------------
 
 
-\section{Abstract} 
+\section{Resumen} 
 \begin{frame}[allowframebreaks]
-\frametitle{Abstract}
-In this Bachelor's Thesis we make use of high performance computing and data analysis tools to study the effects of slight variations in the Standard Cosmological model, the $\Lambda$ Cold Dark Matter ($\Lambda$CDM) model. This model assumes a spatially flat universe, though the observations are compatible with a nonzero value of the curvature parameter $\Omega_k$.
+\frametitle{Resumen}
 
-This work is based off the Baryon Acoustic Oscillations, a phenomenon that allows us to study the behavior of the universe in its earliest stages (the first 380.000 of its 13.8 billion years of lifetime -- a 0.003\% of the Universe's lifetime!). These oscillations shape the large scale structure of the universe, and more importantly, set a `cosmic ruler' $r_d$ with respect to which is used to measure cosmological distances, such as the Hubble distance $D_H$ and angular diameter distance $D_M$.\\
+\quad En este trabajo de fin de grado se hace uso de herramientas de computaci\'on de alto rendimiento y an\'alisis de datos para estudiar los efectos de ligeras variaciones en el \textbf{modelo cosmol\'ogico est\'andar} $\Lambda$CDM. Este modelo asume un universo \textbf{espacialmente plano}, si bien las observaciones son compatibles con una curvatura no nula.\\
+\vspace{0.2cm}
+\quad Este trabajo se basa en las \textbf{oscilaciones} \textbf{acústicas} \textbf{de} \textbf{bariones}, un fen\'omeno que nos permite estudiar el comportamiento del universo en sus etapas m\'as tempranas. \\
 
-After analyzing the \textit{extended Baryon Oscillation Spectroscopic Survey }galaxy catalogue, we achieve the following results: $D_H/r_d = 18.66\pm 0.72$ y $D_M/r_d = 18.28\pm 0.53$ for a flat universe, in concordance to the results for other nonzero values of the curvature parameter $\Omega_k$ (up to a 20\% of the total density), and more importantly with previous results in the field.
-
+\vspace{0.2cm}
+\quad Después de analizar el catálogo de galaxias del cartografiado \textbf{eBOSS}, obtenemos los siguientes resultados: $D_H/r_d = 18.66\pm 0.72$ y $D_M/r_d = 18.28\pm 0.53$ para un universo plano, en concordancia con los resultados para otros valores no nulos del \textbf{parámetro} \textbf{de} \textbf{curvatura} $\Omega_k$, y lo que es m\'as importante, con resultados anteriores en el campo.
 \end{frame}
-
 
 \section{Introduction}
 \begin{frame}[allowframebreaks]
-\frametitle{Big Bang?}
+\frametitle{The Baryon Acoustic Oscillations}
+
+\begin{enumerate}
+  \item \textbf{Early Universe}: Primordial density perturbations are created due to quantum fluctuations during inflation.
+  
+  \item \textbf{Primordial plasma}: The high temperatures tightly bind photons and baryons in a plasma.
+  
+  \item \textbf{Acoustic Oscillations}: Perturbations in the equilibrium between gravitational attraction and thermal radiation pressure cause pure acoustic waves to propagate through the plasma (BAO).
+  
+  \item \textbf{Recombination}: As the universe expands and cools, the Thomson Scattering mechanism stops being effective and baryons decouple from the plasma, `turning off' the interaction and freezing the Acoustic Waves.
+  
+  
+\end{enumerate}
+
+\end{frame}
+\begin{frame}[allowframebreaks]
+\frametitle{The Baryon Acoustic Oscillations}
+\begin{figure}[b]
+	\centering
+	\subfigure{\includegraphics[width=0.3\textwidth]{baogif1.png}}
+	\subfigure{\includegraphics[width=0.3\textwidth]{baogif2.png}}
+	\subfigure{\includegraphics[width=0.3\textwidth]{baogif3.png}}
+	\caption{Different time evolution stages of the Baryon Acoustic Oscillations}
+\end{figure}
+
 \end{frame}
 
 \begin{frame}[allowframebreaks]
-\frametitle{BAO}
+\frametitle{The BAO analysis}
+Considering the distribution of the distances at which two galaxies are found of one another, we finde the correlation function $\xi(r)$ and its Fourier Transform, the power spectrum $P(k)$.
+\begin{figure}[b] \centering
+	\subfigure{\includegraphics[width=0.3\textwidth]{../figs/sdss_xi.png} \label{fig:sdss}}
+	\hspace{0.2pt}
+	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/2df_pk.png}	\label{fig:2df}}
+	\caption{First BAO observations by the SDSS and the 2dF collaborations.}
+	\label{fig:2005-results}
+\end{figure}
 \end{frame}
 
 
 \begin{frame}[allowframebreaks]
-\frametitle{$\Lambda$CDM}
+\frametitle{The $\Lambda$CDM model}
+\begin{table}[t]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Parameter} & \textbf{Parameter} \textbf{Name} & \textbf{Fiducial} \textbf{Value} \\
+\hline
+$\Omega_b$ & Baryon Density Parameter & 0.0481 \\
+$\Omega_c$ & Dark Matter Density Parameter & 0.2604 \\
+$H_0$ & Hubble Constant & 67.6 kms$^{-1}$Mpc$ ^{-1}$ \\
+$\tau_{\text{reio}}$ & Reionization Optical Depth & 0.09 \\
+$A_s$ & Scalar Perturbation Amplitude & 2.0403 × 10$^{-9}$ \\
+$n_s$ & Scalar Spectral Index & 0.97 \\
+\hline
+$\Omega_k$ & Curvature Parameter & $[-0.20, 0.20]$ \\
+\hline
+\hline
+$r_d$ & Sound Horizon at Recombination & 147.784 Mpc \\
+$D_H/r_d$ & Hubble distance & 18.7 \\
+$D_M/r_d$ & Angular diamater distance& 18.3 \\
+$\Omega_\Lambda$ & Dark Energy Density Parameter& [0.49, 0.89] \\
+$\Omega_m$ & Matter Density Parameter & 0.31 \\
+\hline
+\end{tabular}
+\end{center}
+\label{tab:fid-values}
+\end{table}
 \end{frame}
 
 
@@ -209,17 +275,53 @@ After analyzing the \textit{extended Baryon Oscillation Spectroscopic Survey }ga
 \section{Objectives}
 \begin{frame}[allowframebreaks]
 \frametitle{Objectives}
+\begin{enumerate}
+  \item Review the theoretical background of \textbf{BAO} \textbf{observables}, including their physical origin and mathematical formulation, and become familiar with the software tools for data analysis and visualization.
+  \item Learn to use these \textbf{software} \textbf{tools} for data preprocessing, analysis, and visualization of BAO-related cosmological data sets.
+  \item Investigate the impact of \textbf{different} \textbf{values} \textbf{of} \textbf{the} \textbf{curvature} \textbf{parameter} $\Omega_k$ on the behavior of BAO observables.
+  \item Analyze the most recent observational data on BAO observables, obtained from the \textbf{eBOSS} \textbf{experiment}, and compare the results with theoretical predictions for different values of $\Omega_k$.
+	\item Make use of \textbf{high} \textbf{performance} \textbf{computing} to solve Physics problems.
+  \item Specific \textbf{data} \textbf{analysis} software development.
+  \item Learn to control computer clusters via \textbf{SSH} (Secure Shell).
+\end{enumerate}
 \end{frame}
 
 \section{Materials and methods}
 \begin{frame}[allowframebreaks]
-\frametitle{Mathematics}
+\frametitle{Mathematics, software and hardware}
+
+\begin{enumerate}
+	\item \textbf{Mathematics} The Fast Fourier Transform algorithm
+	\item \textbf{Software}
+		\begin{itemize}
+			\item \textbf{RUSTICO} Measures the power spectrum of a given galaxy catalog\footnote{In our case, the extended Baryon Oscillation Spectroscopy Survey (eBOSS)} as the Fourier Transform of the correlation function
+			\begin{align}
+				\xi(\textbf{r}) = \left<\delta(\textbf{x})\delta (\textbf{x}') \right>,\, \text{with}\, \delta(\textbf{x}) = \frac{\rho(\textbf{x}) - \overline{\rho}}{\overline{\rho}}
+			\end{align}
+		\item \textbf{CLASS} The theoretical power spectrum for a given cosmology.
+		\item \textbf{BRASS} Returns the best-fit parameters in the line-of-sight direction $\alpha_\parallel$ and in the transverse direction $\alpha_\perp$ of the theoretical power spectrum to the measured one. The measured distances are thus
+	\vspace{-0.2cm}
+		\begin{align}
+			\frac{D_H}{r_d} = \alpha_\parallel \left[ \frac{D_H}{r_d} \right] ^\text{fiducial}\,\,,
+			\frac{D_M}{r_d} = \alpha_\perp \left[ \frac{D_M}{r_d} \right] ^\text{fiducial}
+		\end{align}
+		\end{itemize}
+	\vspace{-0.3cm}
+	\item \textbf{Hardware} The clusters from the \textit{FQM-378} research group in the Universidad de Córdoba.
+
+\end{enumerate}
+
+
 \end{frame}
 
+\begin{frame}{Pipeline}
 
-
-\begin{frame}{Software and Hardware}
-
+	\begin{figure}[h]
+		\centering
+		\incfig{pipeline}
+		\caption{The pipeline used to measure the desired cosmological distances}
+		\label{fig:-figs-pipeline-pdf}
+	\end{figure}
 \end{frame}
 
 \section{Results}
@@ -230,10 +332,26 @@ After analyzing the \textit{extended Baryon Oscillation Spectroscopic Survey }ga
 	 
 \end{frame}
 \begin{frame}{Results}
+	\begin{figure}[t]
+		\centering
+		\includegraphics[width=0.8\textwidth]{../figs/phase2_DA_DH_flat.pdf}
+		\caption{Derivation of cosmological distance measurements.}
+		\label{fig:phase2}
+	\end{figure}
 	 
 \end{frame}
 
-\begin{frame}{Conclusions}
+\section{Conclusiones}
+\begin{frame}[allowframebreaks]{Conclusiones}
+
+\begin{enumerate}
+\item Hemos revisado e implementado la metodología BAO para \textbf{medir} \textbf{distancias} \textbf{cosmológicas} en el Universo, y la hemos aplicado a una muestra de galaxias del cartografiado eBOSS.
+\item Hemos usado \textbf{computación} de alto rendimiento para calcular las posiciones de las características BAO de las \textbf{galaxias} \textbf{de} \textbf{eBOSS} junto con sus incertidumbres. 
+\item Hemos obtenido unas \textbf{mediciones} \textbf{de} \textbf{distancia} a las galaxias de eBOSS normalizadas a la escala del horizonte de sonido de $D_H/r_d = 18.66 \pm 0.72$ y $D_M/r_d = 18.28 \pm 0.53$.
+\item Nuestro resultado principal es que \textbf{no} \textbf{hay} \textbf{dependencia} \textbf{significativa} de estas observables con respecto a cambios en el valor asumido del parámetro de curvatura $ \Omega_k$ en el rango de estudio.
+\end{enumerate}
+%Por lo tanto, concluimos que la suposición de un valor particular de $\Omega_k$ en la conversión de corrimiento al rojo a distancia no tiene ningún efecto significativo (al menos en el rango $\Omega_k \in [-0.20, +0.20]$) en las distancias cosmológicas inferidas a las galaxias de eBOSS utilizando la metodología BAO.
+
 \end{frame}
 
 
@@ -261,28 +379,28 @@ After analyzing the \textit{extended Baryon Oscillation Spectroscopic Survey }ga
 %An example of the \verb|\cite| command to cite within the presentation:\\~
 %Citation \cite{Souza} requires .
 %\end{frame}
-%------------------------------------------------
-\section{References}
-\begin{frame}[allowframebreaks]
-\frametitle{References}
- \nocite{*}
- \bibliographystyle{unsrt}
-\bibliography{References}
-\end{frame}
+%%------------------------------------------------
+%\section{References}
+%\begin{frame}[allowframebreaks]
+%\frametitle{References}
+% \nocite{*}
+% \bibliographystyle{unsrt}
+%\bibliography{References}
+%\end{frame}
 
 %-----------------------------------------------------------------------------------------
-\section{Acknowledgement}
-\begin{frame} [allowframebreaks]
-\frametitle{Acknowledgement}
-\lipsum[1]
-
-
-\end{frame}
-%-----------------------------------------------------------------------------------------
-
-\begin{frame}
-\Huge{\centerline{Thank You}}
-\end{frame}
+%\section{Acknowledgement}
+%\begin{frame} [allowframebreaks]
+%\frametitle{Acknowledgement}
+%\lipsum[1]
+%
+%
+%\end{frame}
+%%-----------------------------------------------------------------------------------------
+%
+%\begin{frame}
+%\Huge{\centerline{Thank You}}
+%\end{frame}
 
 %----------------------------------------------------------------------------------------
 

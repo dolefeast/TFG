@@ -43,12 +43,13 @@ def DM(z, Ok):
 #---Changing template (phase 3)
 
 fig, axes = plt.subplots(3, 2, sharex=True, figsize=(10, 7))
-elinewidth=1.7
-capsize=3
-capthick=1.5
-color = 'teal'
+markersize = 10
+elinewidth=3
+capsize=5
+capthick=3
 fontsize = 20
-
+linewidth = 3
+color = 'teal'
 DH_list = []
 DM_list = []
 
@@ -57,27 +58,27 @@ for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
     current_DH_std = DH_fid(zmax, Ok) * apara[1]/rs
     current_DM = DM(zmax, Ok) * aperp[0]/rs
     current_DM_std = DM(zmax, Ok) * aperp[1]/rs
-    axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x', 
+    axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x',
                  elinewidth=elinewidth, capsize=capsize, capthick=capthick,
-                color=color)
-    axes[0,1].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x', 
+                color=color, linewidth=linewidth, markersize=markersize)
+    axes[0,1].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x',
                  elinewidth=elinewidth, capsize=capsize, capthick=capthick,
-                color=color)
-    axes[2,0].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x', 
+                color=color, linewidth=linewidth, markersize=markersize)
+    axes[2,0].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x',
                  elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
-                 color=color) 
-    axes[2,1].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x', 
-                 elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
-                 color=color) 
+                color=color, linewidth=linewidth, markersize=markersize)
+    axes[2,1].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x',
+         elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
+        color=color, linewidth=linewidth, markersize=markersize)
     DH_list.append((current_DH, current_DH_std))
     DM_list.append((current_DM, current_DM_std))
-    print("""For Ok = {} 
-          D_H/r_d = {} \\pm {} 
-          D_M/r_d = {} \\pm {} """.format(Ok,*[round(x, 2) for x in (current_DH,current_DH_std,current_DM,current_DM_std)]))
+   # print("""For Ok = {} 
+   #       D_H/r_d = {} \\pm {} 
+   #       D_M/r_d = {} \\pm {} """.format(Ok,*[round(x, 2) for x in (current_DH,current_DH_std,current_DM,current_DM_std)]))
     
 
-axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs, color=color, linewidth=2) #Multiply by 0 is phase2
-axes[1,1].plot(Ok_cont, DM(zmax, Ok_cont)/rs, color=color, linewidth=2)
+axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+axes[1,1].plot(Ok_cont, DM(zmax, Ok_cont)/rs, color=color, linewidth=linewidth)
 axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
 axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
 axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{fid}$', fontsize=fontsize)
@@ -86,16 +87,16 @@ axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
 axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
 axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
 axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
-axes[2,0].set_xticks(Ok_list)
-axes[2,0].set_xticklabels(Ok_list, fontsize=fontsize/1.5)
-axes[2,1].set_xticklabels(Ok_list, fontsize=fontsize/1.5)
 for ax in axes.ravel():
-    ticks = ax.get_yticks()
-    label = ax.get_ylabel()
-    ax.set_yticks(ticks)
-    ax.set_yticklabels([round(tick, 2) for tick in ticks], fontsize=fontsize/1.3)
+    xticks = [i/100 for i in range(-20, 21, 10)]
+    xlabel = xticks.copy()
+    ax.set_xticks(xticks)
+    ax.set_xticklabels([round(tick, 2) for tick in xticks], fontsize=fontsize)
+    yticks = ax.get_yticks()[::2]
+    ylabel = ax.get_ylabel()[::2]
+    ax.set_yticks(yticks)
+    ax.set_yticklabels([round(tick, 2) for tick in yticks], fontsize=fontsize)
 
 plt.tight_layout()
-plt.show()
-print('Finished showing!')
 plt.savefig('/home/santi/TFG/figs/phase2_DA_DH_flat.pdf')
+#plt.show()

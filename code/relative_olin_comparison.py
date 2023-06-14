@@ -26,12 +26,13 @@ ax.set_xscale('log')
 ax.set_yscale('log')
 ax.plot(x, y, color=color, label='Flat $O_{lin}(k)$')
 
-k_hector, pk_hector = hector_df[0], hector_df[1]
+k_hector, pk_hector = np.array(hector_df[0]), np.array(hector_df[1])
+idx = np.where(np.logical_and(k_hector<=kmax, k_hector>=kmin))
+k_hector = k_hector[idx]
+pk_hector = pk_hector[idx]
 ax.plot(k_hector, pk_hector, color='coral', label='Non flat $O_{lin}(k)$')
 ax.legend(loc='best', fontsize=fontsize/1.5)
 
-ax.set_xlim((0.01, kmax))
-ax.set_ylim((min(pk_hector), max(pk_hector)))
 
 
 #x1, y1 = k_hector, pk_hector
@@ -44,13 +45,15 @@ ax.set_ylabel(r'$O_{lin}(k)$', fontsize=fontsize)
 #plt.savefig('../figs/Olin_relative_comparison.pdf')
 yticks = ax.get_yticks()
 ylabel = ax.get_ylabel()
-ax.set_yticks(yticks, minor=False)
+ax.set_yticks(yticks, minor=True)
 ax.set_yticklabels([round(tick, 2) for tick in yticks], fontsize=fontsize/1.3)
 
 xticks = ax.get_xticks()
 xlabel = ax.get_xlabel()
-ax.set_xticks(xticks, minor=False)
+ax.set_xticks(xticks, minor=True)
 ax.set_xticklabels([round(tick, 2) for tick in xticks], fontsize=fontsize/1.3)
+ax.set_xlim((kmin,kmax))
+ax.set_ylim((min(pk_hector)**1.7, max(pk_hector)**1.7))
 fig.tight_layout()
 plt.savefig('../figs/olin_comparison.pdf')
 plt.show()

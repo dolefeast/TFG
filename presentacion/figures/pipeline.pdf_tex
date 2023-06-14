@@ -1,0 +1,83 @@
+%% Creator: Inkscape 1.1.1 (3bf5ae0d25, 2021-09-20), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'pipeline.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{680.31496063bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.5)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0.03199963,0.24327068){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Galaxy \end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{pipeline.pdf}}%
+    \put(0.42850326,0.06454328){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}CLASS\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{pipeline.pdf}}%
+    \put(0.183894,0.23695836){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Redshift to distance\\\end{tabular}}}}%
+    \put(0.07312957,0.40503349){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Assume fiducial cosmology\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{pipeline.pdf}}%
+    \put(0.45807533,0.32950776){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Fast Fourier Transform\end{tabular}}}}%
+    \put(0.20424166,0.21013241){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} conversion\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{pipeline.pdf}}%
+    \put(0.48556274,0.22594579){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $\xi (\textbf{r})$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{pipeline.pdf}}%
+    \put(0.74821966,0.13107923){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $\alpha_\parallel, \alpha_\perp$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{pipeline.pdf}}%
+    \put(0.60107174,0.2054252){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $P(\textbf{k})$\end{tabular}}}}%
+    \put(0.57625745,0.23391558){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Measured\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{pipeline.pdf}}%
+    \put(0.88987979,0.13855774){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\frac{D_H}{r_d}, \frac{D_M}{r_d}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{pipeline.pdf}}%
+    \put(0.00292449,0.3238868){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\left[\frac{D_H}{r_d}\right]^{fid}, \left[\frac{D_M}{r_d}\right]^{fid}$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{pipeline.pdf}}%
+    \put(0.58780518,0.04968834){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l} $P(\textbf{k})$\end{tabular}}}}%
+    \put(0.55618172,0.07597466){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Theoretical\end{tabular}}}}%
+    \put(0.72828058,0.14730771){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}BRASS\end{tabular}}}}%
+    \put(0.00631019,0.20631682){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}catalogue\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{pipeline.pdf}}%
+  \end{picture}%
+\endgroup%
