@@ -28,6 +28,7 @@ for data, paramname in zip(df, names):
 
     if paramname != 1:
         plt.plot(x, y, label=paramname)
+        plt.legend(loc='best')
     else:
         plt.plot(x, y)
 
