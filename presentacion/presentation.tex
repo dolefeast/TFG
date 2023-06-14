@@ -294,19 +294,13 @@ $\Omega_m$ & Matter Density Parameter & 0.31 \\
 	\item \textbf{Mathematics} The Fast Fourier Transform algorithm
 	\item \textbf{Software}
 		\begin{itemize}
-			\item \textbf{RUSTICO} Measures the power spectrum of a given galaxy catalog\footnote{In our case, the extended Baryon Oscillation Spectroscopy Survey (eBOSS)} as the Fourier Transform of the correlation function
+			\item \textbf{RUSTICO} Measures the power spectrum of a given galaxy catalog\footnote{In our case, the Luminous Red Galaxies of the extended Baryon Oscillation Spectroscopy Survey (LRG eBOSS)} as the Fourier Transform of the correlation function
 			\begin{align}
 				\xi(\textbf{r}) = \left<\delta(\textbf{x})\delta (\textbf{x}') \right>,\, \text{with}\, \delta(\textbf{x}) = \frac{\rho(\textbf{x}) - \overline{\rho}}{\overline{\rho}}
 			\end{align}
 		\item \textbf{CLASS} The theoretical power spectrum for a given cosmology.
-		\item \textbf{BRASS} Returns the best-fit parameters in the line-of-sight direction $\alpha_\parallel$ and in the transverse direction $\alpha_\perp$ of the theoretical power spectrum to the measured one. The measured distances are thus
-	\vspace{-0.2cm}
-		\begin{align}
-			\frac{D_H}{r_d} = \alpha_\parallel \left[ \frac{D_H}{r_d} \right] ^\text{fiducial}\,\,,
-			\frac{D_M}{r_d} = \alpha_\perp \left[ \frac{D_M}{r_d} \right] ^\text{fiducial}
-		\end{align}
+		\item \textbf{BRASS} Returns the best-fit parameters in the line-of-sight ($\alpha_\parallel$) and in the transverse ($\alpha_\perp$) direction  of the theoretical power spectrum to the measured one, along with their standard deviations.
 		\end{itemize}
-	\vspace{-0.3cm}
 	\item \textbf{Hardware} The clusters from the \textit{FQM-378} research group in the Universidad de Córdoba.
 
 \end{enumerate}
@@ -325,10 +319,44 @@ $\Omega_m$ & Matter Density Parameter & 0.31 \\
 \end{frame}
 
 \section{Results}
-\begin{frame}{Results}
+\begin{frame}{Procedure}
+
+Using the mentioned pipeline, we followed the following procedure to obtain the desired results
+\begin{itemize}
+	\item A single \textbf{fixed flat cosmology} template is generated using CLASS
+	\item For $\Omega_k$ in the range $\left[ -0.20, 0.20 \right] $ in steps of $0.05$, nine different power spectrums are \textbf{measured} from the eBOSS galaxy catalog.
+	\item Using BRASS, we fit the template to \textbf{each power spectrum}, obtaining $\alpha_\parallel$, $\alpha_\perp$. Each calculation is done three times iteratively, to assure better results.
+	\item Having measured  $\alpha_\parallel$ and $\alpha_\perp$ and calculated the fiducial values of the cosmological distances we are interested in, we obtain the \textbf{measured distances}.
+	\vspace{-0.2cm}
+		\begin{align}
+			\frac{D_H}{r_d} = \alpha_\parallel \left[ \frac{D_H}{r_d} \right] ^\text{fiducial}\,\,,
+			\frac{D_M}{r_d} = \alpha_\perp \left[ \frac{D_M}{r_d} \right] ^\text{fiducial}
+		\end{align}
+\end{itemize}
 	 
 \end{frame}
 \begin{frame}{Results}
+\begin{table}
+	\begin{center}
+\begin{tabular}{|c|c|c|}
+	\hline
+$\Omega_k$ & $D_H/r_d$ & $D_M/r_d$ \\
+\hline
+-0.20 & $19.57 \pm 0.85$ & $17.85 \pm 0.51$ \\
+-0.15 & $19.25 \pm 0.84$ & $17.85 \pm 0.54$ \\
+-0.10& $19.00 \pm 0.80$ & $17.96 \pm 0.59$ \\
+-0.05 & $18.82 \pm 0.77$ & $18.13 \pm 0.59$ \\
+0.00 & $18.66 \pm 0.72$ & $18.28 \pm 0.53$ \\
+0.05 & $18.61 \pm 0.65$ & $18.25 \pm 0.47$ \\
+0.10 & $18.57 \pm 0.61$ & $18.24 \pm 0.43$ \\
+0.15 & $18.50\pm 0.56$ & $18.23 \pm 0.41$ \\
+0.20 & $18.36 \pm 0.53$ & $18.34 \pm 0.39$ \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Distance measurements to eBOSS galaxies for different assumed values of the curvature parameter $\Omega_k$.}	
+\label{tab:DA_DH}
+\end{table}
 	 
 \end{frame}
 \begin{frame}{Results}
@@ -353,6 +381,8 @@ $\Omega_m$ & Matter Density Parameter & 0.31 \\
 %Por lo tanto, concluimos que la suposición de un valor particular de $\Omega_k$ en la conversión de corrimiento al rojo a distancia no tiene ningún efecto significativo (al menos en el rango $\Omega_k \in [-0.20, +0.20]$) en las distancias cosmológicas inferidas a las galaxias de eBOSS utilizando la metodología BAO.
 
 \end{frame}
+
+
 
 
 
@@ -404,4 +434,28 @@ $\Omega_m$ & Matter Density Parameter & 0.31 \\
 
 %----------------------------------------------------------------------------------------
 
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+
+\begin{figure}[t]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../figs/Pkrustico.pdf}
+	\caption[]{Power spectrum of the LRG eBOSS galaxies.}
+	\label{fig:rustico}
+\end{figure}
+	
+\end{frame}
+\begin{frame}
+
+\begin{figure}[t]
+	\centering
+	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Pklin.pdf}}
+	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Psm.pdf}}
+	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/Olin.pdf}}
+	\caption[]{The template power spectrum and its smooth and the pure BAO components.}
+\end{figure}
+\end{frame}
 \end{document}
