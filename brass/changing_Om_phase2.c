@@ -87,7 +87,7 @@
 #Number of threads: 32
 #Use proposal covariance (yes/no): yes
 #Path to proposal covariance: /home/ssanz/TFG/outputs_santi/changing_Om/phase2/mcmc_phase2_run2_Om011_OL069.txt
-#Maximum number of .c accepted steps: 500000
+#Maximum number of accepted steps: 500000
 #mcmc sampling step (recommended 1.9): 1.9
 
 #For BAO anaylytical fit
