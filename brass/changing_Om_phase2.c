@@ -13,8 +13,8 @@
 #Number of chunks: 2
 
 #Read input parameters for Power Spectrum
-#Path to data1BAO: /home/ssanz/TFG/outputs_santi/rustico/Power_Spectrum_eBOSS_NGC_Om011_OL069.txt
-#Path to data1BAO: /home/ssanz/TFG/outputs_santi/rustico/Power_Spectrum_eBOSS_NGC_Om011_OL069.txt
+#Path to data1BAO: /home/ssanz/TFG/outputs_santi/rustico/Power_Spectrum_eBOSS_NGC_Om041_OL069.txt
+#Path to data2BAO: /home/ssanz/TFG/outputs_santi/rustico/Power_Spectrum_eBOSS_SGC_Om041_OL069.txt
 #Path to data1FS: none
 #Path to data2FS: none
 #Path to mocks1BAO/cov1: /home/ssanz/TFG/lrg_eboss/mocks/Power_Spectrum_comb_NGC_ezmocks_
@@ -32,8 +32,8 @@
 #Read input parameters for Bispectrum
 #Include bispectrum (yes/no): no
 #Fit bispectrum (B) or reduced bispectrum (Q): B
-#Path to data1BAO: /home/ssanz/TFG/outputs_santi/rustico/Power_Spectrum_eBOSS_NGC_Om011_OL069.txt
-#Path to data1BAO: /home/ssanz/TFG/outputs_santi/rustico/Power_Spectrum_eBOSS_NGC_Om011_OL069.txt
+#Path to data1BAO: /home/ssanz/TFG/outputs_santi/rustico/Power_Spectrum_eBOSS_NGC_Om041_OL069.txt
+#Path to data2BAO: /home/ssanz/TFG/outputs_santi/rustico/Power_Spectrum_eBOSS_SGC_Om041_OL069.txt
 #Path to mocks1BAO: none
 #Path to mocks2BAO: none
 #k-range for B0 computation (double/double): 0.02 0.30
@@ -86,9 +86,9 @@
 #For mcmc fit
 #Number of threads: 32
 #Use proposal covariance (yes/no): yes
-#Path to proposal covariance: /home/ssanz/TFG/outputs_santi/changing_Om/phase2/mcmc_phase2_run2_Om011_OL069.txt
-#Maximum number of accepted steps: 500000
-#mcmc sampling step (recommended 1.9): 1.9
+#Path to proposal covariance: /home/ssanz/TFG/lrg_eboss/output/proposal/mcmc_fid_Om031_OL069.txt
+#Maximum number of .c accepted steps: 500000
+#mcmc sampling step (recommended 1.9): 0.5
 
 #For BAO anaylytical fit
 #Interval for alpha: 0.00001
@@ -108,5 +108,5 @@
 
 #Read out parameters
 #Path to output: /home/ssanz/TFG/outputs_santi/changing_Om/phase2/
-#Identifier of output: phase2_run3_Om011_OL069
+#Identifier of output: phase2_run1_Om041_OL069
 #Plot best-fit (yes/no): yes
