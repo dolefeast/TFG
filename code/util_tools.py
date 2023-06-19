@@ -1,9 +1,15 @@
 import numpy as np
 import pandas as pd
 from pathlib import Path
+import matplotlib.pyplot as plt
 import scipy as sp
+import scipy.constants as ct
 import re
 from scipy.stats import norm
+
+zmax = 0.698
+H0 = 67.6
+rs = 147.784
 
 def select_files(files):
     """
@@ -133,7 +139,7 @@ def alpha_from_logfile(filename):
     with filename.open() as open_data:
         for i, line in enumerate(open_data):
             if i == 9:
-                p = re.compile('[0-9].[0-9]*e-[0-9]*')
+                p = re.compile('[0-9].[0-9]*e\+?-?[0-9]*')
                 matches = p.findall(line)
                 out.append([float(x) for x in matches])
             elif i == 10:
@@ -173,6 +179,106 @@ def get_params(param_name):
             continue
     OmOL.append(round(1 - sum(OmOL), 2))
     return OmOL 
+
+def plot_DH_DM(files, fig_name=None, save=False,  view=False, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2):
+    Ok_list = []
+    a_para = []
+    a_perp = []
+
+    for data in files:
+        print('Opening file', str(data), '...')
+        out = alpha_from_logfile(data)
+        print(out, '')
+        Ok_list.append(out[0])
+        a_para.append(out[1])
+        a_perp.append(out[2])
+        
+    print(Ok_list, a_para, a_perp, sep='\n')
+
+    Ok_min, Ok_max = min(Ok_list), max(Ok_list)
+    Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
+    Ok_rang = Ok_max - Ok_min
+    H = lambda z, Ok, Om: H0*np.sqrt(Om*(1+z)**3 + Ok*(1+z)**2 + 1-Ok-Om)
+
+
+    @iterable_output
+    def DH_fid(z, Ok):
+        return ct.c/1000/H(z, Ok, Om)
+    @iterable_output
+    def DC_fid(z, Ok, Om):
+        return sp.integrate.quad(DH_fid, 0, z, args=(Ok, Om))[0]
+    @iterable_output
+    def DM_fid(z, Ok, Om):
+        DC = DC_fid(z, Ok, Om)
+        DH = DH_fid(z, Ok, Om)
+        if Ok>0:
+            k =  DH/np.sqrt(Ok)
+            return k*np.sinh(np.sqrt(Ok)*DC/DH)
+        elif Ok<0:
+            k =  DH/np.sqrt(np.abs(Ok))
+            return k*np.sin(np.sqrt(np.abs(Ok))*DC/DH)
+        elif not Ok:
+            return DC
+
+    #---Changing z->d (phase 2)
+    #DM_fid = np.array([DM(zmax, Ok, DC) for Ok, DC in zip(Ok_cont, DC_fid)])
+    #---Changing template (phase 3)
+
+    fig, axes = plt.subplots(3, 2, sharex=True, figsize=(10, 7))
+    
+    DH_list = []
+    DM_list = []
+
+    for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
+        current_DH = DH_fid(zmax, Ok, Om) * apara[0]/rs
+        current_DH_std = DH_fid(zmax, Ok, Om) * apara[1]/rs
+        current_DM = DM_fid(zmax, Ok, Om) * aperp[0]/rs
+        current_DM_std = DM_fid(zmax, Ok) * aperp[1]/rs
+        axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x',
+                     elinewidth=elinewidth, capsize=capsize, capthick=capthick,
+                    color=color, linewidth=linewidth, markersize=markersize)
+        axes[0,1].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x',
+                     elinewidth=elinewidth, capsize=capsize, capthick=capthick,
+                    color=color, linewidth=linewidth, markersize=markersize)
+        axes[2,0].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x',
+                     elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
+                    color=color, linewidth=linewidth, markersize=markersize)
+        axes[2,1].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x',
+             elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
+            color=color, linewidth=linewidth, markersize=markersize)
+        DH_list.append((current_DH, current_DH_std))
+        DM_list.append((current_DM, current_DM_std))
+       # print("""For Ok = {} 
+       #       D_H/r_d = {} \\pm {} 
+       #       D_M/r_d = {} \\pm {} """.format(Ok,*[round(x, 2) for x in (current_DH,current_DH_std,current_DM,current_DM_std)]))
+        
+
+    axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+    axes[1,1].plot(Ok_cont, DM(zmax, Ok_cont)/rs, color=color, linewidth=linewidth)
+    axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
+    axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
+    axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{fid}$', fontsize=fontsize)
+    axes[1,1].set_ylabel(r'$\left[ D_M/r_d\right]^{fid}$', fontsize=fontsize)
+    axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
+    axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
+    axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
+    axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
+    for ax in axes.ravel():
+        xticks = [i/100 for i in range(-20, 21, 10)]
+        xlabel = xticks.copy()
+        ax.set_xticks(xticks)
+        ax.set_xticklabels([round(tick, 2) for tick in xticks], fontsize=fontsize)
+        yticks = ax.get_yticks()[::reduce_ticks]
+        ylabel = ax.get_ylabel()[::reduce_ticks]
+        ax.set_yticks(yticks)
+        ax.set_yticklabels([round(tick, 2) for tick in yticks], fontsize=fontsize)
+
+    plt.tight_layout()
+    if save: 
+        plt.savefig(fig_name)
+    if view: 
+        plt.show()
+
 
 def calculate_avg_and_std(data):
     """
@@ -337,64 +443,6 @@ def interpolate(k_in, pk_in):
                                             bounds_error=False, fill_value=0.)
     return pk_interpolate
 
-def gaussian(x, amplitude, mean, stddev):
-    return amplitude * np.exp(-((x-mean)/4/stddev)**2)
-
-def peaks_fit(k_in, pk_in, function=gaussian, n_points=150):
-    """
-    Parameters:
-        k_in: array
-        pk_in: array
-        function: the function to be fit to 
-        n_points: the points in every split
-    Returns:
-        gauss_split: np.array that splits the pk_in into 
-                     the peaks and fits them to gaussian
-    """
-    print('Fitting data to the given function...')
-    index, _ = sp.signal.find_peaks(-pk_in) #Find minima
-    kminima = k_in[index]
-    Pminima = pk_in[index]
-    #https://stackoverflow.com/questions/44480137/how-can-i-fit-a-gaussian-curve-in-python
-
-    ksplits = np.split(k_in, index) #splits the data with every minima
-    pksplits = np.split(pk_in, index)
-    kfit = []
-    pkfit = []
-    for kdata, data in zip(ksplits, pksplits):
-        if len(data) <= 15: #The data split is too short
-            #pkfit.append(data) #Append the data without doing anything
-            continue
-        amputation = np.where(np.logical_and(data>=data[0], data>=data[-1]))
-        theo_kdata = np.linspace(kdata[0], kdata[-1], n_points) 
-        kdata = kdata[amputation]
-        data = data[amputation]
-        #Estimation of the optimal parameters
-        stddev0 = (kdata[0] - kdata[-1])/2
-        amplitude0 = max(data)
-        mean0 = (kdata[0] + kdata[-1])/2
-
-        data_shift = data - min(data) #Need to shift the data to fit it 
-        try:
-            optimal, _ = sp.optimize.curve_fit(function, kdata, 
-                    data_shift, maxfev=100000)
-        except TypeError:
-            print('Data array too short!')
-            continue
-        except RuntimeError:
-            print('Divergence!')
-            continue
-        theo_data = function(theo_kdata, *optimal) + min(data)
-        #kfit = np.concatenate((kfit, theo_kdata))
-        #pkfit = np.concatenate((pkfit, theo_kdata))
-        kfit.append(theo_kdata)
-        pkfit.append(theo_data)
-
-    print('Fit done!\n')
-
-    return kfit, pkfit
-    return np.concatenate(kfit), np.concatenate(pkfit)
-
 def split_array(arr, n): 
     # Calculate length of subarray 
     length = len(arr)//n 
@@ -412,6 +460,7 @@ def split_array(arr, n):
   
     # Return list 
     return splitted_arr 
+
 rustico_path = list(Path('/home/santi/TFG/DATA/rustico_output').glob('Power_*'))
 class_output = list(Path('/home/santi/TFG/class_public/output').glob('*.dat'))
 model = list(Path('/home/santi/TFG/lrg_eboss/model/').glob('*'))
