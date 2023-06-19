@@ -24,7 +24,9 @@ else:
 filtr = input('Give a filter... (Nothing or "*" for no filter)')
 if filtr == '':
     filtr = '*'
+else: 
+    filtr = f'*{filtr}*'
 
-files = list(Path('.').glob('*'+filtr+'*'))
+files = list(Path('.').glob(filtr))
 
-util_tools.plot_DH_DM(files, fig_name=fig_name, save=save, view=view)
+util_tools.plot_DH_DM(files, save=save, view=view)

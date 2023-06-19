@@ -118,7 +118,6 @@ def many_files(files, openfiles=None):
     else:
         print('Opening all displayed files...')
         return many_files(files, openfiles='all')
-        print('But not here')
 
 def alpha_from_logfile(filename):
     """
@@ -127,38 +126,43 @@ def alpha_from_logfile(filename):
     returns 
         (Ok, (apara, aparasigma), (aperp, aperpsigma))
     """
-    p = re.compile('logfile')
-    namestr = filename.stem
-    find = p.findall(namestr)
-    if len(find) == 0:
-        raise TypeError(f"{filename.stem} is not a logfile!")
+    namestr = str(filename)
+    if 'logfile' not in namestr:
+        raise TypeError(f'{filename} was not a logfile! ')
     omegas = get_params(namestr)
     out = []
-    Ok = omegas[-1]
-    out.append(Ok)
+    out.append(omegas) #Append all the omegas as (Om OL Ok)
+    p = re.compile('[0-9].[0-9]*e\+?-?[0-9]*')
     with filename.open() as open_data:
         for i, line in enumerate(open_data):
             if i == 9:
-                p = re.compile('[0-9].[0-9]*e\+?-?[0-9]*')
                 matches = p.findall(line)
                 out.append([float(x) for x in matches])
             elif i == 10:
-                p = re.compile('[0-9].[0-9]*e\+?-?[0-9]*')
                 matches = p.findall(line)
                 out.append([float(x) for x in matches])
             elif i>10: break
     return out
 
 def iterable_output(func):
-    def wrapper(zmax, Ok):
+    def wrapper(zmax, Om, OL):
+        # Check if Om is iterable
+        Ok = 1 - Om - OL
+        result = []
         try:
-            iter(Ok)
-            result = []
-            for ok in Ok:
-                result.append(func(zmax, ok))
+            iter(Om) #Om is the array
+            for om in Om:
+                result.append(func(zmax, om, OL))
             return np.array(result)
         except TypeError:
-            return func(zmax, Ok)
+            try:
+                iter(OL) #OL is the array
+                for ol in OL:
+                    result.append(func(zmax, Om, ol))
+                return np.array(result)
+            except TypeError: #Both were scalars
+                return func(zmax, Om, OL)
+    
     return wrapper
 
 def get_params(param_name):
@@ -180,37 +184,54 @@ def get_params(param_name):
     OmOL.append(round(1 - sum(OmOL), 2))
     return OmOL 
 
-def plot_DH_DM(files, fig_name=None, save=False,  view=False, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2):
+def what_is_fixed():
+    pass
+
+
+def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2):
+    """Plots the 3 rows by 2 columns graphic of the brass outputs
+    parameters:
+        files: a pathlib list of LOGFILES 
+        save=False: if save=True it saves the figure with the name  ../figs/parent/dir_name
+        view=False: if view=True it shows the figure
+        n_points=500: number of points with which it calculates the curve of continuous Ok
+    """
+    Om_list = []
+    OL_list = []
     Ok_list = []
     a_para = []
     a_perp = []
 
     for data in files:
         print('Opening file', str(data), '...')
-        out = alpha_from_logfile(data)
-        print(out, '')
-        Ok_list.append(out[0])
-        a_para.append(out[1])
-        a_perp.append(out[2])
+        try:
+            out = alpha_from_logfile(data)
+            Om_list.append(out[0][0])
+            OL_list.append(out[0][1])
+            Ok_list.append(out[0][2])
+            a_para.append(out[1])
+            a_perp.append(out[2])
+        except TypeError:
+            print(f'{data} was not a logfile!')
+            continue
         
-    print(Ok_list, a_para, a_perp, sep='\n')
-
     Ok_min, Ok_max = min(Ok_list), max(Ok_list)
     Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
     Ok_rang = Ok_max - Ok_min
-    H = lambda z, Ok, Om: H0*np.sqrt(Om*(1+z)**3 + Ok*(1+z)**2 + 1-Ok-Om)
 
+    H = lambda z, Om, OL: H0*np.sqrt(Om*(1+z)**3 + (1-Om-OL)*(1+z)**2 + OL)
 
     @iterable_output
-    def DH_fid(z, Ok):
-        return ct.c/1000/H(z, Ok, Om)
+    def DH_fid(z, Om, OL):
+        return ct.c/1000/H(z, Om, OL)
     @iterable_output
-    def DC_fid(z, Ok, Om):
-        return sp.integrate.quad(DH_fid, 0, z, args=(Ok, Om))[0]
+    def DC_fid(z, Om, OL):
+        return sp.integrate.quad(DH_fid, 0, z, args=(Om, OL))[0]
     @iterable_output
-    def DM_fid(z, Ok, Om):
-        DC = DC_fid(z, Ok, Om)
-        DH = DH_fid(z, Ok, Om)
+    def DM_fid(z, Om, OL):
+        DC = DC_fid(z, Om, OL)
+        DH = DH_fid(z, Om, OL)
+        Ok = 1 - Om - OL
         if Ok>0:
             k =  DH/np.sqrt(Ok)
             return k*np.sinh(np.sqrt(Ok)*DC/DH)
@@ -220,20 +241,16 @@ def plot_DH_DM(files, fig_name=None, save=False,  view=False, n_points = 500, ma
         elif not Ok:
             return DC
 
-    #---Changing z->d (phase 2)
-    #DM_fid = np.array([DM(zmax, Ok, DC) for Ok, DC in zip(Ok_cont, DC_fid)])
-    #---Changing template (phase 3)
-
     fig, axes = plt.subplots(3, 2, sharex=True, figsize=(10, 7))
     
     DH_list = []
     DM_list = []
 
-    for Ok, apara, aperp in zip(Ok_list, a_para, a_perp):
-        current_DH = DH_fid(zmax, Ok, Om) * apara[0]/rs
+    for Om, OL, Ok, apara, aperp in zip(Om_list, OL_list, Ok_list, a_para, a_perp):
+        current_DH = DH_fid(zmax, Om, OL) * apara[0]/rs
         current_DH_std = DH_fid(zmax, Ok, Om) * apara[1]/rs
-        current_DM = DM_fid(zmax, Ok, Om) * aperp[0]/rs
-        current_DM_std = DM_fid(zmax, Ok) * aperp[1]/rs
+        current_DM = DM_fid(zmax, Om, OL) * aperp[0]/rs
+        current_DM_std = DM_fid(zmax, Om, OL) * aperp[1]/rs
         axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x',
                      elinewidth=elinewidth, capsize=capsize, capthick=capthick,
                     color=color, linewidth=linewidth, markersize=markersize)
@@ -248,13 +265,18 @@ def plot_DH_DM(files, fig_name=None, save=False,  view=False, n_points = 500, ma
             color=color, linewidth=linewidth, markersize=markersize)
         DH_list.append((current_DH, current_DH_std))
         DM_list.append((current_DM, current_DM_std))
-       # print("""For Ok = {} 
-       #       D_H/r_d = {} \\pm {} 
-       #       D_M/r_d = {} \\pm {} """.format(Ok,*[round(x, 2) for x in (current_DH,current_DH_std,current_DM,current_DM_std)]))
-        
+    
+    if 'Om' in str(Path.cwd().parent.stem):
+        OL = 0.69
+        axes[1,0].plot(Ok_cont, DH_fid(zmax, 1 - Ok_cont - OL, OL)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+        axes[1,1].plot(Ok_cont, DM_fid(zmax, 1 - Ok_cont - OL, OL)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+    elif 'OL' in str(Path.cwd().parent.stem):
+        Om = 0.31
+        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om, 1 - Ok_cont - Om)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+        axes[1,1].plot(Ok_cont, DH_fid(zmax, Om, 1 - Ok_cont - Om)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+    else: 
+        print("Warning: This directory belongs to no fixed Om or OL!\n\tNo fid plot is generated.")
 
-    axes[1,0].plot(Ok_cont, DH_fid(zmax, Ok_cont)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
-    axes[1,1].plot(Ok_cont, DM(zmax, Ok_cont)/rs, color=color, linewidth=linewidth)
     axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
     axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
     axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{fid}$', fontsize=fontsize)
