@@ -27,7 +27,6 @@
     \def\svgwidth{#1\columnwidth}
     \import{./figures/}{#2.pdf_tex}
 }
- <delta(k)delta(k')>
 
 \usepackage{algorithm,algorithmic}
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
@@ -203,11 +202,11 @@ Universidad de C\'ordoba
 \begin{enumerate}
   \item \textbf{Early Universe}: Primordial density perturbations are created due to quantum fluctuations during inflation.
   
-  \item \textbf{Primordial plasma}: The high temperatures tightly bind photons and baryons in a plasma.
+  \item \textbf{Primordial plasma}:  The high temperatures keep the universe ionized, tightly binding photons and baryons.
   
   \item \textbf{Acoustic Oscillations}: Perturbations in the equilibrium between gravitational attraction and thermal radiation pressure cause pure acoustic waves to propagate through the plasma (BAO).
   
-  \item \textbf{Recombination}: As the universe expands and cools, the Thomson Scattering mechanism stops being effective and baryons decouple from the plasma, `turning off' the interaction and freezing the Acoustic Waves.
+  \item \textbf{Recombination}: As the universe expands and cools, the Thomson Scattering mechanism stops being effective and photons decouple from the plasma, `turning off' the interaction and freezing the Acoustic Waves.
   
   
 \end{enumerate}
@@ -232,7 +231,7 @@ Considering the distribution of the distances at which two galaxies are found of
 	\subfigure{\includegraphics[width=0.3\textwidth]{../figs/sdss_xi.png} \label{fig:sdss}}
 	\hspace{0.2pt}
 	\subfigure{\includegraphics[width=0.32\textwidth]{../figs/2df_pk.png}	\label{fig:2df}}
-	\caption{First BAO observations by the SDSS and the 2dF collaborations.}
+	\caption{First BAO observations by the SDSS and the 2dF collaborations\\ \centering \textbf{Note} the local maxima at $s=r_d$ and $k=2\pi /r_d$.}
 	\label{fig:2005-results}
 \end{figure}
 \end{frame}
@@ -276,13 +275,13 @@ $\Omega_m$ & Matter Density Parameter & 0.31 \\
 \begin{frame}[allowframebreaks]
 \frametitle{Objectives}
 \begin{enumerate}
-  \item Review the theoretical background of \textbf{BAO} \textbf{observables}, including their physical origin and mathematical formulation, and become familiar with the software tools for data analysis and visualization.
-  \item Learn to use these \textbf{software} \textbf{tools} for data preprocessing, analysis, and visualization of BAO-related cosmological data sets.
+  \item Review the theoretical background of \textbf{BAO} \textbf{observables}: physical origin, mathematical formulation, and become familiar with the software tools for data analysis and visualization.
+  %\item Learn to use these \textbf{software} \textbf{tools} for data preprocessing, analysis, and visualization of BAO-related cosmological data sets.
   \item Investigate the impact of \textbf{different} \textbf{values} \textbf{of} \textbf{the} \textbf{curvature} \textbf{parameter} $\Omega_k$ on the behavior of BAO observables.
   \item Analyze the most recent observational data on BAO observables, obtained from the \textbf{eBOSS} \textbf{experiment}, and compare the results with theoretical predictions for different values of $\Omega_k$.
 	\item Make use of \textbf{high} \textbf{performance} \textbf{computing} to solve Physics problems.
-  \item Specific \textbf{data} \textbf{analysis} software development.
-  \item Learn to control computer clusters via \textbf{SSH} (Secure Shell).
+  %\item Specific \textbf{data} \textbf{analysis} software development.
+  \item Learn to \textbf{remotely} control computer clusters via \textbf{SSH} (Secure Shell).
 \end{enumerate}
 \end{frame}
 
@@ -332,6 +331,7 @@ Using the mentioned pipeline, we followed the following procedure to obtain the 
 			\frac{D_H}{r_d} = \alpha_\parallel \left[ \frac{D_H}{r_d} \right] ^\text{fiducial}\,\,,
 			\frac{D_M}{r_d} = \alpha_\perp \left[ \frac{D_M}{r_d} \right] ^\text{fiducial}
 		\end{align}
+		Where  $D_H$  and  $D_M$  are the functions  $D_H(z)$  and  $D_M(z)$  evaluated at the redshift of the eBOSS galaxies,  $z = 0.698$.
 \end{itemize}
 	 
 \end{frame}

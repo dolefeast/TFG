@@ -286,10 +286,11 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
     axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
     axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
     for ax in axes.ravel():
-        xticks = [i/100 for i in range(-20, 21, 10)]
-        xlabel = xticks.copy()
-        ax.set_xticks(xticks)
-        ax.set_xticklabels([round(tick, 2) for tick in xticks], fontsize=fontsize)
+        #xticks = [i/100 for i in range(int(-100*Ok_min), int(100*Ok_max), 5)]
+        #xlabel = xticks.copy()
+        xticks = ax.get_xticks()
+        ax.set_xticks(xticks[::2])
+        ax.set_xticklabels([round(tick, 2) for tick in xticks[::2]], fontsize=fontsize)
         yticks = ax.get_yticks()[::reduce_ticks]
         ylabel = ax.get_ylabel()[::reduce_ticks]
         ax.set_yticks(yticks)
