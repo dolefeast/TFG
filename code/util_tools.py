@@ -7,8 +7,11 @@ import scipy.constants as ct
 import re
 from scipy.stats import norm
 
+Om_flat = 0.31 
+OL_flat = 0.69
 zmax = 0.698
 H0 = 67.6
+h = H0/100
 rs = 147.784
 
 def select_files(files):
@@ -187,6 +190,12 @@ def get_params(param_name):
 def what_is_fixed():
     pass
 
+def calculate_rd(Omega_m):
+    omega_nu = 0.06/93.14 * Omega_m/0.31
+    omega_b = 0.0481 * h**2
+    omega_c = 0.2604 * h**2
+    r_d = 55.154 * np.exp(-72.3 * (omega_nu + 0.0006)**2)/(omega_c + omega_b)**0.25351 / omega_b**0.12807
+    return r_d
 
 def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2):
     """Plots the 3 rows by 2 columns graphic of the brass outputs
