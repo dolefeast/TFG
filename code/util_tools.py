@@ -12,7 +12,7 @@ OL_flat = 0.69
 zmax = 0.698
 H0 = 67.6
 h = H0/100
-rs = 147.784
+r_d = 147.784
 
 def select_files(files):
     """
@@ -187,15 +187,35 @@ def get_params(param_name):
     OmOL.append(round(1 - sum(OmOL), 2))
     return OmOL 
 
-def what_is_fixed():
-    pass
-
 def calculate_rd(Omega_m):
     omega_nu = 0.06/93.14 * Omega_m/0.31
-    omega_b = 0.0481 * h**2
-    omega_c = 0.2604 * h**2
+    omega_b = 0.0481 * h**2* Omega_m/0.31 
+    omega_c = 0.2604 * h**2* Omega_m/0.31
     r_d = 55.154 * np.exp(-72.3 * (omega_nu + 0.0006)**2)/(omega_c + omega_b)**0.25351 / omega_b**0.12807
     return r_d
+
+@iterable_output
+def H(z, Om, OL):
+    return H0*np.sqrt(Om*(1+z)**3 + (1-Om-OL)*(1+z)**2 + OL)
+@iterable_output
+def DH_fid(z, Om, OL):
+    return ct.c/1000/H(z, Om, OL)
+@iterable_output
+def DC_fid(z, Om, OL):
+    return sp.integrate.quad(DH_fid, 0, z, args=(Om, OL))[0]
+@iterable_output
+def DM_fid(z, Om, OL):
+    DC = DC_fid(z, Om, OL)
+    DH = DH_fid(z, Om, OL)
+    Ok = 1 - Om - OL
+    if Ok>0:
+        k =  DH/np.sqrt(Ok)
+        return k*np.sinh(np.sqrt(Ok)*DC/DH)
+    elif Ok<0:
+        k =  DH/np.sqrt(np.abs(Ok))
+        return k*np.sin(np.sqrt(np.abs(Ok))*DC/DH)
+    elif not Ok:
+        return DC
 
 def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2):
     """Plots the 3 rows by 2 columns graphic of the brass outputs
@@ -205,7 +225,7 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
         view=False: if view=True it shows the figure
         n_points=500: number of points with which it calculates the curve of continuous Ok
     """
-    Om_list = []
+    Om_list = [] #List of tuples (Om_ref, Om_fid)
     OL_list = []
     Ok_list = []
     a_para = []
@@ -215,9 +235,16 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
         print('Opening file', str(data), '...')
         try:
             out = alpha_from_logfile(data)
-            Om_list.append(out[0][0])
-            OL_list.append(out[0][1])
-            Ok_list.append(out[0][2])
+            if 'phase2' in str(data):
+                Om_list.append((out[0][0], Om_flat)) 
+                OL_list.append((out[0][1], OL_flat)) 
+            elif 'phase3' in str(data):
+                Om_list.append((Om_flat, out[0][0])) 
+                OL_list.append((OL_flat, out[0][1])) 
+            elif 'phase4' in str(data):
+                Om_list.append((out[0][0], out[0][0])) 
+                OL_list.append((out[0][1], out[0][1])) 
+            Ok_list.append(out[0][2]) 
             a_para.append(out[1])
             a_perp.append(out[2])
         except TypeError:
@@ -228,38 +255,19 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
     Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
     Ok_rang = Ok_max - Ok_min
 
-    H = lambda z, Om, OL: H0*np.sqrt(Om*(1+z)**3 + (1-Om-OL)*(1+z)**2 + OL)
-
-    @iterable_output
-    def DH_fid(z, Om, OL):
-        return ct.c/1000/H(z, Om, OL)
-    @iterable_output
-    def DC_fid(z, Om, OL):
-        return sp.integrate.quad(DH_fid, 0, z, args=(Om, OL))[0]
-    @iterable_output
-    def DM_fid(z, Om, OL):
-        DC = DC_fid(z, Om, OL)
-        DH = DH_fid(z, Om, OL)
-        Ok = 1 - Om - OL
-        if Ok>0:
-            k =  DH/np.sqrt(Ok)
-            return k*np.sinh(np.sqrt(Ok)*DC/DH)
-        elif Ok<0:
-            k =  DH/np.sqrt(np.abs(Ok))
-            return k*np.sin(np.sqrt(np.abs(Ok))*DC/DH)
-        elif not Ok:
-            return DC
-
     fig, axes = plt.subplots(3, 2, sharex=True, figsize=(10, 7))
     
     DH_list = []
     DM_list = []
 
     for Om, OL, Ok, apara, aperp in zip(Om_list, OL_list, Ok_list, a_para, a_perp):
-        current_DH = DH_fid(zmax, Om, OL) * apara[0]/rs
-        current_DH_std = DH_fid(zmax, Ok, Om) * apara[1]/rs
-        current_DM = DM_fid(zmax, Om, OL) * aperp[0]/rs
-        current_DM_std = DM_fid(zmax, Om, OL) * aperp[1]/rs
+        Om_ref, Om_fid = Om
+        OL_ref, OL_fid = OL
+        r_d = calculate_rd(Om_fid)
+        current_DH = DH_fid(zmax, Om_ref, OL_ref) * apara[0]/r_d
+        current_DH_std = DH_fid(zmax, Om_ref, OL_ref) * apara[1]/r_d
+        current_DM = DM_fid(zmax, Om_ref, OL_ref) * apara[0]/r_d
+        current_DM_std = DM_fid(zmax, Om_ref, OL_ref) * apara[1]/r_d
         axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x',
                      elinewidth=elinewidth, capsize=capsize, capthick=capthick,
                     color=color, linewidth=linewidth, markersize=markersize)
@@ -275,14 +283,14 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
         DH_list.append((current_DH, current_DH_std))
         DM_list.append((current_DM, current_DM_std))
     
-    if 'Om' in str(Path.cwd().parent.stem):
+    if 'changing_Om' in str(Path.cwd().parent.stem):
         OL = 0.69
-        axes[1,0].plot(Ok_cont, DH_fid(zmax, 1 - Ok_cont - OL, OL)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
-        axes[1,1].plot(Ok_cont, DM_fid(zmax, 1 - Ok_cont - OL, OL)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
-    elif 'OL' in str(Path.cwd().parent.stem):
+        axes[1,0].plot(Ok_cont, DH_fid(zmax, 1 - Ok_cont - OL, OL)/r_d, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+        axes[1,1].plot(Ok_cont, DM_fid(zmax, 1 - Ok_cont - OL, OL)/r_d, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+    elif 'changing_OL' in str(Path.cwd().parent.stem):
         Om = 0.31
-        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om, 1 - Ok_cont - Om)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
-        axes[1,1].plot(Ok_cont, DH_fid(zmax, Om, 1 - Ok_cont - Om)/rs, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om, 1 - Ok_cont - Om)/r_d, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+        axes[1,1].plot(Ok_cont, DH_fid(zmax, Om, 1 - Ok_cont - Om)/r_d, color=color, linewidth=linewidth) #Multiply by 0 is phase2
     else: 
         print("Warning: This directory belongs to no fixed Om or OL!\n\tNo fid plot is generated.")
 
@@ -311,29 +319,6 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
     if view: 
         plt.show()
 
-
-def calculate_avg_and_std(data):
-    """
-    input: data should be ((value1, standard_deviation1), (value2, standard_deviation2), ...)
-    output: sum(data_i/std_i**2)/sum(1/std_i**2)
-    """
-    total_avg = 0
-    total_std = 0
-    for value, std in data:
-        total_avg += value/std**2
-        total_std += 1/std**2
-    return round(total_avg/total_std, 2), round(1/total_std, 2)
-
-def weighted_avg_and_std(values, weights):
-    """
-    Return the weighted average and standard deviation.
-
-    values, weights -- Numpy ndarrays with the same shape.
-    """
-    average = np.average(values, weights=weights)
-    # Fast and numerically precise:
-    variance = np.average((values-average)**2, weights=weights)
-    return (average, np.sqrt(variance))
 
 def remove_bao(k_in, pk_in):
     # De-wiggling routine by Mario Ballardini
@@ -387,88 +372,6 @@ def calculate_olin(k_in, pk_in):
     pk_nobao = remove_bao(k_in, pk_in)
     olin = pk_in/pk_nobao
     return olin
-def remove_bao_substraction(k_in, pk_in):
-    """
-    Parameters:
-        k_in array
-        pk_in array, of same length
-    Returns:
-        pk_nobao: an array of equal length without the BAO.
-    """
-    # This is copied from the code in https://github.com/brinckmann/montepython_public
-    # De-wiggling routine by Mario Ballardini
-    # This k range has to contain the BAO features:
-    # changed it to regular substraction.
-    k_ref=[2.8e-2, 4.5e-1]
-
-    # Get interpolating function for input P(k) in log-log space:
-    _interp_pk = sp.interpolate.interp1d(np.log(k_in), np.log(pk_in),
-                                             kind='quadratic', bounds_error=False)
-    interp_pk = lambda x: np.exp(_interp_pk(np.log(x)))
-
-    # Spline all (log-log) points outside k_ref range:
-    idxs = np.where(np.logical_or(k_in <= k_ref[0], k_in >= k_ref[1]))
-    _pk_smooth = sp.interpolate.UnivariateSpline(np.log(k_in[idxs]),
-                                                     np.log(pk_in[idxs]), k=3, s=0)
-    pk_smooth = lambda x: _pk_smooth(np.log(x)) #Used to be an np.exp around everything
-                                                #without it, looks more promising
-
-    # Find second derivative of each spline:
-    fwiggle = sp.interpolate.UnivariateSpline(k_in, pk_in / pk_smooth(k_in), k=3, s=0)
-    derivs = np.array([fwiggle.derivatives(_k) for _k in k_in]).T
-    d2 = sp.interpolate.UnivariateSpline(k_in, derivs[2], k=3, s=1.0)
-
-    # Find maxima and minima of the gradient (zeros of 2nd deriv.), then put a
-    # low-order spline through zeros to subtract smooth trend from wiggles fn.
-    wzeros = d2.roots()
-    wzeros = wzeros[np.where(np.logical_and(wzeros >= k_ref[0], wzeros <= k_ref[1]))]
-    wzeros = np.concatenate((wzeros, [k_ref[1],]))
-    wtrend = sp.interpolate.UnivariateSpline(wzeros, fwiggle(wzeros), k=3, s=0)
-
-    # Construct smooth no-BAO:
-    idxs = np.where(np.logical_and(k_in > k_ref[0], k_in < k_ref[1]))
-    pk_nobao = pk_smooth(k_in)
-    pk_nobao[idxs] *= wtrend(k_in[idxs])
-
-    # Construct interpolating functions:
-    ipk = sp.interpolate.interp1d(k_in, pk_nobao, kind='linear',
-                                      bounds_error=False, fill_value=0.)
-
-    pk_nobao = ipk(k_in)
-    return pk_nobao
-
-def fft_bao(k_in, pk_in):
-    """Returns the k²P(k)sin(kx)/(kx) integral for given k and P(k) functions
-    input: k_in (array), pk_in(array)
-    returns: (R, Xi), both np.arrays. Xi is the integral solved for every r
-    """
-    #Done on a discrete array
-    R = np.arange(len(k_in))
-    Xi = []
-    for r in R:
-        Xi.append(sp.integrate.trapz(k_in * pk_in * np.sin(k_in*r)/r, k_in))
-    return R, np.array(Xi)
-
-def interpolate_fft(k_in, pk_in, R, kind='linear', n_points=10000):
-    """
-    Parameters:
-        k_in(array): input of k values
-        pk_in(array): input of P(k) values
-        R: array to map the R values to
-    Returns:
-        integrate: An integral of k²P(k)sin(kx)/kx from 0 to inf,
-                    interpolating P(k) to a continuous function.
-    """
-    kmin, kmax = k_in[0], k_in[-1]
-    pk_interpolate = sp.interpolate.interp1d(k_in, pk_in, kind='linear',
-                                            bounds_error=False, fill_value=0.)
-    #k_interpolate = sp.interpolate.interp1d(k_in, k_in, kind='linear',
-#                                            bounds_error=False, fill_value=0.)
-    k_interpolate = np.linspace(kmin, kmax, n_points)
-    Xi = []
-    for r in R:
-       Xi.append(sp.integrate.trapz(k_interpolate * pk_interpolate(k_interpolate) * np.sin(k_interpolate * r)/r, k_interpolate))
-    return R, Xi
 
 def interpolate(k_in, pk_in):
     pk_interpolate = sp.interpolate.interp1d(k_in, pk_in, kind='linear',
