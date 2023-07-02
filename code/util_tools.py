@@ -230,27 +230,49 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
     Ok_list = []
     a_para = []
     a_perp = []
-
-    for data in files:
-        print('Opening file', str(data), '...')
-        try:
+    if 'phase2' in str(files[0]):
+        for data in files:
             out = alpha_from_logfile(data)
-            if 'phase2' in str(data):
+            try:
                 Om_list.append((out[0][0], Om_flat)) 
                 OL_list.append((out[0][1], OL_flat)) 
-            elif 'phase3' in str(data):
+                Ok_list.append(out[0][2]) 
+                a_para.append(out[1])
+                a_perp.append(out[2])
+            except TypeError:
+                print(f'{data} was not a logfile!')
+                continue
+    elif 'phase3' in files:
+        for data in files:
+            out = alpha_from_logfile(data)
+            try:
                 Om_list.append((Om_flat, out[0][0])) 
-                OL_list.append((OL_flat, out[0][1])) 
-            elif 'phase4' in str(data):
+                OL_list.append((OL_flat, out[0][1]))  #I should modify alpha_from_logfile to do this.
+                Ok_list.append(out[0][2]) 
+                a_para.append(out[1])
+                a_perp.append(out[2])
+            except TypeError:
+                print(f'{data} was not a logfile!')
+                continue
+    elif 'phase4' in files:
+        for data in files:
+            out = alpha_from_logfile(data)
+            try:
                 Om_list.append((out[0][0], out[0][0])) 
                 OL_list.append((out[0][1], out[0][1])) 
-            Ok_list.append(out[0][2]) 
-            a_para.append(out[1])
-            a_perp.append(out[2])
-        except TypeError:
-            print(f'{data} was not a logfile!')
-            continue
-        
+                Ok_list.append(out[0][2]) 
+                a_para.append(out[1])
+                a_perp.append(out[2])
+            except TypeError:
+                print(f'{data} was not a logfile!')
+                continue
+    Om_list = np.array(Om_list)
+    OL_list = np.array(OL_list)
+    Om_ref_cont = np.linspace(min(Om_list[:,0]), max(Om_list[:,0]), n_points)
+    OL_ref_cont = np.linspace(min(OL_list[:,0]), max(OL_list[:,0]), n_points)
+    Om_fid_cont = np.linspace(min(Om_list[:,1]), max(Om_list[:,1]), n_points)
+    OL_fid_cont = np.linspace(min(OL_list[:,1]), max(OL_list[:,1]), n_points)
+
     Ok_min, Ok_max = min(Ok_list), max(Ok_list)
     Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
     Ok_rang = Ok_max - Ok_min
@@ -284,13 +306,11 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
         DM_list.append((current_DM, current_DM_std))
     
     if 'changing_Om' in str(Path.cwd().parent.stem):
-        OL = 0.69
-        axes[1,0].plot(Ok_cont, DH_fid(zmax, 1 - Ok_cont - OL, OL)/r_d, color=color, linewidth=linewidth) #Multiply by 0 is phase2
-        axes[1,1].plot(Ok_cont, DM_fid(zmax, 1 - Ok_cont - OL, OL)/r_d, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_ref_cont, OL_flat)/calculate_rd(Om_fid_cont), color=color, linewidth=linewidth) 
+        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_ref_cont, OL_flat)/calculate_rd(Om_fid_cont), color=color, linewidth=linewidth) 
     elif 'changing_OL' in str(Path.cwd().parent.stem):
-        Om = 0.31
-        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om, 1 - Ok_cont - Om)/r_d, color=color, linewidth=linewidth) #Multiply by 0 is phase2
-        axes[1,1].plot(Ok_cont, DH_fid(zmax, Om, 1 - Ok_cont - Om)/r_d, color=color, linewidth=linewidth) #Multiply by 0 is phase2
+        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_flat, OL_fid_cont)/calculate_rd(Om_fid_cont), color=color, linewidth=linewidth) 
+        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_flat, OL_fid_cont)/calculate_rd(Om_fid_cont), color=color, linewidth=linewidth) 
     else: 
         print("Warning: This directory belongs to no fixed Om or OL!\n\tNo fid plot is generated.")
 
