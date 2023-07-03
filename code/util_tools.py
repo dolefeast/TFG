@@ -167,25 +167,36 @@ def iterable_output(func):
                 return func(zmax, Om, OL)
     
     return wrapper
-
-def get_params(param_name):
+def get_params(filename):
     """
     input:
-        param_name: the parameters in the name of each dataframe
+        filename: the parameters in the name of each dataframe
     output:
-        [Om, OL]: a tuple containing the parameters in the name
+        [Om, OL, Ok]: a list containing the parameters in the name
         """
-    p = re.compile('O[a-zA-Z][0-9]*')
-    params = re.findall(p, param_name)
+    p = re.compile('O[mL][0-9]*')
+    params = re.findall(p, filename)
     params = re.split('\D', "".join(params))
-    OmOL = []
+    omegas_list = []
     for i in params:
         try:
-            OmOL.append(int(i)/100)
+            omegas_list.append(int(i)/100)
         except ValueError:
             continue
-    OmOL.append(round(1 - sum(OmOL), 2))
-    return OmOL 
+    Om, OL = omegas_list
+    Ok = 1 - Om - OL
+    if 'phase2' in filename:
+        Om = (Om, Om_flat)
+        OL = (OL, OL_flat)
+    elif 'phase3' in filename:
+        Om = (Om_flat, Om)
+        OL = (OL_flat, OL)
+    elif 'phase4' in filename:
+        Om = (Om_flat, Om_flat)
+        OL = (OL_flat, OL_flat)
+
+    return [Om, OL, Ok]
+
 
 def calculate_rd(Omega_m):
     omega_nu = 0.06/93.14 * Omega_m/0.31
@@ -230,48 +241,23 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
     Ok_list = []
     a_para = []
     a_perp = []
-    if 'phase2' in str(files[0]):
-        for data in files:
-            out = alpha_from_logfile(data)
-            try:
-                Om_list.append((out[0][0], Om_flat)) 
-                OL_list.append((out[0][1], OL_flat)) 
-                Ok_list.append(out[0][2]) 
-                a_para.append(out[1])
-                a_perp.append(out[2])
-            except TypeError:
-                print(f'{data} was not a logfile!')
-                continue
-    elif 'phase3' in files:
-        for data in files:
-            out = alpha_from_logfile(data)
-            try:
-                Om_list.append((Om_flat, out[0][0])) 
-                OL_list.append((OL_flat, out[0][1]))  #I should modify alpha_from_logfile to do this.
-                Ok_list.append(out[0][2]) 
-                a_para.append(out[1])
-                a_perp.append(out[2])
-            except TypeError:
-                print(f'{data} was not a logfile!')
-                continue
-    elif 'phase4' in files:
-        for data in files:
-            out = alpha_from_logfile(data)
-            try:
-                Om_list.append((out[0][0], out[0][0])) 
-                OL_list.append((out[0][1], out[0][1])) 
-                Ok_list.append(out[0][2]) 
-                a_para.append(out[1])
-                a_perp.append(out[2])
-            except TypeError:
-                print(f'{data} was not a logfile!')
-                continue
+    for data in files:
+        out = alpha_from_logfile(data)
+        try:
+            Om_list.append(out[0][0]) 
+            OL_list.append(out[0][1]) 
+            Ok_list.append(out[0][2]) 
+            a_para.append(out[1])
+            a_perp.append(out[2])
+        except TypeError:
+            print(f'{data} was not a logfile!')
+            continue
     Om_list = np.array(Om_list)
     OL_list = np.array(OL_list)
-    Om_ref_cont = np.linspace(min(Om_list[:,0]), max(Om_list[:,0]), n_points)
-    OL_ref_cont = np.linspace(min(OL_list[:,0]), max(OL_list[:,0]), n_points)
-    Om_fid_cont = np.linspace(min(Om_list[:,1]), max(Om_list[:,1]), n_points)
-    OL_fid_cont = np.linspace(min(OL_list[:,1]), max(OL_list[:,1]), n_points)
+    Om_ref_cont = np.linspace(max(Om_list[:,0]), min(Om_list[:,0]), n_points)
+    OL_ref_cont = np.linspace(max(OL_list[:,0]), min(OL_list[:,0]), n_points)
+    Om_fid_cont = np.linspace(max(Om_list[:,1]), min(Om_list[:,1]), n_points)
+    OL_fid_cont = np.linspace(max(OL_list[:,1]), min(OL_list[:,1]), n_points)
 
     Ok_min, Ok_max = min(Ok_list), max(Ok_list)
     Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
@@ -306,11 +292,13 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
         DM_list.append((current_DM, current_DM_std))
     
     if 'changing_Om' in str(Path.cwd().parent.stem):
-        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_ref_cont, OL_flat)/calculate_rd(Om_fid_cont), color=color, linewidth=linewidth) 
-        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_ref_cont, OL_flat)/calculate_rd(Om_fid_cont), color=color, linewidth=linewidth) 
+        r_d = calculate_rd(Om_fid_cont)
+        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
+        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
     elif 'changing_OL' in str(Path.cwd().parent.stem):
-        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_flat, OL_fid_cont)/calculate_rd(Om_fid_cont), color=color, linewidth=linewidth) 
-        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_flat, OL_fid_cont)/calculate_rd(Om_fid_cont), color=color, linewidth=linewidth) 
+        r_d = calculate_rd(Om_fid_cont)
+        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
+        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
     else: 
         print("Warning: This directory belongs to no fixed Om or OL!\n\tNo fid plot is generated.")
 
@@ -322,16 +310,6 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
     axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
     axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
     axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
-    for ax in axes.ravel():
-        #xticks = [i/100 for i in range(int(-100*Ok_min), int(100*Ok_max), 5)]
-        #xlabel = xticks.copy()
-        xticks = ax.get_xticks()
-        ax.set_xticks(xticks[::2])
-        ax.set_xticklabels([round(tick, 2) for tick in xticks[::2]], fontsize=fontsize)
-        yticks = ax.get_yticks()[::reduce_ticks]
-        ylabel = ax.get_ylabel()[::reduce_ticks]
-        ax.set_yticks(yticks)
-        ax.set_yticklabels([round(tick, 2) for tick in yticks], fontsize=fontsize)
 
     plt.tight_layout()
     if save: 
