@@ -185,17 +185,21 @@ def get_params(filename):
             continue
     Om, OL = omegas_list
     Ok = 1 - Om - OL
+    phase = 0
     if 'phase2' in filename:
         Om = (Om, Om_flat)
         OL = (OL, OL_flat)
+        phase = 2
     elif 'phase3' in filename:
         Om = (Om_flat, Om)
         OL = (OL_flat, OL)
+        phase = 3
     elif 'phase4' in filename:
         Om = (Om_flat, Om_flat)
         OL = (OL_flat, OL_flat)
+        phase = 4
 
-    return [Om, OL, Ok]
+    return [Om, OL, Ok, phase]
 
 
 def calculate_rd(Omega_m):
@@ -228,7 +232,7 @@ def DM_fid(z, Om, OL):
     elif not Ok:
         return DC
 
-def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2):
+def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2):
     """Plots the 3 rows by 2 columns graphic of the brass outputs
     parameters:
         files: a pathlib list of LOGFILES 
@@ -236,6 +240,7 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
         view=False: if view=True it shows the figure
         n_points=500: number of points with which it calculates the curve of continuous Ok
     """
+    fid = [0, 0, 'r', 'f', 'r, f']
     Om_list = [] #List of tuples (Om_ref, Om_fid)
     OL_list = []
     Ok_list = []
@@ -247,11 +252,13 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
             Om_list.append(out[0][0]) 
             OL_list.append(out[0][1]) 
             Ok_list.append(out[0][2]) 
+            phase = out[0][3]
             a_para.append(out[1])
             a_perp.append(out[2])
         except TypeError:
             print(f'{data} was not a logfile!')
             continue
+    fid_tag = fid[phase]
     Om_list = np.array(Om_list)
     OL_list = np.array(OL_list)
     Om_ref_cont = np.linspace(max(Om_list[:,0]), min(Om_list[:,0]), n_points)
@@ -274,8 +281,8 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
         r_d = calculate_rd(Om_fid)
         current_DH = DH_fid(zmax, Om_ref, OL_ref) * apara[0]/r_d
         current_DH_std = DH_fid(zmax, Om_ref, OL_ref) * apara[1]/r_d
-        current_DM = DM_fid(zmax, Om_ref, OL_ref) * apara[0]/r_d
-        current_DM_std = DM_fid(zmax, Om_ref, OL_ref) * apara[1]/r_d
+        current_DM = DM_fid(zmax, Om_ref, OL_ref) * aperp[0]/r_d
+        current_DM_std = DM_fid(zmax, Om_ref, OL_ref) * aperp[1]/r_d
         axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x',
                      elinewidth=elinewidth, capsize=capsize, capthick=capthick,
                     color=color, linewidth=linewidth, markersize=markersize)
@@ -291,28 +298,30 @@ def plot_DH_DM(files, save=False, view=False, n_points = 500, markersize = 10, e
         DH_list.append((current_DH, current_DH_std))
         DM_list.append((current_DM, current_DM_std))
     
-    if 'changing_Om' in str(Path.cwd().parent.stem):
+    if 'changing_Om' in str(Path.cwd().parent):
         r_d = calculate_rd(Om_fid_cont)
         axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
         axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
-    elif 'changing_OL' in str(Path.cwd().parent.stem):
+    elif 'changing_OL' in str(Path.cwd().parent):
         r_d = calculate_rd(Om_fid_cont)
         axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
         axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
     else: 
         print("Warning: This directory belongs to no fixed Om or OL!\n\tNo fid plot is generated.")
+    
 
     axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
     axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
-    axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{fid}$', fontsize=fontsize)
-    axes[1,1].set_ylabel(r'$\left[ D_M/r_d\right]^{fid}$', fontsize=fontsize)
+    axes[1,0].set_ylabel(f'$\left[ D_H/r_d\\right]^{{{fid_tag}}}$', fontsize=fontsize)
+    axes[1,1].set_ylabel(f'$\left[ D_M/r_d\\right]^{{{fid_tag}}}$', fontsize=fontsize)
     axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
     axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
-    axes[2,0].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
-    axes[2,1].set_xlabel(r'$\left[ \Omega_k\right]^{fid}$', fontsize=fontsize)
+    axes[2,0].set_xlabel(f'$\left[ \Omega_k\\right]^{{{fid_tag}}}$', fontsize=fontsize)
+    axes[2,1].set_xlabel(f'$\left[ \Omega_k\\right]^{{{fid_tag}}}$', fontsize=fontsize)
 
     plt.tight_layout()
     if save: 
+        print(f'Saving figure to {fig_name}...')
         plt.savefig(fig_name)
     if view: 
         plt.show()

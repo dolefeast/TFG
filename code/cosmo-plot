@@ -10,6 +10,7 @@ from pathlib import Path
 import pandas as pd
 import matplotlib 
 import sys
+from __init__ import *
 
 matplotlib.rc('xtick', labelsize=20) 
 matplotlib.rc('ytick', labelsize=20) 
@@ -30,4 +31,4 @@ else:
 
 files = list(Path('.').glob(filtr))
 
-util_tools.plot_DH_DM(files, save=save, view=view)
+util_tools.plot_DH_DM(files, save=save, view=view, fig_name=fig_name)
