@@ -135,16 +135,15 @@ def alpha_from_logfile(filename):
     omegas = get_params(namestr)
     out = []
     out.append(omegas) #Append all the omegas as (Om OL Ok)
-    p = re.compile('[0-9].[0-9]*e\+?-?[0-9]*')
+
+
     with filename.open() as open_data:
-        for i, line in enumerate(open_data):
-            if i == 9:
-                matches = p.findall(line)
-                out.append([float(x) for x in matches])
-            elif i == 10:
-                matches = p.findall(line)
-                out.append([float(x) for x in matches])
-            elif i>10: break
+        p = re.compile('[0-9].[0-9]*e\+?-?[0-9]*')
+        indices = [9, 10, 61] #Indices for alpha parallel, alpha perp and chi2
+        open_data = list(open_data)
+        for i in indices:
+            matches = p.findall(open_data[i])
+            out.append([float(x) for x in matches])
     return out
 
 def iterable_output(func):
@@ -232,7 +231,7 @@ def DM_fid(z, Om, OL):
     elif not Ok:
         return DC
 
-def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2):
+def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2, calculate_chi = True):
     """Plots the 3 rows by 2 columns graphic of the brass outputs
     parameters:
         files: a pathlib list of LOGFILES 
@@ -246,6 +245,7 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
     Ok_list = []
     a_para = []
     a_perp = []
+    chi_list = []
     for data in files:
         out = alpha_from_logfile(data)
         try:
@@ -255,14 +255,16 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
             phase = out[0][3]
             a_para.append(out[1])
             a_perp.append(out[2])
+            chi_list.append(out[3])
         except TypeError:
             print(f'{data} was not a logfile!')
             continue
+
     fid_tag = fid[phase]
     Om_list = np.array(Om_list)
     OL_list = np.array(OL_list)
-    Om_ref_cont = np.linspace(max(Om_list[:,0]), min(Om_list[:,0]), n_points)
-    OL_ref_cont = np.linspace(max(OL_list[:,0]), min(OL_list[:,0]), n_points)
+    Om_ref_cont = np.linspace(max(Om_list[:,0]), min(Om_list[:,0]), n_points) #This could be done smarter by just interpolating. 
+    OL_ref_cont = np.linspace(max(OL_list[:,0]), min(OL_list[:,0]), n_points) #No need to check for maxs ans mins and blablabla
     Om_fid_cont = np.linspace(max(Om_list[:,1]), min(Om_list[:,1]), n_points)
     OL_fid_cont = np.linspace(max(OL_list[:,1]), min(OL_list[:,1]), n_points)
 
@@ -270,12 +272,37 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
     Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
     Ok_rang = Ok_max - Ok_min
 
-    fig, axes = plt.subplots(3, 2, sharex=True, figsize=(10, 7))
+    fig, axes = plt.subplots(3 + calculate_chi, 2, sharex=True, figsize=(10, 7))
     
     DH_list = []
     DM_list = []
+    if 'changing_Om' in str(Path.cwd().parent):
+        #xlabel = f'$\left[ \Omega_k\\right]^{{{fid_tag}}}$'
+        xlabel = '$\left[ \Omega_k\\right]^{fid}_{\Omega_\Lambda = 0.69}$'
+        r_d = calculate_rd(Om_fid_cont)
+        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
+        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
+    elif 'changing_OL' in str(Path.cwd().parent):
+        #xlabel = f'$\left[ \Omega_k\\right]^{{{fid_tag}}}$'
+        xlabel = '$\left[ \Omega_k\\right]^{fid}_{\Omega_m = 0.31}$'
+        r_d = calculate_rd(Om_fid_cont)
+        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
+        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
+    else: 
+        print("Warning: This directory belongs to no fixed Om or OL!\n\tNo fid plot is generated.")
 
-    for Om, OL, Ok, apara, aperp in zip(Om_list, OL_list, Ok_list, a_para, a_perp):
+    try: 
+        gs = axes[3, 0].get_gridspec()
+        for ax in axes[3, 0:]:
+            ax.remove()
+        axbig = fig.add_subplot(gs[3, 0:])
+        axbig.set_ylabel(r'$\chi^2$')
+        axbig.set_xlabel(xlabel)
+        axbig.plot(Ok_cont, 0*Ok_cont + 87,  color=color)
+    except IndexError:
+        pass
+
+    for Om, OL, Ok, apara, aperp, chi in zip(Om_list, OL_list, Ok_list, a_para, a_perp, chi_list):
         Om_ref, Om_fid = Om
         OL_ref, OL_fid = OL
         r_d = calculate_rd(Om_fid)
@@ -283,7 +310,7 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
         current_DH_std = DH_fid(zmax, Om_ref, OL_ref) * apara[1]/r_d
         current_DM = DM_fid(zmax, Om_ref, OL_ref) * aperp[0]/r_d
         current_DM_std = DM_fid(zmax, Om_ref, OL_ref) * aperp[1]/r_d
-        axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x',
+        axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x', #Can be done better by just changing plotrc
                      elinewidth=elinewidth, capsize=capsize, capthick=capthick,
                     color=color, linewidth=linewidth, markersize=markersize)
         axes[0,1].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x',
@@ -295,19 +322,15 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
         axes[2,1].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x',
              elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
             color=color, linewidth=linewidth, markersize=markersize)
+        try:
+            axbig.plot(Ok, chi, 'o', color=color)
+        except UnboundLocalError:
+            pass
+            
+            
         DH_list.append((current_DH, current_DH_std))
         DM_list.append((current_DM, current_DM_std))
     
-    if 'changing_Om' in str(Path.cwd().parent):
-        r_d = calculate_rd(Om_fid_cont)
-        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
-        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
-    elif 'changing_OL' in str(Path.cwd().parent):
-        r_d = calculate_rd(Om_fid_cont)
-        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
-        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
-    else: 
-        print("Warning: This directory belongs to no fixed Om or OL!\n\tNo fid plot is generated.")
     
 
     axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
@@ -316,8 +339,8 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
     axes[1,1].set_ylabel(f'$\left[ D_M/r_d\\right]^{{{fid_tag}}}$', fontsize=fontsize)
     axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
     axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
-    axes[2,0].set_xlabel(f'$\left[ \Omega_k\\right]^{{{fid_tag}}}$', fontsize=fontsize)
-    axes[2,1].set_xlabel(f'$\left[ \Omega_k\\right]^{{{fid_tag}}}$', fontsize=fontsize)
+    axes[2,0].set_xlabel(xlabel, fontsize=fontsize)
+    axes[2,1].set_xlabel(xlabel, fontsize=fontsize)
 
     plt.tight_layout()
     if save: 

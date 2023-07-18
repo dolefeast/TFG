@@ -17,6 +17,7 @@ matplotlib.rcParams.update({
     'pgf.rcfonts': False,
     'lines.linewidth': 2, 
     'legend.fontsize': FONTSIZE/1.8, 
+    'font.size': FONTSIZE, 
     'xtick.labelsize': 'x-large', 
     'ytick.labelsize': 'x-large'
 })
