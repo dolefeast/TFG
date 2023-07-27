@@ -239,7 +239,7 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
         view=False: if view=True it shows the figure
         n_points=500: number of points with which it calculates the curve of continuous Ok
     """
-    fid = [0, 0, 'r', 'f', 'r, f']
+    fid = [0, 0, 'catalog', 'template', 'catalog and template']
     Om_list = [] #List of tuples (Om_ref, Om_fid)
     OL_list = []
     Ok_list = []
@@ -278,13 +278,13 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
     DM_list = []
     if 'changing_Om' in str(Path.cwd().parent):
         #xlabel = f'$\left[ \Omega_k\\right]^{{{fid_tag}}}$'
-        xlabel = '$\left[ \Omega_k\\right]^{fid}_{\Omega_\Lambda = 0.69}$'
+        xlabel = f'$\left[ \Omega_k\\right]^{{{fid_tag}}}_{{\Omega_\Lambda = 0.69}}$'
         r_d = calculate_rd(Om_fid_cont)
         axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
         axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
     elif 'changing_OL' in str(Path.cwd().parent):
         #xlabel = f'$\left[ \Omega_k\\right]^{{{fid_tag}}}$'
-        xlabel = '$\left[ \Omega_k\\right]^{fid}_{\Omega_m = 0.31}$'
+        xlabel = f'$\left[ \Omega_k\\right]^{{{fid_tag}}}_{{\Omega_m = 0.31}}$'
         r_d = calculate_rd(Om_fid_cont)
         axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
         axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
@@ -335,8 +335,8 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
 
     axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
     axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
-    axes[1,0].set_ylabel(f'$\left[ D_H/r_d\\right]^{{{fid_tag}}}$', fontsize=fontsize)
-    axes[1,1].set_ylabel(f'$\left[ D_M/r_d\\right]^{{{fid_tag}}}$', fontsize=fontsize)
+    axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{fid}$', fontsize=fontsize)
+    axes[1,1].set_ylabel(r'$\left[ D_M/r_d\right]^{fid}$', fontsize=fontsize)
     axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
     axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
     axes[2,0].set_xlabel(xlabel, fontsize=fontsize)
