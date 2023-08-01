@@ -1,0 +1,92 @@
+Number of steps: 3492567
+Number of accepted steps: 1000000
+Burn-in number of steps: 320000
+Accepted fraction of steps: 0.286322
+Convergence Status
+R[0]= -nan	R[1]= -nan	R[2]= -nan	R[3]= -nan	R[4]= -nan	R[5]= -nan	R[6]= -nan	R[7]= -nan	R[8]= -nan	R[9]= -nan	R[10]= -nan	R[11]= -nan	R[12]= -nan	R[13]= -nan	R[14]= -nan	R[15]= -nan	R[16]= -nan	R[17]= -nan	R[18]= -nan	R[19]= -nan	R[20]= -nan	R[21]= -nan	R[22]= -nan	R[23]= -nan	R[24]= -nan	
+<R>= -nan
+
+Mean parameters
+A[0]= -nan pm -nan
+A[1]= -nan pm -nan
+A[2]= -nan pm -nan
+A[3]= -nan pm -nan
+A[4]= -nan pm -nan
+A[5]= -nan pm -nan
+A[6]= -nan pm -nan
+A[7]= -nan pm -nan
+A[8]= -nan pm -nan
+A[9]= -nan pm -nan
+A[10]= -nan pm -nan
+A[11]= -nan pm -nan
+A[12]= -nan pm -nan
+A[13]= -nan pm -nan
+A[14]= -nan pm -nan
+A[15]= -nan pm -nan
+A[16]= -nan pm -nan
+A[17]= -nan pm -nan
+A[18]= -nan pm -nan
+A[19]= -nan pm -nan
+A[20]= -nan pm -nan
+A[21]= -nan pm -nan
+A[22]= -nan pm -nan
+A[23]= -nan pm -nan
+A[24]= -nan pm -nan
+
+Best-fitting parameters
+A[0]= 0.000000e+00
+A[1]= 0.000000e+00
+A[2]= 0.000000e+00
+A[3]= 0.000000e+00
+A[4]= 0.000000e+00
+A[5]= 0.000000e+00
+A[6]= 0.000000e+00
+A[7]= 0.000000e+00
+A[8]= 0.000000e+00
+A[9]= 0.000000e+00
+A[10]= 0.000000e+00
+A[11]= 0.000000e+00
+A[12]= 0.000000e+00
+A[13]= 0.000000e+00
+A[14]= 0.000000e+00
+A[15]= 0.000000e+00
+A[16]= 0.000000e+00
+A[17]= 0.000000e+00
+A[18]= 0.000000e+00
+A[19]= 0.000000e+00
+A[20]= 0.000000e+00
+A[21]= 0.000000e+00
+A[22]= 0.000000e+00
+A[23]= 0.000000e+00
+A[24]= 0.000000e+00
+chi2_min= 1.082218e-312
+
+
+Cross-Covariance parameters
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	-nan	
+
+Time taken for mcmc chain: 28.150000 minutes
