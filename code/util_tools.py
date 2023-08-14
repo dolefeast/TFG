@@ -194,8 +194,8 @@ def get_params(filename):
         OL = (OL_flat, OL)
         phase = 3
     elif 'phase4' in filename:
-        Om = (Om_flat, Om_flat)
-        OL = (OL_flat, OL_flat)
+        Om = (Om, Om)
+        OL = (OL, OL)
         phase = 4
 
     return [Om, OL, Ok, phase]
@@ -239,7 +239,7 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
         view=False: if view=True it shows the figure
         n_points=500: number of points with which it calculates the curve of continuous Ok
     """
-    fid = [0, 0, 'catalog', 'template', 'catalog and template']
+    fid = [0, 0, 'c', 't', 'c, t']
     Om_list = [] #List of tuples (Om_ref, Om_fid)
     OL_list = []
     Ok_list = []
@@ -335,8 +335,8 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
 
     axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
     axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
-    axes[1,0].set_ylabel(r'$\left[ D_H/r_d\right]^{fid}$', fontsize=fontsize)
-    axes[1,1].set_ylabel(r'$\left[ D_M/r_d\right]^{fid}$', fontsize=fontsize)
+    axes[1,0].set_ylabel(r'$D_H^c/r_d^t$', fontsize=fontsize)
+    axes[1,1].set_ylabel(r'$D_M^c/r_d^t$', fontsize=fontsize)
     axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
     axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
     axes[2,0].set_xlabel(xlabel, fontsize=fontsize)
