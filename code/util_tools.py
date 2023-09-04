@@ -231,7 +231,7 @@ def DM_fid(z, Om, OL):
     elif not Ok:
         return DC
 
-def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2, calculate_chi = True):
+def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2, calculate_chi = True, table = False):
     """Plots the 3 rows by 2 columns graphic of the brass outputs
     parameters:
         files: a pathlib list of LOGFILES 
@@ -272,33 +272,29 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
     Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
     Ok_rang = Ok_max - Ok_min
 
-    fig, axes = plt.subplots(3 + calculate_chi, 2, sharex=True, figsize=(10, 7))
+    fig, axes = plt.subplots(3 + calculate_chi, 1, sharex=True, figsize=(10, 7))
     
     DH_list = []
     DM_list = []
+
     if 'changing_Om' in str(Path.cwd().parent):
         #xlabel = f'$\left[ \Omega_k\\right]^{{{fid_tag}}}$'
         xlabel = f'$\left[ \Omega_k\\right]^{{{fid_tag}}}_{{\Omega_\Lambda = 0.69}}$'
         r_d = calculate_rd(Om_fid_cont)
-        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
-        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth) 
+        axes[1].plot(Ok_cont, DH_fid(zmax, Om_ref_cont, OL_flat)/r_d, color=color, linewidth=linewidth, label=r'$D_H^c/r_d^t$') 
+        axes[1].plot(Ok_cont, DM_fid(zmax, Om_ref_cont, OL_flat)/r_d, color='coral', linewidth=linewidth, label=r'$D_M^c/r_d^t$') 
     elif 'changing_OL' in str(Path.cwd().parent):
         #xlabel = f'$\left[ \Omega_k\\right]^{{{fid_tag}}}$'
         xlabel = f'$\left[ \Omega_k\\right]^{{{fid_tag}}}_{{\Omega_m = 0.31}}$'
         r_d = calculate_rd(Om_fid_cont)
-        axes[1,0].plot(Ok_cont, DH_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
-        axes[1,1].plot(Ok_cont, DM_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth) 
+        axes[1].plot(Ok_cont, DH_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth, label=r'$D_H^c/r_d^t$') 
+        axes[1].plot(Ok_cont, DM_fid(zmax, Om_flat, OL_ref_cont)/r_d, color='coral', linewidth=linewidth, label=r'$D_M^c/r_d^t$') 
     else: 
         print("Warning: This directory belongs to no fixed Om or OL!\n\tNo fid plot is generated.")
 
     try: 
-        gs = axes[3, 0].get_gridspec()
-        for ax in axes[3, 0:]:
-            ax.remove()
-        axbig = fig.add_subplot(gs[3, 0:])
-        axbig.set_ylabel(r'$\chi^2$')
-        axbig.set_xlabel(xlabel)
-        axbig.plot(Ok_cont, 0*Ok_cont + 87,  color=color)
+        axes[3].set_xlabel(xlabel)
+        axes[3].plot(Ok_cont, 0*Ok_cont + 87,  color=color)
     except IndexError:
         pass
 
@@ -310,20 +306,20 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
         current_DH_std = DH_fid(zmax, Om_ref, OL_ref) * apara[1]/r_d
         current_DM = DM_fid(zmax, Om_ref, OL_ref) * aperp[0]/r_d
         current_DM_std = DM_fid(zmax, Om_ref, OL_ref) * aperp[1]/r_d
-        axes[0,0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x', #Can be done better by just changing plotrc
-                     elinewidth=elinewidth, capsize=capsize, capthick=capthick,
-                    color=color, linewidth=linewidth, markersize=markersize)
-        axes[0,1].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x',
-                     elinewidth=elinewidth, capsize=capsize, capthick=capthick,
-                    color=color, linewidth=linewidth, markersize=markersize)
-        axes[2,0].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x',
-                     elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
-                    color=color, linewidth=linewidth, markersize=markersize)
-        axes[2,1].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x',
+        axes[0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x', #Can be done better by just changing plotrc
+                   elinewidth=elinewidth, capsize=capsize, capthick=capthick,
+                  color=color, linewidth=linewidth, markersize=markersize)
+        axes[0].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x',
+                   elinewidth=elinewidth, capsize=capsize, capthick=capthick,
+                  color='coral', linewidth=linewidth, markersize=markersize)
+        axes[2].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x',
+                   elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
+                  color=color, linewidth=linewidth, markersize=markersize)
+        axes[2].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x',
              elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
-            color=color, linewidth=linewidth, markersize=markersize)
+            color='coral', linewidth=linewidth, markersize=markersize)
         try:
-            axbig.plot(Ok, chi, 'o', color=color)
+            axes[3].plot(Ok, chi, 'o', color=color)
         except UnboundLocalError:
             pass
             
@@ -331,17 +327,43 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
         DH_list.append((current_DH, current_DH_std))
         DM_list.append((current_DM, current_DM_std))
     
-    
+    axes[0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x', #Can be done better by just changing plotrc
+               elinewidth=elinewidth, capsize=capsize, capthick=capthick,
+              color=color, linewidth=linewidth, markersize=markersize, label=r'$\alpha_{\parallel}$')
+    axes[0].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x',
+               elinewidth=elinewidth, capsize=capsize, capthick=capthick,
+              color='coral', linewidth=linewidth, markersize=markersize, label=r'$\alpha_{\perp}$')
+    axes[2].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x',
+               elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
+              color=color, linewidth=linewidth, markersize=markersize, label=r'$D_H/r_d$')
+    axes[2].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x',
+         elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
+        color='coral', linewidth=linewidth, markersize=markersize, label=r'$D_M/r_d$')
 
-    axes[0,0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
-    axes[0,1].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
-    axes[1,0].set_ylabel(r'$D_H^c/r_d^t$', fontsize=fontsize)
-    axes[1,1].set_ylabel(r'$D_M^c/r_d^t$', fontsize=fontsize)
-    axes[2,0].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
-    axes[2,1].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
-    axes[2,0].set_xlabel(xlabel, fontsize=fontsize)
-    axes[2,1].set_xlabel(xlabel, fontsize=fontsize)
 
+    axes[0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
+    axes[0].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
+    axes[1].set_ylabel(r'$D_H^c/r_d^t$', fontsize=fontsize)
+    axes[1].set_ylabel(r'$D_M^c/r_d^t$', fontsize=fontsize)
+    axes[2].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
+    axes[2].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
+    axes[2].set_xlabel(xlabel, fontsize=fontsize)
+    axes[2].set_xlabel(xlabel, fontsize=fontsize)
+
+    if table:
+        dic = {"Ok": Ok_list, "Om": Om_list[:, phase-2], "OL": OL_list[:, phase-2], 
+                "apara": [a[0] for a in a_para],
+                "apara_err": [a[1] for a in a_para],
+                "aperp": [a[0] for a in a_perp],
+                "aperp_err": [a[1] for a in a_perp],
+                "chi2": [x[0] for x in chi_list]
+                }
+        df = pd.DataFrame(dic)
+        tablename = f"~/TFG/results_fig/{files[0]}"
+        print(f"Saving dataFrame to {tablename}")
+        df.to_csv(tablename, header=True, index=False, sep='\t')
+    for ax in axes[:-1]:
+        ax.legend(loc='best')
     plt.tight_layout()
     if save: 
         print(f'Saving figure to {fig_name}...')
