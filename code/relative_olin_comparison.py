@@ -1,7 +1,8 @@
 from __init__ import *
+import matplotlib.ticker as mticker 
 
 #files = Path('/home/santi/TFG/outputs_santi/class_output/').glob('*pk.dat')
-files = list(Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*Olin*69*'))
+files = list(Path('/home/santi/TFG/outputs_santi/linspace_class').glob('*Olin*31*69*'))
 df, params = util_tools.many_files(files)
 df = df[0]
 
@@ -35,23 +36,19 @@ ax.legend(loc='best', fontsize=fontsize/1.5)
 
 
 
-#x1, y1 = k_hector, pk_hector
-#ymod=np.interp(x, x1, y1)
-#ymod = ymod(x2)
 ax.set_xlabel(r'k [h Mpc$^{-1}$]', fontsize=fontsize)
 ax.set_ylabel(r'$O_{lin}(k)$', fontsize=fontsize)
-#    plt.plot(x2, (1-0.665)*y2, label='My data')
-#    plt.plot(x1, y1, label='Original Y')
-#plt.savefig('../figs/Olin_relative_comparison.pdf')
 yticks = ax.get_yticks()
 ylabel = ax.get_ylabel()
-ax.set_yticks(yticks, minor=True)
-ax.set_yticklabels([round(tick, 2) for tick in yticks], fontsize=fontsize/1.3)
+#ax.set_yticks(yticks, minor=True)
+#ax.set_yticklabels([round(tick, 2) for tick in yticks], fontsize=fontsize/1.3)
 
+plt.gca().ticklabel_format(axis='y', style='plain')
+#plt.gca().ticklabel_format(style='plain', axis='x')
 xticks = ax.get_xticks()
 xlabel = ax.get_xlabel()
-ax.set_xticks(xticks, minor=True)
-ax.set_xticklabels([round(tick, 2) for tick in xticks], fontsize=fontsize/1.3)
+#ax.set_xticks(xticks, minor=True)
+#ax.set_xticklabels([round(tick, 2) for tick in xticks], fontsize=fontsize/1.3)
 ax.set_xlim((kmin,kmax))
 ax.set_ylim((min(pk_hector)**1.7, max(pk_hector)**1.7))
 fig.tight_layout()

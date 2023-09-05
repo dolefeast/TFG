@@ -1,4 +1,5 @@
 import numpy as np
+import itertools
 import pandas as pd
 from pathlib import Path
 import matplotlib.pyplot as plt
@@ -179,11 +180,14 @@ def get_params(filename):
     omegas_list = []
     for i in params:
         try:
-            omegas_list.append(int(i)/100)
+            omegas_list.append(int(i)/100) #Because the regex find is not done properly
         except ValueError:
             continue
-    Om, OL = omegas_list
-    Ok = 1 - Om - OL
+    try:
+        Om, OL = omegas_list
+        Ok = 1 - Om - OL
+    except ValueError: 
+        Om, OL, Ok = [0.31, 0.69, 0.]
     phase = 0
     if 'phase2' in filename:
         Om = (Om, Om_flat)
@@ -230,6 +234,9 @@ def DM_fid(z, Om, OL):
         return k*np.sin(np.sqrt(np.abs(Ok))*DC/DH)
     elif not Ok:
         return DC
+
+def flip(items, ncol):
+    return itertools.chain(*[items[i::ncol] for i in range(ncol)])
 
 def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2, calculate_chi = True, table = False):
     """Plots the 3 rows by 2 columns graphic of the brass outputs
@@ -294,7 +301,7 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
 
     try: 
         axes[3].set_xlabel(xlabel)
-        axes[3].plot(Ok_cont, 0*Ok_cont + 87,  color=color)
+        axes[3].plot(Ok_cont, 0*Ok_cont + 87,  color="#000080")
     except IndexError:
         pass
 
@@ -306,20 +313,21 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
         current_DH_std = DH_fid(zmax, Om_ref, OL_ref) * apara[1]/r_d
         current_DM = DM_fid(zmax, Om_ref, OL_ref) * aperp[0]/r_d
         current_DM_std = DM_fid(zmax, Om_ref, OL_ref) * aperp[1]/r_d
+        offset = 0.001
         axes[0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x', #Can be done better by just changing plotrc
                    elinewidth=elinewidth, capsize=capsize, capthick=capthick,
                   color=color, linewidth=linewidth, markersize=markersize)
-        axes[0].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x',
+        axes[0].errorbar(Ok + offset, aperp[0], yerr=aperp[1], fmt='x',
                    elinewidth=elinewidth, capsize=capsize, capthick=capthick,
                   color='coral', linewidth=linewidth, markersize=markersize)
         axes[2].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x',
                    elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
                   color=color, linewidth=linewidth, markersize=markersize)
-        axes[2].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x',
+        axes[2].errorbar(Ok + offset, current_DM,  yerr=current_DM_std, fmt='x',
              elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
             color='coral', linewidth=linewidth, markersize=markersize)
         try:
-            axes[3].plot(Ok, chi, 'o', color=color)
+            axes[3].plot(Ok, chi, 'o', color="#000080")
         except UnboundLocalError:
             pass
             
@@ -362,8 +370,10 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
         tablename = f"~/TFG/results_fig/{files[0]}"
         print(f"Saving dataFrame to {tablename}")
         df.to_csv(tablename, header=True, index=False, sep='\t')
-    for ax in axes[:-1]:
+    for ax in axes[:-2]:
         ax.legend(loc='best')
+        handles, labels = ax.get_legend_handles_labels()
+        ax.legend(flip(handles, 2), flip(labels, 2), loc=9, ncol=2)
     plt.tight_layout()
     if save: 
         print(f'Saving figure to {fig_name}...')
