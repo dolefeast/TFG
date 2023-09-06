@@ -15,10 +15,12 @@ from __init__ import *
 matplotlib.rc('xtick', labelsize=20) 
 matplotlib.rc('ytick', labelsize=20) 
 
+
 view = True
 save = "-s" in sys.argv or "-sv" in sys.argv or "-vs" in sys.argv
 view = "-v" in sys.argv or "-sv" in sys.argv or "-vs" in sys.argv
 table = "-t" in sys.argv
+double = "-d" in sys.argv
 calculate_chi = "-c" in sys.argv
 
 if save:
@@ -35,4 +37,9 @@ else:
 
 files = list(Path('.').glob(filtr))
 
-util_tools.plot_DH_DM(files, save=save, view=view, fig_name=fig_name, calculate_chi=calculate_chi, table=table)
+
+
+fig, axes = plt.subplots(3 + calculate_chi, 1, sharex=True, figsize=(10, 7))
+util_tools.plot_DH_DM(files, axes, save=save, view=view, fig_name=fig_name, calculate_chi=calculate_chi, table=table)
+
+plt.show()

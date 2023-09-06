@@ -238,10 +238,11 @@ def DM_fid(z, Om, OL):
 def flip(items, ncol):
     return itertools.chain(*[items[i::ncol] for i in range(ncol)])
 
-def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2, calculate_chi = True, table = False):
+def plot_DH_DM(files, axes, save=False, view=False, fig_name=None, n_points = 500, markersize = 10, elinewidth=3, capsize=5, capthick=3, fontsize = 20, linewidth = 3, color = 'teal', reduce_ticks = 2, calculate_chi = True, table = False):
     """Plots the 3 rows by 2 columns graphic of the brass outputs
     parameters:
         files: a pathlib list of LOGFILES 
+        axes: the matplotlib.pyplot.axes in which this snippets acts
         save=False: if save=True it saves the figure with the name  ../figs/parent/dir_name
         view=False: if view=True it shows the figure
         n_points=500: number of points with which it calculates the curve of continuous Ok
@@ -279,7 +280,6 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
     Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
     Ok_rang = Ok_max - Ok_min
 
-    fig, axes = plt.subplots(3 + calculate_chi, 1, sharex=True, figsize=(10, 7))
     
     DH_list = []
     DM_list = []
@@ -370,7 +370,7 @@ def plot_DH_DM(files, save=False, view=False, fig_name=None, n_points = 500, mar
         tablename = f"~/TFG/results_fig/{files[0]}"
         print(f"Saving dataFrame to {tablename}")
         df.to_csv(tablename, header=True, index=False, sep='\t')
-    for ax in axes[:-2]:
+    for ax in axes[:-1-calculate_chi]:
         ax.legend(loc='best')
         handles, labels = ax.get_legend_handles_labels()
         ax.legend(flip(handles, 2), flip(labels, 2), loc=9, ncol=2)
