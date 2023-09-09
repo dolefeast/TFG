@@ -39,7 +39,7 @@ files = list(Path('.').glob(filtr))
 
 
 
-fig, axes = plt.subplots(3 + calculate_chi, 1, sharex=True, figsize=(10, 7))
+fig, axes = plt.subplots(3 + calculate_chi, 1, sharex=True, figsize=(10, 10))
 util_tools.plot_DH_DM(files, axes, save=save, view=view, fig_name=fig_name, calculate_chi=calculate_chi, table=table)
 
 plt.show()
