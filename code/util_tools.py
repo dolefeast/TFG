@@ -248,6 +248,7 @@ def plot_DH_DM(files, axes, save=False, view=False, fig_name=None, n_points = 50
         n_points=500: number of points with which it calculates the curve of continuous Ok
     """
     fid = [0, 0, 'c', 't', 'c, t']
+
     Om_list = [] #List of tuples (Om_ref, Om_fid)
     OL_list = []
     Ok_list = []
@@ -279,7 +280,6 @@ def plot_DH_DM(files, axes, save=False, view=False, fig_name=None, n_points = 50
     Ok_min, Ok_max = min(Ok_list), max(Ok_list)
     Ok_cont = np.linspace(Ok_min, Ok_max, n_points)
     Ok_rang = Ok_max - Ok_min
-
     
     DH_list = []
     DM_list = []
@@ -296,12 +296,19 @@ def plot_DH_DM(files, axes, save=False, view=False, fig_name=None, n_points = 50
         r_d = calculate_rd(Om_fid_cont)
         axes[1].plot(Ok_cont, DH_fid(zmax, Om_flat, OL_ref_cont)/r_d, color=color, linewidth=linewidth, label=r'$D_H^c/r_d^t$') 
         axes[1].plot(Ok_cont, DM_fid(zmax, Om_flat, OL_ref_cont)/r_d, color='coral', linewidth=linewidth, label=r'$D_M^c/r_d^t$') 
+        axes[0].set_ylabel(r'$\alpha_{\parallel, \perp}$', fontsize=fontsize)
+        axes[1].set_ylabel(r'$D_{H, M}^c/r_d^t$', fontsize=fontsize)
+        axes[2].set_ylabel(r'$D_{H, M}/r_d$', fontsize=fontsize)
+        try:
+            axes[3].set_ylabel(r'$\chi^2$', fontsize=fontsize)
+        except IndexError:
+            pass
     else: 
         print("Warning: This directory belongs to no fixed Om or OL!\n\tNo fid plot is generated.")
 
     try: 
-        axes[3].set_xlabel(xlabel)
         axes[3].plot(Ok_cont, 0*Ok_cont + 87,  color="#000080")
+        axes[3].set_ylim((85, 120))
     except IndexError:
         pass
 
@@ -313,14 +320,14 @@ def plot_DH_DM(files, axes, save=False, view=False, fig_name=None, n_points = 50
         current_DH_std = DH_fid(zmax, Om_ref, OL_ref) * apara[1]/r_d
         current_DM = DM_fid(zmax, Om_ref, OL_ref) * aperp[0]/r_d
         current_DM_std = DM_fid(zmax, Om_ref, OL_ref) * aperp[1]/r_d
-        offset = 0.001
-        axes[0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x', #Can be done better by just changing plotrc
+        offset = 0.005
+        axes[0].errorbar(Ok-offset, apara[0], yerr=apara[1], fmt='x', #Can be done better by just changing plotrc
                    elinewidth=elinewidth, capsize=capsize, capthick=capthick,
                   color=color, linewidth=linewidth, markersize=markersize)
         axes[0].errorbar(Ok + offset, aperp[0], yerr=aperp[1], fmt='x',
                    elinewidth=elinewidth, capsize=capsize, capthick=capthick,
                   color='coral', linewidth=linewidth, markersize=markersize)
-        axes[2].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x',
+        axes[2].errorbar(Ok - offset, current_DH,  yerr=current_DH_std, fmt='x',
                    elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
                   color=color, linewidth=linewidth, markersize=markersize)
         axes[2].errorbar(Ok + offset, current_DM,  yerr=current_DM_std, fmt='x',
@@ -328,6 +335,7 @@ def plot_DH_DM(files, axes, save=False, view=False, fig_name=None, n_points = 50
             color='coral', linewidth=linewidth, markersize=markersize)
         try:
             axes[3].plot(Ok, chi, 'o', color="#000080")
+            #axes[3].set_ylabel(r'\chi^2', fontsize=fontsize)
         except UnboundLocalError:
             pass
             
@@ -335,28 +343,24 @@ def plot_DH_DM(files, axes, save=False, view=False, fig_name=None, n_points = 50
         DH_list.append((current_DH, current_DH_std))
         DM_list.append((current_DM, current_DM_std))
     
-    axes[0].errorbar(Ok, apara[0], yerr=apara[1], fmt='x', #Can be done better by just changing plotrc
+    axes[0].errorbar(Ok-offset, apara[0], yerr=apara[1], fmt='x', #Can be done better by just changing plotrc
                elinewidth=elinewidth, capsize=capsize, capthick=capthick,
               color=color, linewidth=linewidth, markersize=markersize, label=r'$\alpha_{\parallel}$')
-    axes[0].errorbar(Ok, aperp[0], yerr=aperp[1], fmt='x',
+    axes[0].errorbar(Ok+offset, aperp[0], yerr=aperp[1], fmt='x',
                elinewidth=elinewidth, capsize=capsize, capthick=capthick,
               color='coral', linewidth=linewidth, markersize=markersize, label=r'$\alpha_{\perp}$')
-    axes[2].errorbar(Ok, current_DH,  yerr=current_DH_std, fmt='x',
+    axes[2].errorbar(Ok-offset, current_DH,  yerr=current_DH_std, fmt='x',
                elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
               color=color, linewidth=linewidth, markersize=markersize, label=r'$D_H/r_d$')
-    axes[2].errorbar(Ok, current_DM,  yerr=current_DM_std, fmt='x',
+    axes[2].errorbar(Ok+offset, current_DM,  yerr=current_DM_std, fmt='x',
          elinewidth=elinewidth, capsize=capsize, capthick=capthick, 
         color='coral', linewidth=linewidth, markersize=markersize, label=r'$D_M/r_d$')
 
 
-    axes[0].set_ylabel(r'$\alpha_{\parallel}$', fontsize=fontsize)
-    axes[0].set_ylabel(r'$\alpha_{\perp}$', fontsize=fontsize)
-    axes[1].set_ylabel(r'$D_H^c/r_d^t$', fontsize=fontsize)
-    axes[1].set_ylabel(r'$D_M^c/r_d^t$', fontsize=fontsize)
-    axes[2].set_ylabel(r'$D_H/r_d$', fontsize=fontsize)
-    axes[2].set_ylabel(r'$D_M/r_d$', fontsize=fontsize)
-    axes[2].set_xlabel(xlabel, fontsize=fontsize)
-    axes[2].set_xlabel(xlabel, fontsize=fontsize)
+    axes[-1].set_xlabel(xlabel, fontsize=fontsize*1.3)
+    axes[0].set_ylim((0.6, 1.4))
+    axes[1].set_ylim((13, 25))
+    axes[2].set_ylim((13, 25))
 
     if table:
         dic = {"Ok": Ok_list, "Om": Om_list[:, phase-2], "OL": OL_list[:, phase-2], 
@@ -373,7 +377,7 @@ def plot_DH_DM(files, axes, save=False, view=False, fig_name=None, n_points = 50
     for ax in axes[:-1-calculate_chi]:
         ax.legend(loc='best')
         handles, labels = ax.get_legend_handles_labels()
-        ax.legend(flip(handles, 2), flip(labels, 2), loc=9, ncol=2)
+        ax.legend(flip(handles, 2), flip(labels, 2), loc=9, ncol=2, fontsize=fontsize)
     plt.tight_layout()
     if save: 
         print(f'Saving figure to {fig_name}...')
