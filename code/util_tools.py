@@ -307,6 +307,11 @@ def plot_DH_DM(files, axes, save=False, view=False, fig_name=None, n_points = 50
         print("Warning: This directory belongs to no fixed Om or OL!\n\tNo fid plot is generated.")
 
     try: 
+<<<<<<< HEAD
+=======
+        axes[3].set_xlabel(xlabel)
+        axes[3].set_ylabel(r'$\chi^2$')
+>>>>>>> d5289c96d59ad1f96aa0a57f89715ff62f152730
         axes[3].plot(Ok_cont, 0*Ok_cont + 87,  color="#000080")
         axes[3].set_ylim((85, 120))
     except IndexError:
@@ -357,10 +362,18 @@ def plot_DH_DM(files, axes, save=False, view=False, fig_name=None, n_points = 50
         color='coral', linewidth=linewidth, markersize=markersize, label=r'$D_M/r_d$')
 
 
+<<<<<<< HEAD
     axes[-1].set_xlabel(xlabel, fontsize=fontsize*1.3)
     axes[0].set_ylim((0.6, 1.4))
     axes[1].set_ylim((13, 25))
     axes[2].set_ylim((13, 25))
+=======
+    axes[0].set_ylim((0.7, 1.4))
+    axes[0].set_ylabel(r'$\alpha_{\parallel, \perp}$', fontsize=fontsize)
+    axes[1].set_ylabel(r'$D_{H, M}^c/r_d^t$', fontsize=fontsize)
+    axes[2].set_ylabel(r'$D_{H, M}/r_d$', fontsize=fontsize)
+    axes[-1].set_xlabel(xlabel)
+>>>>>>> d5289c96d59ad1f96aa0a57f89715ff62f152730
 
     if table:
         dic = {"Ok": Ok_list, "Om": Om_list[:, phase-2], "OL": OL_list[:, phase-2], 
